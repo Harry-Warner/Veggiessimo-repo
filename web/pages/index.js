@@ -2,12 +2,16 @@
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
+import Header from "../components/header";
+import GlobalStyle from "../styled/global";
 
 const Index = (props) => {
   const { posts = [] } = props;
   return (
     <div>
-      <p>Welcome to the Blog!!</p>
+      <GlobalStyle />
+      <Header />
+      <p>Welcome to the Blog!!!</p>
       {posts.map(
         ({ _id, title = "", slug = "", _updatedAt = "" }) =>
           slug && (
