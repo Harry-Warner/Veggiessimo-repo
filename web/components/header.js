@@ -26,8 +26,8 @@ const StyledHeader = styled.div`
 const Logo = styled.img`
   display: block;
   margin-left: 10px;
-  width: 50px;
-  height: 70px;
+  width: 42px;
+  height: 60px;
 `;
 
 const ToggleBtn = styled.div`
