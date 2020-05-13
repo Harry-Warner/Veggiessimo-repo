@@ -5,6 +5,7 @@ import client from "../client";
 import Header from "../components/header";
 import Banner from "../components/banner";
 import NavBar from "../components/navbar";
+import AboutLink from "../components/aboutlink";
 import GlobalStyle from "../styled/global";
 
 const Index = (props) => {
@@ -15,6 +16,7 @@ const Index = (props) => {
       <Header />
       <Banner />
       <NavBar />
+      <AboutLink />
       <p>Welcome to the Blog!!!</p>
       {posts.map(
         ({ _id, title = "", slug = "", _updatedAt = "" }) =>
