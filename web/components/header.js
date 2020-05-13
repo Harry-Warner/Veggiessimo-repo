@@ -32,7 +32,7 @@ const Logo = styled.div`
 const ToggleBtn = styled.div`
   width: 30px;
   height: 30px;
-  background: black;
+  background: green;
   margin: 0 10px;
 
   .icon {
