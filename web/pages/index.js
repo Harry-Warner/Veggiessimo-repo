@@ -4,6 +4,7 @@ import groq from "groq";
 import client from "../client";
 import Header from "../components/header";
 import Banner from "../components/banner";
+import NavBar from "../components/navbar";
 import GlobalStyle from "../styled/global";
 
 const Index = (props) => {
@@ -13,6 +14,7 @@ const Index = (props) => {
       <GlobalStyle />
       <Header />
       <Banner />
+      <NavBar />
       <p>Welcome to the Blog!!!</p>
       {posts.map(
         ({ _id, title = "", slug = "", _updatedAt = "" }) =>
