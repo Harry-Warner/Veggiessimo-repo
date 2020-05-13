@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import toggle from "../images/toggleicon.png";
 
 const Header = () => {
   return (
     <StyledHeader>
       <Logo></Logo>
-      <ToggleBtn></ToggleBtn>
+      <ToggleBtn>
+        <img className="icon" src={toggle} />
+      </ToggleBtn>
     </StyledHeader>
   );
 };
@@ -31,6 +34,15 @@ const ToggleBtn = styled.div`
   height: 30px;
   background: black;
   margin: 0 10px;
+
+  .icon {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
 `;
 
 export default Header;
