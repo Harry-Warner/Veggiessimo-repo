@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../styled/colors";
+import Colors from "../styled/colors";
 
 const AboutLink = () => {
   return (
@@ -21,7 +21,7 @@ const ImgBanner = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background: ${colors.lightBlue};
+  background: ${Colors.lightBlue};
   height: 50vw;
   width: 100vw;
 `;

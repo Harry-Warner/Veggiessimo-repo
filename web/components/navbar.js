@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../styled/colors";
+import Colors from "../styled/colors";
 
 const NavBar = () => {
   return (
@@ -39,8 +39,13 @@ const StyledNavbar = styled.div`
     margin: 0 auto;
     height: 100%;
     line-height: 50px;
-    color: ${colors.black};
+    color: ${Colors.black};
     font-size: 12.5px;
+    padding: 0 10px;
+
+    &:hover {
+      background-color: ${Colors.lightPink};
+    }
   }
 `;
 
