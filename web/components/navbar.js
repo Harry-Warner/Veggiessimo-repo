@@ -42,6 +42,7 @@ const StyledNavbar = styled.div`
     color: ${Colors.black};
     font-size: 12.5px;
     padding: 0 10px;
+    font-family: "Fira Sans", sans-serif;
 
     &:hover {
       background-color: ${Colors.lightPink};
