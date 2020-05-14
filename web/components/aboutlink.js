@@ -43,12 +43,14 @@ const TextBox = styled.div`
 `;
 
 const Text1 = styled.div`
-  font-size: 5vw;
+  font-size: 6vw;
+  font-family: "playlist-script";
   text-align: center;
 `;
 
 const Text2 = styled.div`
   font-size: 2vw;
+  font-family: "Fira Sans", sans-serif;
   text-align: center;
   line-height: calc(${tbs}vw / 5);
 `;
