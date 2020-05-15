@@ -10,6 +10,7 @@ function urlFor(source) {
 const Post = (props) => {
   const {
     title = "Missing title",
+    mainImage,
     name = "Missing name",
     categories,
     authorImage,
@@ -18,6 +19,11 @@ const Post = (props) => {
   return (
     <article>
       <h1>{title}</h1>
+      {mainImage && (
+        <div>
+          <img src={urlFor(mainImage).width(300).url()} />
+        </div>
+      )}
       <span>By {name}</span>
       {categories && (
         <ul>
@@ -43,6 +49,7 @@ const Post = (props) => {
 
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
 title,
+mainImage,
 "name": author->name,
 "categories": categories[]->title,
 "authorImage": author->image,

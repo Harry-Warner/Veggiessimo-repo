@@ -30,7 +30,7 @@ const Title1 = styled.p`
 
 const Title2 = styled.p`
   font-size: 2vw;
-  padding-top: 2vw;
+  padding-top: 3vw;
   font-family: "Fira Sans", sans-serif;
 `;
 
