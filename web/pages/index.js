@@ -31,7 +31,6 @@ const Index = (props) => {
         />
       </Head>
       <div>
-        <GlobalStyle />
         <Header />
         <Banner />
         <NavBar />
@@ -56,7 +55,7 @@ const Index = (props) => {
                     {"  "}({new Date(_updatedAt).toDateString()})
                   </div>
                 </li>
-              )
+              ),
           )}
         </RecipeList>
         <CommunityLink />

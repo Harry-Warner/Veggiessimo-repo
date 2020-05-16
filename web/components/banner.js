@@ -7,7 +7,7 @@ const Banner = () => {
 
 const StyledBanner = styled.img`
   width: 100vw;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 `;
 
 export default Banner;

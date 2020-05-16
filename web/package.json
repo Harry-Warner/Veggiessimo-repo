@@ -17,12 +17,15 @@
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.7",
     "@sanity/image-url": "^0.140.18",
+    "autoprefixer": "^9.7.6",
     "groq": "^1.149.0",
     "next": "^9.4.0",
     "next-images": "^1.4.0",
+    "postcss-import": "^12.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.7"

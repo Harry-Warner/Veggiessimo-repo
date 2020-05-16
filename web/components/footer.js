@@ -10,11 +10,16 @@ const Footer = () => {
   return (
     <StyledFooter>
       <SectionOne>
-        <StyledContact>
+        <StyledContact className="pb-3 sm:pb-6">
           <p className="text">Join us!</p>
-          <form className="form">
-            <input className="input" placeholder="Email" />
-            <button className="btn">@</button>
+          <form className="flex items-center bg-blue-600 py-2 px-3 rounded-lg">
+            <input
+              className="px-3 py-2 text-lg text-gray-700"
+              placeholder="Email"
+            />
+            <button className="ml-3 text-xl text-blue-100 font-bold focus:outline-none">
+              @
+            </button>
           </form>
         </StyledContact>
         <StyledNav>
@@ -45,7 +50,6 @@ const SectionOne = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100vw;
-  height: 15vw;
   background: ${colors.lightPink};
 `;
 
@@ -53,7 +57,6 @@ const SectionTwo = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100vw;
-  height: 8vw;
   background: ${colors.green};
 `;
 
@@ -68,14 +71,14 @@ const StyledContact = styled.div`
     font-size: 5vw;
   }
 
-  .form {
+  /* .form {
     background: ${colors.blue};
     padding: 1vw;
     border-radius: 1vw;
     display: flex;
-  }
+  } */
 
-  .input {
+  /* .input {
     border-radius: 0.5vw;
     border: none;
     width: 20vw;
@@ -83,9 +86,9 @@ const StyledContact = styled.div`
     padding-top: 0.2vw;
     padding-left: 1vw;
     font-size: 2vw;
-  }
+  } */
 
-  .btn {
+  /* .btn {
     border-radius: 0.5vw;
     border: none;
     margin-left: 1vw;
@@ -93,7 +96,7 @@ const StyledContact = styled.div`
     line-height: 3.8vw;
     font-size: 3.8vw;
     background: ${colors.lightPink};
-  }
+  } */
 `;
 
 const StyledNav = styled.div`
