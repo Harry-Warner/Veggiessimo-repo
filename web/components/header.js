@@ -20,14 +20,15 @@ const StyledHeader = styled.div`
   background: ${colors.green};
   position: fixed;
   display: flex;
+  justify-content: space-between;
   margin: 0;
 `;
 
 const Logo = styled.img`
   display: block;
   margin-left: 10px;
-  width: 42px;
-  height: 60px;
+  width: 26px;
+  height: 37px;
 `;
 
 const ToggleBtn = styled.div`
@@ -36,6 +37,7 @@ const ToggleBtn = styled.div`
   background: ${colors.green};
 
   .icon {
+    margin-left: -10px;
     padding-top: 5px;
     height: 85%;
     width: 100%;
