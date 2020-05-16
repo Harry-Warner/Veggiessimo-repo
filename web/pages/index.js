@@ -26,6 +26,10 @@ const Index = (props) => {
       <Head>
         <title>Veggiessimo</title>
         <link
+          rel="stylesheet"
+          href="http://static.sasongsmat.nu/fonts/vegetarian.css"
+        />
+        <link
           href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap"
           rel="stylesheet"
         />
@@ -46,15 +50,21 @@ const Index = (props) => {
                     <a>
                       {mainImage && (
                         <div className="list-item">
-                          <img src={urlFor(mainImage).width(180).url()} />
+                          <StyledImage src={urlFor(mainImage).url()} />
                         </div>
                       )}
-                      <p className="text">{title}</p>
+                      <LinkText>
+                        <p id="title" className="text">
+                          {title}
+                          <span className="vegetarianicon"> &#9419;</span>
+                        </p>
+                        <div className="text">
+                          {"  "}({new Date(_updatedAt).toDateString()})
+                        </div>
+                      </LinkText>
                     </a>
                   </Link>
-                  <div className="text">
-                    {"  "}({new Date(_updatedAt).toDateString()})
-                  </div>
+                  <StyledLine />
                 </li>
               )
           )}
@@ -73,10 +83,15 @@ Index.getInitialProps = async () => ({
 });
 
 const RecipeList = styled.ul`
-  margin: 15px;
+  width: 100%;
+  margin: 10px auto;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .list-item {
     display: flex;
@@ -85,8 +100,42 @@ const RecipeList = styled.ul`
   }
 
   .text {
-    text-align: center;
+    margin: 10px 40px;
+    font-size: 10px;
+    font-family: "fira-sans", sans-serif;
+    align-self: center;
+    color: #000;
   }
+
+  #title {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+`;
+
+const LinkText = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const StyledImage = styled.img`
+  width: 100%;
+  height: 50vw;
+  object-fit: cover;
+  object-position: center;
+`;
+
+const StyledLine = styled.hr`
+  width: 50vw;
+  margin: 20px auto;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 `;
 
 export default Index;
