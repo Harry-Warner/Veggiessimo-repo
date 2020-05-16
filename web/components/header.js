@@ -35,9 +35,9 @@ const ToggleBtn = styled.div`
   width: 30px;
   height: 30px;
   background: ${colors.green};
+  margin-right: 10px;
 
   .icon {
-    margin-left: -10px;
     padding-top: 5px;
     height: 85%;
     width: 100%;

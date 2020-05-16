@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Colors from "../styled/colors";
 
 const RecipesLink = () => {
   return (
@@ -15,7 +14,7 @@ const PaintSwipe = styled.div`
   margin-left: -15px;
   width: 100vw;
   height: 12vw;
-  background-image: url("/images/brush-stroke1.png");
+  background-image: url("/images/brush-stroke2.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0% 42%;
