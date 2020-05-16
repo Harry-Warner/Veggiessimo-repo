@@ -10,6 +10,7 @@ import Banner from "../components/banner";
 import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
+import CommunityLink from "../components/communitylink";
 import GlobalStyle from "../styled/global";
 
 function urlFor(source) {
@@ -57,6 +58,7 @@ const Index = (props) => {
               )
           )}
         </RecipeList>
+        <CommunityLink />
       </div>
     </React.Fragment>
   );
