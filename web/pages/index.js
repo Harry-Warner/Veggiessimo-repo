@@ -33,7 +33,7 @@ const Index = (props) => {
           rel="stylesheet"
         />
       </Head>
-      <div className="container">
+      <div className="container mx-auto">
         <Header />
         <img className="w-full mt-6" src={banner} />
         <NavBar />
