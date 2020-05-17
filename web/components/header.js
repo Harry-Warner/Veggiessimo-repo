@@ -3,7 +3,7 @@ import logo from "../images/logo.png";
 const Header = () => {
   return (
     <div className="top-0 left-0 px-1 w-full h-6 bg-green fixed">
-      <div className="mx-auto w-full flex justify-between sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl h-full">
+      <div className="mx-auto w-full flex justify-between sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg h-full">
         <img className="h-8" src={logo} />
         <img
           className="w-8 h-full self-center cursor-pointer"
