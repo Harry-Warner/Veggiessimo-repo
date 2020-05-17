@@ -12,12 +12,12 @@ const Footer = () => {
       <SectionOne>
         <StyledContact className="pb-3 sm:pb-6">
           <p className="text">Join us!</p>
-          <form className="flex items-center bg-blue-600 py-2 px-3 rounded-lg">
+          <form className="flex items-center h-8 bg-blue-600 py-1 px-2 rounded-lg">
             <input
-              className="px-3 py-2 text-lg text-gray-700"
+              className="px-1 py-1 text-xs text-gray-700 w-24 sm:w-40 h-full rounded"
               placeholder="Email"
             />
-            <button className="ml-3 text-xl text-blue-100 font-bold focus:outline-none">
+            <button className="ml-1 text-xl text-blue-100 font-bold focus:outline-none">
               @
             </button>
           </form>
@@ -56,7 +56,7 @@ const SectionOne = styled.div`
 const SectionTwo = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   background: ${colors.green};
 `;
 
