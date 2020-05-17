@@ -1,53 +1,34 @@
-import styled from "styled-components";
-import Colors from "../styled/colors";
-
 const NavBar = () => {
   return (
-    <Section>
-      <StyledNavbar>
-        <a href="#" className="item">
+    <div className="w-full h-8 block bg-white">
+      <div className="w-10/12 h-full flex mx-auto">
+        <a
+          href="#"
+          className="item text-sm font-sans text-black h-full mx-auto hover:bg-lightPink"
+        >
           ABOUT
         </a>
-        <a href="#" className="item">
+        <a
+          href="#"
+          className="item text-sm font-sans text-black h-full mx-auto hover:bg-lightPink"
+        >
           RECIPES
         </a>
-        <a href="#" className="item">
+        <a
+          href="#"
+          className="item text-sm font-sans text-black h-full mx-auto hover:bg-lightPink"
+        >
           COMMUNITY
         </a>
-        <a href="#" className="item">
+        <a
+          href="#"
+          className="item text-sm font-sans text-black h-full mx-auto hover:bg-lightPink"
+        >
           CONTACT
         </a>
-      </StyledNavbar>
-    </Section>
+      </div>
+    </div>
   );
 };
-
-const Section = styled.div`
-  width: 100vw;
-  display: block;
-  height: 50px;
-  background: white;
-`;
-
-const StyledNavbar = styled.div`
-  width: 85%;
-  display: flex;
-  height: 100%;
-  margin: 0 auto;
-
-  .item {
-    margin: 0 auto;
-    height: 100%;
-    line-height: 50px;
-    color: ${Colors.black};
-    font-size: 12.5px;
-    padding: 0 10px;
-    font-family: "Fira Sans", sans-serif;
-
-    &:hover {
-      background-color: ${Colors.lightPink};
-    }
-  }
-`;
 
 export default NavBar;

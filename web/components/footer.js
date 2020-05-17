@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import colors from "../styled/colors";
 import logo from "../images/logo.png";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -8,133 +7,60 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 
 const Footer = () => {
   return (
-    <StyledFooter>
-      <SectionOne>
-        <StyledContact className="pb-3 sm:pb-6">
-          <p className="text">Join us!</p>
-          <form className="flex items-center h-8 bg-blue-600 py-1 px-2 rounded-lg">
+    <div className="flex flex-col">
+      <div className="flex justify-between w-full bg-lightPink">
+        <StyledContact className="pb-3 sm:pb-6 m-2 sm:m-4">
+          <p className="font-script text-xl">Join us!</p>
+          <form className="flex items-center h-6 sm:h-8 bg-blue py-1 px-1 rounded">
             <input
               className="px-1 py-1 text-xs text-gray-700 w-24 sm:w-40 h-full rounded"
               placeholder="Email"
             />
-            <button className="ml-1 text-xl text-blue-100 font-bold focus:outline-none">
+            <button className="ml-1 text-md text-white font-bold focus:outline-none">
               @
             </button>
           </form>
         </StyledContact>
         <StyledNav>
-          <p className="item">Our Story</p>
-          <p className="item">Contact us</p>
+          <p className="font-sans uppercase px-2 text-xs">Our Story</p>
+          <p className="font-sans uppercase px-2 text-xs mr-2">Contact us</p>
         </StyledNav>
-      </SectionOne>
-      <SectionTwo>
-        <SocialNav>
-          <FacebookIcon className="icon" />
-          <InstagramIcon className="icon" />
-          <TwitterIcon className="icon" />
-          <YouTubeIcon className="icon" />
-          <p className="copyright">@ 2020 Veggiessimo. made in australia</p>
+      </div>
+      <div className="relative w-100 bg-green">
+        <SocialNav className="ml-1">
+          <FacebookIcon className="icon m-1" />
+          <InstagramIcon className="icon m-1" />
+          <TwitterIcon className="icon m-1" />
+          <YouTubeIcon className="icon m-1" />
+          <p className="font-sans uppercase self-end m-1 text-xxs">
+            @ 2020 Veggiessimo. made in australia
+          </p>
         </SocialNav>
-        <Logo src={logo} />
-      </SectionTwo>
-    </StyledFooter>
+        <img className="absolute right-0 bottom-0 h-12 mx-2 mb-1" src={logo} />
+      </div>
+    </div>
   );
 };
-
-const StyledFooter = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const SectionOne = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100vw;
-  background: ${colors.lightPink};
-`;
-
-const SectionTwo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background: ${colors.green};
-`;
 
 const StyledContact = styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
-  margin: 2vw;
-
-  .text {
-    font-family: "playlist-script";
-    font-size: 5vw;
-  }
-
-  /* .form {
-    background: ${colors.blue};
-    padding: 1vw;
-    border-radius: 1vw;
-    display: flex;
-  } */
-
-  /* .input {
-    border-radius: 0.5vw;
-    border: none;
-    width: 20vw;
-    height: 3.8vw;
-    padding-top: 0.2vw;
-    padding-left: 1vw;
-    font-size: 2vw;
-  } */
-
-  /* .btn {
-    border-radius: 0.5vw;
-    border: none;
-    margin-left: 1vw;
-    height: 4vw;
-    line-height: 3.8vw;
-    font-size: 3.8vw;
-    background: ${colors.lightPink};
-  } */
 `;
 
 const StyledNav = styled.div`
   display: flex;
   align-items: center;
-
-  .item {
-    padding: 0 2vw;
-    font-family: "Fira Sans", sans-serif;
-    text-transform: uppercase;
-    font-size: 3vw;
-  }
 `;
 
 const SocialNav = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 0.5vw;
 
   .icon {
-    width: 5vw;
-    height: 5vw;
-    margin: 0 0.5vw;
+    width: 1.375rem;
+    margin: 0.25rem 0.125rem;
   }
-
-  .copyright {
-    margin: 1.5vw;
-    font-size: 2vw;
-    align-self: flex-end;
-    font-family: "Fira Sans", sans-serif;
-    text-transform: uppercase;
-  }
-`;
-
-const Logo = styled.img`
-  margin: 0 2vw;
-  width: 5vw;
-  height: 8vw;
 `;
 
 export default Footer;

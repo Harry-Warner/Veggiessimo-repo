@@ -6,13 +6,12 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
 import Header from "../components/header";
-import Banner from "../components/banner";
+import banner from "../images/banner.png";
 import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
 import CommunityLink from "../components/communitylink";
 import Footer from "../components/footer";
-import GlobalStyle from "../styled/global";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -36,7 +35,7 @@ const Index = (props) => {
       </Head>
       <div className="container">
         <Header />
-        <Banner />
+        <img className="w-full mt-6" src={banner} />
         <NavBar />
         <AboutLink />
         <RecipesLink />
@@ -48,19 +47,20 @@ const Index = (props) => {
                   <Link href="/post/[slug]" as={`/post/${slug.current}`}>
                     <a>
                       {mainImage && (
-                        <div className="list-item">
-                          <StyledImage src={urlFor(mainImage).url()} />
-                        </div>
+                        <img
+                          className="h-48 w-full object-cover object-center"
+                          src={urlFor(mainImage).url()}
+                        />
                       )}
-                      <LinkText>
-                        <p id="title" className="text">
+                      <div className="flex justify-between">
+                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm">
                           {title}
                           <span className="vegetarianicon"> &#9419;</span>
                         </p>
-                        <div className="text">
+                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
                           {"  "}({new Date(_updatedAt).toDateString()})
                         </div>
-                      </LinkText>
+                      </div>
                     </a>
                   </Link>
                   <StyledLine />
@@ -88,44 +88,13 @@ const RecipeList = styled.ul`
   grid-gap: 1rem;
   grid-template-columns: 1fr;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
   }
-
-  .list-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .text {
-    margin: 10px 40px;
-    font-size: 10px;
-    font-family: "fira-sans", sans-serif;
-    align-self: center;
-    color: #000;
-  }
-
-  #title {
-    font-size: 20px;
-    text-transform: uppercase;
-  }
-`;
-
-const LinkText = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const StyledImage = styled.img`
-  width: 100%;
-  height: 50vw;
-  object-fit: cover;
-  object-position: center;
 `;
 
 const StyledLine = styled.hr`
-  width: 50vw;
+  width: 50%;
   margin: 20px auto;
   border: 0;
   height: 1px;
