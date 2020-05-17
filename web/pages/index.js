@@ -34,8 +34,7 @@ const Index = (props) => {
           rel="stylesheet"
         />
       </Head>
-      <div>
-        <GlobalStyle />
+      <div className="container">
         <Header />
         <Banner />
         <NavBar />
