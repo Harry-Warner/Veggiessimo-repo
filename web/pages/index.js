@@ -1,17 +1,14 @@
 // index.js
 import Link from "next/link";
-import Head from "next/head";
 import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
-import Header from "../components/header";
 import banner from "../images/banner.png";
 import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
 import CommunityLink from "../components/communitylink";
-import Footer from "../components/footer";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -22,55 +19,40 @@ const Index = (props) => {
 
   return (
     <React.Fragment>
-      <Head>
-        <title>Veggiessimo</title>
-        <link
-          rel="stylesheet"
-          href="http://static.sasongsmat.nu/fonts/vegetarian.css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <div className="w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg mx-auto">
-        <Header />
-        <img className="w-full mt-8" src={banner} />
-        <NavBar />
-        <AboutLink />
-        <RecipesLink />
-        <RecipeList>
-          {posts.map(
-            ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
-              slug && (
-                <li key={_id}>
-                  <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                    <a>
-                      {mainImage && (
-                        <img
-                          className="h-48 w-full object-cover object-center"
-                          src={urlFor(mainImage).url()}
-                        />
-                      )}
-                      <div className="flex justify-between">
-                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm">
-                          {title}
-                          <span className="vegetarianicon"> &#9419;</span>
-                        </p>
-                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
-                          {"  "}({new Date(_updatedAt).toDateString()})
-                        </div>
+      <img className="w-full mt-8" src={banner} />
+      <NavBar />
+      <AboutLink />
+      <RecipesLink />
+      <RecipeList>
+        {posts.map(
+          ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
+            slug && (
+              <li key={_id}>
+                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                  <a>
+                    {mainImage && (
+                      <img
+                        className="h-48 w-full object-cover object-center"
+                        src={urlFor(mainImage).url()}
+                      />
+                    )}
+                    <div className="flex justify-between">
+                      <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm">
+                        {title}
+                        <span className="vegetarianicon"> &#9419;</span>
+                      </p>
+                      <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
+                        {"  "}({new Date(_updatedAt).toDateString()})
                       </div>
-                    </a>
-                  </Link>
-                  <StyledLine />
-                </li>
-              )
-          )}
-        </RecipeList>
-        <CommunityLink />
-        <Footer />
-      </div>
+                    </div>
+                  </a>
+                </Link>
+                <StyledLine />
+              </li>
+            )
+        )}
+      </RecipeList>
+      <CommunityLink />
     </React.Fragment>
   );
 };
