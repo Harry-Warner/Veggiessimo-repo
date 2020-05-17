@@ -6,7 +6,7 @@ const Header = () => {
       <div className="mx-auto w-full flex justify-between sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg h-full">
         <img className="h-8" src={logo} />
         <img
-          className="w-8 h-full self-center cursor-pointer"
+          className="w-5 py-1 h-full self-center cursor-pointer"
           src="images/toggle-icon.png"
         />
       </div>
