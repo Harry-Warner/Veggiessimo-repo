@@ -35,7 +35,7 @@ const Index = (props) => {
       </Head>
       <div className="w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg mx-auto">
         <Header />
-        <img className="w-full mt-6" src={banner} />
+        <img className="w-full mt-8" src={banner} />
         <NavBar />
         <AboutLink />
         <RecipesLink />
