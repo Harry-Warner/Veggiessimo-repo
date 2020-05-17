@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col absolute bottom-0 w-full">
       <div className="flex justify-between w-full bg-lightPink">
-        <StyledContact className="pb-3 sm:pb-6 m-2 sm:m-4">
+        <StyledContact className="pb-3 m-2">
           <p className="font-script text-xl">Join us!</p>
           <form className="flex items-center h-6 sm:h-8 bg-blue py-1 px-1 rounded">
             <input
