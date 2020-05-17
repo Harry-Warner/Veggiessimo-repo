@@ -9,7 +9,7 @@ const NavBar = () => {
           ABOUT
         </a>
         <a
-          href="#"
+          href="/recipes"
           className="item text-sm font-sans text-black h-full mx-auto hover:bg-lightPink"
         >
           RECIPES
