@@ -23,7 +23,7 @@ class MyApp extends App {
           />
         </Head>
         <GlobalStyle />
-        <div className="w-full relative min-h-screen sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg mx-auto">
+        <div className="w-full relative min-h-screen sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg mx-auto pb-32">
           <Header />
           <Component {...pageProps} />
           <Footer />
