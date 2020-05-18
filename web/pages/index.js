@@ -9,6 +9,7 @@ import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
 import CommunityLink from "../components/communitylink";
+import TitleComponent from "../components/titleComponent.jsx";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -19,6 +20,7 @@ const Index = (props) => {
 
   return (
     <>
+      <TitleComponent />
       <img className="w-full mt-8" src={banner} />
       <NavBar />
       <AboutLink />

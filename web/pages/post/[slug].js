@@ -2,6 +2,7 @@ import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import client from "../../client";
+import TitleComponent from "../../components/titleComponent.jsx";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -17,33 +18,36 @@ const Post = (props) => {
     body = [],
   } = props;
   return (
-    <article>
-      <h1>{title}</h1>
-      {mainImage && (
-        <div>
-          <img src={urlFor(mainImage).width(300).url()} />
-        </div>
-      )}
-      <span>By {name}</span>
-      {categories && (
-        <ul>
-          Posted in
-          {categories.map((category) => (
-            <li key={category}>{category}</li>
-          ))}
-        </ul>
-      )}
-      {authorImage && (
-        <div>
-          <img src={urlFor(authorImage).width(50).url()} />
-        </div>
-      )}
-      <BlockContent
-        blocks={body}
-        imageOptions={{ w: 320, h: 240, fit: "max" }}
-        {...client.config()}
-      />
-    </article>
+    <>
+      <TitleComponent title={title} />
+      <article>
+        <h1 className="mt-8">{title}</h1>
+        {mainImage && (
+          <div>
+            <img src={urlFor(mainImage).width(300).url()} />
+          </div>
+        )}
+        <span>By {name}</span>
+        {categories && (
+          <ul>
+            Posted in
+            {categories.map((category) => (
+              <li key={category}>{category}</li>
+            ))}
+          </ul>
+        )}
+        {authorImage && (
+          <div>
+            <img src={urlFor(authorImage).width(50).url()} />
+          </div>
+        )}
+        <BlockContent
+          blocks={body}
+          imageOptions={{ w: 320, h: 240, fit: "max" }}
+          {...client.config()}
+        />
+      </article>
+    </>
   );
 };
 

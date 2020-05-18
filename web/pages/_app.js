@@ -12,7 +12,6 @@ class MyApp extends App {
     return (
       <>
         <Head>
-          <title>Veggiessimo</title>
           <link
             rel="stylesheet"
             href="http://static.sasongsmat.nu/fonts/vegetarian.css"

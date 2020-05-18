@@ -3,6 +3,7 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
+import TitleComponent from "../components/titleComponent.jsx";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -13,6 +14,7 @@ const Recipes = (props) => {
 
   return (
     <React.Fragment>
+      <TitleComponent title="Recipes" />
       <p className="mt-8 text-center w-full">Recipes!!!</p>
       <RecipeList>
         {posts.map(
