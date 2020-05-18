@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import logo from "../images/logo.png";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import PinterestIcon from "@material-ui/icons/Pinterest";
 
 const Footer = () => {
   return (
@@ -30,13 +29,16 @@ const Footer = () => {
         <SocialNav className="ml-1">
           <FacebookIcon className="icon m-1" />
           <InstagramIcon className="icon m-1" />
-          <TwitterIcon className="icon m-1" />
           <YouTubeIcon className="icon m-1" />
+          <PinterestIcon className="icon m-1" />
           <p className="font-sans uppercase self-end m-1 text-xxs">
             @ 2020 Veggiessimo. made in australia
           </p>
         </SocialNav>
-        <img className="absolute right-0 bottom-0 h-12 mx-2 mb-1" src={logo} />
+        <img
+          className="absolute right-0 bottom-0 h-12 mx-2 mb-1"
+          src="images/logo.png"
+        />
       </div>
     </div>
   );
