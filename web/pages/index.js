@@ -18,7 +18,7 @@ const Index = (props) => {
   const { posts = [] } = props;
 
   return (
-    <React.Fragment>
+    <>
       <img className="w-full mt-8" src={banner} />
       <NavBar />
       <AboutLink />
@@ -53,7 +53,7 @@ const Index = (props) => {
         )}
       </RecipeList>
       <CommunityLink />
-    </React.Fragment>
+    </>
   );
 };
 
