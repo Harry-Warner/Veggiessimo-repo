@@ -3,6 +3,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import client from "../../client";
 import TitleComponent from "../../components/titleComponent.jsx";
+import styled from "styled-components";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -15,37 +16,48 @@ const Post = (props) => {
     name = "Missing name",
     categories,
     authorImage,
+    ingredients = [],
     body = [],
   } = props;
   return (
     <>
       <TitleComponent title={title} />
       <article>
-        <h1 className="mt-8">{title}</h1>
+        <PaintSwipe className="w-full h-12 mt-16 flex bg-cover relative">
+          <Title1 className="text-big leading-10">{title}</Title1>
+          <div className="flex justify-end items-end absolute bottom-0 right-0">
+            {authorImage && (
+              <div>
+                <img className="h-4 m-1" src={urlFor(authorImage).url()} />
+              </div>
+            )}
+            <span className="text-xxs m-1">By {name}</span>
+          </div>
+        </PaintSwipe>
         {mainImage && (
           <div>
-            <img src={urlFor(mainImage).width(300).url()} />
+            <img
+              className="h-48 w-full object-cover object-center"
+              src={urlFor(mainImage).width(300).url()}
+            />
           </div>
         )}
-        <span>By {name}</span>
-        {categories && (
-          <ul>
-            Posted in
-            {categories.map((category) => (
-              <li key={category}>{category}</li>
-            ))}
-          </ul>
-        )}
-        {authorImage && (
-          <div>
-            <img src={urlFor(authorImage).width(50).url()} />
-          </div>
-        )}
-        <BlockContent
-          blocks={body}
-          imageOptions={{ w: 320, h: 240, fit: "max" }}
-          {...client.config()}
-        />
+        <h2 className="text-lg font-script m-2">Ingredients:</h2>
+        <div className="flex mx-4 mb-4 text-xs font-sans italic">
+          <BlockContent
+            blocks={ingredients}
+            imageOptions={{ w: 320, h: 240, fit: "max" }}
+            {...client.config()}
+          />
+        </div>
+        <h2 className="m-2 text-lg font-script">Method:</h2>
+        <div className="flex mx-4 mb-4 text-xs font-sans">
+          <BlockContent
+            blocks={body}
+            imageOptions={{ w: 320, h: 240, fit: "max" }}
+            {...client.config()}
+          />
+        </div>
       </article>
     </>
   );
@@ -57,6 +69,7 @@ mainImage,
 "name": author->name,
 "categories": categories[]->title,
 "authorImage": author->image,
+ingredients,
 body
 }`;
 
@@ -65,5 +78,16 @@ Post.getInitialProps = async function (context) {
   const { slug = "" } = context.query;
   return await client.fetch(query, { slug });
 };
+
+const PaintSwipe = styled.div`
+  margin-left: -15px;
+  background-image: url("/images/brush-stroke2.png");
+  background-position: 0% 42%;
+`;
+
+const Title1 = styled.h1`
+  margin-left: 25px;
+  font-family: "playlist-script";
+`;
 
 export default Post;

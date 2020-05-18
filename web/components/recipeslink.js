@@ -16,7 +16,7 @@ const PaintSwipe = styled.div`
   background-position: 0% 42%;
 `;
 
-const Title1 = styled.p`
+const Title1 = styled.h1`
   margin-left: 25px;
   font-family: "playlist-script";
 `;
