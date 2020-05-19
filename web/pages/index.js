@@ -4,8 +4,8 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
-import banner640 from "../images/banner640.png";
-import banner768 from "../images/banner768.png";
+import banner640 from "../images/banner640.jpg";
+import banner768 from "../images/banner768.jpg";
 import banner1024 from "../images/banner1024.png";
 import cookWithUs from "../images/cookwithus.jpg";
 import NavBar from "../components/navbar";
@@ -25,8 +25,8 @@ const Index = (props) => {
     <>
       <TitleComponent />
       <img className="w-full md:hidden mt-8" src={banner640} />
-      <img className="w-full hidden md:block lg:hidden mt-6" src={banner768} />
-      <img className="w-full hidden lg:block mt-6" src={banner1024} />
+      <img className="w-full hidden md:block lg:hidden mt-8" src={banner768} />
+      <img className="w-full hidden lg:block mt-8" src={banner1024} />
       <NavBar />
       <AboutLink />
       <img className="w-full hidden md:block mt-8" src={cookWithUs} />
