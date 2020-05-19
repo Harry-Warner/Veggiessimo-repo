@@ -4,7 +4,10 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
-import banner from "../images/banner.png";
+import banner640 from "../images/banner640.png";
+import banner768 from "../images/banner768.png";
+import banner1024 from "../images/banner1024.png";
+import cookWithUs from "../images/cookwithus.jpg";
 import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
@@ -21,9 +24,12 @@ const Index = (props) => {
   return (
     <>
       <TitleComponent />
-      <img className="w-full mt-8" src={banner} />
+      <img className="w-full md:hidden mt-8" src={banner640} />
+      <img className="w-full hidden md:block lg:hidden mt-6" src={banner768} />
+      <img className="w-full hidden lg:block mt-6" src={banner1024} />
       <NavBar />
       <AboutLink />
+      <img className="w-full hidden md:block mt-8" src={cookWithUs} />
       <RecipesLink />
       <RecipeList>
         {posts.map(
@@ -72,7 +78,7 @@ const RecipeList = styled.ul`
   grid-gap: 1rem;
   grid-template-columns: 1fr;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
 `;

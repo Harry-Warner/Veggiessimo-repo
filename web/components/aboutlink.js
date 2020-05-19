@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const AboutLink = () => {
   return (
-    <div className="flex justify-end items-center bg-lightBlue w-full h-48">
+    <div className="flex md:hidden justify-end items-center bg-lightBlue w-full h-48">
       <TextBox className="w-32 h-32 mr-4">
         <Text1 className="line text-xxl w-full mt-5">Cook with us</Text1>
         <Text2 className="line text-xxs w-full">FIND OUT MORE</Text2>
