@@ -5,10 +5,9 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
-import banner640 from "../images/banner640.jpg";
-import banner768 from "../images/banner768.jpg";
+import banner640 from "../images/banner640.png";
+import banner768 from "../images/banner768.png";
 import banner1024 from "../images/banner1024.png";
-import cookWithUs from "../images/cookwithus.jpg";
 import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
@@ -26,27 +25,22 @@ const Index = (props) => {
     <>
       <TitleComponent />
       <img
-        className="w-full md:hidden mt-8"
+        className="w-full md:hidden mt-8 bg-white"
         src={banner640}
         alt="Veggiessimo"
       />
       <img
-        className="w-full hidden md:block lg:hidden mt-8"
+        className="w-full hidden md:block lg:hidden mt-8 bg-white"
         src={banner768}
         alt="Veggiessimo"
       />
       <img
-        className="w-full hidden lg:block mt-8"
+        className="w-full hidden lg:block mt-8 bg-white"
         src={banner1024}
         alt="Veggiessimo"
       />
       <NavBar />
       <AboutLink />
-      <img
-        className="w-full hidden md:block mt-8"
-        src={cookWithUs}
-        alt="Cooking"
-      />
       <RecipesLink />
       <RecipeList>
         {posts.map(
@@ -57,13 +51,13 @@ const Index = (props) => {
                   <a>
                     {mainImage && (
                       <img
-                        className="h-48 w-full object-cover object-center"
+                        className="h-64 lg:h-84 w-full object-cover object-center"
                         src={urlFor(mainImage).url()}
                         alt="Food"
                       />
                     )}
                     <div className="flex justify-between">
-                      <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm">
+                      <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                         {title}
                         <span className="vegetarianicon"> &#9419;</span>
                       </p>
@@ -93,11 +87,20 @@ const RecipeList = styled.ul`
   width: 100%;
   margin: 10px auto;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   grid-template-columns: 1fr;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
+    margin: 2rem;
+    width: calc(100% - 4rem);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+    margin: 3rem;
+    width: calc(100% - 6rem);
   }
 `;
 

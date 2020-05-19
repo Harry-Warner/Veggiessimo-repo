@@ -1,6 +1,24 @@
 // tailwind.config.js
 module.exports = {
   theme: {
+    extend: {
+      spacing: {
+        "20": "5rem",
+        "28": "7rem",
+        "52": "13rem",
+        "68": "19rem",
+        "72": "20rem",
+        "84": "21rem",
+        "96": "24rem",
+        "108": "27rem",
+        "116": "29rem",
+      },
+      lineHeight: {
+        "12": "3rem",
+        "16": "4rem",
+        "20": "5rem",
+      },
+    },
     fontSize: {
       xxs: "0.5rem",
       xs: ".75rem",
@@ -15,11 +33,26 @@ module.exports = {
       huge: "4rem",
       vhuge: "5rem",
     },
+    borderWidth: {
+      default: "1px",
+      "0": "0",
+      "2": "2px",
+      "3": "3px",
+      "4": "4px",
+      "6": "6px",
+      "8": "8px",
+      "10": "10px",
+      "12": "12px",
+    },
     colors: {
       green: "#D9e892",
+      greenT: "rgba(217, 232, 146, 0.75)",
       blue: "#5984c4",
+      blueT: "rgba(89, 132, 196, 0.75)",
       lightBlue: "#c7d0d8",
+      lightBlueT: "rgba(199, 208, 216, 0.75)",
       lightPink: "#efe1e8",
+      lightPinkT: "rgba(239, 225, 232, 0.75)",
       black: "#000000",
       white: "#fff",
     },

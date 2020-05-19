@@ -4,14 +4,16 @@ import styled from "styled-components";
 const CommunityLink = () => {
   return (
     <div className="block w-full">
-      <SectionOne className="w-full h-48 bg-cover bg-center">
-        <p className="font-script text-big ml-2">Community</p>
-        <Text1 className="text-xs text-center uppercase">
+      <SectionOne className="w-full h-48 md:h-96 lg:h-116 bg-cover bg-center">
+        <p className="font-script text-big md:text-vbig lg:text-huge ml-2">
+          Community
+        </p>
+        <Text1 className="text-xs md:text-lg lg:text-xxl text-center uppercase">
           Discover more in store
         </Text1>
       </SectionOne>
-      <SectionTwo className="h-40 flex justify-end items-center bg-cover bg-center">
-        <p className="font-script text-center text-vbig leading-10 mr-8">
+      <SectionTwo className="h-40 md:h-84 lg:h-96 flex justify-end items-center bg-cover bg-center">
+        <p className="font-script text-center text-vbig md:text-vhuge leading-10 md:leading-16 mr-8 md:mr-16 lg:mr-24">
           Bon
           <br />
           Apetit!
