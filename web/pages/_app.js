@@ -39,8 +39,8 @@ class MyApp extends App {
           />
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4a89e8" />
-          <meta name="msapplication-TileColor" content="#4a89e8"></meta>
-          <meta name="theme-color" content="#d9e892"></meta>
+          <meta name="msapplication-TileColor" content="#4a89e8" />
+          <meta name="theme-color" content="#d9e892" />
         </Head>
         <GlobalStyle />
         <div className="w-full relative min-h-screen sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg mx-auto pb-32">

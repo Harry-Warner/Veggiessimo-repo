@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -36,6 +37,7 @@ const Footer = () => {
           </p>
         </SocialNav>
         <img
+          alt="Veggiessimo logo"
           className="absolute right-0 bottom-0 h-12 mx-2 mb-1"
           src="images/logo.png"
         />

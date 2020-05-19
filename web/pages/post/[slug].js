@@ -1,3 +1,4 @@
+import React from "react";
 import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
@@ -14,7 +15,6 @@ const Post = (props) => {
     title = "Missing title",
     mainImage,
     name = "Missing name",
-    categories,
     authorImage,
     ingredients = [],
     body = [],
@@ -28,7 +28,11 @@ const Post = (props) => {
           <div className="flex justify-end items-end absolute bottom-0 right-0">
             {authorImage && (
               <div>
-                <img className="h-4 m-1" src={urlFor(authorImage).url()} />
+                <img
+                  className="h-4 m-1"
+                  src={urlFor(authorImage).url()}
+                  alt="self-portrait"
+                />
               </div>
             )}
             <span className="text-xxs m-1">By {name}</span>
@@ -39,6 +43,7 @@ const Post = (props) => {
             <img
               className="h-48 w-full object-cover object-center"
               src={urlFor(mainImage).width(300).url()}
+              alt="food"
             />
           </div>
         )}

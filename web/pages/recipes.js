@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
@@ -27,6 +28,7 @@ const Recipes = (props) => {
                       <img
                         className="h-48 w-full object-cover object-center"
                         src={urlFor(mainImage).url()}
+                        alt="Food"
                       />
                     )}
                     <div className="flex justify-between">

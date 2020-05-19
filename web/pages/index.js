@@ -1,4 +1,5 @@
 // index.js
+import React from "react";
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
@@ -24,12 +25,28 @@ const Index = (props) => {
   return (
     <>
       <TitleComponent />
-      <img className="w-full md:hidden mt-8" src={banner640} />
-      <img className="w-full hidden md:block lg:hidden mt-8" src={banner768} />
-      <img className="w-full hidden lg:block mt-8" src={banner1024} />
+      <img
+        className="w-full md:hidden mt-8"
+        src={banner640}
+        alt="Veggiessimo"
+      />
+      <img
+        className="w-full hidden md:block lg:hidden mt-8"
+        src={banner768}
+        alt="Veggiessimo"
+      />
+      <img
+        className="w-full hidden lg:block mt-8"
+        src={banner1024}
+        alt="Veggiessimo"
+      />
       <NavBar />
       <AboutLink />
-      <img className="w-full hidden md:block mt-8" src={cookWithUs} />
+      <img
+        className="w-full hidden md:block mt-8"
+        src={cookWithUs}
+        alt="Cooking"
+      />
       <RecipesLink />
       <RecipeList>
         {posts.map(
@@ -42,6 +59,7 @@ const Index = (props) => {
                       <img
                         className="h-48 w-full object-cover object-center"
                         src={urlFor(mainImage).url()}
+                        alt="Food"
                       />
                     )}
                     <div className="flex justify-between">
