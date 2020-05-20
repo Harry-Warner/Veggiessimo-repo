@@ -5,9 +5,7 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
-import banner640 from "../images/banner640.png";
-import banner768 from "../images/banner768.png";
-import banner1024 from "../images/banner1024.png";
+import RecipeList from "../styled/recipeslist";
 import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
@@ -26,17 +24,17 @@ const Index = (props) => {
       <TitleComponent />
       <img
         className="w-full md:hidden mt-8 bg-white"
-        src={banner640}
+        src="images/banner640.png"
         alt="Veggiessimo"
       />
       <img
         className="w-full hidden md:block lg:hidden mt-8 bg-white"
-        src={banner768}
+        src="images/banner768.png"
         alt="Veggiessimo"
       />
-      <img
-        className="w-full hidden lg:block mt-8 bg-white"
-        src={banner1024}
+      <imgs
+        className="w-screen left-0 absolute hidden lg:block mt-8 bg-white"
+        src="images/banner1024.png"
         alt="Veggiessimo"
       />
       <NavBar />
@@ -82,27 +80,6 @@ Index.getInitialProps = async () => ({
       *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]|order(publishedAt desc)
     `),
 });
-
-const RecipeList = styled.ul`
-  width: 100%;
-  margin: 10px auto;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-    margin: 2rem;
-    width: calc(100% - 4rem);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 3rem;
-    margin: 3rem;
-    width: calc(100% - 6rem);
-  }
-`;
 
 const StyledLine = styled.hr`
   width: 50%;

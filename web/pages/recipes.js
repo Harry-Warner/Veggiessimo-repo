@@ -5,6 +5,8 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
 import TitleComponent from "../components/titleComponent.jsx";
+import RecipeList from "../styled/recipeslist";
+import RecipeTypes from "../components/recipetypes";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -14,9 +16,10 @@ const Recipes = (props) => {
   const { posts = [] } = props;
 
   return (
-    <React.Fragment>
+    <>
       <TitleComponent title="Recipes" />
-      <p className="mt-8 text-center w-full">Recipes!!!</p>
+      <h1 className="pt-10 md:mt-16 text-center w-full">Recipes!!!</h1>
+      <RecipeTypes />
       <RecipeList>
         {posts.map(
           ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
@@ -47,7 +50,7 @@ const Recipes = (props) => {
             )
         )}
       </RecipeList>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -56,18 +59,6 @@ Recipes.getInitialProps = async () => ({
       *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]|order(publishedAt desc)
     `),
 });
-
-const RecipeList = styled.ul`
-  width: 100%;
-  margin: 10px auto;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
-  }
-`;
 
 const StyledLine = styled.hr`
   width: 50%;
