@@ -24,21 +24,29 @@ const Index = (props) => {
   return (
     <>
       <TitleComponent />
-      <img
-        className="w-full md:hidden mt-8 bg-white"
-        src="images/banner640.png"
-        alt="Veggiessimo"
-      />
-      <img
-        className="w-full hidden md:block lg:hidden mt-12 bg-white"
-        src="images/banner768.png"
-        alt="Veggiessimo"
-      />
-      <img
-        className="w-screen hidden lg:block mt-12 bg-white"
-        src="images/banner1024.png"
-        alt="Veggiessimo"
-      />
+      <Banner className="relative w-full">
+        <img
+          className="w-full md:hidden mt-8 bg-white"
+          src="images/banner640.png"
+          alt="Veggiessimo"
+        />
+        <img
+          className="w-full hidden md:block lg:hidden mt-12 bg-white"
+          src="images/banner768.png"
+          alt="Veggiessimo"
+        />
+        <img
+          className="w-screen hidden lg:block mt-12 bg-white"
+          src="images/bannerFULL.png"
+          alt="Veggiessimo"
+        />
+        <Title className="hidden lg:block w-full absolute text-center font-script">
+          Veggiessimo
+        </Title>
+        <Text1 className="hidden lg:block absolute font-sans uppercase">
+          Meals + love
+        </Text1>
+      </Banner>
       <Container>
         <NavBar />
         <AboutLink />
@@ -85,6 +93,21 @@ Index.getInitialProps = async () => ({
       *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]|order(publishedAt desc)
     `),
 });
+
+const Banner = styled.div`
+  height: fit-content;
+`;
+
+const Title = styled.h1`
+  top: 25%;
+  font-size: 9vw;
+`;
+
+const Text1 = styled.h2`
+  top: 70%;
+  left: 55%;
+  font-size: 2vw;
+`;
 
 const StyledLine = styled.hr`
   width: 50%;
