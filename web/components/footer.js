@@ -46,7 +46,7 @@ const Footer = () => {
           <img
             alt="Veggiessimo logo"
             className="absolute right-0 bottom-0 h-12 md:h-24 mx-2 mb-1"
-            src="images/logo.png"
+            src="../images/logo.png"
           />
         </a>
       </div>
