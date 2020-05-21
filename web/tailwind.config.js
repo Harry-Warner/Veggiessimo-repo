@@ -32,6 +32,7 @@ module.exports = {
       vbig: "3rem",
       huge: "4rem",
       vhuge: "5rem",
+      vvhuge: "115px",
     },
     borderWidth: {
       default: "1px",

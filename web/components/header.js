@@ -6,7 +6,7 @@ const Header = () => {
   const [toggled, toggle] = useState(false);
   return (
     <>
-      <div className="top-0 z-50 left-0 px-1 w-full h-8 md:h-12 bg-green fixed">
+      <div className="top-0 z-40 left-0 px-1 w-full h-8 md:h-12 bg-green fixed">
         <div className="mx-auto h-full w-full flex justify-between sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
           <a href="/index">
             <img className="h-12 md:h-20" src="images/logo.png" alt="logo" />
@@ -19,9 +19,9 @@ const Header = () => {
           />
         </div>
       </div>
-      <div>
+      <div className="w-screen flex justify-center">
         {toggled && (
-          <div className="mx-auto md:mt-3 block fixed z-10 bg-green h-56 md:h-72 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg transition-all duration-300 ease-in-out">
+          <div className="mx-auto mt-8 md:mt-12 md:mt-3 block fixed z-30 bg-green h-56 md:h-72 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg transition-all duration-300 ease-in-out">
             <StyledMenu className="grid w-9/12 h-full mx-auto">
               <h1 className="text text-sm md:text-lg font-bold border-b">
                 Navigation
