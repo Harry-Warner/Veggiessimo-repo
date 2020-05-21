@@ -1,7 +1,7 @@
 import React from "react";
 const NavBar = () => {
   return (
-    <div className="w-full h-8 md:h-12 lg:h-26 block bg-white">
+    <div className="w-full h-8 md:h-12 lg:h-26 block bg-white lg:hidden">
       <div className="w-10/12 h-full grid grid-cols-4 mx-auto items-center">
         <a
           href="#"

@@ -26,17 +26,17 @@ const Index = (props) => {
       <TitleComponent />
       <Banner className="relative w-full">
         <img
-          className="w-full md:hidden mt-8 bg-white"
+          className="w-full md:hidden bg-white"
           src="images/banner640.png"
           alt="Veggiessimo"
         />
         <img
-          className="w-full hidden md:block lg:hidden mt-12 bg-white"
+          className="w-full hidden md:block lg:hidden bg-white"
           src="images/banner768.png"
           alt="Veggiessimo"
         />
         <img
-          className="w-screen hidden lg:block mt-12 bg-white"
+          className="w-screen hidden lg:block bg-white mt-8"
           src="images/bannerFULL.png"
           alt="Veggiessimo"
         />
