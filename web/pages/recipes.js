@@ -7,6 +7,8 @@ import styled from "styled-components";
 import TitleComponent from "../components/titleComponent.jsx";
 import RecipeList from "../styled/recipeslist";
 import RecipeTypes from "../components/recipetypes";
+import Footer from "../components/footer";
+import Container from "../styled/container";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -18,38 +20,41 @@ const Recipes = (props) => {
   return (
     <>
       <TitleComponent title="Recipes" />
-      <h1 className="pt-10 md:mt-16 text-center w-full">Recipes!!!</h1>
-      <RecipeTypes />
-      <RecipeList>
-        {posts.map(
-          ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
-            slug && (
-              <li key={_id}>
-                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                  <a>
-                    {mainImage && (
-                      <img
-                        className="h-48 w-full object-cover object-center"
-                        src={urlFor(mainImage).url()}
-                        alt="Food"
-                      />
-                    )}
-                    <div className="flex justify-between">
-                      <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm">
-                        {title}
-                        <span className="vegetarianicon"> &#9419;</span>
-                      </p>
-                      <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
-                        {"  "}({new Date(_updatedAt).toDateString()})
+      <Container>
+        <h1 className="pt-10 md:mt-16 text-center w-full">Recipes!!!</h1>
+        <RecipeTypes />
+        <RecipeList>
+          {posts.map(
+            ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
+              slug && (
+                <li key={_id}>
+                  <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                    <a>
+                      {mainImage && (
+                        <img
+                          className="h-48 w-full object-cover object-center"
+                          src={urlFor(mainImage).url()}
+                          alt="Food"
+                        />
+                      )}
+                      <div className="flex justify-between">
+                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm">
+                          {title}
+                          <span className="vegetarianicon"> &#9419;</span>
+                        </p>
+                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
+                          {"  "}({new Date(_updatedAt).toDateString()})
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                </Link>
-                <StyledLine />
-              </li>
-            )
-        )}
-      </RecipeList>
+                    </a>
+                  </Link>
+                  <StyledLine />
+                </li>
+              )
+          )}
+        </RecipeList>
+        <Footer />
+      </Container>
     </>
   );
 };

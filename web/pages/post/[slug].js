@@ -4,7 +4,9 @@ import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import client from "../../client";
 import TitleComponent from "../../components/titleComponent.jsx";
+import Footer from "../../components/footer";
 import styled from "styled-components";
+import Container from "../../styled/container";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -22,48 +24,51 @@ const Post = (props) => {
   return (
     <>
       <TitleComponent title={title} />
-      <article>
-        <PaintSwipe className="w-full h-12 mt-16 flex bg-cover relative">
-          <Title1 className="text-big leading-10">{title}</Title1>
-          <div className="flex justify-end items-end absolute bottom-0 right-0">
-            {authorImage && (
-              <div>
-                <img
-                  className="h-4 m-1"
-                  src={urlFor(authorImage).url()}
-                  alt="self-portrait"
-                />
-              </div>
-            )}
-            <span className="text-xxs m-1">By {name}</span>
-          </div>
-        </PaintSwipe>
-        {mainImage && (
-          <div>
-            <img
-              className="h-48 w-full object-cover object-center"
-              src={urlFor(mainImage).width(300).url()}
-              alt="food"
+      <Container>
+        <article>
+          <PaintSwipe className="w-full h-12 mt-16 flex bg-cover relative">
+            <Title1 className="text-big leading-10">{title}</Title1>
+            <div className="flex justify-end items-end absolute bottom-0 right-0">
+              {authorImage && (
+                <div>
+                  <img
+                    className="h-4 m-1"
+                    src={urlFor(authorImage).url()}
+                    alt="self-portrait"
+                  />
+                </div>
+              )}
+              <span className="text-xxs m-1">By {name}</span>
+            </div>
+          </PaintSwipe>
+          {mainImage && (
+            <div>
+              <img
+                className="h-48 w-full object-cover object-center"
+                src={urlFor(mainImage).width(300).url()}
+                alt="food"
+              />
+            </div>
+          )}
+          <h2 className="text-lg font-script m-2">Ingredients:</h2>
+          <div className="flex mx-4 mb-4 text-xs font-sans italic">
+            <BlockContent
+              blocks={ingredients}
+              imageOptions={{ w: 320, h: 240, fit: "max" }}
+              {...client.config()}
             />
           </div>
-        )}
-        <h2 className="text-lg font-script m-2">Ingredients:</h2>
-        <div className="flex mx-4 mb-4 text-xs font-sans italic">
-          <BlockContent
-            blocks={ingredients}
-            imageOptions={{ w: 320, h: 240, fit: "max" }}
-            {...client.config()}
-          />
-        </div>
-        <h2 className="m-2 text-lg font-script">Method:</h2>
-        <div className="flex mx-4 mb-4 text-xs font-sans">
-          <BlockContent
-            blocks={body}
-            imageOptions={{ w: 320, h: 240, fit: "max" }}
-            {...client.config()}
-          />
-        </div>
-      </article>
+          <h2 className="m-2 text-lg font-script">Method:</h2>
+          <div className="flex mx-4 mb-4 text-xs font-sans">
+            <BlockContent
+              blocks={body}
+              imageOptions={{ w: 320, h: 240, fit: "max" }}
+              {...client.config()}
+            />
+          </div>
+        </article>
+        <Footer />
+      </Container>
     </>
   );
 };

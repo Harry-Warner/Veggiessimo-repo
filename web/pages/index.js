@@ -10,7 +10,9 @@ import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
 import CommunityLink from "../components/communitylink";
+import Footer from "../components/footer";
 import TitleComponent from "../components/titleComponent.jsx";
+import Container from "../styled/container";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -28,49 +30,52 @@ const Index = (props) => {
         alt="Veggiessimo"
       />
       <img
-        className="w-full hidden md:block lg:hidden mt-8 bg-white"
+        className="w-full hidden md:block lg:hidden mt-12 bg-white"
         src="images/banner768.png"
         alt="Veggiessimo"
       />
-      <imgs
-        className="w-screen left-0 absolute hidden lg:block mt-8 bg-white"
+      <img
+        className="w-screen hidden lg:block mt-12 bg-white"
         src="images/banner1024.png"
         alt="Veggiessimo"
       />
-      <NavBar />
-      <AboutLink />
-      <RecipesLink />
-      <RecipeList>
-        {posts.map(
-          ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
-            slug && (
-              <li key={_id}>
-                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                  <a>
-                    {mainImage && (
-                      <img
-                        className="h-64 lg:h-84 w-full object-cover object-center"
-                        src={urlFor(mainImage).url()}
-                        alt="Food"
-                      />
-                    )}
-                    <div className="flex justify-between">
-                      <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
-                        {title}
-                        <span className="vegetarianicon"> &#9419;</span>
-                      </p>
-                      <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
-                        {"  "}({new Date(_updatedAt).toDateString()})
+      <Container>
+        <NavBar />
+        <AboutLink />
+        <RecipesLink />
+        <RecipeList>
+          {posts.map(
+            ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
+              slug && (
+                <li key={_id}>
+                  <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                    <a>
+                      {mainImage && (
+                        <img
+                          className="h-64 lg:h-84 w-full object-cover object-center"
+                          src={urlFor(mainImage).url()}
+                          alt="Food"
+                        />
+                      )}
+                      <div className="flex justify-between">
+                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
+                          {title}
+                          <span className="vegetarianicon"> &#9419;</span>
+                        </p>
+                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
+                          {"  "}({new Date(_updatedAt).toDateString()})
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                </Link>
-                <StyledLine />
-              </li>
-            )
-        )}
-      </RecipeList>
-      <CommunityLink />
+                    </a>
+                  </Link>
+                  <StyledLine />
+                </li>
+              )
+          )}
+        </RecipeList>
+        <CommunityLink />
+        <Footer />
+      </Container>
     </>
   );
 };
