@@ -29,7 +29,6 @@ const StyledIcon = styled.button`
   height: 2.5rem;
   background: transparent;
   cursor: pointer;
-  padding: 0;
   z-index: 20;
 
   &:focus {
@@ -61,12 +60,8 @@ const StyledIcon = styled.button`
   }
 
   @media (min-width: 768px) {
-    width: 2.5rem;
     top: 0.5rem;
-
-    div {
-      width: 2.5rem;
-    }
+    right: 0.5rem;
   }
 `;
 

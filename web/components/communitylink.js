@@ -59,7 +59,7 @@ const CommunityLink = () => {
           Sustainable lifestyle ideas
         </Text1>
       </SectionOne>
-      <SectionTwo className="relative">
+      <SectionTwo className="relative mt-8 md:mt-12 lg:mt-20">
         <img
           className="w-full z-10 md:hidden"
           src="images/bonap640bg.png"

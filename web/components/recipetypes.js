@@ -1,27 +1,88 @@
 import React from "react";
+import styled from "styled-components";
 
 const RecipeTypes = () => {
   return (
-    <div className="mx-auto w-2/3 my-6 h-16 flex bg-lightPink justify-center items-center">
-      <div className="flex justify-between">
-        <div className="rounded-full border-solid border-2 border-blue" />
-        <h2 className="px-4 font-sans text-center text-lg">Breakfast</h2>
+    <>
+      <h2 className="w-full md:w-1/2 lg:w-1/3 h-12 md:h-16 lg:h-20 mx-auto text-center my-6 bg-lightBlueT flex justify-center items-center text-big md:text-huge font-script">
+        Which Meal?
+      </h2>
+      <div className="w-full flex flex-col md:flex-row justify-center">
+        <StyledWrapper className="relative mx-auto cursor-pointer">
+          <img
+            className="h-48 md:h-56 lg:h-64 m-6"
+            src="images/breakfast.png"
+            alt="food"
+          />
+          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
+            Breakfast
+          </h2>
+        </StyledWrapper>
+        <StyledWrapper className="relative mx-auto cursor-pointer">
+          <img
+            className="h-48 md:h-56 lg:h-64 m-6"
+            src="images/lunch.png"
+            alt="food"
+          />
+          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
+            Lunch
+          </h2>
+        </StyledWrapper>
       </div>
-      <div className="flex justify-between">
-        <div className="rounded-full border-solid border-2 border-blue" />
-        <h2 className="px-4 font-sans text-center text-lg">Lunch</h2>
+      <div className="w-full flex flex-col md:flex-row justify-center">
+        <StyledWrapper className="relative mx-auto cursor-pointer">
+          <img
+            className="h-48 md:h-56 lg:h-64 m-6"
+            src="images/dinner.png"
+            alt="food"
+          />
+          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
+            Dinner
+          </h2>
+        </StyledWrapper>
+        <StyledWrapper className="relative mx-auto cursor-pointer">
+          <img
+            className="h-48 md:h-56 lg:h-64 m-6"
+            src="images/dessert.png"
+            alt="food"
+          />
+          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
+            Dessert
+          </h2>
+        </StyledWrapper>
       </div>
-      <div className="flex justify-between">
-        <div className="rounded-full border-solid border-2 border-blue" />
-        <h2 className="px-4 font-sans text-center text-lg">Dinner</h2>
-      </div>
-      <div className="flex justify-between">
-        <div className="rounded-full border-solid border-2 border-blue" />
-        <h2 className="px-4 font-sans text-center text-lg">Dessert</h2>
-        <div className="rounded-full border-solid border-2 border-blue" />
-      </div>
-    </div>
+    </>
   );
 };
+
+const StyledWrapper = styled.div`
+  h2 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 35%;
+    text-align: center;
+    font-size: 1rem;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+
+    @media (min-width: 1024px) {
+      font-size: 0;
+      visibility: hidden;
+      width: 0%;
+    }
+  }
+
+  &:hover {
+    h2 {
+      width: 35%;
+      visibility: visible;
+      font-size: 1.5rem;
+    }
+  }
+`;
 
 export default RecipeTypes;

@@ -6,7 +6,6 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
 import RecipeList from "../styled/recipeslist";
-import NavBar from "../components/navbar";
 import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
 import CommunityLink from "../components/communitylink";
@@ -48,7 +47,6 @@ const Index = (props) => {
         </Text1>
       </Banner>
       <Container>
-        <NavBar />
         <AboutLink />
         <RecipesLink />
         <RecipeList>
@@ -60,7 +58,7 @@ const Index = (props) => {
                     <a>
                       {mainImage && (
                         <img
-                          className="h-64 lg:h-84 w-full object-cover object-center"
+                          className="h-48 lg:h-64 w-full object-cover object-center"
                           src={urlFor(mainImage).url()}
                           alt="Food"
                         />
