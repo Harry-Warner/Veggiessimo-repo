@@ -10,7 +10,7 @@ const ToggleMenu = ({ open }) => {
           Navigation
         </h1>
         <a href="/index">Home</a>
-        <a href="#">About</a>
+        <a href="/about">About</a>
         <a href="/recipes">Recipes</a>
         <a href="#">Community</a>
         <a href="#">Contact</a>

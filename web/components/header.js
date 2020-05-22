@@ -32,7 +32,7 @@ const Header = () => {
               home
               <img className="garlic" src={garlic} alt="garlic" />
             </Link>
-            <Link href="#">
+            <Link href="/about">
               <img className="garlic" src={garlic} alt="garlic" />
               about
               <img className="garlic" src={garlic} alt="garlic" />

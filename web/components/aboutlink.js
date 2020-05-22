@@ -20,7 +20,10 @@ const AboutLink = () => {
         alt="Cooking"
       />
       <div className="hidden lg:block w-2/3 h-116 absolute bottom-0 right-0 mb-8 mr-8 border-12 border-solid border-lightPinkT" />
-      <TextBox className="w-32 h-28 md:w-56 md:h-52 lg:w-72 lg:h-68 left-0 mx-4 md:mx-10 lg:mx-16 flex items-center justify-center absolute bg-lightPink">
+      <TextBox
+        href="/about"
+        className="w-32 h-28 md:w-56 md:h-52 lg:w-72 lg:h-68 left-0 mx-4 md:mx-10 lg:mx-16 flex items-center justify-center absolute bg-lightPink"
+      >
         <Text1 className="line text-xxl md:text-vbig lg:text-huge w-full">
           Cook with us
         </Text1>
@@ -32,7 +35,7 @@ const AboutLink = () => {
   );
 };
 
-const TextBox = styled.div`
+const TextBox = styled.a`
   display: flex;
   flex-direction: column;
 `;

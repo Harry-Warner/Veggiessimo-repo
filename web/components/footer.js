@@ -22,9 +22,12 @@ const Footer = () => {
           </form>
         </StyledContact>
         <StyledNav>
-          <p className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl">
+          <a
+            href="/about"
+            className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl"
+          >
             Our Story
-          </p>
+          </a>
           <p className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl mr-2 md:mr-5">
             Contact us
           </p>
