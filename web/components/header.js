@@ -30,27 +30,22 @@ const Header = () => {
             <Link href="/">
               <img className="garlic" src={garlic} alt="garlic" />
               home
-              <img className="garlic" src={garlic} alt="garlic" />
             </Link>
             <Link href="/about">
               <img className="garlic" src={garlic} alt="garlic" />
               about
-              <img className="garlic" src={garlic} alt="garlic" />
             </Link>
             <Link href="/recipes">
               <img className="garlic" src={garlic} alt="garlic" />
               recipes
-              <img className="garlic" src={garlic} alt="garlic" />
             </Link>
             <Link href="#">
               <img className="garlic" src={garlic} alt="garlic" />
               community
-              <img className="garlic" src={garlic} alt="garlic" />
             </Link>
             <Link href="#">
               <img className="garlic" src={garlic} alt="garlic" />
               contact
-              <img className="garlic" src={garlic} alt="garlic" />
             </Link>
           </div>
         </div>
@@ -67,17 +62,19 @@ const Link = styled.a`
   display: flex;
   justify-content: space-between;
   font-family: "Fira Sans", sans-serif;
+  padding-right: 45.78px;
 
   .garlic {
-    visibility: hidden;
-    padding: 0 30px;
+    padding: 0 15px;
     height: 25px;
     align-self: center;
+    transform: rotate(0);
+    transition: all 0.3s ease-in-out;
   }
 
   &:hover {
     .garlic {
-      visibility: visible;
+      transform: rotate(90deg);
     }
   }
 `;

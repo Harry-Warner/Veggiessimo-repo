@@ -8,6 +8,7 @@ const Colors = {
   lightPink: "#efe1e8",
   lightPinkT: "rgba(239, 225, 232, 0.75)",
   black: "#000000",
+  blackT: "rgba(0, 0, 0, 0.25)",
 };
 
 export default Colors;
