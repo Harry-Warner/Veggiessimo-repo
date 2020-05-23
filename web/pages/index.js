@@ -52,28 +52,35 @@ const Index = (props) => {
           {posts.map(
             ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
               slug && (
-                <li key={_id}>
+                <li className="my-4 md:my-6 lg:my-8" key={_id}>
                   <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                    <a className="md:flex">
-                      {mainImage && (
-                        <img
-                          className="h-48 md:h-96 lg:h-108 w-full object-cover object-center"
-                          src={urlFor(mainImage).url()}
-                          alt="Food"
-                        />
-                      )}
-                      <div className="flex md:flex-col md:w-1/3 md:mx-8 md:bg-lightBlueT md:hover:bg-lightBlue justify-between">
-                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
+                    <a>
+                      <StyledLink className="relative mx-auto w-full md:w-11/12 lg:w-10/12">
+                        {mainImage && (
+                          <img
+                            className="h-56 md:h-84 lg:h-108 w-full object-cover object-center"
+                            src={urlFor(mainImage).url()}
+                            alt="Food"
+                          />
+                        )}
+                        <div className="text-wrapper flex flex-col text-wrapper text-xxl font-bold h-64 md:h-84 lg:h-108 font-sans bg-lightPinkT uppercase">
+                          <p className="">
+                            {title}
+                            <span className="vegetarianicon"> &#9419;</span>
+                          </p>
+                          <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
+                            {"  "}({new Date(_updatedAt).toDateString()})
+                          </div>
+                        </div>
+                      </StyledLink>
+                      <div className="w-full md:w-11/12 lg:w-10/12 bg-lightBlue mx-auto">
+                        <p className="font-sans text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                           {title}
                           <span className="vegetarianicon"> &#9419;</span>
                         </p>
-                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
-                          {"  "}({new Date(_updatedAt).toDateString()})
-                        </div>
                       </div>
                     </a>
                   </Link>
-                  <StyledLine />
                 </li>
               )
           )}
@@ -109,41 +116,39 @@ const Text1 = styled.h2`
 const Recipes = styled.ul`
   width: 100%;
   margin: 10px auto;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr;
-    margin: 2rem;
-    width: 100%;
-  }
-
-  @media (min-width: 1024px) {
-    grid-gap: 3rem;
-    margin: 3rem;
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
 `;
 
-const StyledLine = styled.hr`
-  width: 50%;
-  margin: 20px auto;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0)
-  );
-  @media (min-width: 768px) {
-    margin: 50px 0 20px 0;
-    width: 60%;
+const StyledLink = styled.div`
+  height: fit-content;
+  .text-wrapper {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 35%;
+    text-align: center;
+    font-size: 1rem;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      font-size: 0;
+      visibility: hidden;
+      width: 0%;
+    }
   }
-  @media (min-width: 768px) {
-    margin: 70px 0 20px 0;
-    width: 70%;
+
+  &:hover {
+    .text-wrapper {
+      width: 35%;
+      visibility: visible;
+      font-size: 1.5rem;
+    }
   }
 `;
 

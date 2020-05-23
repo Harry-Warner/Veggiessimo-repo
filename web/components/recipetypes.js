@@ -8,7 +8,7 @@ const RecipeTypes = () => {
         Which Meal?
       </h2>
       <div className="w-full flex flex-col md:flex-row justify-center">
-        <StyledWrapper className="relative mx-auto cursor-pointer">
+        <StyledLink className="relative mx-auto cursor-pointer">
           <img
             className="h-48 md:h-56 lg:h-64 m-6"
             src="images/breakfast.png"
@@ -17,8 +17,8 @@ const RecipeTypes = () => {
           <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
             Breakfast
           </h2>
-        </StyledWrapper>
-        <StyledWrapper className="relative mx-auto cursor-pointer">
+        </StyledLink>
+        <StyledLink className="relative mx-auto cursor-pointer">
           <img
             className="h-48 md:h-56 lg:h-64 m-6"
             src="images/lunch.png"
@@ -27,10 +27,10 @@ const RecipeTypes = () => {
           <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
             Lunch
           </h2>
-        </StyledWrapper>
+        </StyledLink>
       </div>
       <div className="w-full flex flex-col md:flex-row justify-center">
-        <StyledWrapper className="relative mx-auto cursor-pointer">
+        <StyledLink className="relative mx-auto cursor-pointer">
           <img
             className="h-48 md:h-56 lg:h-64 m-6"
             src="images/dinner.png"
@@ -39,8 +39,8 @@ const RecipeTypes = () => {
           <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
             Dinner
           </h2>
-        </StyledWrapper>
-        <StyledWrapper className="relative mx-auto cursor-pointer">
+        </StyledLink>
+        <StyledLink className="relative mx-auto cursor-pointer">
           <img
             className="h-48 md:h-56 lg:h-64 m-6"
             src="images/dessert.png"
@@ -49,13 +49,13 @@ const RecipeTypes = () => {
           <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
             Dessert
           </h2>
-        </StyledWrapper>
+        </StyledLink>
       </div>
     </>
   );
 };
 
-const StyledWrapper = styled.div`
+const StyledLink = styled.a`
   h2 {
     position: absolute;
     display: flex;

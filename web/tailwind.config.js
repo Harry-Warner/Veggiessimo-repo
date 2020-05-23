@@ -44,6 +44,7 @@ module.exports = {
       "8": "8px",
       "10": "10px",
       "12": "12px",
+      "16": "16px",
     },
     colors: {
       green: "#D9e892",
