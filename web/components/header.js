@@ -25,7 +25,7 @@ const Header = () => {
             </div>
           </div>
         </Headroom>
-        <div className="top-0 z-40 left-0 px-1 w-full h-12 bg-green hidden lg:block fixed">
+        <StyledHeader className="top-0 z-40 left-0 px-1 w-full h-12 bg-green hidden lg:block fixed">
           <img
             className="absolute top-0 left-0 h-16 px-2"
             src="images/logo.png"
@@ -53,11 +53,21 @@ const Header = () => {
               contact
             </Link>
           </div>
-        </div>
+        </StyledHeader>
       </div>
     </>
   );
 };
+
+const StyledHeader = styled.div`
+  @media (width: 1024px) {
+    display: flex;
+
+    img {
+      position: relative;
+    }
+  }
+`;
 
 const Link = styled.a`
   height: 100%;

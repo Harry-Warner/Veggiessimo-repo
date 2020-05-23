@@ -10,43 +10,39 @@ const RecipeTypes = () => {
       <div className="w-full flex flex-col md:flex-row justify-center">
         <StyledLink className="relative mx-auto cursor-pointer">
           <img
-            className="h-48 md:h-56 lg:h-64 m-6"
+            className="h-48 md:h-56 lg:h-56 m-6"
             src="images/breakfast.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-56 font-sans bg-lightPinkT uppercase">
             Breakfast
           </h2>
         </StyledLink>
         <StyledLink className="relative mx-auto cursor-pointer">
           <img
-            className="h-48 md:h-56 lg:h-64 m-6"
-            src="images/lunch.png"
-            alt="food"
-          />
-          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
-            Lunch
-          </h2>
-        </StyledLink>
-      </div>
-      <div className="w-full flex flex-col md:flex-row justify-center">
-        <StyledLink className="relative mx-auto cursor-pointer">
-          <img
-            className="h-48 md:h-56 lg:h-64 m-6"
+            className="h-48 md:h-56 lg:h-56 m-6"
             src="images/dinner.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
-            Dinner
+          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-56 font-sans bg-lightPinkT uppercase">
+            Mains
           </h2>
         </StyledLink>
-        <StyledLink className="relative mx-auto cursor-pointer">
+        <StyledLink className="relative mx-auto cursor-pointer md:hidden lg:block">
           <img
-            className="h-48 md:h-56 lg:h-64 m-6"
+            className="h-48 md:h-56 lg:h-56 m-6"
             src="images/dessert.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-64 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-56 font-sans bg-lightPinkT uppercase">
+            Dessert
+          </h2>
+        </StyledLink>
+      </div>
+      <div className="w-full hidden md:flex lg:hidden justify-center">
+        <StyledLink className="relative mx-auto cursor-pointer">
+          <img className="h-56 m-6" src="images/dessert.png" alt="food" />
+          <h2 className="text-xxl font-bold m-6 h-56 font-sans bg-lightPinkT uppercase">
             Dessert
           </h2>
         </StyledLink>
