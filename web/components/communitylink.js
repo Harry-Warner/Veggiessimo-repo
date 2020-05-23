@@ -8,17 +8,17 @@ const CommunityLink = () => {
         <div className="bg-white absolute w-full top-0 mt-4 md:mt-8 lg:mt-12">
           <img
             className="w-full md:hidden"
-            src="images/com640bg.png"
+            src="images/springonion.png"
             alt="background"
           />
           <img
             className="w-full hidden md:block lg:hidden"
-            src="images/com768bg.png"
+            src="images/springonion.png"
             alt="background"
           />
           <img
             className="w-full hidden lg:block"
-            src="images/com1024bg.png"
+            src="images/springonion.png"
             alt="background"
           />
         </div>
@@ -37,21 +37,6 @@ const CommunityLink = () => {
           src="images/com1024brush.png"
           alt="banner"
         />
-        <Avos
-          className="absolute md:hidden"
-          src="images/com640avos.png"
-          alt="avocados"
-        />
-        <Avos
-          className="absolute hidden md:block lg:hidden"
-          src="images/com768avos.png"
-          alt="avocados"
-        />
-        <Avos
-          className="absolute hidden lg:block"
-          src="images/com1024avos.png"
-          alt="avocados"
-        />
         <h1 className="absolute font-script text-big md:text-huge lg:text-vhuge ml-2 z-20">
           Community
         </h1>
@@ -59,36 +44,6 @@ const CommunityLink = () => {
           Sustainable lifestyle ideas
         </Text1>
       </SectionOne>
-      <SectionTwo className="relative mt-8 md:mt-12 lg:mt-20">
-        <img
-          className="w-full z-10 md:hidden"
-          src="images/bonap640bg.png"
-          alt="background"
-        />
-        <img
-          className="w-full z-10 hidden md:block lg:hidden"
-          src="images/bonap768bg.png"
-          alt="background"
-        />
-        <img
-          className="w-full z-10 hidden lg:block"
-          src="images/bonap1024bg.png"
-          alt="background"
-        />
-        <Brush
-          className="absolute w-3/4 md:hidden"
-          src="images/bonap640brush.png"
-          alt="banner"
-        />
-        <Brush
-          className="absolute w-3/4 hidden md:block"
-          src="images/bonap768brush.png"
-          alt="banner"
-        />
-        <Text2 className="text-big md:text-huge absolute font-script">
-          Bon Apetit
-        </Text2>
-      </SectionTwo>
     </div>
   );
 };
@@ -117,23 +72,6 @@ const Text1 = styled.p`
   @media (min-width: 400px) and (max-width: 700px) {
     font-size: 0.65rem;
   }
-`;
-
-const SectionTwo = styled.div`
-  height: fit-content;
-`;
-
-const Brush = styled.img`
-  top: 35%;
-
-  @media (min-width: 1024px) {
-    top: 30%;
-  }
-`;
-
-const Text2 = styled.h2`
-  top: 40%;
-  left: 2.5%;
 `;
 
 export default CommunityLink;

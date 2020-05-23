@@ -5,9 +5,8 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
-import RecipeList from "../styled/recipeslist";
-import AboutLink from "../components/aboutlink";
 import RecipesLink from "../components/recipeslink";
+import AboutLink from "../components/aboutlink";
 import CommunityLink from "../components/communitylink";
 import Footer from "../components/footer";
 import TitleComponent from "../components/titleComponent.jsx";
@@ -49,7 +48,7 @@ const Index = (props) => {
       <Container>
         <AboutLink />
         <RecipesLink />
-        <RecipeList home>
+        <Recipes>
           {posts.map(
             ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
               slug && (
@@ -58,12 +57,12 @@ const Index = (props) => {
                     <a className="md:flex">
                       {mainImage && (
                         <img
-                          className="h-48 md:h-96 w-full object-cover object-center"
+                          className="h-48 md:h-96 lg:h-108 w-full object-cover object-center"
                           src={urlFor(mainImage).url()}
                           alt="Food"
                         />
                       )}
-                      <div className="flex md:flex-col md:w-1/3 md:mx-8 md:bg-lightBlueT justify-between">
+                      <div className="flex md:flex-col md:w-1/3 md:mx-8 md:bg-lightBlueT md:hover:bg-lightBlue justify-between">
                         <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                           {title}
                           <span className="vegetarianicon"> &#9419;</span>
@@ -78,7 +77,7 @@ const Index = (props) => {
                 </li>
               )
           )}
-        </RecipeList>
+        </Recipes>
         <CommunityLink />
         <Footer />
       </Container>
@@ -107,6 +106,26 @@ const Text1 = styled.h2`
   font-size: 2vw;
 `;
 
+const Recipes = styled.ul`
+  width: 100%;
+  margin: 10px auto;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr;
+    margin: 2rem;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    grid-gap: 3rem;
+    margin: 3rem;
+    width: 100%;
+  }
+`;
+
 const StyledLine = styled.hr`
   width: 50%;
   margin: 20px auto;
@@ -119,7 +138,12 @@ const StyledLine = styled.hr`
     rgba(0, 0, 0, 0)
   );
   @media (min-width: 768px) {
-    margin-top: 50px;
+    margin: 50px 0 20px 0;
+    width: 60%;
+  }
+  @media (min-width: 768px) {
+    margin: 70px 0 20px 0;
+    width: 70%;
   }
 `;
 

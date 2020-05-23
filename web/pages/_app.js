@@ -36,8 +36,12 @@ class MyApp extends App {
             sizes="16x16"
             href="favicon/favicon-16x16.png"
           />
-          <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5984c4" />
+          <link rel="manifest" href="favicon/site.webmanifest" />
+          <link
+            rel="mask-icon"
+            href="favicon/safari-pinned-tab.svg"
+            color="#5984c4"
+          />
           <meta name="msapplication-TileColor" content="#5984c4" />
           <meta name="theme-color" content="#d9e892" />
         </Head>
