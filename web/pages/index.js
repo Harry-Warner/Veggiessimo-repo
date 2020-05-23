@@ -49,21 +49,21 @@ const Index = (props) => {
       <Container>
         <AboutLink />
         <RecipesLink />
-        <RecipeList>
+        <RecipeList home>
           {posts.map(
             ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
               slug && (
                 <li key={_id}>
                   <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                    <a>
+                    <a className="md:flex">
                       {mainImage && (
                         <img
-                          className="h-48 lg:h-64 w-full object-cover object-center"
+                          className="h-48 md:h-96 w-full object-cover object-center"
                           src={urlFor(mainImage).url()}
                           alt="Food"
                         />
                       )}
-                      <div className="flex justify-between">
+                      <div className="flex md:flex-col md:w-1/3 md:mx-8 md:bg-lightBlueT justify-between">
                         <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                           {title}
                           <span className="vegetarianicon"> &#9419;</span>
@@ -118,6 +118,9 @@ const StyledLine = styled.hr`
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
+  @media (min-width: 768px) {
+    margin-top: 50px;
+  }
 `;
 
 export default Index;
