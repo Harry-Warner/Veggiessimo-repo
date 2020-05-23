@@ -1,7 +1,6 @@
 import React from "react";
 import { bool, func } from "prop-types";
 import styled from "styled-components";
-import Colors from "../styled/colors";
 
 const ToggleIcon = ({ open, setOpen }) => {
   return (
