@@ -8,7 +8,10 @@ const RecipeTypes = () => {
         Which Meal?
       </h2>
       <div className="w-full flex flex-col md:flex-row justify-center">
-        <StyledLink className="relative mx-auto cursor-pointer">
+        <StyledLink
+          href="/breakfast"
+          className="relative mx-auto cursor-pointer"
+        >
           <img
             className="h-48 md:h-56 lg:h-56 m-6"
             src="images/breakfast.png"

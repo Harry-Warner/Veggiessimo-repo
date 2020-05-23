@@ -28,7 +28,7 @@ const Header = () => {
         <StyledHeader className="top-0 z-40 left-0 px-1 w-full h-12 bg-green hidden lg:block fixed">
           <img
             className="absolute top-0 left-0 h-16 px-2"
-            src="images/logo.png"
+            src="../images/logo.png"
             alt="logo"
           />
           <div className="mx-auto h-full w-full flex justify-around sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
