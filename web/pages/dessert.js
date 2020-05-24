@@ -72,10 +72,10 @@ const Breakfast = (props) => {
 
   return (
     <>
-      <TitleComponent title="Breakfast" />
+      <TitleComponent title="Dessert" />
       <Container>
         <h1 className="w-full md:w-2/3 lg:w-1/2 h-12 md:h-16 lg:h-20 mx-auto text-center mt-12 md:mt-16 bg-lightBlueT flex justify-center items-center text-big md:text-huge font-script">
-          Breakfast
+          Dessert
         </h1>
         <div className="flex justify-center mx-auto my-16">
           <StyledButton open={vopen} onClick={() => showVegan()}>

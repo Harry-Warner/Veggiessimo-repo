@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const CommunityLink = () => {
   return (
-    <SectionWrapper className="w-full relative h-48 md:h-96 lg:h-116 my-4 md:my-8 lg:my-10 bg-cover bg-center">
+    <SectionWrapper className="w-full relative h-48 md:h-96 lg:h-116 mt-4 md:mt-8 lg:mt-10 bg-cover bg-center">
       <div className="bg-white absolute w-full top-0 mt-4 md:mt-8 lg:mt-12">
         <img
           className="w-full md:hidden"

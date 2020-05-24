@@ -21,7 +21,7 @@ const RecipeTypes = () => {
             Breakfast
           </h2>
         </StyledLink>
-        <StyledLink className="relative mx-auto cursor-pointer">
+        <StyledLink href="/mains" className="relative mx-auto cursor-pointer">
           <img
             className="h-48 md:h-56 lg:h-56 m-6"
             src="images/dinner.png"
@@ -31,7 +31,10 @@ const RecipeTypes = () => {
             Mains
           </h2>
         </StyledLink>
-        <StyledLink className="relative mx-auto cursor-pointer md:hidden lg:block">
+        <StyledLink
+          href="/dessert"
+          className="relative mx-auto cursor-pointer md:hidden lg:block"
+        >
           <img
             className="h-48 md:h-56 lg:h-56 m-6"
             src="images/dessert.png"
