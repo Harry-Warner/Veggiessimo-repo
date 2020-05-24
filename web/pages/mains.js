@@ -81,12 +81,12 @@ const Breakfast = (props) => {
           <StyledButton open={vopen} onClick={() => showVegan()}>
             <CheckIcon className="icon" fontSize="large" />
             <div className="circle" />
-            <p>Vegan</p>
+            <p className="font-bold">Vegan</p>
           </StyledButton>
           <StyledButton open={gopen} onClick={() => showGlutenFree()}>
             <CheckIcon className="icon" fontSize="large" />
             <div className="circle" />
-            <p>Gluten Free</p>
+            <p className="font-bold">Gluten Free</p>
           </StyledButton>
         </div>
         <RecipeList>

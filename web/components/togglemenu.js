@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { bool } from "prop-types";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 const ToggleMenu = ({ open }) => {
   return (
@@ -11,7 +12,13 @@ const ToggleMenu = ({ open }) => {
         </h1>
         <a href="/index">Home</a>
         <a href="/about">About</a>
-        <a href="/recipes">Recipes</a>
+        <a href="/recipes" className="flex flex-col">
+          Recipes
+          <ArrowDropDownIcon className="text-cnter self-center" />
+          <a className="subs">Breakfast</a>
+          <a className="subs">Mains</a>
+          <a className="subs">Dessert</a>
+        </a>
         <a href="#">Community</a>
         <a href="#">Contact</a>
       </div>
@@ -60,11 +67,23 @@ const StyledMenu = styled.nav`
     font-weight: bold;
     letter-spacing: 0.25rem;
     color: black;
+
+    .subs {
+      font-size: 10px;
+      padding: 0.25rem 0;
+      letter-spacing: 0.125rem;
+
+      @media (min-width: 768px) {
+        font-size: 20px;
+        padding: 0.5rem 0;
+        letter-spacing: 0.25rem;
+      }
+    }
   }
 
   @media (min-width: 768px) {
     flex-direction: row;
-    height: 60vh;
+    height: 70vh;
 
     a {
       font-size: 1.75rem;

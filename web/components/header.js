@@ -4,6 +4,7 @@ import ToggleMenu from "./togglemenu";
 import styled from "styled-components";
 import Headroom from "react-headroom";
 import garlic from "../images/garlic.png";
+import Colors from "../styled/colors";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -45,6 +46,11 @@ const Header = () => {
             <Link href="/recipes">
               <img className="garlic" src={garlic} alt="garlic" />
               recipes
+              <div className="courses flex-col absolute w-full top-0 mt-12 text-sm h-40 justify-around items-start bg-green">
+                <a href="/breakfast">Breakfast</a>
+                <a href="/mains">Mains</a>
+                <a href="/dessert">Dessert</a>
+              </div>
             </Link>
             <Link href="#">
               <img className="garlic" src={garlic} alt="garlic" />
@@ -72,6 +78,7 @@ const StyledHeader = styled.div`
 `;
 
 const Link = styled.a`
+  position: relative;
   height: 100%;
   line-height: 3rem;
   text-transform: uppercase;
@@ -89,9 +96,25 @@ const Link = styled.a`
     transition: all 0.3s ease-in-out;
   }
 
+  .courses {
+    line-height: 0.75rem;
+    display: none;
+    padding-left: 35.78px;
+    a {
+      width: 100%;
+      padding: 10px;
+      &:hover {
+        background: ${Colors.blackT};
+      }
+    }
+  }
+
   &:hover {
     .garlic {
       transform: rotate(90deg);
+    }
+    .courses {
+      display: flex;
     }
   }
 `;
