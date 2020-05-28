@@ -46,7 +46,7 @@ const Header = () => {
             <Link href="/recipes">
               <img className="garlic" src={garlic} alt="garlic" />
               recipes
-              <div className="courses flex-col absolute w-full top-0 mt-12 text-sm h-40 justify-around items-start bg-green">
+              <div className="courses flex flex-col absolute w-full top-0 mt-12 justify-around items-start bg-green">
                 <a href="/breakfast">Breakfast</a>
                 <a href="/mains">Mains</a>
                 <a href="/dessert">Dessert</a>
@@ -98,14 +98,14 @@ const Link = styled.a`
 
   .courses {
     line-height: 0.75rem;
-    display: none;
+    visibility: hidden;
     padding-left: 35.78px;
+    height: 0;
+    transition: all 0.3s ease-in-out;
+    font-size: 0;
     a {
       width: 100%;
       padding: 10px;
-      &:hover {
-        background: ${Colors.blackT};
-      }
     }
   }
 
@@ -114,7 +114,9 @@ const Link = styled.a`
       transform: rotate(90deg);
     }
     .courses {
-      display: flex;
+      visibility: visible;
+      height: 100px;
+      font-size: 0.875rem;
     }
   }
 `;

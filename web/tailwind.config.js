@@ -12,6 +12,8 @@ module.exports = {
         "96": "24rem",
         "108": "27rem",
         "116": "29rem",
+        "124": "31rem",
+        "132": "33rem",
       },
       lineHeight: {
         "12": "3rem",
