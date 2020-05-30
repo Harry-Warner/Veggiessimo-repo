@@ -1,33 +1,30 @@
 import React from "react";
+import styled from "styled-components";
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
-import styled from "styled-components";
-import TitleComponent from "../components/titleComponent.jsx";
-import RecipeList from "../styled/postlist";
-import RecipeTypes from "../components/recipetypes";
 import Footer from "../components/footer";
+import TitleComponent from "../components/titleComponent.jsx";
 import Container from "../styled/container";
+import RecipeList from "../styled/postlist";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Recipes = (props) => {
+const Community = (props) => {
   const { posts = [] } = props;
-
   return (
     <>
-      <TitleComponent title="Recipes" />
+      <TitleComponent title="Community" />
       <Container>
-        <h1 className="mt-4 md:mt-6 lg:mt-16 text-start text-vbig md:text-huge w-full px-12 font-script bg-greenT">
-          Recipes!
-        </h1>
-        <RecipeTypes />
-        <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 flex justify-center items-center">
-          <h1 className="text-big md:text-huge font-script">Recent Recipes!</h1>
+        <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center mt-6 lg:mt-16 flex justify-center items-center">
+          <h1 className="text-big md:text-huge font-script">Community</h1>
         </StyledTitle>
+        <h2 className="w-full text-center font-sans my-6 md:mb-12 lg:mb-16 text-xs md:text-lg lg:text-xl">
+          Ideas on how to live a more sustainable lifestyle
+        </h2>
         <RecipeList>
           {posts.map(
             ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
@@ -45,7 +42,6 @@ const Recipes = (props) => {
                       <div className="flex justify-between">
                         <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                           {title}
-                          <span className="vegetarianicon"> &#9419;</span>
                         </p>
                         <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
                           {"  "}({new Date(_updatedAt).toDateString()})
@@ -64,14 +60,14 @@ const Recipes = (props) => {
   );
 };
 
-Recipes.getInitialProps = async () => ({
+Community.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-      *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]|order(publishedAt desc)
-    `),
+        *[_type == "post" && publishedAt < now() && categories[]._ref == "555c76b7-33d0-47ce-a659-7d22a3d79dcb"]|order(publishedAt desc)
+      `),
 });
 
 const StyledTitle = styled.div`
-  background-image: url("images/mealbrush640.png");
+  background-image: url("images/pinkbrush640.png");
   background-size: cover;
   background-position: center;
 
@@ -80,10 +76,10 @@ const StyledTitle = styled.div`
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    background-image: url("images/mealbrush768.png");
+    background-image: url("images/pinkbrush768.png");
   }
   @media (min-width: 1024px) {
-    background-image: url("images/mealbrush1024.png");
+    background-image: url("images/pinkbrush1024.png");
   }
 `;
 
@@ -100,4 +96,4 @@ const StyledLine = styled.hr`
   );
 `;
 
-export default Recipes;
+export default Community;

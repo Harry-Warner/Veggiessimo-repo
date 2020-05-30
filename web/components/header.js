@@ -52,7 +52,7 @@ const Header = () => {
                 <a href="/dessert">Dessert</a>
               </div>
             </Link>
-            <Link href="#">
+            <Link href="/community">
               <img className="garlic" src={garlic} alt="garlic" />
               community
             </Link>

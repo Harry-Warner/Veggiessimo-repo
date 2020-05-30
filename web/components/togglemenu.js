@@ -12,7 +12,7 @@ const ToggleMenu = ({ open }) => {
         <a href="/index">Home</a>
         <a href="/about">About</a>
         <a href="/recipes">Recipes</a>
-        <a href="#">Community</a>
+        <a href="/community">Community</a>
         <a href="#">Contact</a>
       </div>
       <div>

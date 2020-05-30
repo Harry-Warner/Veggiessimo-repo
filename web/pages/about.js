@@ -37,7 +37,7 @@ const About = () => {
             alt="friends"
           />
         </div>
-        <p className="relative leading-tight w-9/12 mx-auto mb-2 md:mb-4 lg:mb-6 text-sm md:text-lg lg:text-xl py-6 px-6 bg-lightPinkT">
+        <p className="relative leading-tight w-9/12 mx-auto mb-2 md:mb-4 lg:mb-6 text-sm md:text-base lg:text-lg py-6 px-6 bg-lightPinkT">
           HOLA! <br />
           <br />
           We are Milly and Maria, two good friends from very different sides of

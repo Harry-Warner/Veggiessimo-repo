@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const RecipeList = styled.ul`
+const PostList = styled.ul`
   width: 100%;
   margin: 10px auto;
   display: grid;
@@ -20,4 +20,4 @@ const RecipeList = styled.ul`
   }
 `;
 
-export default RecipeList;
+export default PostList;

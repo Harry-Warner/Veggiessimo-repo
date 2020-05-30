@@ -5,7 +5,7 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
 import TitleComponent from "../components/titleComponent.jsx";
-import RecipeList from "../styled/recipeslist";
+import RecipeList from "../styled/postlist";
 import Footer from "../components/footer";
 import Container from "../styled/container";
 import Colors from "../styled/colors";
@@ -74,9 +74,9 @@ const Breakfast = (props) => {
     <>
       <TitleComponent title="Dessert" />
       <Container>
-        <h1 className="w-full md:w-2/3 lg:w-1/2 h-12 md:h-16 lg:h-20 mx-auto text-center mt-12 md:mt-16 bg-lightBlueT flex justify-center items-center text-big md:text-huge font-script">
-          Dessert
-        </h1>
+        <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 lg:mt-16 flex justify-center items-center">
+          <h1 className="text-big md:text-huge font-script">Dessert</h1>
+        </StyledTitle>
         <div className="flex justify-center mx-auto my-16">
           <StyledButton open={vopen} onClick={() => showVegan()}>
             <CheckIcon className="icon" fontSize="large" />
@@ -134,6 +134,23 @@ Breakfast.getInitialProps = async () => ({
         }|order(publishedAt desc)
     `),
 });
+
+const StyledTitle = styled.div`
+  background-image: url("images/mealbrush640.png");
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: 640px) {
+    height: 22vw;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    background-image: url("images/mealbrush768.png");
+  }
+  @media (min-width: 1024px) {
+    background-image: url("images/mealbrush1024.png");
+  }
+`;
 
 const StyledButton = styled.div`
   display: flex;
