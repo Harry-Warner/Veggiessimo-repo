@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const CommunityLink = () => {
   return (
-    <SectionWrapper className="flex justify-end items-center w-full relative h-48 md:h-96 lg:h-116 mt-4 md:mt-8 lg:mt-10 bg-cover bg-center">
-      <div className="bg-white absolute w-full top-0">
+    <SectionWrapper className="w-full relative h-48 md:h-96 lg:h-116 mt-4 md:mt-8 lg:mt-10 bg-cover bg-center">
+      <div className="bg-white relative w-full top-0">
         <img
           className="w-full h-56 md:hidden"
           src="images/onion640.png"
@@ -21,14 +21,12 @@ const CommunityLink = () => {
           alt="background"
         />
       </div>
-      <img
-        className="h-48 md:h-96 lg:h-124 z-10 mr-4"
-        src="images/community-brush.png"
-        alt="banner"
-      />
-      <h1 className="absolute pr-10 md:pr-16 lg:pr-20 pb-8 md:pb-12 lg:pb-16 font-script text-big md:text-huge lg:text-vhuge z-20">
+      <h1 className="absolute font-script text-white text-big md:text-huge lg:text-vhuge z-20">
         Community
       </h1>
+      <p className="absolute font-sans text-white text-xxs md:text-base lg:text-xl z-20 w-auto">
+        Sustainable living
+      </p>
     </SectionWrapper>
   );
 };
@@ -36,6 +34,20 @@ const CommunityLink = () => {
 const SectionWrapper = styled.div`
   height: fit-content;
   display: flex;
+
+  h1 {
+    top: 30%;
+    right: 10%;
+  }
+
+  p {
+    bottom: 40%;
+    right: 20%;
+
+    @media (min-width: 768px) {
+      right: 17.5%;
+    }
+  }
 `;
 
 export default CommunityLink;

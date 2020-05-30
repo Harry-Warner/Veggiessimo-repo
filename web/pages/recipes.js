@@ -25,9 +25,9 @@ const Recipes = (props) => {
           Recipes!
         </h1>
         <RecipeTypes />
-        <h2 className="w-full md:w-2/3 lg:w-1/2 h-12 md:h-16 lg:h-20 mx-auto text-center my-6 bg-lightBlueT flex justify-center items-center text-big md:text-huge font-script">
-          Most Recent Recipes!
-        </h2>
+        <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 flex justify-center items-center">
+          <h1 className="text-big md:text-huge font-script">Recent Recipes!</h1>
+        </StyledTitle>
         <RecipeList>
           {posts.map(
             ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
@@ -69,6 +69,23 @@ Recipes.getInitialProps = async () => ({
       *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]|order(publishedAt desc)
     `),
 });
+
+const StyledTitle = styled.div`
+  background-image: url("images/mealbrush640.png");
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: 640px) {
+    height: 22vw;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    background-image: url("images/mealbrush768.png");
+  }
+  @media (min-width: 1024px) {
+    background-image: url("images/mealbrush1024.png");
+  }
+`;
 
 const StyledLine = styled.hr`
   width: 50%;

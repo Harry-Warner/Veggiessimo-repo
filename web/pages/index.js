@@ -64,7 +64,7 @@ const Index = (props) => {
                           />
                         )}
                         <div className="text-wrapper flex flex-col text-wrapper text-xxl font-bold h-64 md:h-84 lg:h-108 font-sans bg-lightPinkT uppercase">
-                          <p className="">
+                          <p className="w-10/12">
                             {title}
                             <span className="vegetarianicon"> &#9419;</span>
                           </p>

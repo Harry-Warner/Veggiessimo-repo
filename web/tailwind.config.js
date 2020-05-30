@@ -31,6 +31,7 @@ module.exports = {
       xxl: "1.5rem",
       xxxl: "1.875rem",
       big: "2.25rem",
+      qbig: "2.75rem",
       vbig: "3rem",
       huge: "4rem",
       vhuge: "5rem",
