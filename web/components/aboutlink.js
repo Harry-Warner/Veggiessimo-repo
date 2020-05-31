@@ -4,9 +4,13 @@ import styled from "styled-components";
 const AboutLink = () => {
   return (
     <div className="flex relative justify-center items-center w-full mx-auto mt-6 md:mt-12">
-      <img className="w-full lg:hidden" src="images/cwu768.png" alt="cooking" />
       <img
-        className="w-full hidden lg:block"
+        className="w-full lg:hidden border-lightPink border-solid border-t-12 border-b-12 md:border-t-20 md:border-b-20"
+        src="images/cwu768.png"
+        alt="cooking"
+      />
+      <img
+        className="w-full hidden lg:block border-lightPink border-solid border-16"
         src="images/cwu1024.png"
         alt="cooking"
       />

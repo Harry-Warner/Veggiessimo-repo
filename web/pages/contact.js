@@ -27,40 +27,43 @@ const Contact = () => {
             src="images/contact1024.png"
             alt="background"
           />
-          <h1 className="absolute text-xxxl md:text-vbig lg:text-huge font-script right-0 mr-4 md:mr-6 lg:mr-8 mt-6">
+          <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script right-0 mr-4 md:mr-6 lg:mr-12 mt-6 md:mt-16">
             Get in Touch
-          </h1>
-          <StyledForm className="absolute flex flex-col justify-end">
+          </StyledTitle>
+          <StyledForm className="absolute self-center  justify-between flex flex-col md:items-end py-4">
             <input
               type="text"
               name="name"
-              className="name my-2 self-end bg-lightPink border-solid border-lightBlue border-b-2"
+              className="name w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
               placeholder="Name"
             />
             <input
               type="email"
               name="email"
-              className="email my-2 self-end bg-lightPink border-solid border-lightBlue border-b-2"
+              className="email w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
               placeholder="Email"
             />
             <input
               type="text"
               name="subject"
-              className="subject my-2 self-end bg-lightPink border-solid border-lightBlue border-b-2"
+              className="subject w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
               placeholder="Subject"
             />
             <div className="flex justify-end py-1">
+              <button className="hidden md:block bg-greenT w-16 mr-8 self-end rounded border-solid border-lightBlue border-2">
+                Send
+              </button>
               <textarea
                 name="message"
-                className="message h-16 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
+                className="message h-full w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
                 placeholder="Message"
               />
-              <button className="bg-greenT w-12 my-3 ml-3 rounded border-solid border-lightBlue border-2">
+              <button className="md:hidden bg-greenT w-16 ml-5 self-end rounded border-solid border-lightBlue border-2">
                 Send
               </button>
             </div>
           </StyledForm>
-          <div className="w-full bg-lightBlueT flex flex-col">
+          <div className="w-full bg-lightBlueT flex flex-col lg:my-2">
             <div className="w-full flex justify-center">
               <StyledFace />
               <a href="https://www.instagram.com/veggiessimo.au/">
@@ -82,30 +85,46 @@ const Contact = () => {
   );
 };
 
+const StyledTitle = styled.h1`
+  @media (max-width: 640px) {
+    top: 37.5vw;
+  }
+`;
+
 const StyledForm = styled.form`
-  top: 25%;
-  right: 2.5%;
+  bottom: 94px;
+  width: 90%;
+  height: 70vw;
 
-  .name {
-    width: 42.5vw;
-    height: 20px;
-    padding-left: 5px;
+  div {
+    height: 30vw;
+  }
+  button {
+    height: 15vw;
   }
 
-  .email {
-    width: 45vw;
-    height: 20px;
-    padding-left: 5px;
+  @media (min-width: 768px) {
+    height: 55%;
+    bottom: 133px;
+    div {
+      height: 30%;
+    }
+    button {
+      height: 50%;
+    }
+  }
+  @media (min-width: 1024px) {
+    bottom: 160px;
   }
 
-  .subject {
-    width: 47.5vw;
-    height: 20px;
-    padding-left: 5px;
-  }
-
-  .message {
-    width: 38vw;
+  @media (max-width: 640px) {
+    .name,
+    .subject,
+    .email {
+      width: 100%;
+      height: 20px;
+      padding-bottom: 4px;
+    }
   }
 `;
 
