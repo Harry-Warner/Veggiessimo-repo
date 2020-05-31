@@ -56,7 +56,7 @@ const Header = () => {
               <img className="garlic" src={garlic} alt="garlic" />
               community
             </Link>
-            <Link href="#">
+            <Link href="/contact">
               <img className="garlic" src={garlic} alt="garlic" />
               contact
             </Link>

@@ -13,7 +13,7 @@ const ToggleMenu = ({ open }) => {
         <a href="/about">About</a>
         <a href="/recipes">Recipes</a>
         <a href="/community">Community</a>
-        <a href="#">Contact</a>
+        <a href="/contact">Contact</a>
       </div>
       <div>
         <h1 className="text-sm md:text-xxl font-bold border-b py-2">Social</h1>

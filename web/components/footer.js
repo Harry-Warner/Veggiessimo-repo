@@ -28,9 +28,12 @@ const Footer = () => {
           >
             Our Story
           </a>
-          <p className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl mr-2 md:mr-5">
+          <a
+            href="/contact"
+            className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl mr-2 md:mr-5"
+          >
             Contact us
-          </p>
+          </a>
         </StyledNav>
       </div>
       <div className="relative w-100 bg-green">
