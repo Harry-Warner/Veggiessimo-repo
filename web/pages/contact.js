@@ -87,14 +87,14 @@ const Contact = () => {
 
 const StyledTitle = styled.h1`
   @media (max-width: 640px) {
-    top: 37.5vw;
+    top: 35vw;
   }
 `;
 
 const StyledForm = styled.form`
   bottom: 94px;
   width: 90%;
-  height: 70vw;
+  height: 73.5vw;
 
   div {
     height: 30vw;
@@ -122,7 +122,7 @@ const StyledForm = styled.form`
     .subject,
     .email {
       width: 100%;
-      height: 20px;
+      height: 7.5vw;
       padding-bottom: 4px;
     }
   }
