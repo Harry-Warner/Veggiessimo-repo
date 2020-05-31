@@ -24,7 +24,8 @@ const CommunityLink = () => {
       <h1 className="absolute font-script text-lightPink text-big md:text-huge lg:text-vhuge z-20">
         Community
       </h1>
-      <p className="absolute font-sans text-lightPink uppercase text-xxs md:text-base lg:text-xl z-20 w-auto">
+      <p className="absolute text-center font-sans text-lightPink uppercase text-xxs md:text-base lg:text-xl leading-tight md:leading-5 lg:leading-6 z-20 w-auto">
+        <span className="text-sm md:text-xl lg:text-xxl">+</span> <br />
         Sustainable living
       </p>
     </SectionWrapper>
@@ -41,11 +42,12 @@ const SectionWrapper = styled.div`
   }
 
   p {
-    bottom: 40%;
+    bottom: 37.5%;
     right: 18.5%;
 
     @media (min-width: 768px) {
       right: 16.5%;
+      bottom: 42%;
     }
   }
 `;

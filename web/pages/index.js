@@ -5,6 +5,7 @@ import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
+import Color from "../styled/colors";
 import RecipesLink from "../components/recipeslink";
 import AboutLink from "../components/aboutlink";
 import CommunityLink from "../components/communitylink";
@@ -73,7 +74,7 @@ const Index = (props) => {
                           </div>
                         </div>
                       </StyledLink>
-                      <div className="w-full md:w-11/12 lg:w-10/12 bg-lightBlue mx-auto">
+                      <div className="w-full md:w-11/12 lg:w-10/12 mx-auto">
                         <p className="font-sans text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                           {title}
                           <span className="vegetarianicon"> &#9419;</span>
@@ -118,6 +119,7 @@ const Recipes = styled.ul`
   margin: 10px auto;
   display: flex;
   flex-direction: column;
+  background: ${Color.lightPinkT};
 `;
 
 const StyledLink = styled.div`

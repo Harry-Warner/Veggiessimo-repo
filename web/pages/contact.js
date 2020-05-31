@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <>
       <Container>
-        <div className="flex flex-col w-full lg:w-9/12 mx-auto relative mt-8 md:mt-12 lg:mt-24">
+        <div className="flex flex-col w-full mx-auto relative mt-8 md:mt-12 lg:mt-24">
           <img
             className="block md:hidden w-full z-0"
             src="images/contact640.png"
@@ -70,7 +70,7 @@ const Contact = () => {
             </div>
             <div className="flex justify-center items-center">
               <StyledEmail />
-              <p className="text-xl md:text-xxl lg:text-xxxl pb-3 font-sans">
+              <p className="text-xl md:text-xxl lg:text-xxxl pb-3 md:pb-4 font-sans">
                 veggiessimo@gmail.com
               </p>
             </div>
@@ -144,13 +144,13 @@ const StyledPin = styled(PinterestWithCircle)`
 `;
 
 const StyledEmail = styled(Email)`
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   margin: 0 5px 10px;
 
   @media (min-width: 768px) {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     margin: 0 10px 15px;
   }
 `;
