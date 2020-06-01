@@ -32,6 +32,12 @@ export default {
       },
     },
     {
+      name: "mealType",
+      title: "MealType",
+      type: "array",
+      of: [{ type: "reference", to: { type: "mealType" } }],
+    },
+    {
       name: "categories",
       title: "Categories",
       type: "array",
