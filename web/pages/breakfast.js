@@ -95,7 +95,10 @@ const Breakfast = (props) => {
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
                   <li key={_id}>
-                    <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                    <Link
+                      href="/post/recipes/[slug]"
+                      as={`/post/recipes/${slug.current}`}
+                    >
                       <a>
                         {mainImage && (
                           <img
@@ -125,7 +128,7 @@ const Breakfast = (props) => {
 
 Breakfast.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-      *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]{
+      *[_type == "recipePost" && publishedAt < now()]{
         title,
         mainImage,
         slug,

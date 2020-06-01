@@ -30,7 +30,10 @@ const Community = (props) => {
             ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
               slug && (
                 <li key={_id}>
-                  <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                  <Link
+                    href="/post/community/[slug]"
+                    as={`/post/community/${slug.current}`}
+                  >
                     <a>
                       {mainImage && (
                         <img
@@ -62,7 +65,7 @@ const Community = (props) => {
 
 Community.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-        *[_type == "post" && publishedAt < now() && categories[]._ref == "555c76b7-33d0-47ce-a659-7d22a3d79dcb"]|order(publishedAt desc)
+        *[_type == "communityPost" && publishedAt < now()]|order(publishedAt desc)
       `),
 });
 

@@ -3,18 +3,18 @@ import Link from "next/link";
 import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
-import client from "../../client";
-import TitleComponent from "../../components/titleComponent.jsx";
-import Footer from "../../components/footer";
+import client from "../../../client";
+import TitleComponent from "../../../components/titleComponent.jsx";
+import Footer from "../../../components/footer";
 import styled from "styled-components";
-import Container from "../../styled/container";
-import RecipeList from "../../styled/postlist";
+import Container from "../../../styled/container";
+import RecipeList from "../../../styled/postlist";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Post = (props) => {
+const RecipePost = (props) => {
   const { post = [], recipes = [] } = props;
   return (
     <>
@@ -95,7 +95,7 @@ const Post = (props) => {
   );
 };
 
-const query = groq`*[_type == "post" && slug.current == $slug][0]{
+const query = groq`*[_type == "recipePost" && slug.current == $slug][0]{
 title,
 mainImage,
 "name": author->name,
@@ -105,13 +105,13 @@ ingredients,
 body
 }`;
 
-Post.getInitialProps = async function (context) {
+RecipePost.getInitialProps = async function (context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
   return {
     post: await client.fetch(query, { slug }),
     recipes: await client.fetch(groq`
-    *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]|order(publishedAt desc){
+    *[_type == "recipePost" && publishedAt < now()]|order(publishedAt desc){
       title,
       mainImage,
       slug,
@@ -146,4 +146,4 @@ const StyledLine = styled.hr`
   );
 `;
 
-export default Post;
+export default RecipePost;

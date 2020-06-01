@@ -8,7 +8,8 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import blockContent from "./blockContent";
 import category from "./category";
 import mealType from "./mealType";
-import post from "./post";
+import recipePost from "./recipePost";
+import communityPost from "./communityPost";
 import author from "./author";
 import ingredients from "./ingredients";
 
@@ -21,7 +22,8 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    post,
+    recipePost,
+    communityPost,
     author,
     category,
     mealType,

@@ -53,7 +53,10 @@ const Index = (props) => {
             ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
               slug && (
                 <li className="my-4 md:my-6 lg:my-8" key={_id}>
-                  <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                  <Link
+                    href="/post/recipes/[slug]"
+                    as={`/post/recipes/${slug.current}`}
+                  >
                     <a>
                       <StyledLink className="relative mx-auto w-full md:w-11/12 lg:w-10/12">
                         {mainImage && (
@@ -94,7 +97,7 @@ const Index = (props) => {
 
 Index.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-      *[_type == "post" && publishedAt < now() && categories[]._ref == "327f026c-2dcc-46da-b58f-d876c2be0005"]|order(publishedAt desc)[0...4]
+      *[_type == "recipePost" && publishedAt < now()]|order(publishedAt desc)[0...4]
     `),
 });
 
