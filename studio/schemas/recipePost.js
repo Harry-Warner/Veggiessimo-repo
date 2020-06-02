@@ -37,6 +37,11 @@ export default {
       type: "number",
     },
     {
+      name: "servings",
+      title: "Servings",
+      type: "number",
+    },
+    {
       name: "mealType",
       title: "MealType",
       type: "array",
