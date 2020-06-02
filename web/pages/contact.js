@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Footer from "../components/footer";
 import Container from "../styled/container";
+import TitleComponent from "../components/titleComponent.jsx";
 import { Instagram } from "@styled-icons/entypo-social/Instagram";
 import { Facebook } from "@styled-icons/entypo-social/Facebook";
 import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCircle";
@@ -10,6 +11,7 @@ import { Email } from "@styled-icons/material/Email";
 const Contact = () => {
   return (
     <>
+      <TitleComponent title="Breakfast" />
       <Container>
         <div className="flex flex-col w-full mx-auto relative mt-8 md:mt-12 lg:mt-24">
           <img
@@ -27,10 +29,10 @@ const Contact = () => {
             src="images/contact1024.png"
             alt="background"
           />
-          <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script right-0 mr-4 md:mr-6 lg:mr-12 mt-6 md:mt-16">
+          <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script left-0 ml-4 md:ml-6 lg:ml-12 mt-8 md:mt-24 lg:mt-10">
             Get in Touch
           </StyledTitle>
-          <StyledForm className="absolute self-center  justify-between flex flex-col md:items-end py-4">
+          <StyledForm className="absolute self-center  justify-between flex flex-col md:items-start py-4">
             <input
               type="text"
               name="name"
@@ -50,15 +52,15 @@ const Contact = () => {
               placeholder="Subject"
             />
             <div className="flex justify-end py-1">
-              <button className="hidden md:block bg-greenT w-16 mr-8 self-end rounded border-solid border-lightBlue border-2">
-                Send
-              </button>
               <textarea
                 name="message"
                 className="message h-full w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
                 placeholder="Message"
               />
-              <button className="md:hidden bg-greenT w-16 ml-5 self-end rounded border-solid border-lightBlue border-2">
+              <button className="hidden md:block bg-lightBlue text-white uppercase font-bold w-16 ml-6 lg:ml-10 self-end rounded-lg">
+                Send
+              </button>
+              <button className="md:hidden bg-lightBlue text-white uppercase font-bold w-16 ml-5 self-end rounded-lg">
                 Send
               </button>
             </div>
@@ -94,36 +96,56 @@ const StyledTitle = styled.h1`
 const StyledForm = styled.form`
   bottom: 94px;
   width: 90%;
-  height: 73.5vw;
+  height: 70vw;
+
+  .name,
+  .subject,
+  .email {
+    width: 100%;
+    height: 7.5vw;
+    padding-bottom: 4px;
+  }
 
   div {
-    height: 30vw;
+    height: 27.5vw;
   }
   button {
-    height: 15vw;
+    height: fit-content;
+    width: fit-content;
+    padding: 1vw 2vw 1vw;
+    font-size: 4vw;
   }
 
   @media (min-width: 768px) {
+    width: 95%;
     height: 55%;
     bottom: 133px;
     div {
-      height: 30%;
+      font-size: 25px;
+      height: 200px;
     }
     button {
-      height: 50%;
+      font-size: 25px;
+      padding: 7.5px 10px 5px;
+    }
+    .name,
+    .email,
+    .subject {
+      font-size: 25px;
+      width: 19rem;
+      height: 50px;
+      padding-bottom: 10px;
     }
   }
   @media (min-width: 1024px) {
     bottom: 160px;
-  }
-
-  @media (max-width: 640px) {
     .name,
-    .subject,
-    .email {
-      width: 100%;
-      height: 7.5vw;
-      padding-bottom: 4px;
+    .email,
+    .subject {
+      font-size: 25px;
+      width: 27rem;
+      height: 50px;
+      padding-bottom: 10px;
     }
   }
 `;
