@@ -8,7 +8,6 @@ import TitleComponent from "../../../components/titleComponent.jsx";
 import Footer from "../../../components/footer";
 import styled from "styled-components";
 import Container from "../../../styled/container";
-import RecipeList from "../../../styled/postlist";
 import Colors from "../../../styled/colors";
 import { Instagram } from "@styled-icons/entypo-social/Instagram";
 import { Facebook } from "@styled-icons/entypo-social/Facebook";
@@ -65,7 +64,7 @@ const RecipePost = (props) => {
               />
             </div>
           )}
-          <StyledBox className="grid grid-cols-2 gap-tiny my-2 w-full h-32 bg-blue">
+          <StyledBox className="grid grid-cols-2 gap-tiny my-2 w-full h-32 bg-lightPink">
             <div>
               <h2>Cook time:</h2>
               <p>{cooking_time(post.cookingTime)}</p>
@@ -84,7 +83,7 @@ const RecipePost = (props) => {
             </div>
           </StyledBox>
           <h2 className="text-lg font-script m-2">Ingredients:</h2>
-          <div className="flex mx-4 mb-4 text-xs font-sans italic">
+          <div className="flex mx-4 mb-4 text-xs font-sans">
             <BlockContent
               blocks={post.ingredients}
               imageOptions={{ w: 320, h: 240, fit: "max" }}
@@ -101,46 +100,53 @@ const RecipePost = (props) => {
             />
           </div>
         </article>
-        <RecipeList className="hidden">
-          {recipes.map(
-            ({ _id, title = "", mainImage, slug = "" }) =>
-              slug && (
-                <li key={_id}>
-                  <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                    <a>
-                      {mainImage && (
-                        <img
-                          className="h-48 lg:h-64 w-full object-cover object-center"
-                          src={urlFor(mainImage).url()}
-                          alt="Food"
-                        />
-                      )}
-                      <div className="flex justify-center">
-                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
-                          {title}
-                          <span className="vegetarianicon"> &#9419;</span>
-                        </p>
-                      </div>
-                    </a>
-                  </Link>
-                  <StyledLine />
-                </li>
-              )
-          )}
-        </RecipeList>
-        <div className="flex w-11/12 mx-auto h-32 items-center justify-center bg-white border-blue border-solid border-2 rounded-lg">
+        <div className="relative w-full">
+          <StyledTitle className="absolute w-full">
+            <div className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 flex justify-center items-center">
+              <h1 className="text-xxl md:text-huge font-sans uppercase">
+                - More Great Recipes -
+              </h1>
+            </div>
+          </StyledTitle>
+          <div className="grid grid-cols-2 w-full px-8 py-12 gap-4 bg-lightPinkT mt-16">
+            {recipes.map(
+              ({ _id, title = "", mainImage, slug = "" }) =>
+                slug && (
+                  <li key={_id}>
+                    <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                      <a>
+                        {mainImage && (
+                          <img
+                            className="w-full object-cover object-center"
+                            src={urlFor(mainImage).url()}
+                            alt="Food"
+                          />
+                        )}
+                        <div className="flex flex-col bg-white py-1">
+                          <p className="font-sans self-center text-black mx-10 mt-4 mb-6 text-xs md:text-base lg:text-lg leading-tight">
+                            {title}
+                          </p>
+                        </div>
+                      </a>
+                    </Link>
+                  </li>
+                )
+            )}
+          </div>
+        </div>
+        <div className="flex w-11/12 mx-auto my-4 h-32 items-center justify-center bg-white border-blue border-solid border-2 rounded-lg">
           <StyledCam />
-          <div className="flex flex-col justify-around">
-            <h1 className="text-center font-script text-lg">
+          <StyledTrend className="flex flex-col justify-around">
+            <h1 className="text-center font-script text-xxxl">
               Have you done it?
             </h1>
-            <h2 className="text-center font-sans text-xs uppercase">
+            <h3 className="text-center font-sans text-base uppercase">
               let us know
-            </h2>
-            <h2 className="text-center font-sans text-sm uppercase">
+            </h3>
+            <h2 className="text-center font-sans text-lg uppercase">
               #makeitveggiessimo
             </h2>
-          </div>
+          </StyledTrend>
         </div>
         <Footer />
       </Container>
@@ -148,7 +154,7 @@ const RecipePost = (props) => {
   );
 };
 
-const query = groq`*[_type == "recipePost" && slug.current == $slug][0]{
+const queryPost = groq`*[_type == "recipePost" && slug.current == $slug][0]{
 title,
 mainImage,
 cookingTime,
@@ -160,20 +166,21 @@ servings,
 body
 }`;
 
+const queryRecipes = groq`*[_type == "recipePost" && publishedAt < now() && slug.current != $slug]|order(publishedAt desc){
+  title,
+  mainImage,
+  slug,
+  _id,
+  "categories": categories[]->title,
+  }[0...4]
+`;
+
 RecipePost.getInitialProps = async function (context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
   return {
-    post: await client.fetch(query, { slug }),
-    recipes: await client.fetch(groq`
-    *[_type == "recipePost" && publishedAt < now() && !slug.current]|order(publishedAt desc){
-      title,
-      mainImage,
-      slug,
-      _id,
-      "categories": categories[]->title,
-      }[0...4]
-  `),
+    post: await client.fetch(queryPost, { slug }),
+    recipes: await client.fetch(queryRecipes, { slug }),
   };
 };
 
@@ -216,7 +223,7 @@ const StyledBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: ${Colors.lightBlue};
+    background: ${Colors.lightBlueT};
 
     h2 {
       text-align: center;
@@ -232,23 +239,50 @@ const StyledBox = styled.div`
   }
 `;
 
-const StyledLine = styled.hr`
-  width: 50%;
-  margin: 20px auto;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0)
-  );
+const StyledTitle = styled.div`
+  top: -30%;
+  div {
+    background-image: url("../../images/mealbrush640.png");
+    background-size: cover;
+    background-position: center;
+
+    @media (max-width: 640px) {
+      height: 22vw;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      background-image: url("../../images/mealbrush768.png");
+    }
+    @media (min-width: 1024px) {
+      background-image: url("../../images/mealbrush1024.png");
+    }
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 6.5vw;
+    }
+  }
 `;
 
 const StyledCam = styled(Camera)`
-  width: 6rem;
-  height: 6rem;
-  margin-right: 30px;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin-right: 5px;
+`;
+
+const StyledTrend = styled.div`
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 7.5vw;
+    }
+    h2 {
+      font-size: 5vw;
+    }
+    h3 {
+      font-size: 4vw;
+    }
+  }
 `;
 
 export default RecipePost;
