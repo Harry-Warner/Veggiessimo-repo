@@ -4,7 +4,6 @@ import ToggleMenu from "./togglemenu";
 import styled from "styled-components";
 import Headroom from "react-headroom";
 import garlic from "../images/garlic.png";
-import Colors from "../styled/colors";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -17,7 +16,7 @@ const Header = () => {
               <a href="/index" className="z-20">
                 <img
                   className="h-16 px-2 md:h-20"
-                  src="../images/logo.png"
+                  src="../../images/logo.png"
                   alt="logo"
                 />
               </a>
@@ -30,7 +29,7 @@ const Header = () => {
           <a href="/index">
             <img
               className="absolute top-0 left-0 h-16 px-2"
-              src="../images/logo.png"
+              src="../../images/logo.png"
               alt="logo"
             />
           </a>

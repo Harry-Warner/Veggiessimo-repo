@@ -17,13 +17,13 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
     margin: 0;
 
-  background-image: url("images/cwubg640.png");
+  background-image: url("../../images/cwubg640.png");
 
   @media (min-width: 768px) {
-    background-image: url("images/cwubg768.png");
+    background-image: url("../../images/cwubg768.png");
   }
   @media (min-width: 1024px) {
-    background-image: url("images/cwubg1024.png");
+    background-image: url("../../images/cwubg1024.png");
   }
   };
 `;

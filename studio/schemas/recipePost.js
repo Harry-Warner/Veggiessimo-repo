@@ -32,6 +32,11 @@ export default {
       },
     },
     {
+      name: "cookingTime",
+      title: "Cooking Time",
+      type: "number",
+    },
+    {
       name: "mealType",
       title: "MealType",
       type: "array",

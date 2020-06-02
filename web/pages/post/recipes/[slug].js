@@ -9,6 +9,11 @@ import Footer from "../../../components/footer";
 import styled from "styled-components";
 import Container from "../../../styled/container";
 import RecipeList from "../../../styled/postlist";
+import Colors from "../../../styled/colors";
+import { Instagram } from "@styled-icons/entypo-social/Instagram";
+import { Facebook } from "@styled-icons/entypo-social/Facebook";
+import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCircle";
+import { Camera } from "@styled-icons/evil/Camera";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -16,35 +21,68 @@ function urlFor(source) {
 
 const RecipePost = (props) => {
   const { post = [], recipes = [] } = props;
+  function cooking_time(num) {
+    let hours = Math.floor(num / 60);
+    let minutes = num % 60;
+    return `${hours}:${minutes}`;
+  }
+  function category_list(cat) {
+    let str = [];
+    for (let i = 0; i < cat.length; i++) {
+      if (i === 0) {
+        str[i] = `${cat[i]}`;
+      } else {
+        str[i] = `, ${cat[i]}`;
+      }
+    }
+    return str;
+  }
   return (
     <>
       <TitleComponent title={post.title} />
       <Container>
         <article>
-          <PaintSwipe className="w-full h-12 mt-16 flex bg-cover relative">
-            <Title1 className="text-big leading-10">{post.title}</Title1>
-            <div className="flex justify-end items-end absolute bottom-0 right-0">
-              {post.authorImage && (
-                <div>
-                  <img
-                    className="h-4 m-1"
-                    src={urlFor(post.authorImage).url()}
-                    alt="self-portrait"
-                  />
-                </div>
-              )}
-              <span className="text-xxs m-1">By {post.name}</span>
-            </div>
-          </PaintSwipe>
+          <h2 className="text-lg text-center font-sans uppercase pt-4 pb-1">
+            {post.mealType}
+          </h2>
+          <h1 className="text-big text-center py-1 font-script">
+            {post.title}
+          </h1>
+          <h3 className="text-sm text-center font-sans py-1">By {post.name}</h3>
+          <div className="w-full flex justify-center">
+            <StyledFace />
+            <a href="https://www.instagram.com/veggiessimo.au/">
+              <StyledInst />
+            </a>
+            <StyledPin />
+          </div>
           {post.mainImage && (
             <div>
               <img
-                className="h-48 w-full object-cover object-center"
+                className="h-56 w-full object-cover object-center"
                 src={urlFor(post.mainImage).width(300).url()}
                 alt="food"
               />
             </div>
           )}
+          <StyledBox className="grid grid-cols-2 gap-tiny my-2 w-full h-32 bg-blue">
+            <div>
+              <h2>Cook time:</h2>
+              <p>{cooking_time(post.cookingTime)}</p>
+            </div>
+            <div>
+              <h2>Servings:</h2>
+              <p>{post.servings}</p>
+            </div>
+            <div>
+              <h2>Category:</h2>
+              <p>{post.mealType}</p>
+            </div>
+            <div>
+              <h2>Extra Info:</h2>
+              <p>{category_list(post.categories)}</p>
+            </div>
+          </StyledBox>
           <h2 className="text-lg font-script m-2">Ingredients:</h2>
           <div className="flex mx-4 mb-4 text-xs font-sans italic">
             <BlockContent
@@ -53,6 +91,7 @@ const RecipePost = (props) => {
               {...client.config()}
             />
           </div>
+          <hr className="w-full h-3 border-none bg-blue my-5" />
           <h2 className="m-2 text-lg font-script">Method:</h2>
           <div className="flex mx-4 mb-4 text-xs font-sans">
             <BlockContent
@@ -89,6 +128,20 @@ const RecipePost = (props) => {
               )
           )}
         </RecipeList>
+        <div className="flex w-11/12 mx-auto h-32 items-center justify-center bg-white border-blue border-solid border-2 rounded-lg">
+          <StyledCam />
+          <div className="flex flex-col justify-around">
+            <h1 className="text-center font-script text-lg">
+              Have you done it?
+            </h1>
+            <h2 className="text-center font-sans text-xs uppercase">
+              let us know
+            </h2>
+            <h2 className="text-center font-sans text-sm uppercase">
+              #makeitveggiessimo
+            </h2>
+          </div>
+        </div>
         <Footer />
       </Container>
     </>
@@ -98,10 +151,12 @@ const RecipePost = (props) => {
 const query = groq`*[_type == "recipePost" && slug.current == $slug][0]{
 title,
 mainImage,
+cookingTime,
 "name": author->name,
+"mealType": mealType[]->title,
 "categories": categories[]->title,
-"authorImage": author->image,
 ingredients,
+servings,
 body
 }`;
 
@@ -111,7 +166,7 @@ RecipePost.getInitialProps = async function (context) {
   return {
     post: await client.fetch(query, { slug }),
     recipes: await client.fetch(groq`
-    *[_type == "recipePost" && publishedAt < now()]|order(publishedAt desc){
+    *[_type == "recipePost" && publishedAt < now() && !slug.current]|order(publishedAt desc){
       title,
       mainImage,
       slug,
@@ -122,15 +177,59 @@ RecipePost.getInitialProps = async function (context) {
   };
 };
 
-const PaintSwipe = styled.div`
-  margin-left: -15px;
-  background-image: url("/images/brush-stroke2.png");
-  background-position: 0% 42%;
+const StyledInst = styled(Instagram)`
+  width: 2rem;
+  height: 2rem;
+  margin: 10px;
+
+  @media (min-width: 768px) {
+    width: 3rem;
+    height: 3rem;
+    margin: 15px;
+  }
+`;
+const StyledFace = styled(Facebook)`
+  width: 2rem;
+  height: 2rem;
+  margin: 10px;
+
+  @media (min-width: 768px) {
+    width: 3rem;
+    height: 3rem;
+    margin: 15px;
+  }
+`;
+const StyledPin = styled(PinterestWithCircle)`
+  width: 2rem;
+  height: 2rem;
+  margin: 10px;
+
+  @media (min-width: 768px) {
+    width: 3rem;
+    height: 3rem;
+    margin: 15px;
+  }
 `;
 
-const Title1 = styled.h1`
-  margin-left: 25px;
-  font-family: "playlist-script";
+const StyledBox = styled.div`
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: ${Colors.lightBlue};
+
+    h2 {
+      text-align: center;
+      font-size: 1rem;
+      font-family: "Fira Sans", sans-serif;
+      text-transform: uppercase;
+    }
+    p {
+      text-align: center;
+      font-size: 0.875rem;
+      font-family: "Fira Sans", sans-serif;
+    }
+  }
 `;
 
 const StyledLine = styled.hr`
@@ -144,6 +243,12 @@ const StyledLine = styled.hr`
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
+`;
+
+const StyledCam = styled(Camera)`
+  width: 6rem;
+  height: 6rem;
+  margin-right: 30px;
 `;
 
 export default RecipePost;
