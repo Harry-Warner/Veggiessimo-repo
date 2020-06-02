@@ -2,11 +2,11 @@ import React from "react";
 import groq from "groq";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
-import client from "../../client";
-import TitleComponent from "../../components/titleComponent.jsx";
-import Footer from "../../components/footer";
+import client from "../../../client";
+import TitleComponent from "../../../components/titleComponent.jsx";
+import Footer from "../../../components/footer";
 import styled from "styled-components";
-import Container from "../../styled/container";
+import Container from "../../../styled/container";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -86,7 +86,7 @@ CommunityPost.getInitialProps = async function (context) {
 
 const PaintSwipe = styled.div`
   margin-left: -15px;
-  background-image: url("/images/brush-stroke2.png");
+  background-image: url("../../images/brush-stroke2.png");
   background-position: 0% 42%;
 `;
 
