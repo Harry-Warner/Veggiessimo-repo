@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Footer from "../components/footer";
 import Container from "../styled/container";
 import TitleComponent from "../components/titleComponent.jsx";
+import Colors from "../styled/colors";
 import { Instagram } from "@styled-icons/entypo-social/Instagram";
 import { Facebook } from "@styled-icons/entypo-social/Facebook";
 import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCircle";
@@ -57,10 +58,10 @@ const Contact = () => {
                 className="message h-full w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
                 placeholder="Message"
               />
-              <button className="hidden md:block bg-lightBlue text-white uppercase font-bold w-16 ml-6 lg:ml-10 self-end rounded-lg">
+              <button className="hidden md:block bg-lightBlue text-white uppercase font-bold w-16 ml-6 lg:ml-10 self-end rounded-xl">
                 Send
               </button>
-              <button className="md:hidden bg-lightBlue text-white uppercase font-bold w-16 ml-5 self-end rounded-lg">
+              <button className="md:hidden bg-lightBlue text-white uppercase font-bold w-16 ml-5 self-end rounded-xl">
                 Send
               </button>
             </div>
@@ -114,6 +115,11 @@ const StyledForm = styled.form`
     width: fit-content;
     padding: 1vw 2vw 1vw;
     font-size: 4vw;
+
+    &:hover {
+      background: white;
+      color: ${Colors.lightBlue};
+    }
   }
 
   @media (min-width: 768px) {

@@ -13,31 +13,31 @@ const RecipeTypes = () => {
           className="relative mx-auto cursor-pointer"
         >
           <img
-            className="h-24 md:h-40 lg:h-56 m-6"
+            className="h-28 md:h-40 lg:h-56 my-4"
             src="images/breakfast.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Breakfast
           </h2>
         </StyledLink>
         <StyledLink href="/mains" className="relative mx-auto cursor-pointer">
           <img
-            className="h-24 md:h-40 lg:h-56 m-6"
+            className="h-28 md:h-40 lg:h-56 my-4"
             src="images/dinner.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Mains
           </h2>
         </StyledLink>
         <StyledLink href="/dessert" className="relative mx-auto cursor-pointer">
           <img
-            className="h-24 md:h-40 lg:h-56 m-6"
+            className="h-28 md:h-40 lg:h-56 my-4"
             src="images/dessert.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Dessert
           </h2>
         </StyledLink>
@@ -46,31 +46,31 @@ const RecipeTypes = () => {
           className="relative mx-auto cursor-pointer"
         >
           <img
-            className="h-24 md:h-40 lg:h-56 m-6"
+            className="h-28 md:h-40 lg:h-56 my-4"
             src="images/dessert.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Small Bites
           </h2>
         </StyledLink>
         <StyledLink href="/salads" className="relative mx-auto cursor-pointer">
           <img
-            className="h-24 md:h-40 lg:h-56 m-6"
+            className="h-28 md:h-40 lg:h-56 my-4"
             src="images/dessert.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Salads
           </h2>
         </StyledLink>
         <StyledLink href="/sauces" className="relative mx-auto cursor-pointer">
           <img
-            className="h-24 md:h-40 lg:h-56 m-6"
+            className="h-28 md:h-40 lg:h-56 my-4"
             src="images/dessert.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Sauces
           </h2>
         </StyledLink>
@@ -112,7 +112,6 @@ const StyledLink = styled.a`
 
     @media (min-width: 768px) {
       font-size: 1.25rem;
-      width: 40%;
     }
 
     @media (min-width: 1024px) {
@@ -124,9 +123,11 @@ const StyledLink = styled.a`
 
   &:hover {
     h2 {
-      width: 35%;
-      visibility: visible;
-      font-size: 1.5rem;
+      @media (min-width: 1024px) {
+        width: 40%;
+        visibility: visible;
+        font-size: 1.5rem;
+      }
     }
   }
 `;

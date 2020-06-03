@@ -4,6 +4,7 @@ import ToggleMenu from "./togglemenu";
 import styled from "styled-components";
 import Headroom from "react-headroom";
 import garlic from "../images/garlic.png";
+import Colors from "../styled/colors";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -33,7 +34,7 @@ const Header = () => {
               alt="logo"
             />
           </a>
-          <div className="mx-auto h-full w-full flex justify-around sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
+          <div className="relative z-0 mx-auto h-full w-full flex justify-around sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
             <Link href="/">
               <img className="garlic" src={garlic} alt="garlic" />
               home
@@ -43,12 +44,29 @@ const Header = () => {
               about
             </Link>
             <Link href="/recipes">
-              <img className="garlic" src={garlic} alt="garlic" />
-              recipes
-              <div className="courses flex flex-col absolute w-full top-0 mt-12 justify-around items-start bg-green">
-                <a href="/breakfast">Breakfast</a>
-                <a href="/mains">Mains</a>
-                <a href="/dessert">Dessert</a>
+              <div className="relative z-10 bg-green flex w-full">
+                <img className="garlic1" src={garlic} alt="garlic" />
+                recipes
+              </div>
+              <div className="courses z-0 flex flex-col absolute mt-12 justify-around items-start bg-green">
+                <a href="/breakfast" className="hover:font-bold">
+                  - Breakfast
+                </a>
+                <a href="/mains" className="hover:font-bold">
+                  - Mains
+                </a>
+                <a href="/dessert" className="hover:font-bold">
+                  - Dessert
+                </a>
+                <a href="/smallbites" className="hover:font-bold">
+                  - Small Bites
+                </a>
+                <a href="/salads" className="hover:font-bold">
+                  - Salads
+                </a>
+                <a href="/sauces" className="hover:font-bold">
+                  - Sauces
+                </a>
               </div>
             </Link>
             <Link href="/community">
@@ -94,14 +112,21 @@ const Link = styled.a`
     transform: rotate(0);
     transition: all 0.3s ease-in-out;
   }
+  .garlic1 {
+    padding: 0 15px;
+    height: 25px;
+    align-self: center;
+    transform: rotate(0);
+    transition: all 0.3s ease-in-out;
+  }
 
   .courses {
+    width: calc(100% + 50px);
     line-height: 0.75rem;
-    visibility: hidden;
-    padding-left: 35.78px;
-    height: 0;
+    top: -300px;
+    padding-left: 5px;
     transition: all 0.3s ease-in-out;
-    font-size: 0;
+    font-size: 0.875rem;
     a {
       width: 100%;
       padding: 10px;
@@ -112,10 +137,11 @@ const Link = styled.a`
     .garlic {
       transform: rotate(90deg);
     }
+    .garlic1 {
+      transform: rotate(180deg);
+    }
     .courses {
-      visibility: visible;
-      height: 100px;
-      font-size: 0.875rem;
+      top: 0;
     }
   }
 `;
