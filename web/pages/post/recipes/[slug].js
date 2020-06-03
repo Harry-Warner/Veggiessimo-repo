@@ -142,7 +142,10 @@ const RecipePost = (props) => {
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
                   <li key={_id}>
-                    <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                    <Link
+                      href="/post/recipes/[slug]"
+                      as={`/post/recipes/${slug.current}`}
+                    >
                       <a>
                         {mainImage && (
                           <img
