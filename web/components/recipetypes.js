@@ -7,49 +7,71 @@ const RecipeTypes = () => {
       <StyledHeader className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 flex justify-center items-center">
         <h1 className="text-big md:text-huge font-script">Which Meal?</h1>
       </StyledHeader>
-      <div className="w-full flex flex-col md:flex-row justify-center">
+      <div className="w-full grid grid-cols-2 md:grid-cols-3 justify-center">
         <StyledLink
           href="/breakfast"
           className="relative mx-auto cursor-pointer"
         >
           <img
-            className="h-48 md:h-56 lg:h-56 m-6"
+            className="h-24 md:h-40 lg:h-56 m-6"
             src="images/breakfast.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Breakfast
           </h2>
         </StyledLink>
         <StyledLink href="/mains" className="relative mx-auto cursor-pointer">
           <img
-            className="h-48 md:h-56 lg:h-56 m-6"
+            className="h-24 md:h-40 lg:h-56 m-6"
             src="images/dinner.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Mains
           </h2>
         </StyledLink>
-        <StyledLink
-          href="/dessert"
-          className="relative mx-auto cursor-pointer md:hidden lg:block"
-        >
+        <StyledLink href="/dessert" className="relative mx-auto cursor-pointer">
           <img
-            className="h-48 md:h-56 lg:h-56 m-6"
+            className="h-24 md:h-40 lg:h-56 m-6"
             src="images/dessert.png"
             alt="food"
           />
-          <h2 className="text-xxl font-bold m-6 h-48 md:h-56 lg:h-56 font-sans bg-lightPinkT uppercase">
+          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
             Dessert
           </h2>
         </StyledLink>
-      </div>
-      <div className="w-full hidden md:flex lg:hidden justify-center">
-        <StyledLink className="relative mx-auto cursor-pointer">
-          <img className="h-56 m-6" src="images/dessert.png" alt="food" />
-          <h2 className="text-xxl font-bold m-6 h-56 font-sans bg-lightPinkT uppercase">
-            Dessert
+        <StyledLink
+          href="/smallbites"
+          className="relative mx-auto cursor-pointer"
+        >
+          <img
+            className="h-24 md:h-40 lg:h-56 m-6"
+            src="images/dessert.png"
+            alt="food"
+          />
+          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+            Small Bites
+          </h2>
+        </StyledLink>
+        <StyledLink href="/salads" className="relative mx-auto cursor-pointer">
+          <img
+            className="h-24 md:h-40 lg:h-56 m-6"
+            src="images/dessert.png"
+            alt="food"
+          />
+          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+            Salads
+          </h2>
+        </StyledLink>
+        <StyledLink href="/sauces" className="relative mx-auto cursor-pointer">
+          <img
+            className="h-24 md:h-40 lg:h-56 m-6"
+            src="images/dessert.png"
+            alt="food"
+          />
+          <h2 className="text-xxl font-bold m-6 h-24 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
+            Sauces
           </h2>
         </StyledLink>
       </div>
@@ -82,11 +104,16 @@ const StyledLink = styled.a`
     justify-content: center;
     left: 0;
     top: 0;
-    width: 35%;
+    width: 45%;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.875rem;
     visibility: visible;
     transition: all 0.3s ease-in-out;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+      width: 40%;
+    }
 
     @media (min-width: 1024px) {
       font-size: 0;

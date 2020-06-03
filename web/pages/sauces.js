@@ -15,7 +15,7 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Dessert = (props) => {
+const Sauces = (props) => {
   const { posts = [] } = props;
   const [vopen, setVOpen] = useState(false);
   const [gopen, setGOpen] = useState(false);
@@ -72,10 +72,10 @@ const Dessert = (props) => {
 
   return (
     <>
-      <TitleComponent title="Dessert" />
+      <TitleComponent title="Sauces" />
       <Container>
         <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 lg:mt-16 flex justify-center items-center">
-          <h1 className="text-big md:text-huge font-script">Dessert</h1>
+          <h1 className="text-big md:text-huge font-script">Sauces</h1>
         </StyledTitle>
         <div className="flex justify-center mx-auto my-16">
           <StyledButton open={vopen} onClick={() => showVegan()}>
@@ -126,9 +126,9 @@ const Dessert = (props) => {
   );
 };
 
-Dessert.getInitialProps = async () => ({
+Sauces.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-      *[_type == "recipePost" && publishedAt < now() && mealType[]._ref == "14d66baf-b04c-4ac8-bb97-8354fadaf170"]{
+      *[_type == "recipePost" && publishedAt < now() && mealType[]._ref == "a1bf608d-88f0-48f5-939c-71299c042041"]{
         title,
         mainImage,
         slug,
@@ -203,4 +203,4 @@ const StyledLine = styled.hr`
   );
 `;
 
-export default Dessert;
+export default Sauces;

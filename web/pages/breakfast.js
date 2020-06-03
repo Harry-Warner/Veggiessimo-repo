@@ -128,7 +128,7 @@ const Breakfast = (props) => {
 
 Breakfast.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-      *[_type == "recipePost" && publishedAt < now()]{
+      *[_type == "recipePost" && publishedAt < now() && mealType[]._ref == "f27dbebe-f156-4a62-b259-f61123299697"]{
         title,
         mainImage,
         slug,

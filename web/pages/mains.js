@@ -15,7 +15,7 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Breakfast = (props) => {
+const Mains = (props) => {
   const { posts = [] } = props;
   const [vopen, setVOpen] = useState(false);
   const [gopen, setGOpen] = useState(false);
@@ -126,9 +126,9 @@ const Breakfast = (props) => {
   );
 };
 
-Breakfast.getInitialProps = async () => ({
+Mains.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-      *[_type == "recipePost" && publishedAt < now()]{
+      *[_type == "recipePost" && publishedAt < now() && mealType[]._ref == "70c36188-87c5-4b11-a10f-2bd7aa03400d"]{
         title,
         mainImage,
         slug,
@@ -203,4 +203,4 @@ const StyledLine = styled.hr`
   );
 `;
 
-export default Breakfast;
+export default Mains;
