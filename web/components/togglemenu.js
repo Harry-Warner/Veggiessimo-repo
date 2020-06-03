@@ -1,19 +1,40 @@
 import React from "react";
+import Link from "next/link";
 import styled from "styled-components";
-import { bool } from "prop-types";
+import { bool, func } from "prop-types";
 
-const ToggleMenu = ({ open }) => {
+const ToggleMenu = ({ open, setOpen }) => {
   return (
     <StyledMenu open={open} className="bg-green py-12 md:py-16 z-10 md:px-16">
       <div>
         <h1 className="text-sm md:text-xxl font-bold border-b py-2">
           Navigation
         </h1>
-        <a href="/index">Home</a>
-        <a href="/about">About</a>
-        <a href="/recipes">Recipes</a>
-        <a href="/community">Community</a>
-        <a href="/contact">Contact</a>
+        <Link href="/">
+          <a open={open} onClick={() => setOpen(!open)}>
+            Home
+          </a>
+        </Link>
+        <Link href="/about">
+          <a open={open} onClick={() => setOpen(!open)}>
+            About
+          </a>
+        </Link>
+        <Link href="/recipes">
+          <a open={open} onClick={() => setOpen(!open)}>
+            Recipes
+          </a>
+        </Link>
+        <Link href="/community">
+          <a open={open} onClick={() => setOpen(!open)}>
+            Community
+          </a>
+        </Link>
+        <Link href="/contact">
+          <a open={open} onClick={() => setOpen(!open)}>
+            Contact
+          </a>
+        </Link>
       </div>
       <div>
         <h1 className="text-sm md:text-xxl font-bold border-b py-2">Social</h1>
@@ -28,6 +49,7 @@ const ToggleMenu = ({ open }) => {
 
 ToggleMenu.propTypes = {
   open: bool.isRequired,
+  setOpen: func.isRequired,
 };
 
 const StyledMenu = styled.nav`

@@ -12,7 +12,7 @@ import { Email } from "@styled-icons/material/Email";
 const Contact = () => {
   return (
     <>
-      <TitleComponent title="Breakfast" />
+      <TitleComponent title="Contact" />
       <Container>
         <div className="flex flex-col w-full mx-auto relative mt-8 md:mt-12 lg:mt-24">
           <img

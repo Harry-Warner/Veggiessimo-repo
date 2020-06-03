@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import ToggleIcon from "./toggleicon";
 import ToggleMenu from "./togglemenu";
 import styled from "styled-components";
 import Headroom from "react-headroom";
 import garlic from "../images/garlic.png";
-import Colors from "../styled/colors";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -14,69 +14,95 @@ const Header = () => {
         <Headroom className="lg:hidden">
           <div className="z-10 relative top-0 left-0 px-1 w-full h-12 md:h-16 bg-green">
             <div className="mx-auto h-full w-full flex justify-between sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
-              <a href="/index" className="z-20">
-                <img
-                  className="h-16 px-2 md:h-20"
-                  src="../../images/logo.png"
-                  alt="logo"
-                />
-              </a>
+              <div className="z-20">
+                <Link href="/">
+                  <a>
+                    <img
+                      className="h-16 px-2 md:h-20"
+                      src="../../images/logo.png"
+                      alt="logo"
+                    />
+                  </a>
+                </Link>
+              </div>
               <ToggleIcon open={open} setOpen={setOpen} />
               <ToggleMenu open={open} setOpen={setOpen} />
             </div>
           </div>
         </Headroom>
         <StyledHeader className="top-0 z-40 left-0 px-1 w-full h-12 bg-green hidden lg:block fixed">
-          <a href="/index">
-            <img
-              className="absolute top-0 left-0 h-16 px-2"
-              src="../../images/logo.png"
-              alt="logo"
-            />
-          </a>
-          <div className="relative z-0 mx-auto h-full w-full flex justify-around sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
+          <div>
             <Link href="/">
-              <img className="garlic" src={garlic} alt="garlic" />
-              home
+              <a>
+                <img
+                  className="absolute top-0 left-0 h-16 px-2"
+                  src="../../images/logo.png"
+                  alt="logo"
+                />
+              </a>
             </Link>
-            <Link href="/about">
-              <img className="garlic" src={garlic} alt="garlic" />
-              about
-            </Link>
-            <Link href="/recipes">
-              <div className="relative z-10 bg-green flex w-full">
-                <img className="garlic1" src={garlic} alt="garlic" />
-                recipes
-              </div>
+          </div>
+          <div className="relative z-0 mx-auto h-full w-full flex justify-around sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
+            <StyledLink>
+              <Link href="/">
+                <a className="flex w-full">
+                  <img className="garlic" src={garlic} alt="garlic" />
+                  home
+                </a>
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link href="/about">
+                <a className="flex w-full">
+                  <img className="garlic" src={garlic} alt="garlic" />
+                  about
+                </a>
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link href="/recipes">
+                <a className="relative z-10 bg-green flex w-full">
+                  <img className="garlic1" src={garlic} alt="garlic" />
+                  recipes
+                </a>
+              </Link>
               <div className="courses z-0 flex flex-col absolute mt-12 justify-around items-start bg-green">
-                <a href="/breakfast" className="hover:font-bold">
-                  - Breakfast
-                </a>
-                <a href="/mains" className="hover:font-bold">
-                  - Mains
-                </a>
-                <a href="/dessert" className="hover:font-bold">
-                  - Dessert
-                </a>
-                <a href="/smallbites" className="hover:font-bold">
-                  - Small Bites
-                </a>
-                <a href="/salads" className="hover:font-bold">
-                  - Salads
-                </a>
-                <a href="/sauces" className="hover:font-bold">
-                  - Sauces
-                </a>
+                <Link href="/breakfast">
+                  <a className="hover:font-bold">- Breakfast</a>
+                </Link>
+                <Link href="/mains">
+                  <a className="hover:font-bold">- Mains</a>
+                </Link>
+                <Link href="/dessert">
+                  <a className="hover:font-bold">- Dessert</a>
+                </Link>
+                <Link href="/smallbites">
+                  <a className="hover:font-bold">- Small Bites</a>
+                </Link>
+                <Link href="/salads">
+                  <a className="hover:font-bold">- Salads</a>
+                </Link>
+                <Link href="/sauces">
+                  <a className="hover:font-bold">- Sauces</a>
+                </Link>
               </div>
-            </Link>
-            <Link href="/community">
-              <img className="garlic" src={garlic} alt="garlic" />
-              community
-            </Link>
-            <Link href="/contact">
-              <img className="garlic" src={garlic} alt="garlic" />
-              contact
-            </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link href="/community">
+                <a className="flex w-full">
+                  <img className="garlic" src={garlic} alt="garlic" />
+                  community
+                </a>
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link href="/contact">
+                <a className="flex w-full">
+                  <img className="garlic" src={garlic} alt="garlic" />
+                  contact
+                </a>
+              </Link>
+            </StyledLink>
           </div>
         </StyledHeader>
       </div>
@@ -94,7 +120,7 @@ const StyledHeader = styled.div`
   }
 `;
 
-const Link = styled.a`
+const StyledLink = styled.div`
   position: relative;
   height: 100%;
   line-height: 3rem;

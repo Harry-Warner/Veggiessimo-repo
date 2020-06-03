@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -22,12 +23,14 @@ const Footer = () => {
           </form>
         </StyledContact>
         <StyledNav>
-          <a
-            href="/about"
-            className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl"
-          >
-            Our Story
-          </a>
+          <Link href="/about">
+            <a
+              href="/about"
+              className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl"
+            >
+              Our Story
+            </a>
+          </Link>
           <a
             href="/contact"
             className="font-sans uppercase px-2 md:px-5 text-xs md:text-xxl mr-2 md:mr-5"
@@ -48,13 +51,15 @@ const Footer = () => {
             @ 2020 Veggiessimo. made in australia
           </p>
         </SocialNav>
-        <a href="/index">
-          <img
-            alt="Veggiessimo logo"
-            className="absolute right-0 bottom-0 h-12 md:h-24 mx-2 mb-1"
-            src="../../images/logo.png"
-          />
-        </a>
+        <Link href="/">
+          <a>
+            <img
+              alt="Veggiessimo logo"
+              className="absolute right-0 bottom-0 h-12 md:h-24 mx-2 mb-1"
+              src="../../images/logo.png"
+            />
+          </a>
+        </Link>
       </div>
     </div>
   );
