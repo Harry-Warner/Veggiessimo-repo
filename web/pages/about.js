@@ -54,7 +54,7 @@ const About = () => {
             </p>
             <img
               className="w-full md:w-3/12 lg: w-2/12 self-center md:self-end m-3 md:m-6"
-              src="https://via.placeholder.com/450"
+              src="images/about2.png"
               alt="cooking"
             />
           </div>

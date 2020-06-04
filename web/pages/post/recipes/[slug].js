@@ -20,6 +20,7 @@ function urlFor(source) {
 
 const RecipePost = (props) => {
   const { post = [], recipes = [] } = props;
+
   function cooking_time(num) {
     let hours = Math.floor(num / 60);
     let minutes = num % 60;
@@ -90,8 +91,8 @@ const RecipePost = (props) => {
               </div>
             </StyledBox>
           </div>
-          <div className="flex flex-col md:flex-row my-8 md:my-16">
-            <div className="flex flex-col md:px-10">
+          <div className="grid grid-cols-1 grid-rows-20 md:grid-cols-12 md:grid-rows-20 my-8 md:mt-16 md:mb-0">
+            <div className="col-span-12 md:col-span-7 flex flex-col md:px-10">
               <h2 className="text-xxxl md:text-vbig font-script m-2">
                 Ingredients:
               </h2>
@@ -103,8 +104,8 @@ const RecipePost = (props) => {
                 />
               </div>
             </div>
-            <hr className="w-full h-3 md:hidden border-none bg-blueT my-5" />
-            <div className="flex flex-col md:px-10">
+            <hr className="col-span-12 self-center w-full h-3 border-none bg-blueT my-5" />
+            <div className="col-span-12 md:col-span-12 lg:col-span-8 row-span-1 flex flex-col md:px-10">
               <h2 className="m-2 text-xxxl md:text-vbig font-script">
                 Method:
               </h2>
@@ -116,56 +117,56 @@ const RecipePost = (props) => {
                 />
               </div>
             </div>
-          </div>
-        </article>
-        <div className="flex flex-col justify-center md:flex-row">
-          <div className="flex md:flex-col w-11/12 md:w-1/3 lg:w-1/4 mx-auto my-4 h-32 md:h-84 items-center justify-center md:justify-around bg-white border-blue border-solid border-2 rounded-lg">
-            <h1 className="hidden md:block text-center text-big font-script">
-              Have you done it?
-            </h1>
-            <StyledCam />
-            <StyledTrend className="flex flex-col justify-around">
-              <h1 className="md:hidden text-center font-script">
+            <div className="col-span-12 md:row-start-4 lg:col-start-9 lg:col-end-12 lg:row-start-3 flex lg:flex-col w-11/12 md:w-7/12 lg:w-full mx-auto my-4 md:my-8 h-32 md:h-40 lg:h-84 self-center items-center justify-center md:justify-between lg:justify-around bg-white border-blue border-solid border-2 rounded-lg">
+              <h1 className="hidden lg:block text-center text-big font-script">
                 Have you done it?
               </h1>
-              <h3 className="text-center font-sans uppercase">let us know</h3>
-              <h2 className="text-center font-sans uppercase">
-                #makeitveggiessimo
-              </h2>
-            </StyledTrend>
+              <StyledCam />
+              <StyledTrend className="flex flex-col justify-around md:pr-10 lg:pr-0">
+                <h1 className="lg:hidden text-center font-script">
+                  Have you done it?
+                </h1>
+                <h3 className="text-center font-sans uppercase">let us know</h3>
+                <h2 className="text-center font-sans uppercase">
+                  #makeitveggiessimo
+                </h2>
+              </StyledTrend>
+            </div>
+            <StyledList className="col-span-12 md:col-start-8 md:col-end-12 md:row-start-1 relative grid grid-cols-2 md:grid-cols-1 w-full md:w-full mx-auto pt-12 pb-6 px-4 gap-6 bg-lightBlueT">
+              <h1 className="absolute w-full text-center text-xl top-0 left-0 font-sans font-bold uppercase">
+                - More Great Recipes -
+              </h1>
+              {recipes.map(
+                ({ _id, title = "", mainImage, slug = "" }) =>
+                  slug && (
+                    <li key={_id}>
+                      <Link
+                        href="/post/recipes/[slug]"
+                        as={`/post/recipes/${slug.current}`}
+                      >
+                        <a>
+                          <div className="flex flex-col md:flex-row">
+                            {mainImage && (
+                              <img
+                                className="w-full md:w-1/2 h-28 md:h-24 object-cover object-center"
+                                src={urlFor(mainImage).url()}
+                                alt="Food"
+                              />
+                            )}
+                            <div className="flex flex-col bg-white md:bg-lightPinkT py-1 md:w-1/2 md:justify-center">
+                              <p className="font-sans self-center md:self-start text-black mt-4 mb-6 md:my-0 md:pl-3 text-xs md:text-lg lg:text-xl leading-tight">
+                                {title}
+                              </p>
+                            </div>
+                          </div>
+                        </a>
+                      </Link>
+                    </li>
+                  )
+              )}
+            </StyledList>
           </div>
-          <div className="relative grid grid-cols-2 w-full md:w-5/12 mx-auto py-12 px-4 gap-4 bg-lightBlueT">
-            <h1 className="absolute w-full text-center text-xl top-0 left-0 font-sans font-bold uppercase">
-              - More Great Recipes -
-            </h1>
-            {recipes.map(
-              ({ _id, title = "", mainImage, slug = "" }) =>
-                slug && (
-                  <li key={_id}>
-                    <Link
-                      href="/post/recipes/[slug]"
-                      as={`/post/recipes/${slug.current}`}
-                    >
-                      <a>
-                        {mainImage && (
-                          <img
-                            className="w-full object-cover object-center"
-                            src={urlFor(mainImage).url()}
-                            alt="Food"
-                          />
-                        )}
-                        <div className="flex flex-col bg-white py-1">
-                          <p className="font-sans self-center text-black mt-4 mb-6 text-xs md:text-base lg:text-lg leading-tight">
-                            {title}
-                          </p>
-                        </div>
-                      </a>
-                    </Link>
-                  </li>
-                )
-            )}
-          </div>
-        </div>
+        </article>
         <Footer />
       </Container>
     </>
@@ -190,7 +191,7 @@ const queryRecipes = groq`*[_type == "recipePost" && publishedAt < now() && slug
   slug,
   _id,
   "categories": categories[]->title,
-  }[0...4]
+  }[0...3]
 `;
 
 RecipePost.getInitialProps = async function (context) {
@@ -283,6 +284,8 @@ const StyledCam = styled(Camera)`
   @media (min-width: 768px) {
     width: 12.5rem;
     height: 12.5rem;
+  }
+  @media (min-width: 1024px) {
     margin-right: 0;
   }
 `;
@@ -307,6 +310,19 @@ const StyledTrend = styled.div`
     }
     h3 {
       font-size: 15px;
+    }
+  }
+`;
+
+const StyledList = styled.div`
+  height: fit-content;
+  align-self: center;
+
+  li {
+    @media (max-width: 767px) {
+      &:last-child {
+        display: none;
+      }
     }
   }
 `;
