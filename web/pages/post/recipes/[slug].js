@@ -67,7 +67,7 @@ const RecipePost = (props) => {
               <div className="w-full md:w-8/12 flex justify-center">
                 <img
                   className="w-full md:h-84 lg:h-108 object-cover object-center"
-                  src={urlFor(post.mainImage).width(300).url()}
+                  src={urlFor(post.mainImage).url()}
                   alt="food"
                 />
               </div>
@@ -92,7 +92,7 @@ const RecipePost = (props) => {
             </StyledBox>
           </div>
           <div className="grid grid-cols-1 grid-rows-20 md:grid-cols-12 md:grid-rows-20 my-8 md:mt-16 md:mb-0">
-            <div className="col-span-12 md:col-span-7 flex flex-col md:px-10">
+            <div className="col-span-12 md:col-span-7 flex flex-col md:px-10 bg-white">
               <h2 className="text-xxxl md:text-vbig font-script m-2">
                 Ingredients:
               </h2>
@@ -105,7 +105,7 @@ const RecipePost = (props) => {
               </div>
             </div>
             <hr className="col-span-12 self-center w-full h-3 border-none bg-blueT my-5" />
-            <div className="col-span-12 md:col-span-12 lg:col-span-8 row-span-1 flex flex-col md:px-10">
+            <div className="col-span-12 md:col-span-12 lg:col-span-8 row-span-1 flex flex-col md:px-10 bg-white">
               <h2 className="m-2 text-xxxl md:text-vbig font-script">
                 Method:
               </h2>
