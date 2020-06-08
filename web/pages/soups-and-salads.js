@@ -72,10 +72,10 @@ const Salads = (props) => {
 
   return (
     <>
-      <TitleComponent title="Salads" />
+      <TitleComponent title="Soups & Salads" />
       <Container>
         <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 lg:mt-16 flex justify-center items-center">
-          <h1 className="text-big md:text-huge font-script">Salads</h1>
+          <h1 className="text-big md:text-huge font-script">Soups & Salads</h1>
         </StyledTitle>
         <div className="flex justify-center mx-auto my-16">
           <StyledButton open={vopen} onClick={() => showVegan()}>

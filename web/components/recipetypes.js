@@ -66,7 +66,7 @@ const RecipeTypes = () => {
           </Link>
         </StyledLink>
         <StyledLink className="relative mx-auto cursor-pointer">
-          <Link href="/salads">
+          <Link href="/soups-and-salads">
             <a>
               <img
                 className="h-28 md:h-40 lg:h-56 my-4"
@@ -74,7 +74,7 @@ const RecipeTypes = () => {
                 alt="food"
               />
               <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
-                Salads
+                Soups & Salads
               </h2>
             </a>
           </Link>

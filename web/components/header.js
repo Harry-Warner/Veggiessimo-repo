@@ -79,8 +79,8 @@ const Header = () => {
                 <Link href="/smallbites">
                   <a className="hover:font-bold">- Small Bites</a>
                 </Link>
-                <Link href="/salads">
-                  <a className="hover:font-bold">- Salads</a>
+                <Link href="/soups-and-salads">
+                  <a className="hover:font-bold">- Soups & Salads</a>
                 </Link>
                 <Link href="/sauces">
                   <a className="hover:font-bold">- Sauces</a>

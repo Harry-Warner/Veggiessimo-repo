@@ -26,6 +26,8 @@ const RecipePost = (props) => {
     let minutes = num % 60;
     if (hours === 0) {
       return `${minutes} minutes`;
+    } else if (minutes === 0) {
+      return `${hours} hour`;
     } else {
       return `${hours} hour and ${minutes} minutes`;
     }
