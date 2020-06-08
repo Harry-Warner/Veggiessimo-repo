@@ -5,7 +5,7 @@ import styled from "styled-components";
 const RecipeTypes = () => {
   return (
     <>
-      <StyledHeader className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 flex justify-center items-center">
+      <StyledHeader className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 lg:mt-16 flex justify-center items-center">
         <h1 className="text-big md:text-huge font-script">Which Meal?</h1>
       </StyledHeader>
       <div className="w-full grid grid-cols-2 md:grid-cols-3 justify-center">

@@ -26,6 +26,7 @@
     "react-dom": "^16.13.1",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.0.0",
+    "react-input-autosize": "^2.2.2",
     "styled-components": "^5.1.0",
     "styled-icons": "^10.2.1",
     "tailwindcss": "^1.4.6"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
@@ -9,6 +9,7 @@ import RecipeList from "../styled/postlist";
 import RecipeTypes from "../components/recipetypes";
 import Footer from "../components/footer";
 import Container from "../styled/container";
+import SearchFilter from "../components/searchfilter";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -16,50 +17,43 @@ function urlFor(source) {
 
 const Recipes = (props) => {
   const { posts = [] } = props;
+  const [searchPosts, setSearchPosts] = useState([]);
 
   return (
     <>
       <TitleComponent title="Recipes" />
       <Container>
-        <h1 className="mt-4 md:mt-6 lg:mt-16 text-start text-vbig md:text-huge w-full px-12 font-script bg-greenT">
-          Recipes!
-        </h1>
         <RecipeTypes />
         <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 flex justify-center items-center">
           <h1 className="text-big md:text-huge font-script">Recent Recipes!</h1>
         </StyledTitle>
+        <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />
         <RecipeList>
-          {posts.map(
-            ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
-              slug && (
-                <li key={_id}>
-                  <Link
-                    href="/post/recipes/[slug]"
-                    as={`/post/recipes/${slug.current}`}
-                  >
-                    <a>
-                      {mainImage && (
-                        <img
-                          className="h-48 lg:h-64 w-full object-cover object-center"
-                          src={urlFor(mainImage).url()}
-                          alt="Food"
-                        />
-                      )}
-                      <div className="flex justify-between">
-                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
+          {searchPosts &&
+            searchPosts.map(
+              ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
+                slug && (
+                  <li key={_id}>
+                    <Link
+                      href="/post/recipes/[slug]"
+                      as={`/post/recipes/${slug.current}`}
+                    >
+                      <a>
+                        {mainImage && (
+                          <img
+                            className="h-48 lg:h-64 w-full object-cover object-center"
+                            src={urlFor(mainImage).url()}
+                            alt="Food"
+                          />
+                        )}
+                        <h2 className="font-sans self-center text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                           {title}
-                          <span className="vegetarianicon"> &#9419;</span>
-                        </p>
-                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
-                          {"  "}({new Date(_updatedAt).toDateString()})
-                        </div>
-                      </div>
-                    </a>
-                  </Link>
-                  <StyledLine />
-                </li>
-              )
-          )}
+                        </h2>
+                      </a>
+                    </Link>
+                  </li>
+                )
+            )}
         </RecipeList>
         <Footer />
       </Container>
@@ -69,7 +63,13 @@ const Recipes = (props) => {
 
 Recipes.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-      *[_type == "recipePost" && publishedAt < now()]|order(publishedAt desc)
+      *[_type == "recipePost" && publishedAt < now()]{
+        title,
+        mainImage,
+        slug,
+        _id,
+        "categories": categories[]->title,
+        }|order(publishedAt desc)
     `),
 });
 
@@ -88,19 +88,6 @@ const StyledTitle = styled.div`
   @media (min-width: 1024px) {
     background-image: url("images/mealbrush1024.png");
   }
-`;
-
-const StyledLine = styled.hr`
-  width: 50%;
-  margin: 20px auto;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0)
-  );
 `;
 
 export default Recipes;
