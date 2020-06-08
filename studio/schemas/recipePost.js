@@ -24,6 +24,12 @@ export default {
       to: { type: "author" },
     },
     {
+      name: "description",
+      title: "Description",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "image",
@@ -62,6 +68,12 @@ export default {
       name: "ingredients",
       title: "Ingredients",
       type: "ingredients",
+    },
+    {
+      name: "keyIngredients",
+      title: "Key Ingredients",
+      type: "array",
+      of: [{ type: "reference", to: { type: "keyIngredients" } }],
     },
     {
       name: "body",

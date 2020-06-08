@@ -12,6 +12,7 @@ import recipePost from "./recipePost";
 import communityPost from "./communityPost";
 import author from "./author";
 import ingredients from "./ingredients";
+import keyIngredients from "./keyIngredients";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,6 +29,7 @@ export default createSchema({
     category,
     mealType,
     ingredients,
+    keyIngredients,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
