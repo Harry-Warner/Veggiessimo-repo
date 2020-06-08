@@ -42,8 +42,8 @@ const Mains = (props) => {
                             alt="Food"
                           />
                         )}
-                        <div className="flex justify-center">
-                          <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
+                        <div className="flex justify-center bg-white">
+                          <p className="font-sans self-center text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                             {title}
                             <span className="vegetarianicon"> &#9419;</span>
                           </p>

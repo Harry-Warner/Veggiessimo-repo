@@ -3,7 +3,6 @@ import Link from "next/link";
 import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
-import styled from "styled-components";
 import TitleComponent from "../components/titleComponent.jsx";
 import RecipeList from "../styled/postlist";
 import Footer from "../components/footer";

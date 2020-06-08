@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const MealTitle = (props) => {
   return (
-    <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 lg:mt-16 flex justify-center items-center">
+    <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center mt-6 lg:mt-16 flex justify-center items-center">
       <h1 className="text-big md:text-huge font-script">{props.title}</h1>
     </StyledTitle>
   );
