@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Link from "next/link";
+import List from "../components/recipelist";
 import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
@@ -29,28 +29,13 @@ const Breakfast = (props) => {
             searchPosts.map(
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
-                  <li key={_id}>
-                    <Link
-                      href="/post/recipes/[slug]"
-                      as={`/post/recipes/${slug.current}`}
-                    >
-                      <a>
-                        {mainImage && (
-                          <img
-                            className="h-48 lg:h-64 w-full object-cover object-center"
-                            src={urlFor(mainImage).url()}
-                            alt="Food"
-                          />
-                        )}
-                        <div className="flex justify-center">
-                          <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
-                            {title}
-                            <span className="vegetarianicon"> &#9419;</span>
-                          </p>
-                        </div>
-                      </a>
-                    </Link>
-                  </li>
+                  <List
+                    id={_id}
+                    title={title}
+                    mainImage={mainImage}
+                    url={urlFor(mainImage).url()}
+                    slug={slug.current}
+                  />
                 )
             )}
         </RecipeList>

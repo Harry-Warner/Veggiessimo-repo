@@ -74,7 +74,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   }, [value, filteredPosts]);
 
   return (
-    <div className="flex flex-col justify-center mx-auto my-16">
+    <div className="flex flex-col justify-center mx-auto mt-10 mb-16">
       <StyledSearch className="pl-10 pr-4 mb-2 relative flex justify-around items-center h-10 mx-auto bg-white border-2 border-blue border-solid rounded-xl">
         <div className="absolute left-0 pl-2">
           <SearchIcon style={{ color: "#5984c4" }} />

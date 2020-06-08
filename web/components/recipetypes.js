@@ -1,13 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import MealTitle from "./mealtitle";
 
 const RecipeTypes = () => {
   return (
     <>
-      <StyledHeader className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center my-6 lg:mt-16 flex justify-center items-center">
-        <h1 className="text-big md:text-huge font-script">Which Meal?</h1>
-      </StyledHeader>
+      <MealTitle title="Which Meal?" />
       <div className="w-full grid grid-cols-2 md:grid-cols-3 justify-center">
         <StyledLink className="relative mx-auto cursor-pointer">
           <Link href="/breakfast">
@@ -97,23 +96,6 @@ const RecipeTypes = () => {
     </>
   );
 };
-
-const StyledHeader = styled.div`
-  background-image: url("images/mealbrush640.png");
-  background-size: cover;
-  background-position: center;
-
-  @media (max-width: 640px) {
-    height: 22vw;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    background-image: url("images/mealbrush768.png");
-  }
-  @media (min-width: 1024px) {
-    background-image: url("images/mealbrush1024.png");
-  }
-`;
 
 const StyledLink = styled.div`
   h2 {
