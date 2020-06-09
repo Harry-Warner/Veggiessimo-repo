@@ -9,10 +9,8 @@ import Footer from "../../../components/footer";
 import styled from "styled-components";
 import Container from "../../../styled/container";
 import Colors from "../../../styled/colors";
-import { Instagram } from "@styled-icons/entypo-social/Instagram";
-import { Facebook } from "@styled-icons/entypo-social/Facebook";
-import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCircle";
 import { Camera } from "@styled-icons/evil/Camera";
+import PostHeading from "../../../components/postheading";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -48,22 +46,11 @@ const RecipePost = (props) => {
       <TitleComponent title={post.title} />
       <Container>
         <article>
-          <h2 className="text-lg lg:text-xxxl text-center font-sans uppercase pt-4 pb-1 lg:mt-16">
-            {post.mealType}
-          </h2>
-          <h1 className="text-big md:text-huge lg:text-vhuge text-center py-1 font-script">
-            {post.title}
-          </h1>
-          <h3 className="text-sm md:text-base md:text-xl text-center font-sans py-1">
-            By {post.name}
-          </h3>
-          <div className="w-full flex justify-center">
-            <StyledFace />
-            <a href="https://www.instagram.com/veggiessimo.au/">
-              <StyledInst />
-            </a>
-            <StyledPin />
-          </div>
+          <PostHeading
+            category={post.mealType}
+            title={post.title}
+            name={post.name}
+          />
           <div className="flex flex-col md:flex-row justify-center items-center w-full">
             {post.mainImage && (
               <div className="w-full md:w-8/12 flex justify-center">
@@ -212,22 +199,6 @@ RecipePost.getInitialProps = async function (context) {
     recipes: await client.fetch(queryRecipes, { slug }),
   };
 };
-
-const StyledInst = styled(Instagram)`
-  width: 2rem;
-  height: 2rem;
-  margin: 10px;
-`;
-const StyledFace = styled(Facebook)`
-  width: 2rem;
-  height: 2rem;
-  margin: 10px;
-`;
-const StyledPin = styled(PinterestWithCircle)`
-  width: 2rem;
-  height: 2rem;
-  margin: 10px;
-`;
 
 const StyledBox = styled.div`
   div {

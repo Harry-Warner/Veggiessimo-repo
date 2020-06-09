@@ -49,7 +49,7 @@ const StyledBox = styled.div`
   @media (min-width: 768px) {
     height: 70px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     height: 124px;
   }
 `;

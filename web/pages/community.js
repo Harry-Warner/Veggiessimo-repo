@@ -30,25 +30,28 @@ const Community = (props) => {
         <ComNav posts={posts} setSearchPosts={setSearchPosts} />
         <PostList community>
           {searchPosts &&
-            searchPosts.map((post) => (
-              <li key={post.id}>
-                <Link
-                  href={`/post/community/[slug]`}
-                  as={`/post/community/${post.slug}`}
-                >
-                  <a>
-                    {post.mainImage && (
-                      <img
-                        className="h-24 lg:h-48 w-9/12 md:w-11/12 mx-auto my-4 object-cover object-center"
-                        src={urlFor(post.mainImage).url()}
-                        alt="Food"
-                      />
-                    )}
-                    <TextBox text={post.title} />
-                  </a>
-                </Link>
-              </li>
-            ))}
+            searchPosts.map(
+              ({ _id, title = "", mainImage, slug = "" }) =>
+                slug && (
+                  <li key={_id}>
+                    <Link
+                      href={`/post/community/[slug]`}
+                      as={`/post/community/${slug.current}`}
+                    >
+                      <a>
+                        {mainImage && (
+                          <img
+                            className="h-24 md:h-32 lg:h-48 w-9/12 md:w-11/12 mx-auto my-4 object-cover object-center"
+                            src={urlFor(mainImage).url()}
+                            alt="Food"
+                          />
+                        )}
+                        <TextBox text={title} />
+                      </a>
+                    </Link>
+                  </li>
+                )
+            )}
         </PostList>
         <Footer />
       </Container>
