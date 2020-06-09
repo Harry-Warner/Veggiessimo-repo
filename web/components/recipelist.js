@@ -4,7 +4,10 @@ import Link from "next/link";
 const RecipeList = (props) => {
   return (
     <li key={props.id}>
-      <Link href="/post/recipes/[slug]" as={`/post/recipes/${props.slug}`}>
+      <Link
+        href={`/post/${props.type}/[slug]`}
+        as={`/post/${props.type}/${props.slug}`}
+      >
         <a>
           {props.mainImage && (
             <img

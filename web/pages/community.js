@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
@@ -7,7 +6,10 @@ import imageUrlBuilder from "@sanity/image-url";
 import Footer from "../components/footer";
 import TitleComponent from "../components/titleComponent.jsx";
 import Container from "../styled/container";
-import RecipeList from "../styled/postlist";
+import PostList from "../styled/postlist";
+import ComNav from "../components/comNav";
+import MealTitle from "../components/mealtitle";
+import TextBox from "../components/textbox";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -15,48 +17,39 @@ function urlFor(source) {
 
 const Community = (props) => {
   const { posts = [] } = props;
+  const [searchPosts, setSearchPosts] = useState(posts);
+
   return (
     <>
       <TitleComponent title="Community" />
       <Container>
-        <StyledTitle className="w-9/12 md:w-7/12 lg:w-6/12 md:h-32 lg:h-32 mx-auto text-center mt-6 lg:mt-16 flex justify-center items-center">
-          <h1 className="text-big md:text-huge font-script">Community</h1>
-        </StyledTitle>
-        <h2 className="w-full text-center font-sans my-6 md:mb-12 lg:mb-16 text-xs md:text-lg lg:text-xl">
+        <MealTitle title="Community" />
+        <h2 className="mx-auto text-center font-sans my-6 md:mb-12 lg:mb-16 text-xs md:text-lg lg:text-xl bg-white">
           Ideas on how to live a more sustainable lifestyle
         </h2>
-        <RecipeList>
-          {posts.map(
-            ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
-              slug && (
-                <li key={_id}>
-                  <Link
-                    href="/post/community/[slug]"
-                    as={`/post/community/${slug.current}`}
-                  >
-                    <a>
-                      {mainImage && (
-                        <img
-                          className="h-48 lg:h-64 w-full object-cover object-center"
-                          src={urlFor(mainImage).url()}
-                          alt="Food"
-                        />
-                      )}
-                      <div className="flex justify-between">
-                        <p className="font-sans self-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
-                          {title}
-                        </p>
-                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
-                          {"  "}({new Date(_updatedAt).toDateString()})
-                        </div>
-                      </div>
-                    </a>
-                  </Link>
-                  <StyledLine />
-                </li>
-              )
-          )}
-        </RecipeList>
+        <ComNav posts={posts} setSearchPosts={setSearchPosts} />
+        <PostList community>
+          {searchPosts &&
+            searchPosts.map((post) => (
+              <li key={post.id}>
+                <Link
+                  href={`/post/community/[slug]`}
+                  as={`/post/community/${post.slug}`}
+                >
+                  <a>
+                    {post.mainImage && (
+                      <img
+                        className="h-24 lg:h-48 w-9/12 md:w-11/12 mx-auto my-4 object-cover object-center"
+                        src={urlFor(post.mainImage).url()}
+                        alt="Food"
+                      />
+                    )}
+                    <TextBox text={post.title} />
+                  </a>
+                </Link>
+              </li>
+            ))}
+        </PostList>
         <Footer />
       </Container>
     </>
@@ -65,38 +58,15 @@ const Community = (props) => {
 
 Community.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-        *[_type == "communityPost" && publishedAt < now()]|order(publishedAt desc)
+        *[_type == "communityPost" && publishedAt < now()]{
+          title,
+          slug,
+          _id,
+          mainImage,
+          "categories": categories[]->title,
+          _updatedAt,
+        }|order(publishedAt desc)
       `),
 });
-
-const StyledTitle = styled.div`
-  background-image: url("images/pinkbrush640.png");
-  background-size: cover;
-  background-position: center;
-
-  @media (max-width: 640px) {
-    height: 22vw;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    background-image: url("images/pinkbrush768.png");
-  }
-  @media (min-width: 1024px) {
-    background-image: url("images/pinkbrush1024.png");
-  }
-`;
-
-const StyledLine = styled.hr`
-  width: 50%;
-  margin: 20px auto;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0)
-  );
-`;
 
 export default Community;

@@ -30,6 +30,7 @@ const Sauces = (props) => {
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
                   <List
+                    type="recipes"
                     id={_id}
                     title={title}
                     mainImage={mainImage}
