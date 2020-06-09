@@ -93,6 +93,9 @@ const RecipePost = (props) => {
               </div>
             </StyledBox>
           </div>
+          <div className="w-full md:w-8/12 text-center md:text-xl p-4 bg-greenT font-bold">
+            <BlockContent blocks={post.description} {...client.config()} />
+          </div>
           <div className="grid grid-cols-1 grid-rows-20 md:grid-cols-12 md:grid-rows-20 my-8 md:mt-16 md:mb-0">
             <div className="col-span-12 md:col-span-7 flex flex-col md:px-10 bg-white">
               <h2 className="text-xxxl md:text-vbig font-script m-2">
@@ -114,7 +117,11 @@ const RecipePost = (props) => {
               <div className="flex mx-4 mb-4 text-base md:text-xl font-sans">
                 <BlockContent
                   blocks={post.body}
-                  imageOptions={{ w: 320, h: 240, fit: "max" }}
+                  imageOptions={{
+                    w: 320,
+                    h: 240,
+                    fit: "max",
+                  }}
                   {...client.config()}
                 />
               </div>
@@ -182,6 +189,7 @@ cookingTime,
 "name": author->name,
 "mealType": mealType[]->title,
 "categories": categories[]->title,
+description,
 ingredients,
 servings,
 body

@@ -46,16 +46,25 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   };
 
   // allow for user input differences
-  const wordCheck = (val, title, cats) => {
+  const wordCheck = (val, title, cats, ings) => {
     let count = 0;
     let arr = val.toLowerCase().split(" ");
     let newArr = [];
+    let arr1;
+    let l;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] !== "" && arr[i] !== "and") {
-        newArr.push(arr[i]);
+        l = arr[i].length;
+        if (arr[i].split("")[l - 1] === "s") {
+          arr1 = arr[i].split("");
+          arr1.pop();
+          newArr.push(arr1.join(""));
+        } else {
+          newArr.push(arr[i]);
+        }
       }
     }
-    let info = cats.concat(title.split(" "));
+    let info = cats.concat(ings).concat(title.split(" "));
     let newInfo = info.join().replace(/,/g, " ").toLowerCase().split(" ");
     for (let i = 0; i < newArr.length; i++) {
       if (newInfo.includes(newArr[i])) {
@@ -68,7 +77,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   useEffect(() => {
     setSearchPosts(
       filteredPosts.filter((post) =>
-        wordCheck(value, post.title, post.categories)
+        wordCheck(value, post.title, post.categories, post.keyIngredients)
       )
     );
   }, [value, filteredPosts]);

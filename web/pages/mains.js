@@ -53,6 +53,7 @@ Mains.getInitialProps = async () => ({
         slug,
         _id,
         "categories": categories[]->title,
+        "keyIngredients": keyIngredients[]->title,
         }|order(publishedAt desc)
     `),
 });

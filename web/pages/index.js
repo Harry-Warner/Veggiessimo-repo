@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import groq from "groq";
+import BlockContent from "@sanity/block-content-to-react";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
@@ -50,7 +51,14 @@ const Index = (props) => {
         <RecipesLink />
         <Recipes>
           {posts.map(
-            ({ _id, title = "", mainImage, slug = "", _updatedAt = "" }) =>
+            ({
+              _id,
+              title = "",
+              mainImage,
+              slug = "",
+              _updatedAt = "",
+              description = "",
+            }) =>
               slug && (
                 <li className="my-4 md:my-6 lg:my-8" key={_id}>
                   <Link
@@ -66,10 +74,12 @@ const Index = (props) => {
                             alt="Food"
                           />
                         )}
-                        <div className="text-wrapper flex flex-col text-wrapper text-xxl font-bold h-64 md:h-84 lg:h-108 font-sans bg-lightPinkT uppercase">
+                        <div className="text-wrapper flex flex-col text-wrapper text-sm font-bold h-64 md:h-84 lg:h-108 font-sans bg-lightPinkT">
                           <p className="w-10/12">
-                            {title}
-                            <span className="vegetarianicon"> &#9419;</span>
+                            <BlockContent
+                              blocks={description}
+                              {...client.config()}
+                            />
                           </p>
                           <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
                             {"  "}({new Date(_updatedAt).toDateString()})
