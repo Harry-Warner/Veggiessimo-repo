@@ -15,6 +15,7 @@ module.exports = {
         "116": "29rem",
         "124": "31rem",
         "132": "33rem",
+        "19/20": "95%",
       },
       lineHeight: {
         "12": "3rem",
@@ -65,6 +66,7 @@ module.exports = {
       lightPinkT: "rgba(239, 225, 232, 0.75)",
       black: "#000000",
       white: "#fff",
+      whiteT: "rgba(245, 245, 245, 0.75)",
     },
     fontFamily: {
       sans: ["Fira Sans", "sans-serif"],
