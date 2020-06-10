@@ -15,6 +15,14 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
+const serializers = {
+  types: {
+    block(props) {
+      return <p className="mb-4">{props.children}</p>;
+    },
+  },
+};
+
 const CommunityPost = (props) => {
   const { post = [], community = [] } = props;
   return (
@@ -40,7 +48,11 @@ const CommunityPost = (props) => {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <StyledBox className="lg:col-start-2 relative flex w-10/12 md:w-9/12 mx-auto justify-center bg-white mt-8 p-2">
               <div className="font-sans md:font-script self-center text-center mx-auto my-2 text-sm md:text-lg">
-                <BlockContent blocks={post.description} {...client.config()} />
+                <BlockContent
+                  serializers={serializers}
+                  blocks={post.description}
+                  {...client.config()}
+                />
               </div>
               <div className="line right" />
               <div className="line bottom" />
@@ -49,6 +61,7 @@ const CommunityPost = (props) => {
             </StyledBox>
             <div className="lg:row-start-1 flex m-2 p-4 text-xs md:text-base lg:text-lg font-sans bg-white">
               <BlockContent
+                serializers={serializers}
                 blocks={post.body}
                 imageOptions={{ w: 320, h: 240, fit: "max" }}
                 {...client.config()}
