@@ -24,6 +24,12 @@ export default {
       to: { type: "author" },
     },
     {
+      name: "shortDescription",
+      title: "Short Description",
+      type: "string",
+      validation: (rule) => rule.required().max(100),
+    },
+    {
       name: "description",
       title: "Description",
       type: "array",
