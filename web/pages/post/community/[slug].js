@@ -45,9 +45,9 @@ const CommunityPost = (props) => {
               />
             </div>
           )}
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <StyledBox className="lg:col-start-2 relative flex w-10/12 md:w-9/12 mx-auto justify-center bg-white mt-8 p-2">
-              <div className="font-sans md:font-script self-center text-center mx-auto my-2 text-sm md:text-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:mt-8">
+            <StyledBox className="lg:col-start-2 relative flex w-full lg:w-9/12 mx-auto justify-center self-center bg-green lg:bg-white p-2">
+              <div className="font-sans font-bold lg:font-script lg:font-normal self-center text-center mx-auto md:my-2 text-base md:text-xl lg:text-big">
                 <BlockContent
                   serializers={serializers}
                   blocks={post.description}
@@ -59,7 +59,7 @@ const CommunityPost = (props) => {
               <div className="line left" />
               <div className="line top" />
             </StyledBox>
-            <div className="lg:row-start-1 flex m-2 p-4 text-xs md:text-base lg:text-lg font-sans bg-white">
+            <div className="lg:row-start-1 flex m-2 p-4 text-base md:text-xxl font-sans bg-white">
               <BlockContent
                 serializers={serializers}
                 blocks={post.body}
@@ -83,7 +83,7 @@ const CommunityPost = (props) => {
                     as={`/post/community/${slug.current}`}
                   >
                     <a>
-                      <div className=" mx-2 flex flex-col">
+                      <div className="mx-2 md:mx-4 flex flex-col">
                         {mainImage && (
                           <img
                             className="w-full h-28 md:h-32 lg:h-40 object-cover object-center"
@@ -91,11 +91,9 @@ const CommunityPost = (props) => {
                             alt="Food"
                           />
                         )}
-                        <div className="flex flex-col bg-white py-1">
-                          <p className="font-sans text-center self-center text-black mt-4 mb-6 text-xs md:text-lg lg:text-xl leading-tight">
-                            {title}
-                          </p>
-                        </div>
+                        <p className="h-16 md:h-20 lg:h-24 w-full font-sans bg-white flex items-center justify-center text-center text-base md:text-xl lg:text-xxl leading-tight">
+                          {title}
+                        </p>
                       </div>
                     </a>
                   </Link>
@@ -140,6 +138,11 @@ const StyledBox = styled.div`
   .line {
     position: absolute;
     background: ${Colors.blue};
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
   }
   .right {
     height: calc(100% + 30px);

@@ -119,6 +119,10 @@ const StyledNav = styled.div`
     align-items: center;
     padding: 0 12.5px;
     cursor: pointer;
+
+    &:hover {
+      background: ${Colors.lightBlueT};
+    }
   }
   .true {
     border-bottom: 4px solid ${Colors.blue};

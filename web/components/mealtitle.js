@@ -10,7 +10,7 @@ const MealTitle = (props) => {
 };
 
 const StyledTitle = styled.div`
-  background-image: url("../images/mealbrush640.png");
+  background-image: url("images/mealbrush640.png");
   background-size: cover;
   background-position: center;
 
@@ -19,10 +19,10 @@ const StyledTitle = styled.div`
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    background-image: url("../images/mealbrush768.png");
+    background-image: url("images/mealbrush768.png");
   }
   @media (min-width: 1024px) {
-    background-image: url("../images/mealbrush1024.png");
+    background-image: url("images/mealbrush1024.png");
   }
 `;
 

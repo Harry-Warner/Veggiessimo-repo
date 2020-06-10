@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import groq from "groq";
-import BlockContent from "@sanity/block-content-to-react";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
@@ -17,12 +16,13 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Index = (props) => {
+const Index = (props, { home }) => {
   const { posts = [] } = props;
 
   return (
     <>
       <TitleComponent />
+      <div className="fixed z-0 bg-white h-full w-full" />
       <Banner className="relative w-full">
         <img
           className="w-full md:hidden bg-white"
@@ -57,7 +57,7 @@ const Index = (props) => {
               mainImage,
               slug = "",
               _updatedAt = "",
-              description = "",
+              shortDescription = "",
             }) =>
               slug && (
                 <li className="my-4 md:my-6 lg:my-8" key={_id}>
@@ -75,12 +75,7 @@ const Index = (props) => {
                           />
                         )}
                         <div className="text-wrapper flex flex-col text-wrapper text-sm font-bold h-64 md:h-84 lg:h-108 font-sans bg-lightPinkT">
-                          <p className="w-10/12">
-                            <BlockContent
-                              blocks={description}
-                              {...client.config()}
-                            />
-                          </p>
+                          <p className="w-10/12">{shortDescription}</p>
                           <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
                             {"  "}({new Date(_updatedAt).toDateString()})
                           </div>

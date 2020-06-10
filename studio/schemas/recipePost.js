@@ -27,7 +27,7 @@ export default {
       name: "shortDescription",
       title: "Short Description",
       type: "string",
-      validation: (rule) => rule.required().max(100),
+      validation: (rule) => rule.required().max(200),
     },
     {
       name: "description",

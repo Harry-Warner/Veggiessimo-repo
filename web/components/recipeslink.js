@@ -9,7 +9,7 @@ const RecipesLink = () => {
         src="images/recipebrush.png"
         alt="banner"
       />
-      <h1 className="z-10 font-script text-big md:text-huge lg:text-huge self-center">
+      <h1 className="z-10 font-script text-big md:text-huge lg:text-huge self-center ml-1 md:ml-2">
         Recipes
       </h1>
       <h2 className="z-10 font-sans text-xxs md:text-base lg:text-xl self-end ml-2 pt-4">

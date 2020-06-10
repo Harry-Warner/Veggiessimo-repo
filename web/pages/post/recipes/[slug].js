@@ -88,7 +88,8 @@ const RecipePost = (props) => {
               </div>
             </StyledBox>
           </div>
-          <div className="w-full md:w-8/12 text-center md:text-xl p-4 bg-greenT font-bold">
+          <div className="w-full md:w-8/12 text-center md:text-xl p-4 bg-greenT font-bold flex flex-col">
+            <p>{post.shortDescription}</p>
             <BlockContent
               serializers={serializers}
               blocks={post.description}
@@ -189,6 +190,7 @@ cookingTime,
 "name": author->name,
 "mealType": mealType[]->title,
 "categories": categories[]->title,
+shortDescription,
 description,
 ingredients,
 servings,
