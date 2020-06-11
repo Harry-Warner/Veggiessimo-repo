@@ -26,7 +26,7 @@ const Community = (props) => {
       <TitleComponent title="Community" />
       <Container>
         <MealTitle title="Community" />
-        <h2 className="mx-auto text-center font-bold font-sans mt-2 mb-6 md:mb-12 lg:mb-16 text-xs md:text-lg lg:text-xl">
+        <h2 className="mx-auto text-center font-bold font-sans mt-2 mb-6 md:mb-12 lg:mb-16 text-xs md:text-lg lg:text-xl uppercase">
           Ideas on how to live a more sustainable lifestyle
         </h2>
         <ComNav posts={posts} setSearchPosts={setSearchPosts} />

@@ -119,10 +119,6 @@ const StyledNav = styled.div`
     align-items: center;
     padding: 0 12.5px;
     cursor: pointer;
-
-    &:hover {
-      background: ${Colors.lightBlueT};
-    }
   }
   .true {
     border-bottom: 4px solid ${Colors.blue};
@@ -162,6 +158,10 @@ const StyledNav = styled.div`
     .filter {
       margin: 0 30px;
       padding: 0 30px;
+
+      &:hover {
+        background: ${Colors.lightBlueT};
+      }
     }
     .search-wrapper {
       top: 0;

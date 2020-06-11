@@ -88,8 +88,7 @@ const RecipePost = (props) => {
               </div>
             </StyledBox>
           </div>
-          <div className="w-full md:w-8/12 text-center md:text-xl p-4 bg-greenT font-bold flex flex-col">
-            <p>{post.shortDescription}</p>
+          <div className="w-full md:w-8/12 md:text-xl mt-2 md:mt-8 p-4 pb-0 bg-greenT font-bold flex flex-col">
             <BlockContent
               serializers={serializers}
               blocks={post.description}
@@ -143,7 +142,7 @@ const RecipePost = (props) => {
               </StyledTrend>
             </div>
             <StyledList className="col-span-12 md:col-start-8 md:col-end-12 md:row-start-1 relative grid grid-cols-2 md:grid-cols-1 w-full md:w-full mx-auto pt-12 pb-6 px-4 gap-6 bg-lightBlueT">
-              <h1 className="absolute w-full text-center text-xl top-0 left-0 font-sans font-bold uppercase">
+              <h1 className="absolute w-full text-center text-xl pt-2 top-0 left-0 font-sans font-bold uppercase">
                 - More Great Recipes -
               </h1>
               {recipes.map(
@@ -158,16 +157,14 @@ const RecipePost = (props) => {
                           <div className="flex flex-col md:flex-row">
                             {mainImage && (
                               <img
-                                className="w-full md:w-1/2 h-28 md:h-24 object-cover object-center"
+                                className="w-full md:w-1/2 h-28 md:h-32 object-cover object-center"
                                 src={urlFor(mainImage).url()}
                                 alt="Food"
                               />
                             )}
-                            <div className="flex flex-col bg-white md:bg-lightPinkT py-1 md:w-1/2 md:justify-center">
-                              <p className="font-sans self-center md:self-start text-black mt-4 mb-6 md:my-0 md:pl-3 text-xs md:text-lg lg:text-xl leading-tight">
-                                {title}
-                              </p>
-                            </div>
+                            <h2 className="p-1 flex items-center text-center md:text-left justify-center md:justify-start font-sans bg-white md:bg-lightPinkT h-20 md:h-32 md:w-1/2 md:pl-3 text-base font-bold md:text-lg lg:text-xl">
+                              {title}
+                            </h2>
                           </div>
                         </a>
                       </Link>

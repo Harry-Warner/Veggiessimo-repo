@@ -5,7 +5,7 @@ import Colors from "../styled/colors";
 const TextBox = ({ text }) => {
   return (
     <StyledBox className="relative flex w-3/4 md:w-11/12 lg:w-full mx-auto justify-center bg-white mt-3 px-1">
-      <p className="font-sans md:font-script self-center text-center text-black mx-auto my-2 text-sm md:text-lg lg:text-big">
+      <p className="font-sans md:font-script self-center text-center mx-auto my-2 text-base md:text-lg lg:text-big">
         {text}
       </p>
       <div className="line right" />

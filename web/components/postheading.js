@@ -19,7 +19,7 @@ const PostHeading = (props) => {
       </h3>
       <StyledSocial
         community={props.community}
-        className="w-9/12 md:w-2/3 lg:w-1/2 mx-auto flex justify-center"
+        className="w-2/3 md:1/2 lg:w-1/3 mx-auto flex justify-center"
       >
         <StyledFace />
         <a href="https://www.instagram.com/veggiessimo.au/">
@@ -32,10 +32,9 @@ const PostHeading = (props) => {
 };
 
 const StyledSocial = styled.div`
-  border-top: ${(props) =>
-    props.community ? `2px solid ${Colors.blue}` : "none"};
-  border-bottom: ${(props) =>
-    props.community ? `2px solid ${Colors.blue}` : "none"};
+  border-top: 2px solid ${Colors.blue};
+  border-bottom: 2px solid ${Colors.blue};
+  margin-bottom: ${(props) => (props.community ? "5px" : "15px")};
 `;
 
 const StyledInst = styled(Instagram)`

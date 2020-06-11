@@ -83,37 +83,42 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   }, [value, filteredPosts]);
 
   return (
-    <div className="flex flex-col justify-center mx-auto mt-10 mb-16">
-      <StyledSearch className="pl-10 pr-4 mb-2 relative flex justify-around items-center h-10 mx-auto bg-white border-2 border-blue border-solid rounded-xl">
-        <div className="absolute left-0 pl-2">
-          <SearchIcon style={{ color: "#5984c4" }} />
-        </div>
-        <AutosizeInput
-          type="text"
-          name="search"
-          placeholder="Search"
-          placeholderIsMinWidth
-          inputStyle={{
-            fontSize: 18,
-            minWidth: "60px",
-          }}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </StyledSearch>
-      <div className="flex justify-center">
-        <StyledButton open={vopen} onClick={() => showVegan()}>
-          <CheckIcon className="icon" fontSize="large" />
-          <div className="circle" />
-          <p className="font-bold">Vegan</p>
-        </StyledButton>
+    <>
+      <StyledNav className="bg-lightPink w-full h-12 md:h-16 flex items-center text-lg md:text-xl mt-8">
         <StyledButton open={gopen} onClick={() => showGlutenFree()}>
-          <CheckIcon className="icon" fontSize="large" />
-          <div className="circle" />
+          <div className="circle">
+            <CheckIcon className="icon" fontSize="large" />
+          </div>
           <p className="font-bold">Gluten Free</p>
         </StyledButton>
-      </div>
-    </div>
+        <StyledButton open={vopen} onClick={() => showVegan()}>
+          <div className="circle">
+            <CheckIcon className="icon" fontSize="large" />
+          </div>
+          <p className="font-bold">Vegan</p>
+        </StyledButton>
+        <div className="search-wrapper">
+          <div className="search h-8/12 rounded-xl">
+            <AutosizeInput
+              type="text"
+              name="search"
+              placeholder="Search"
+              inputStyle={{
+                fontSize: 18,
+                minWidth: "120px",
+                maxWidth: "220px",
+                paddingLeft: "10px",
+              }}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
+            <div className="">
+              <SearchIcon />
+            </div>
+          </div>
+        </div>
+      </StyledNav>
+    </>
   );
 };
 
@@ -122,19 +127,52 @@ SearchFilter.propTypes = {
   setSearchPosts: func.isRequired,
 };
 
-const StyledSearch = styled.div`
-  width: fit-content;
+const StyledNav = styled.div`
+  position: relative;
+  margin-bottom: 100px;
+  justify-content: space-around;
+  .search-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    right: 0;
+    top: 50px;
+    margin-top: 10px;
+    .search {
+      display: flex;
+      width: fit-content;
+      padding: 5px 15px;
+      background: white;
+      border: 1px solid black;
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 8px;
+    justify-content: left;
+    .search-wrapper {
+      top: 0;
+      right: 10px;
+      width: fit-content;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .search-wrapper {
+      top: 0;
+      right: 10px;
+      width: fit-content;
+    }
+  }
 `;
 
 const StyledButton = styled.div`
+  position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
-  margin: 10px;
-  padding: 5px 10px;
-  text-transform: uppercase;
-  background: ${Colors.lightPink};
-  position: relative;
-  border: 2px solid ${Colors.lightBlue};
+  padding: 0 12.5px;
   cursor: pointer;
 
   p {
@@ -150,14 +188,40 @@ const StyledButton = styled.div`
     border: 2px solid ${Colors.blue};
     position: relative;
     z-index: 0;
+
+    .icon {
+      position: absolute;
+      display: ${({ open }) => (open ? "block" : "none")};
+      z-index: 10;
+      top: -3.5vw;
+      left: -1.5vw;
+    }
+  }
+  @media (min-width: 768px) {
+    margin: 0 15px;
+    padding: 0 15px;
+
+    .circle {
+      width: 25px;
+      height: 25px;
+      margin-right: 15px;
+
+      .icon {
+        font-size: 40px;
+        top: -50%;
+        left: -25%;
+      }
+    }
+
+    p {
+      font-size: 25px;
+      margin-left: 2px;
+    }
   }
 
-  .icon {
-    position: absolute;
-    top: -2px;
-    left: 7px;
-    display: ${({ open }) => (open ? "block" : "none")};
-    z-index: 10;
+  @media (min-width: 1024px) {
+    margin: 0 30px;
+    padding: 0 30px;
   }
 `;
 
