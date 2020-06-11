@@ -10,6 +10,7 @@ import PostList from "../styled/postlist";
 import ComNav from "../components/comNav";
 import MealTitle from "../components/mealtitle";
 import TextBox from "../components/textbox";
+import LoadMore from "../components/loadmore";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -18,6 +19,7 @@ function urlFor(source) {
 const Community = (props) => {
   const { posts = [] } = props;
   const [searchPosts, setSearchPosts] = useState(posts);
+  const [loadSearchPosts, setLoadSearchPosts] = useState(searchPosts);
 
   return (
     <>
@@ -29,8 +31,8 @@ const Community = (props) => {
         </h2>
         <ComNav posts={posts} setSearchPosts={setSearchPosts} />
         <PostList community>
-          {searchPosts &&
-            searchPosts.map(
+          {loadSearchPosts &&
+            loadSearchPosts.map(
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
                   <li key={_id}>
@@ -53,6 +55,10 @@ const Community = (props) => {
                 )
             )}
         </PostList>
+        <LoadMore
+          searchPosts={searchPosts}
+          setLoadSearchPosts={setLoadSearchPosts}
+        />
         <Footer />
       </Container>
     </>

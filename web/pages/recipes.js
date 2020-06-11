@@ -10,6 +10,7 @@ import Footer from "../components/footer";
 import Container from "../styled/container";
 import SearchFilter from "../components/searchfilter";
 import MealTitle from "../components/mealtitle";
+import LoadMore from "../components/loadmore";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -18,6 +19,7 @@ function urlFor(source) {
 const Recipes = (props) => {
   const { posts = [] } = props;
   const [searchPosts, setSearchPosts] = useState([]);
+  const [loadSearchPosts, setLoadSearchPosts] = useState(searchPosts);
 
   return (
     <>
@@ -27,8 +29,8 @@ const Recipes = (props) => {
         <MealTitle title="Recent Recipes" />
         <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />
         <RecipeList>
-          {searchPosts &&
-            searchPosts.map(
+          {loadSearchPosts &&
+            loadSearchPosts.map(
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
                   <List
@@ -42,6 +44,10 @@ const Recipes = (props) => {
                 )
             )}
         </RecipeList>
+        <LoadMore
+          searchPosts={searchPosts}
+          setLoadSearchPosts={setLoadSearchPosts}
+        />
         <Footer />
       </Container>
     </>

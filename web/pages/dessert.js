@@ -9,6 +9,7 @@ import Container from "../styled/container";
 import SearchFilter from "../components/searchfilter";
 import MealTitle from "../components/mealtitle";
 import List from "../components/recipelist";
+import LoadMore from "../components/loadmore";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -17,6 +18,7 @@ function urlFor(source) {
 const Dessert = (props) => {
   const { posts = [] } = props;
   const [searchPosts, setSearchPosts] = useState([]);
+  const [loadSearchPosts, setLoadSearchPosts] = useState(searchPosts);
 
   return (
     <>
@@ -25,8 +27,8 @@ const Dessert = (props) => {
         <MealTitle title="Dessert" />
         <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />
         <RecipeList>
-          {searchPosts &&
-            searchPosts.map(
+          {loadSearchPosts &&
+            loadSearchPosts.map(
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
                   <List
@@ -40,6 +42,10 @@ const Dessert = (props) => {
                 )
             )}
         </RecipeList>
+        <LoadMore
+          searchPosts={searchPosts}
+          setLoadSearchPosts={setLoadSearchPosts}
+        />
         <Footer />
       </Container>
     </>
