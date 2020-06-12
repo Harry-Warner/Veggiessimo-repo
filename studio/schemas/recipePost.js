@@ -32,8 +32,7 @@ export default {
     {
       name: "description",
       title: "Description",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "blockContent",
     },
     {
       name: "mainImage",
@@ -73,7 +72,7 @@ export default {
     {
       name: "ingredients",
       title: "Ingredients",
-      type: "ingredients",
+      type: "blockContent",
     },
     {
       name: "keyIngredients",

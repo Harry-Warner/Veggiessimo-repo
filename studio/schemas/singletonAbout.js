@@ -35,15 +35,13 @@ export default {
     {
       title: "Short Description",
       name: "shortDescription",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "blockContent",
       validation: (Rule) => Rule.required(),
     },
     {
       title: "Description",
       name: "Description",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "blockContent",
       validation: (Rule) => Rule.required(),
     },
   ],

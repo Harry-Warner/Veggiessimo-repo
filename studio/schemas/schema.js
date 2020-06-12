@@ -11,7 +11,6 @@ import mealType from "./mealType";
 import recipePost from "./recipePost";
 import communityPost from "./communityPost";
 import author from "./author";
-import ingredients from "./ingredients";
 import keyIngredients from "./keyIngredients";
 import singletonAbout from "./singletonAbout";
 
@@ -29,7 +28,6 @@ export default createSchema({
     author,
     category,
     mealType,
-    ingredients,
     keyIngredients,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
