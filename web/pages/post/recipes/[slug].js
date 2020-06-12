@@ -19,7 +19,7 @@ function urlFor(source) {
 const serializers = {
   types: {
     block(props) {
-      return <p className="mb-4">{props.children}</p>;
+      return <div className="mb-4">{props.children}</div>;
     },
   },
 };
@@ -113,7 +113,7 @@ const RecipePost = (props) => {
               <h2 className="m-2 text-xxxl md:text-vbig font-script">
                 Method:
               </h2>
-              <div className="flex mx-4 mb-4 text-base md:text-xl font-sans">
+              <div className="flex mx-4 mb-4 text-base md:text-xl">
                 <BlockContent
                   serializers={serializers}
                   blocks={post.body}

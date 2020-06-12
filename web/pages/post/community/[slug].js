@@ -10,18 +10,11 @@ import styled from "styled-components";
 import Container from "../../../styled/container";
 import PostHeading from "../../../components/postheading";
 import Colors from "../../../styled/colors";
+import serializers from "../../../styled/serializers";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
-
-const serializers = {
-  types: {
-    block(props) {
-      return <p className="mb-4">{props.children}</p>;
-    },
-  },
-};
 
 const CommunityPost = (props) => {
   const { post = [], community = [] } = props;
@@ -45,9 +38,9 @@ const CommunityPost = (props) => {
               />
             </div>
           )}
-          <div className="grid grid-cols-1 lg:grid-cols-2 lg:mt-8">
-            <StyledBox className="lg:col-start-2 relative flex w-full lg:w-9/12 mx-auto justify-center self-center bg-green lg:bg-white p-2">
-              <div className="font-sans font-bold lg:font-script lg:font-normal self-center text-center mx-auto md:my-2 text-base md:text-xl lg:text-big">
+          <div className="lg:mt-8">
+            <StyledBox className="float-right relative flex w-full lg:w-5/12 lg:mx-10 mx-auto justify-center self-center bg-green lg:bg-white p-2">
+              <div className="font-bold md:font-normal self-center text-center mx-auto md:my-2">
                 <BlockContent
                   serializers={serializers}
                   blocks={post.description}
@@ -59,7 +52,7 @@ const CommunityPost = (props) => {
               <div className="line left" />
               <div className="line top" />
             </StyledBox>
-            <div className="lg:row-start-1 flex m-2 p-4 text-base md:text-xxl font-sans bg-white">
+            <div className="mx-2 md:mx-6 lg:mx-10 mt-4 lg:mt-0">
               <BlockContent
                 serializers={serializers}
                 blocks={post.body}
@@ -115,7 +108,7 @@ const queryPosts = groq`*[_type == "communityPost" && slug.current == $slug][0]{
   "categories": categories[]->title,
   "authorImage": author->image,
   body,
-  }`;
+}`;
 
 const queryCommunity = groq`*[_type == "communityPost" && publishedAt < now() && slug.current != $slug]|order(publishedAt desc){
     title,

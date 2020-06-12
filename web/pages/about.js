@@ -14,7 +14,7 @@ function urlFor(source) {
 const serializers = {
   types: {
     block(props) {
-      return <p className="mb-4">{props.children}</p>;
+      return <div className="mb-4">{props.children}</div>;
     },
   },
 };
