@@ -6,18 +6,11 @@ import BlockContent from "@sanity/block-content-to-react";
 import Container from "../styled/container";
 import Footer from "../components/footer";
 import TitleComponent from "../components/titleComponent.jsx";
+import serializers from "../styled/serializers";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
-
-const serializers = {
-  types: {
-    block(props) {
-      return <div className="mb-4">{props.children}</div>;
-    },
-  },
-};
 
 const About = (props) => {
   const { content = [] } = props;
@@ -57,10 +50,7 @@ const About = (props) => {
         </div>
         <div className="flex flex-col relative leading-tight w-full mx-auto mb-2 md:mb-4 lg:mb-6 text-sm md:text-base lg:text-lg">
           <div className="flex flex-col md:flex-row justify-between items-center w-full">
-            <div className="flex flex-col w-full md:w-1/2 font-bold text-sm md:text-base lg:text-lg p-6 md:mb-6 bg-white">
-              <p className="my-3 text-lg md:text-xxl lg:text-xxxl">
-                {content.shortGreeting}
-              </p>
+            <div className="w-full md:w-1/2 p-6 md:mb-6 bg-white">
               <BlockContent
                 serializers={serializers}
                 blocks={content.shortDescription}
@@ -90,15 +80,24 @@ const About = (props) => {
   );
 };
 
+const links = `...,
+                markDefs[]{
+                  ...,
+                  _type == "postLink" => {
+                    "slug": @.reference->slug,
+                    "type": @.reference->_type,
+                  }
+                }
+              `;
+
 About.getInitialProps = async () => ({
   content: await client.fetch(groq`
       *[_type == "about"][0]{
         title, 
         mainImage,
         secondImage,
-        shortGreeting,
-        shortDescription,
-        Description,
+        shortDescription[]{${links}},
+        Description[]{${links}},
       }
     `),
 });

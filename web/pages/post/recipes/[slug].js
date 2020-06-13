@@ -11,18 +11,11 @@ import Container from "../../../styled/container";
 import Colors from "../../../styled/colors";
 import { Camera } from "@styled-icons/evil/Camera";
 import PostHeading from "../../../components/postheading";
+import serializers from "../../../styled/serializers";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
-
-const serializers = {
-  types: {
-    block(props) {
-      return <div className="mb-4">{props.children}</div>;
-    },
-  },
-};
 
 const RecipePost = (props) => {
   const { post = [], recipes = [] } = props;
@@ -49,6 +42,7 @@ const RecipePost = (props) => {
     }
     return str;
   }
+  console.log(urlFor(post.mainImage));
   return (
     <>
       <TitleComponent title={post.title} />
@@ -100,8 +94,9 @@ const RecipePost = (props) => {
               <h2 className="text-xxxl md:text-vbig font-script m-2">
                 Ingredients:
               </h2>
-              <div className="flex mx-4 mb-4 text-base md:text-xxl font-sans">
+              <div className="flex mx-4 mb-4 font-sans">
                 <BlockContent
+                  serializers={serializers}
                   blocks={post.ingredients}
                   imageOptions={{ w: 320, h: 240, fit: "max" }}
                   {...client.config()}
@@ -117,11 +112,6 @@ const RecipePost = (props) => {
                 <BlockContent
                   serializers={serializers}
                   blocks={post.body}
-                  imageOptions={{
-                    w: 320,
-                    h: 240,
-                    fit: "max",
-                  }}
                   {...client.config()}
                 />
               </div>
@@ -180,6 +170,16 @@ const RecipePost = (props) => {
   );
 };
 
+const links = `...,
+                markDefs[]{
+                  ...,
+                  _type == "postLink" => {
+                    "slug": @.reference->slug,
+                    "type": @.reference->_type,
+                  }
+                }
+              `;
+
 const queryPost = groq`*[_type == "recipePost" && slug.current == $slug][0]{
 title,
 mainImage,
@@ -188,10 +188,10 @@ cookingTime,
 "mealType": mealType[]->title,
 "categories": categories[]->title,
 shortDescription,
-description,
-ingredients,
+description[]{${links}},
+ingredients[]{${links}},
 servings,
-body
+body[]{${links}},
 }`;
 
 const queryRecipes = groq`*[_type == "recipePost" && publishedAt < now() && slug.current != $slug]|order(publishedAt desc){

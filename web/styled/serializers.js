@@ -1,20 +1,22 @@
 import React from "react";
 import Link from "next/link";
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../client";
 
 const Styler = (props) => {
   let css;
   switch (props) {
     case "h1":
-      css = "text-xxl md:text-big lg:text-vbig";
+      css = "my-4 text-xl md:text-xxxl lg:text-big";
       break;
     case "h2":
-      css = "text-xl md:text-xxxl lg:text-big";
+      css = "mt-4 text-base md:text-xl lg:text-xxl";
       break;
     case "h3":
-      css = "font-sans md:font-script text-lg md:text-xxxl lg:text-big";
+      css = "my-2 font-sans md:font-script text-lg md:text-xxxl lg:text-big";
       break;
     default:
-      css = "text-sm md:text-lg lg:text-xl";
+      css = "mb-4 text-sm md:text-lg lg:text-xl";
   }
   return css;
 };
@@ -28,6 +30,10 @@ const Styler = (props) => {
 //       "url": "https://veggiessimo.com.au/post/" + @.reference->_type + "/" + @.reference->slug.current
 //     }
 //   }`;
+
+function urlFor(source) {
+  return imageUrlBuilder(client).image(source);
+}
 
 const serializers = {
   types: {
@@ -51,14 +57,23 @@ const serializers = {
         </>
       );
     },
+    image(props) {
+      console.log(urlFor(props.node));
+      return (
+        <img
+          src={urlFor(props.node)}
+          alt="food"
+          className="mx-auto w-full h-48 md:h-84 lg:h-64 object-center object-cover"
+        />
+      );
+    },
+  },
+  listItem: (props) => {
+    return <li className="text-sm md:text-lg lg:text-xl">{props.children}</li>;
   },
   marks: {
     s: ({ children }) => {
-      return (
-        <span className="font-script text-xl md:text-xxxl lg:text-big">
-          {children}
-        </span>
-      );
+      return <span className={`${Styler("h1")} font-script`}>{children}</span>;
     },
     postLink: ({ mark, children }) => {
       const { type, slug = {} } = mark;

@@ -100,23 +100,24 @@ const CommunityPost = (props) => {
   );
 };
 
+const links = `...,
+                markDefs[]{
+                  ...,
+                  _type == "postLink" => {
+                    "slug": @.reference->slug,
+                    "type": @.reference->_type,
+                  }
+                }
+              `;
+
 const queryPosts = groq`*[_type == "communityPost" && slug.current == $slug][0]{
   title,
   mainImage,
-  description,
+  description[]{${links}},
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
-  body[]{
-    ...,
-    markDefs[]{
-      ...,
-      _type == "postLink" => {
-        "slug": @.reference->slug,
-        "type": @.reference->_type,
-      }
-    }
-  },
+  body[]${links},
 }`;
 
 const queryCommunity = groq`*[_type == "communityPost" && publishedAt < now() && slug.current != $slug]|order(publishedAt desc){
