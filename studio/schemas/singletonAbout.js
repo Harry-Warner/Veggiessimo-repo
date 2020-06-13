@@ -17,6 +17,7 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "secondImage",
@@ -25,11 +26,6 @@ export default {
       options: {
         hotspot: true,
       },
-    },
-    {
-      title: "Short Greeting",
-      name: "shortGreeting",
-      type: "string",
       validation: (Rule) => Rule.required(),
     },
     {

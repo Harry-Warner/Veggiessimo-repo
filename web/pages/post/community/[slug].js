@@ -63,7 +63,7 @@ const CommunityPost = (props) => {
           </div>
           <hr className="col-span-12 self-center w-full h-3 border-none bg-lightPink my-5" />
         </article>
-        <StyledList className="relative w-full mx-auto pt-12 pb-6 px-4 flex justify-around bg-lightBlueT">
+        <StyledList className="relative w-full mx-auto pt-12 pb-6 px-4 grid grid-cols-2 md:grid-cols-3 bg-lightBlueT">
           <h1 className="absolute w-full text-center text-xl top-0 left-0 font-sans font-bold uppercase">
             - More Of Community -
           </h1>
@@ -84,7 +84,7 @@ const CommunityPost = (props) => {
                             alt="Food"
                           />
                         )}
-                        <p className="h-16 md:h-20 lg:h-24 w-full font-sans bg-white flex items-center justify-center text-center text-base md:text-xl lg:text-xxl leading-tight">
+                        <p className="px-1 h-16 md:h-20 lg:h-24 w-full font-sans bg-white flex items-center justify-center text-center text-base md:text-xl lg:text-xxl leading-tight">
                           {title}
                         </p>
                       </div>
@@ -117,7 +117,7 @@ const queryPosts = groq`*[_type == "communityPost" && slug.current == $slug][0]{
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
-  body[]${links},
+  body[]{${links}},
 }`;
 
 const queryCommunity = groq`*[_type == "communityPost" && publishedAt < now() && slug.current != $slug]|order(publishedAt desc){

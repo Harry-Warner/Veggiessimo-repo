@@ -7,6 +7,7 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -16,12 +17,14 @@ export default {
         source: "title",
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "author",
       title: "Author",
       type: "reference",
       to: { type: "author" },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "shortDescription",
@@ -33,6 +36,7 @@ export default {
       name: "description",
       title: "Description",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "mainImage",
@@ -41,38 +45,45 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "cookingTime",
       title: "Cooking Time",
       type: "number",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "servings",
       title: "Servings",
       type: "number",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "mealType",
       title: "MealType",
       type: "array",
       of: [{ type: "reference", to: { type: "mealType" } }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "categories",
       title: "Categories",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "ingredients",
       title: "Ingredients",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "keyIngredients",
@@ -82,8 +93,9 @@ export default {
     },
     {
       name: "body",
-      title: "Body",
+      title: "Method",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     },
   ],
 
