@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Styler = (props) => {
   let css;
@@ -31,7 +32,6 @@ const Styler = (props) => {
 const serializers = {
   types: {
     block(props) {
-      console.log(props);
       return (
         <>
           <div
@@ -53,9 +53,6 @@ const serializers = {
     },
   },
   marks: {
-    em: ({ children }) => {
-      return <span className="italic">{children}</span>;
-    },
     s: ({ children }) => {
       return (
         <span className="font-script text-xl md:text-xxxl lg:text-big">
@@ -63,12 +60,31 @@ const serializers = {
         </span>
       );
     },
-    internalLink: ({ mark, children }) => {
-      const { _type, slug = {}, url } = mark;
+    postLink: ({ mark, children }) => {
+      const { type, slug = {} } = mark;
+      console.log(slug);
       // remove the "Post" from the post type
-      const type = _type.split("").slice(0, -4).join();
-      const href = url ? url : `/post/${type}/${slug.current}`;
-      return <a href={href}>{children}</a>;
+      const post = type.split("").slice(0, -4);
+      // change recipe to recipes
+      if (post.length === 6) {
+        post.push("s");
+      }
+      const postType = post.join().replace(/,/g, "");
+      const href = `/post/${postType}/${slug.current}`;
+      return (
+        <Link href={`/post/${postType}/[slug]`} as={href}>
+          <a>{children}</a>
+        </Link>
+      );
+    },
+    internalLink: ({ mark, children }) => {
+      const { singlePage = "" } = mark;
+      console.log(singlePage);
+      return (
+        <Link href={`/${singlePage}`}>
+          <a>{children}</a>
+        </Link>
+      );
     },
     externalLink: ({ mark, children }) => {
       const { blank, href } = mark;

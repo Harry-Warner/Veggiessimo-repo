@@ -45,8 +45,8 @@ export default {
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: "Internal link",
-            name: "internalLink",
+            title: "Post link",
+            name: "postLink",
             type: "object",
             blockEditor: {
               icon: Link,
@@ -57,6 +57,16 @@ export default {
                 type: "reference",
                 to: [{ type: "recipePost" }, { type: "communityPost" }],
               },
+            ],
+          },
+          {
+            title: "Internal Link",
+            name: "internalLink",
+            type: "object",
+            blockEditor: {
+              icon: Link,
+            },
+            fields: [
               {
                 title: "Single Page",
                 name: "singlePage",

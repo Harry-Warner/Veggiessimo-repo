@@ -111,11 +111,9 @@ const queryPosts = groq`*[_type == "communityPost" && slug.current == $slug][0]{
     ...,
     markDefs[]{
       ...,
-      _type == "internalLink" => {
+      _type == "postLink" => {
         "slug": @.reference->slug,
-        "_type": @.reference->_type,
-        singlePage,
-        "url": "https://veggiessimo.com.au/" + singlePage
+        "type": @.reference->_type,
       }
     }
   },
