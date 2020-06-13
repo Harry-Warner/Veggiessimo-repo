@@ -84,7 +84,7 @@ const Index = (props, { home }) => {
                       <div className="w-full md:w-11/12 lg:w-10/12 mx-auto bg-lightBlueT">
                         <p className="font-sans text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                           {title}
-                          <span className="vegetarianicon"> &#9419;</span>
+                          <span> &#9419;</span>
                         </p>
                       </div>
                     </a>

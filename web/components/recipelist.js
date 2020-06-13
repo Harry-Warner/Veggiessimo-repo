@@ -19,7 +19,7 @@ const RecipeList = (props) => {
           <div className="flex justify-center bg-white">
             <p className="font-sans self-center text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
               {props.title}
-              <span className="vegetarianicon"> &#9419;</span>
+              <span> &#9419;</span>
             </p>
           </div>
         </a>
