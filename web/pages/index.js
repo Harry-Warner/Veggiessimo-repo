@@ -22,7 +22,6 @@ const Index = (props, { home }) => {
   return (
     <>
       <TitleComponent />
-      <div className="fixed z-0 bg-white h-full w-full" />
       <Banner className="relative w-full">
         <img
           className="w-full md:hidden bg-white"

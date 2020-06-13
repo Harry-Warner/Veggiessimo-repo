@@ -5,9 +5,12 @@ import ToggleMenu from "./togglemenu";
 import styled from "styled-components";
 import Headroom from "react-headroom";
 import garlic from "../images/garlic.png";
+import Modal from "../components/modal";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [display, setDisplay] = useState(false);
+
   return (
     <>
       <div className="z-50 relative">
@@ -106,6 +109,8 @@ const Header = () => {
           </div>
         </StyledHeader>
       </div>
+
+      <Modal display={display} setDisplay={setDisplay} />
     </>
   );
 };

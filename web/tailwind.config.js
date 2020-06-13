@@ -15,6 +15,7 @@ module.exports = {
         "116": "29rem",
         "124": "31rem",
         "132": "33rem",
+        "200": "50rem",
         "19/20": "95%",
       },
       lineHeight: {
@@ -24,6 +25,9 @@ module.exports = {
       },
       borderRadius: {
         xl: "1.5rem",
+      },
+      inset: {
+        "1/2": "50%",
       },
     },
     fontSize: {
@@ -65,6 +69,7 @@ module.exports = {
       lightPink: "#efe1e8",
       lightPinkT: "rgba(239, 225, 232, 0.75)",
       black: "#000000",
+      blackT: "rgba(0, 0, 0, 0.5)",
       white: "#fff",
       whiteT: "rgba(245, 245, 245, 0.75)",
     },
