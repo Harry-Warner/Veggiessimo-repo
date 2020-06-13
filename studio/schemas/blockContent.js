@@ -57,6 +57,12 @@ export default {
                 type: "reference",
                 to: [{ type: "recipePost" }, { type: "communityPost" }],
               },
+              {
+                title: "Single Page",
+                name: "singlePage",
+                type: "string",
+                validation: (Rule) => Rule.lowercase(),
+              },
             ],
           },
           {

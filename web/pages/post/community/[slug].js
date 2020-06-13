@@ -107,7 +107,18 @@ const queryPosts = groq`*[_type == "communityPost" && slug.current == $slug][0]{
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
-  body,
+  body[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug,
+        "_type": @.reference->_type,
+        singlePage,
+        "url": "https://veggiessimo.com.au/" + singlePage
+      }
+    }
+  },
 }`;
 
 const queryCommunity = groq`*[_type == "communityPost" && publishedAt < now() && slug.current != $slug]|order(publishedAt desc){

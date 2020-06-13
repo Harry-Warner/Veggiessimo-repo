@@ -63,11 +63,13 @@ const serializers = {
         </span>
       );
     },
-    // internalLink: ({ mark, children }) => {
-    //   const { type, slug = {}, url } = mark;
-    //   const href = url ? url : `/post/${type}/${slug.current}`;
-    //   return <a href={href}>{children}</a>;
-    // },
+    internalLink: ({ mark, children }) => {
+      const { _type, slug = {}, url } = mark;
+      // remove the "Post" from the post type
+      const type = _type.split("").slice(0, -4).join();
+      const href = url ? url : `/post/${type}/${slug.current}`;
+      return <a href={href}>{children}</a>;
+    },
     externalLink: ({ mark, children }) => {
       const { blank, href } = mark;
       return blank ? (
