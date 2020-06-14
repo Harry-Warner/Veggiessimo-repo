@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { bool, func } from "prop-types";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const Modal = ({ display, setDisplay }) => {
   useEffect(() => {
@@ -13,11 +14,20 @@ const Modal = ({ display, setDisplay }) => {
   return (
     <StyledModal
       display={display}
-      onClick={() => setDisplay(false)}
-      className="fixed z-50 flex justify-center items-center top-0 right-0 bottom-0 left-0 bg-blackT"
+      className="fixed z-50 flex justify-center items-center top-0 right-0 bottom-0 left-0"
     >
+      <div
+        onClick={() => setDisplay(false)}
+        className="fixed z-0 top-0 right-0 bottom-0 left-0 bg-blackT"
+      />
       <div className="fixed w-11/12 lg:w-200 md:h-108 p-2 md:p-4 flex flex-col md:flex-row bg-white">
-        <div className="relative z-0 w-full md:w-1/2 lg:w-7/12 h-48 md:h-64 md:h-full bg-green">
+        <StyledClose
+          onClick={() => setDisplay(false)}
+          className="absolute right-0"
+        >
+          <HighlightOffIcon style={{ fontSize: 20, color: "#efe1e8" }} />
+        </StyledClose>
+        <div className="relative z-0 w-full md:w-7/12 h-48 md:h-64 md:h-full bg-green">
           <img
             src="/images/logoPlain.png"
             alt="logo"
@@ -29,8 +39,8 @@ const Modal = ({ display, setDisplay }) => {
             </h1>
           </div>
         </div>
-        <div className="relative flex flex-col w-full md:w-1/2 lg:w-5/12 h-64 md:h-full lg:h-64 self-end">
-          <div className="join md:my-2 lg:absolute z-10 w-full text-center lg:text-left font-script text-vbig md:text-vvhuge">
+        <div className="mt-10 md:mt-0 relative flex flex-col w-full md:w-5/12 h-56 md:h-64 self-end">
+          <div className="join md:my-2 absolute  z-10 w-full md:w-auto text-center lg:text-left font-script text-huge md:text-vvhuge">
             <h2>Join us!</h2>
           </div>
           <input
@@ -46,7 +56,7 @@ const Modal = ({ display, setDisplay }) => {
           >
             Subscribe
           </button>
-          <h3 className="my-2 w-full text-center font-sans md:font-script text-xl md:text-big">
+          <h3 className="my-2 w-full text-center font-script text-xxl md:text-big">
             Get exclusive access to the latest recipes!
           </h3>
         </div>
@@ -62,13 +72,26 @@ Modal.propTypes = {
 
 const StyledModal = styled.div`
   display: ${({ display }) => (display ? "flex" : "none")};
-  transition-delay: 15s;
   .join {
-    @media (min-width: 1024px) {
+    top: -33%;
+    @media (min-width: 768px) {
       top: -65%;
-      left: -15%;
+      left: -20%;
       transform: rotate(350deg);
     }
+    @media (min-width: 1024px) {
+      left: -15%;
+    }
+  }
+`;
+
+const StyledClose = styled.div`
+  cursor: pointer;
+  top: -23px;
+  right: -8px;
+  @media (min-width: 768px) {
+    right: -15px;
+    top: -20px;
   }
 `;
 
