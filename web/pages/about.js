@@ -27,17 +27,17 @@ const About = (props) => {
           </div>
           <div className="z-10 w-full flex justify-center absolute top-0 left-0">
             <img
-              className="w-64 block md:hidden"
+              className="w-64 h-20 block md:hidden"
               src="images/pinkbrush640.png"
               alt="banner"
             />
             <img
-              className="w-108 hidden md:block lg:hidden"
+              className="w-108 h-32 hidden md:block lg:hidden"
               src="images/pinkbrush768.png"
               alt="banner"
             />
             <img
-              className="w-116 hidden lg:block"
+              className="w-116 h-32 hidden lg:block"
               src="images/pinkbrush1024.png"
               alt="banner"
             />

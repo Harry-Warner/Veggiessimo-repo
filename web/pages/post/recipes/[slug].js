@@ -26,9 +26,17 @@ const RecipePost = (props) => {
     if (hours === 0) {
       return `${minutes} minutes`;
     } else if (minutes === 0) {
-      return `${hours} hour`;
+      if (hours === 1) {
+        return `${hours} hour`;
+      } else {
+        return `${hours} hours`;
+      }
     } else {
-      return `${hours} hour and ${minutes} minutes`;
+      if (hours === 1) {
+        return `${hours} hour and ${minutes} minutes`;
+      } else {
+        return `${hours} hours and ${minutes} minutes`;
+      }
     }
   }
   function category_list(cat) {

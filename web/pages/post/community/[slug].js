@@ -64,7 +64,7 @@ const CommunityPost = (props) => {
           <hr className="col-span-12 self-center w-full h-3 border-none bg-lightPink my-5" />
         </article>
         <StyledList className="relative w-full mx-auto pt-12 pb-6 px-4 grid grid-cols-2 md:grid-cols-3 bg-lightBlueT">
-          <h1 className="absolute w-full text-center text-xl top-0 left-0 font-sans font-bold uppercase">
+          <h1 className="pt-2 absolute w-full text-center text-xl top-0 left-0 font-sans font-bold uppercase">
             - More Of Community -
           </h1>
           {community.map(

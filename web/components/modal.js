@@ -13,16 +13,16 @@ const Modal = ({ display, setDisplay }) => {
 
   return (
     <StyledModal
-      display={display}
+      display={display ? display : undefined}
       className="fixed z-50 flex justify-center items-center top-0 right-0 bottom-0 left-0"
     >
       <div
-        onClick={() => setDisplay(false)}
+        onClick={() => setDisplay(!display)}
         className="fixed z-0 top-0 right-0 bottom-0 left-0 bg-blackT"
       />
       <div className="fixed w-11/12 lg:w-200 md:h-108 p-2 md:p-4 flex flex-col md:flex-row bg-white">
         <StyledClose
-          onClick={() => setDisplay(false)}
+          onClick={() => setDisplay(!display)}
           className="absolute right-0"
         >
           <HighlightOffIcon style={{ fontSize: 20, color: "#efe1e8" }} />
@@ -50,7 +50,7 @@ const Modal = ({ display, setDisplay }) => {
             className="my-2 mx-auto w-full md:w-11/12 h-20 md:h-24 text-xxl px-2 bg-lightPink"
           />
           <button
-            onClick={() => setDisplay(false)}
+            onClick={() => setDisplay(!display)}
             type="submit"
             className="my-2 mx-auto w-full md:w-11/12 h-24 md:h-32 text-xxl md:text-xxxl font-bold uppercase bg-blue border-solid border-blue border-4 text-white hover:bg-white hover:text-blue"
           >

@@ -129,7 +129,7 @@ SearchFilter.propTypes = {
 
 const StyledNav = styled.div`
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   justify-content: space-around;
   .search-wrapper {
     position: absolute;

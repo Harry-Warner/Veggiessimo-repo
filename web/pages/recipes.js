@@ -35,7 +35,7 @@ const Recipes = (props) => {
                 slug && (
                   <List
                     type="recipes"
-                    id={_id}
+                    _id={_id}
                     title={title}
                     mainImage={mainImage}
                     url={urlFor(mainImage).url()}

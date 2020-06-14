@@ -14,7 +14,7 @@ const Contact = () => {
     <>
       <TitleComponent title="Contact" />
       <Container>
-        <div className="flex flex-col w-full mx-auto relative mt-8 md:mt-12 lg:mt-16">
+        <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
           <img
             className="block md:hidden w-full z-0"
             src="images/contact640.png"
