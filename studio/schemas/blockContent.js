@@ -110,6 +110,7 @@ export default {
     {
       type: "image",
       options: { hotspot: true },
+      fields: [{ title: "Alternative text", name: "altText", type: "string" }],
     },
   ],
 };

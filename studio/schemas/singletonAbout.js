@@ -11,12 +11,25 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "seoTitle",
+      title: "SEO Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "seoDescription",
+      title: "SEO Description",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "image",
       options: {
         hotspot: true,
       },
+      fields: [{ title: "Alternative Text", name: "altText", type: "string" }],
       validation: (Rule) => Rule.required(),
     },
     {
@@ -26,6 +39,7 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [{ title: "Alternative Text", name: "altText", type: "string" }],
       validation: (Rule) => Rule.required(),
     },
     {

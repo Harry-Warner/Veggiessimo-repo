@@ -10,6 +10,18 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "seoTitle",
+      title: "SEO Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "seoDescription",
+      title: "SEO Description",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -33,6 +45,7 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [{ title: "Alternative Text", name: "altText", type: "string" }],
       validation: (Rule) => Rule.required(),
     },
     {
