@@ -13,13 +13,13 @@ export default {
       name: "seoTitle",
       title: "SEO Title",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(60),
     },
     {
       name: "seoDescription",
       title: "SEO Description",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(120),
     },
     {
       name: "slug",
