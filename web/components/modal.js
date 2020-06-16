@@ -1,9 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { bool, func } from "prop-types";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const Modal = ({ display, setDisplay }) => {
+  // 1. Create a reference to the input so we can fetch/clear it's value.
+  const inputEl = useRef(null);
+  // 2. Hold a message in state to handle the response from our API.
+  const [message, setMessage] = useState("");
+
+  const subscribe = async (e) => {
+    e.preventDefault();
+
+    // 3. Send a request to our API with the user's email address.
+    const res = await fetch("/api/subscribe", {
+      body: JSON.stringify({
+        email: inputEl.current.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+
+    if (error) {
+      // 4. If there was an error, update the message in state.
+      setMessage(error);
+
+      return;
+    }
+
+    // 5. Clear the input value and show a success message.
+    inputEl.current.value = "";
+    setMessage("Success! 🎉 You are now subscribed to the newsletter.");
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setDisplay(true);
@@ -43,22 +76,30 @@ const Modal = ({ display, setDisplay }) => {
           <div className="join md:my-2 absolute  z-10 w-full md:w-auto text-center lg:text-left font-script text-huge md:text-vvhuge">
             <h2>Join us!</h2>
           </div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="my-2 mx-auto w-full md:w-11/12 h-20 md:h-24 text-xxl px-2 bg-lightPink"
-          />
-          <button
-            onClick={() => setDisplay(!display)}
-            type="submit"
-            className="my-2 mx-auto w-full md:w-11/12 h-24 md:h-32 text-xxl md:text-xxxl font-bold uppercase bg-blue border-solid border-blue border-4 text-white hover:bg-white hover:text-blue"
-          >
-            Subscribe
-          </button>
-          <h3 className="my-2 w-full text-center font-script text-xxl md:text-big">
-            Get exclusive access to the latest recipes!
-          </h3>
+          <form onSubmit={subscribe} className="flex flex-col h-32">
+            <input
+              type="email"
+              name="email"
+              ref={inputEl}
+              placeholder="you@example.com"
+              className="my-2 mx-auto w-full md:w-11/12 h-20 md:h-24 text-xl px-2 bg-lightPink"
+            />
+            <button
+              type="submit"
+              className="my-2 mx-auto w-full md:w-11/12 h-24 md:h-32 text-xxl md:text-xxxl font-bold uppercase bg-blue border-solid border-blue border-4 text-white hover:bg-white hover:text-blue"
+            >
+              Subscribe
+            </button>
+          </form>
+          <div className="my-2 px-1 w-full text-center font-sans text-xl">
+            {message ? (
+              message
+            ) : (
+              <h3 className="w-full text-center font-script text-xxxl md:text-big">
+                Get exclusive access to the latest recipes!
+              </h3>
+            )}
+          </div>
         </div>
       </div>
     </StyledModal>
