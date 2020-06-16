@@ -10,6 +10,7 @@ import SearchFilter from "../components/searchfilter";
 import MealTitle from "../components/mealtitle";
 import List from "../components/recipelist";
 import LoadMore from "../components/loadmore";
+import MetaTags from "../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -22,6 +23,13 @@ const Dessert = (props) => {
 
   return (
     <>
+      <MetaTags
+        description="Delicious desserts"
+        type="object"
+        title="Desserts | Veggiessimo"
+        url="dessert"
+        imageSrc="https://veggiessimo.com.au/images/desserts.png"
+      />
       <TitleComponent title="Dessert" />
       <Container>
         <MealTitle title="Dessert" />

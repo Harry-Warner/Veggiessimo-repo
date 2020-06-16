@@ -7,6 +7,7 @@ import Container from "../styled/container";
 import Footer from "../components/footer";
 import TitleComponent from "../components/titleComponent.jsx";
 import serializers from "../styled/serializers";
+import MetaTags from "../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -14,9 +15,15 @@ function urlFor(source) {
 
 const About = (props) => {
   const { content = [] } = props;
-  console.log(props);
   return (
     <>
+      <MetaTags
+        description={content.seoDescription}
+        type="article"
+        title={content.seoTitle}
+        url="about"
+        imageSrc={urlFor(content.mainImage).url()}
+      />
       <TitleComponent title="About" />
       <Container>
         <div className="relative mt-3 lg:mt-16 pt-6 md:pt-1 pt:4">
@@ -93,7 +100,9 @@ const links = `...,
 About.getInitialProps = async () => ({
   content: await client.fetch(groq`
       *[_type == "about"][0]{
-        title, 
+        title,
+        seoTitle,
+        seoDescription, 
         mainImage,
         secondImage,
         shortDescription[]{${links}},

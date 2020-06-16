@@ -14,7 +14,7 @@ const RecipeTypes = () => {
               <img
                 className="h-28 md:h-40 lg:h-56 my-4"
                 src="images/breakfast.png"
-                alt="food"
+                alt="Scrambled egg sandwich with fresh seeded bread, red onion, tomatos and avacado"
               />
               <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
                 Breakfast
@@ -27,8 +27,8 @@ const RecipeTypes = () => {
             <a>
               <img
                 className="h-28 md:h-40 lg:h-56 my-4"
-                src="images/dinner.png"
-                alt="food"
+                src="images/mains.png"
+                alt="Black bean dahl with naan bread topped with pomegranate and coriander"
               />
               <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
                 Mains
@@ -41,8 +41,8 @@ const RecipeTypes = () => {
             <a>
               <img
                 className="h-28 md:h-40 lg:h-56 my-4"
-                src="images/dessert.png"
-                alt="food"
+                src="images/desserts.png"
+                alt="Berry lemon cheesecake"
               />
               <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
                 Dessert
@@ -55,8 +55,8 @@ const RecipeTypes = () => {
             <a>
               <img
                 className="h-28 md:h-40 lg:h-56 my-4"
-                src="images/dessert.png"
-                alt="food"
+                src="images/smallbites.png"
+                alt="Vegetable chinese dumplings dipped in soya sauce sprinkled with chilli slices, sesame seeds and chopped coriander. Chopsticks on the side"
               />
               <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
                 Small Bites
@@ -69,8 +69,8 @@ const RecipeTypes = () => {
             <a>
               <img
                 className="h-28 md:h-40 lg:h-56 my-4"
-                src="images/dessert.png"
-                alt="food"
+                src="images/salads.png"
+                alt="Rocket, goats cheese, tomato, mango, red onion, cucumber and jalopeno salad sprinkled with pomegranate coriander leaves and chive flowers"
               />
               <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
                 Soups & Salads
@@ -83,8 +83,8 @@ const RecipeTypes = () => {
             <a>
               <img
                 className="h-28 md:h-40 lg:h-56 my-4"
-                src="images/dessert.png"
-                alt="food"
+                src="images/sauces.png"
+                alt="an assortment of homemade sauces on a kitchen table"
               />
               <h2 className="text-xxl font-bold my-4 h-28 md:h-40 lg:h-56 font-sans bg-lightPinkT uppercase">
                 Sauces

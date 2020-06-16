@@ -10,6 +10,7 @@ import Container from "../styled/container";
 import SearchFilter from "../components/searchfilter";
 import MealTitle from "../components/mealtitle";
 import LoadMore from "../components/loadmore";
+import MetaTags from "../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -22,6 +23,13 @@ const SmallBites = (props) => {
 
   return (
     <>
+      <MetaTags
+        description="Delicious small bites"
+        type="object"
+        title="Small Bites | Veggiessimo"
+        url="smallbites"
+        imageSrc="https://veggiessimo.com.au/images/smallbites.png"
+      />
       <TitleComponent title="Small Bites" />
       <Container>
         <MealTitle title="Small Bites" />

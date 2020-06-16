@@ -10,6 +10,7 @@ import Container from "../styled/container";
 import SearchFilter from "../components/searchfilter";
 import MealTitle from "../components/mealtitle";
 import LoadMore from "../components/loadmore";
+import MetaTags from "../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -22,6 +23,13 @@ const Breakfast = (props) => {
 
   return (
     <>
+      <MetaTags
+        description="Kickstart your mornings with a bang and dig into our amazing breakfast recipes! Whether it's healthy delicious smoothies, the classic banana pancakes or the aussie favourite avacado recipes, we've got you covered!"
+        type="object"
+        title="Breakfast | Veggiessimo"
+        url="breakfast"
+        imageSrc="https://veggiessimo.com.au/images/breakfast.png"
+      />
       <TitleComponent title="Breakfast" />
       <Container>
         <MealTitle title="Breakfast" />

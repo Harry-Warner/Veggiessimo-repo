@@ -8,10 +8,18 @@ import { Instagram } from "@styled-icons/entypo-social/Instagram";
 import { Facebook } from "@styled-icons/entypo-social/Facebook";
 import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCircle";
 import { Email } from "@styled-icons/material/Email";
+import MetaTags from "../components/metatags";
 
 const Contact = () => {
   return (
     <>
+      <MetaTags
+        description="Drop us an email, all enquiries are sent to veggiessimorecipes@gmail.com"
+        type="object"
+        title="Contact | Veggiessimo"
+        url="contact"
+        imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-sm.png"
+      />
       <TitleComponent title="Contact" />
       <Container>
         <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
@@ -77,7 +85,7 @@ const Contact = () => {
             <div className="flex justify-center items-center">
               <StyledEmail />
               <p className="text-xl md:text-xxl lg:text-xxxl pb-3 md:pb-4 font-sans">
-                veggiessimo@gmail.com
+                veggiessimorecipes@gmail.com
               </p>
             </div>
           </div>

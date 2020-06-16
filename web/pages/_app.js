@@ -12,10 +12,6 @@ class MyApp extends App {
       <>
         <Head>
           <link
-            rel="stylesheet"
-            href="http://static.sasongsmat.nu/fonts/vegetarian.css"
-          />
-          <link
             href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap"
             rel="stylesheet"
           />

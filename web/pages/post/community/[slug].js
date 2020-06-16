@@ -11,6 +11,7 @@ import Container from "../../../styled/container";
 import PostHeading from "../../../components/postheading";
 import Colors from "../../../styled/colors";
 import serializers from "../../../styled/serializers";
+import MetaTags from "../../../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -20,7 +21,14 @@ const CommunityPost = (props) => {
   const { post = [], community = [] } = props;
   return (
     <>
-      <TitleComponent title={post.title} />
+      <MetaTags
+        description={post.seoDescription}
+        type="article"
+        title={post.seoTitle}
+        url={`post/community/${post.slug.current}`}
+        imageSrc={urlFor(post.mainImage).url()}
+      />
+      <TitleComponent title={post.seoTitle} />
       <Container>
         <article>
           <PostHeading
@@ -112,6 +120,9 @@ const links = `...,
 
 const queryPosts = groq`*[_type == "communityPost" && slug.current == $slug][0]{
   title,
+  seoTitle,
+  seoDescription,
+  slug,
   mainImage,
   description[]{${links}},
   "name": author->name,

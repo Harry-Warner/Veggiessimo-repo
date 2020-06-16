@@ -12,6 +12,7 @@ import Colors from "../../../styled/colors";
 import { Camera } from "@styled-icons/evil/Camera";
 import PostHeading from "../../../components/postheading";
 import serializers from "../../../styled/serializers";
+import MetaTags from "../../../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -50,10 +51,17 @@ const RecipePost = (props) => {
     }
     return str;
   }
-  console.log(urlFor(post.mainImage));
+
   return (
     <>
-      <TitleComponent title={post.title} />
+      <MetaTags
+        description={post.seoDescription}
+        type="article"
+        title={post.seoTitle}
+        url={`post/community/${post.slug.current}`}
+        imageSrc={urlFor(post.mainImage).url()}
+      />
+      <TitleComponent title={post.seoTitle} />
       <Container>
         <article>
           <PostHeading
@@ -67,7 +75,7 @@ const RecipePost = (props) => {
                 <img
                   className="w-full h-64 md:h-84 lg:h-108 object-cover object-center"
                   src={urlFor(post.mainImage).url()}
-                  alt="food"
+                  alt={post.title}
                 />
               </div>
             )}
@@ -190,6 +198,9 @@ const links = `...,
 
 const queryPost = groq`*[_type == "recipePost" && slug.current == $slug][0]{
 title,
+seoTitle,
+seoDescription,
+slug,
 mainImage,
 cookingTime,
 "name": author->name,

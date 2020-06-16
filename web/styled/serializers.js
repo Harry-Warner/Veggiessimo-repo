@@ -21,16 +21,6 @@ const Styler = (props) => {
   return css;
 };
 
-// const marks = `
-//   markDefs[]{
-//     _type == "internalLink" => {
-//       _key,
-//       "slug": @.reference->slug,
-//       "type": @.reference->_type,
-//       "url": "https://veggiessimo.com.au/post/" + @.reference->_type + "/" + @.reference->slug.current
-//     }
-//   }`;
-
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
@@ -58,11 +48,10 @@ const serializers = {
       );
     },
     image(props) {
-      console.log(urlFor(props.node));
       return (
         <img
           src={urlFor(props.node)}
-          alt="food"
+          alt={props.node.altText}
           className="mx-auto w-full h-48 md:h-84 lg:h-64 object-center object-cover"
         />
       );
@@ -77,7 +66,6 @@ const serializers = {
     },
     postLink: ({ mark, children }) => {
       const { type, slug = {} } = mark;
-      console.log(slug);
       // remove the "Post" from the post type
       const post = type.split("").slice(0, -4);
       // change recipe to recipes

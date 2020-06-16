@@ -11,6 +11,7 @@ import ComNav from "../components/comNav";
 import MealTitle from "../components/mealtitle";
 import TextBox from "../components/textbox";
 import LoadMore from "../components/loadmore";
+import MetaTags from "../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -23,6 +24,13 @@ const Community = (props) => {
 
   return (
     <>
+      <MetaTags
+        description="Ideas on how to live a more sustainable lifestyle"
+        type="object"
+        title="Community | Veggiessimo"
+        url="community"
+        imageSrc="https://veggiessimo.com.au/images/onion768.png"
+      />
       <TitleComponent title="Community" />
       <Container>
         <MealTitle title="Community" />

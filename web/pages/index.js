@@ -9,8 +9,8 @@ import RecipesLink from "../components/recipeslink";
 import AboutLink from "../components/aboutlink";
 import CommunityLink from "../components/communitylink";
 import Footer from "../components/footer";
-import TitleComponent from "../components/titleComponent.jsx";
 import Container from "../styled/container";
+import MetaTags from "../components/metatags";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -21,7 +21,13 @@ const Index = (props, { home }) => {
 
   return (
     <>
-      <TitleComponent />
+      <MetaTags
+        description="Welcome to the Veggiessimo website. We want to show you a more SUSTAINABLE and TASTY way of living that not only makes you and your gut feel better, but is also kind to the planet."
+        type="website"
+        title="Veggiessimo - Meals + Love"
+        url=""
+        imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-sm.png"
+      />
       <Banner className="relative w-full">
         <img
           className="w-full md:hidden bg-white"
