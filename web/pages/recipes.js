@@ -5,13 +5,12 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import TitleComponent from "../components/titleComponent.jsx";
 import RecipeList from "../styled/postlist";
-import RecipeTypes from "../components/recipetypes";
 import Footer from "../components/footer";
 import Container from "../styled/container";
 import SearchFilter from "../components/searchfilter";
-import MealTitle from "../components/mealtitle";
 import LoadMore from "../components/loadmore";
 import MetaTags from "../components/metatags";
+import MealTitle from "../components/mealtitle";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -21,6 +20,8 @@ const Recipes = (props) => {
   const { posts = [] } = props;
   const [searchPosts, setSearchPosts] = useState([]);
   const [loadSearchPosts, setLoadSearchPosts] = useState(searchPosts);
+
+  console.log(posts.map((post) => post.ingredients));
 
   return (
     <>
@@ -33,8 +34,18 @@ const Recipes = (props) => {
       />
       <TitleComponent title="Recipes" />
       <Container>
-        <RecipeTypes />
-        <MealTitle title="Recent Recipes" />
+        <MealTitle
+          title={`${
+            searchPosts.length === 0 || searchPosts.length === posts.length
+              ? "Recipes"
+              : searchPosts[0].mealType
+          }`}
+          description={`${
+            searchPosts.length === 0 || searchPosts.length === posts.length
+              ? "Checkout out our recipes, from Breakfasts to start your day right, to sauces that can make anything taste good!"
+              : searchPosts[0].description
+          }`}
+        />
         <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />
         <RecipeList>
           {loadSearchPosts &&
@@ -69,7 +80,11 @@ Recipes.getInitialProps = async () => ({
         mainImage,
         slug,
         _id,
+        "mealType": mealType[]->title,
+        "description": mealType[]->description,
         "categories": categories[]->title,
+        "keyIngredients": keyIngredients[]->title,
+        ingredients,
         }|order(publishedAt desc)
     `),
 });

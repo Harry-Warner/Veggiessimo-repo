@@ -10,8 +10,11 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   const [vopen, setVOpen] = useState(false);
   const [gopen, setGOpen] = useState(false);
   const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [foodType, setFoodType] = useState(filteredPosts);
   const [value, setValue] = useState("");
+  const [select, setSelect] = useState(null);
 
+  // categories
   const vegan = posts.filter((e) => e.categories.includes("Vegan"));
   const glutenFree = posts.filter((e) => e.categories.includes("Gluten Free"));
   const both = posts.filter(
@@ -19,6 +22,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
       e.categories.includes("Vegan") && e.categories.includes("Gluten Free")
   );
 
+  // functions called to filter posts
   const showVegan = () => {
     setVOpen(!vopen);
     if (gopen === true && !vopen) {
@@ -75,16 +79,101 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   };
 
   useEffect(() => {
+    setFoodType(
+      select
+        ? filteredPosts.filter((e) => e.mealType.includes(select))
+        : filteredPosts
+    );
+  }, [filteredPosts, select]);
+
+  useEffect(() => {
     setSearchPosts(
-      filteredPosts.filter((post) =>
-        wordCheck(value, post.title, post.categories, post.keyIngredients)
+      foodType.filter((post) =>
+        wordCheck(
+          value,
+          post.title,
+          post.categories,
+          post.ingredients.map((ing) => ing.children[0].text)
+        )
       )
     );
-  }, [value, filteredPosts]);
+  }, [value, foodType]);
 
   return (
     <>
-      <StyledNav className="bg-lightPink w-full h-12 md:h-16 flex items-center text-lg md:text-xl mt-8">
+      <StyledMenu className="text-lg md:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-7">
+        <div
+          onClick={() => setSelect(null)}
+          className={`${
+            select
+              ? "bg-lightPink"
+              : "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
+          } cursor-pointer col-span-3 lg:col-span-1 font-sans self-center text-center`}
+        >
+          <h2 className="self-center w-full">All</h2>
+        </div>
+        <div
+          onClick={() => setSelect("Breakfast")}
+          className={`${
+            select === "Breakfast"
+              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
+              : "bg-lightPink"
+          } cursor-pointer font-sans self-center text-center`}
+        >
+          <h2 className="self-center">Breakfast</h2>
+        </div>
+        <div
+          onClick={() => setSelect("Mains")}
+          className={`${
+            select === "Mains"
+              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
+              : "bg-lightPink"
+          } cursor-pointer font-sans self-center text-center`}
+        >
+          <h2 className="self-center">Mains</h2>
+        </div>
+        <div
+          onClick={() => setSelect("Dessert")}
+          className={`${
+            select === "Dessert"
+              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
+              : "bg-lightPink"
+          } cursor-pointer font-sans self-center text-center`}
+        >
+          <h2 className="self-center">Desserts</h2>
+        </div>
+        <div
+          onClick={() => setSelect("Small Bites")}
+          className={`${
+            select === "Small Bites"
+              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
+              : "bg-lightPink"
+          } cursor-pointer font-sans self-center text-center`}
+        >
+          <h2 className="self-center">Small Bites</h2>
+        </div>
+        <div
+          onClick={() => setSelect("Soups & Salads")}
+          className={`${
+            select === "Soups & Salads"
+              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
+              : "bg-lightPink"
+          } cursor-pointer font-sans self-center text-center`}
+        >
+          <h2 className="self-center">Soups/Salads</h2>
+        </div>
+        <div
+          onClick={() => setSelect("Sauces")}
+          className={`${
+            select === "Sauces"
+              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
+              : "bg-lightPink"
+          } cursor-pointer font-sans self-center text-center`}
+        >
+          <h2 className="self-center">Sauces</h2>{" "}
+        </div>
+      </StyledMenu>
+      <StyledNav className="w-full h-12 md:h-16 flex items-center text-lg md:text-xl mt-8">
         <StyledButton open={gopen} onClick={() => showGlutenFree()}>
           <div className="circle">
             <CheckIcon className="icon" fontSize="large" />
@@ -126,6 +215,22 @@ SearchFilter.propTypes = {
   posts: array.isRequired,
   setSearchPosts: func.isRequired,
 };
+
+const StyledMenu = styled.div`
+  div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+
+    @media (min-width: 1024px) {
+      &:hover {
+        background: ${Colors.lightBlue};
+      }
+    }
+  }
+`;
 
 const StyledNav = styled.div`
   position: relative;

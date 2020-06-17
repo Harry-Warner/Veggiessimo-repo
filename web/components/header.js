@@ -65,30 +65,10 @@ const Header = () => {
             <StyledLink>
               <Link href="/recipes">
                 <a className="relative z-10 bg-green flex w-full">
-                  <img className="garlic1" src={garlic} alt="garlic" />
+                  <img className="garlic" src={garlic} alt="garlic" />
                   recipes
                 </a>
               </Link>
-              <div className="courses z-0 flex flex-col absolute mt-12 justify-around items-start bg-green">
-                <Link href="/breakfast">
-                  <a className="hover:font-bold">- Breakfast</a>
-                </Link>
-                <Link href="/mains">
-                  <a className="hover:font-bold">- Mains</a>
-                </Link>
-                <Link href="/dessert">
-                  <a className="hover:font-bold">- Dessert</a>
-                </Link>
-                <Link href="/smallbites">
-                  <a className="hover:font-bold">- Small Bites</a>
-                </Link>
-                <Link href="/soups-and-salads">
-                  <a className="hover:font-bold">- Soups & Salads</a>
-                </Link>
-                <Link href="/sauces">
-                  <a className="hover:font-bold">- Sauces</a>
-                </Link>
-              </div>
             </StyledLink>
             <StyledLink>
               <Link href="/community">
@@ -143,13 +123,6 @@ const StyledLink = styled.div`
     transform: rotate(0);
     transition: all 0.3s ease-in-out;
   }
-  .garlic1 {
-    padding: 0 15px;
-    height: 25px;
-    align-self: center;
-    transform: rotate(0);
-    transition: all 0.3s ease-in-out;
-  }
 
   .courses {
     width: calc(100% + 50px);
@@ -167,9 +140,6 @@ const StyledLink = styled.div`
   &:hover {
     .garlic {
       transform: rotate(90deg);
-    }
-    .garlic1 {
-      transform: rotate(180deg);
     }
     .courses {
       top: 0;

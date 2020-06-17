@@ -13,9 +13,7 @@ const LoadMore = ({ searchPosts, setLoadSearchPosts }) => {
     } else {
       setLoadSearchPosts(searchPosts.slice(0, count));
       setShow(true);
-      console.log(searchPosts);
     }
-    console.log(count);
   }, [searchPosts, count]);
 
   return (
