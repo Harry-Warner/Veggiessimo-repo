@@ -49,35 +49,51 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     }
   };
 
-  // allow for user input differences
+  // filter words through search input
   const wordCheck = (val, title, cats, ings) => {
-    let count = 0;
+    // define seperated input values
+    let sepVals = [];
+    // allow for user input differences
     let arr = val.toLowerCase().split(" ");
-    let newArr = [];
-    let arr1;
-    let l;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] !== "" && arr[i] !== "and") {
-        l = arr[i].length;
+        let l = arr[i].length;
         if (arr[i].split("")[l - 1] === "s") {
-          arr1 = arr[i].split("");
+          let arr1 = arr[i].split("");
           arr1.pop();
-          newArr.push(arr1.join(""));
+          sepVals.push(arr1.join(""));
         } else {
-          newArr.push(arr[i]);
+          sepVals.push(arr[i]);
         }
       }
     }
+    // join all items together
     let info = cats.concat(ings).concat(title.split(" "));
     let newInfo = info.join().replace(/,/g, " ").toLowerCase().split(" ");
-    for (let i = 0; i < newArr.length; i++) {
-      if (newInfo.includes(newArr[i])) {
+    // loop through seperated input values and resize items length to match that of the value
+    // and push into an array
+    let resizedInfo = [];
+    let count = 0;
+    for (let i = 0; i < sepVals.length; i++) {
+      for (let j = 0; j < newInfo.length; j++) {
+        resizedInfo.push(
+          newInfo[j]
+            .split("")
+            .slice(0, sepVals[i].length)
+            .join()
+            .replace(/,/g, "")
+        );
+      }
+      // count the number of seperated values that have found at least one match
+      if (resizedInfo.filter((item) => item === sepVals[i]).length > 0) {
         count++;
       }
     }
-    return count === newArr.length;
+    // return false if a seperated value doesnt find a match
+    return count === sepVals.length;
   };
 
+  // make sure foodType listens to filteredPosts
   useEffect(() => {
     setFoodType(
       select
@@ -86,6 +102,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     );
   }, [filteredPosts, select]);
 
+  // listen to value changes while pass through the final filter
   useEffect(() => {
     setSearchPosts(
       foodType.filter((post) =>

@@ -21,8 +21,6 @@ const Recipes = (props) => {
   const [searchPosts, setSearchPosts] = useState([]);
   const [loadSearchPosts, setLoadSearchPosts] = useState(searchPosts);
 
-  console.log(posts.map((post) => post.ingredients));
-
   return (
     <>
       <MetaTags
