@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "../components/footer";
 import Container from "../styled/container";
@@ -9,8 +9,61 @@ import { Facebook } from "@styled-icons/entypo-social/Facebook";
 import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCircle";
 import { Email } from "@styled-icons/material/Email";
 import MetaTags from "../components/metatags";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const Contact = () => {
+  const [open, setOpen] = useState(false);
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    $subject: "",
+    message: "",
+    honeypot: "",
+    replyTo: "@",
+    accessKey: "a4f1a0d4-6b13-41c8-bea7-02003dc51b20",
+  });
+
+  const [response, setResponse] = useState({
+    type: "",
+    message: "",
+  });
+
+  const handleChange = (e) =>
+    setContact({ ...contact, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setOpen(true);
+    try {
+      const res = await fetch("https://api.staticforms.xyz/submit", {
+        method: "POST",
+        body: JSON.stringify(contact),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        setResponse({
+          type: "success",
+          message: "Thank you for reaching out to us.",
+        });
+      } else {
+        setResponse({
+          type: "error",
+          message: json.message,
+        });
+      }
+    } catch (e) {
+      console.log("An error occurred", e);
+      setResponse({
+        type: "error",
+        message: "An error occured while submitting the form",
+      });
+    }
+  };
+
   return (
     <>
       <MetaTags
@@ -21,6 +74,25 @@ const Contact = () => {
         imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-sm.png"
       />
       <TitleComponent title="Contact" />
+      <StyledResponse
+        open={open}
+        className="fixed z-50 flex flex-col justify-center items-center top-0 right-0 bottom-0 left-0"
+      >
+        <div
+          open={open}
+          onClick={() => setOpen(false)}
+          className="fixed z-0 top-0 right-0 bottom-0 left-0 bg-blackT"
+        />
+        <div className="fixed w-11/12 md:w-7/12 lg:w-4/12 p-4 bg-lightPink">
+          <h2 className="text-xxl text-center">{response.message}</h2>
+          <StyledClose
+            onClick={() => setOpen(false)}
+            className="absolute right-0"
+          >
+            <HighlightOffIcon style={{ fontSize: 30, color: "#efe1e8" }} />
+          </StyledClose>
+        </div>
+      </StyledResponse>
       <Container>
         <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
           <img
@@ -41,8 +113,15 @@ const Contact = () => {
           <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script left-0 ml-4 md:ml-6 lg:ml-12 mt-8 md:mt-24 lg:mt-10">
             Get in Touch
           </StyledTitle>
-          <StyledForm className="absolute self-center  justify-between flex flex-col md:items-start py-4">
+          <StyledForm
+            action="https://api.staticforms.xyz/submit"
+            method="post"
+            onSubmit={handleSubmit}
+            className="absolute self-center  justify-between flex flex-col md:items-start py-4"
+          >
             <input
+              onChange={handleChange}
+              required
               type="text"
               name="name"
               className="name w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
@@ -50,30 +129,54 @@ const Contact = () => {
             />
             <input
               type="email"
-              name="email"
-              className="email w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
               placeholder="Email"
+              name="email"
+              onChange={handleChange}
+              required
+              className="email w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
             />
             <input
               type="text"
-              name="subject"
+              name="$subject"
+              onChange={handleChange}
               className="subject w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
               placeholder="Subject"
+              required
             />
+            <div style={{ display: "none" }}>
+              <label>Title</label>
+              <div>
+                <input
+                  type="text"
+                  name="honeypot"
+                  style={{ display: "none" }}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
             <div className="flex justify-end py-1">
               <textarea
+                placeholder="Your Message"
                 name="message"
+                onChange={handleChange}
+                required
                 className="message h-full w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
-                placeholder="Message"
               />
-              <button className="hidden md:block bg-lightBlue text-white uppercase font-bold w-16 ml-6 lg:ml-10 self-end rounded-xl">
+              <button
+                type="submit"
+                className="hidden md:block bg-lightBlue text-white uppercase font-bold w-16 ml-6 lg:ml-10 self-end rounded-xl"
+              >
                 Send
               </button>
-              <button className="md:hidden bg-lightBlue text-white uppercase font-bold w-16 ml-5 self-end rounded-xl">
+              <button
+                type="submit"
+                className="md:hidden bg-lightBlue text-white uppercase font-bold w-16 ml-5 self-end rounded-xl"
+              >
                 Send
               </button>
             </div>
           </StyledForm>
+
           <div className="w-full bg-lightBlueT flex flex-col lg:my-2">
             <div className="w-full flex justify-center">
               <StyledFace />
@@ -95,6 +198,15 @@ const Contact = () => {
     </>
   );
 };
+
+const StyledResponse = styled.div`
+  display: ${({ open }) => (open ? "flex" : "none")};
+`;
+const StyledClose = styled.div`
+  cursor: pointer;
+  top: -23px;
+  right: -23px;
+`;
 
 const StyledTitle = styled.h1`
   @media (max-width: 640px) {

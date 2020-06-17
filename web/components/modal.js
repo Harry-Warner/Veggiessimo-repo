@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { bool, func } from "prop-types";
+import { bool, func, string } from "prop-types";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
-const Modal = ({ display, setDisplay }) => {
-  // 1. Create a reference to the input so we can fetch/clear it's value.
+const Modal = ({ display, setDisplay, value, setValue, footer }) => {
+  // Reference to the input to fetch/clear it's value.
   const inputEl = useRef(null);
-  // 2. Hold a message in state to handle the response from our API.
+  // Hold a message in state to handle the response from API.
   const [message, setMessage] = useState("");
 
   const subscribe = async (e) => {
     e.preventDefault();
 
-    // 3. Send a request to our API with the user's email address.
+    // Send a request to API with the user's email address.
     const res = await fetch("/api/subscribe", {
       body: JSON.stringify({
         email: inputEl.current.value,
@@ -26,20 +26,21 @@ const Modal = ({ display, setDisplay }) => {
     const { error } = await res.json();
 
     if (error) {
-      // 4. If there was an error, update the message in state.
+      // If there was an error, update the message in state.
       setMessage(error);
 
       return;
     }
 
-    // 5. Clear the input value and show a success message.
+    // Clear the input value and show a success message.
     inputEl.current.value = "";
     setMessage("Success! 🎉 You are now subscribed to the newsletter.");
+    setValue("");
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDisplay(true);
+      footer ? setDisplay(false) : setDisplay(true);
     }, 15000);
     return () => clearTimeout(timer);
   }, []);
@@ -50,12 +51,12 @@ const Modal = ({ display, setDisplay }) => {
       className="fixed z-50 flex justify-center items-center top-0 right-0 bottom-0 left-0"
     >
       <div
-        onClick={() => setDisplay(!display)}
+        onClick={() => setDisplay(false)}
         className="fixed z-0 top-0 right-0 bottom-0 left-0 bg-blackT"
       />
       <div className="fixed w-11/12 lg:w-200 md:h-108 p-2 md:p-4 flex flex-col md:flex-row bg-white">
         <StyledClose
-          onClick={() => setDisplay(!display)}
+          onClick={() => setDisplay(false)}
           className="absolute right-0"
         >
           <HighlightOffIcon style={{ fontSize: 20, color: "#efe1e8" }} />
@@ -81,6 +82,8 @@ const Modal = ({ display, setDisplay }) => {
               type="email"
               name="email"
               ref={inputEl}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
               placeholder="you@example.com"
               className="my-2 mx-auto w-full md:w-11/12 h-20 md:h-24 text-xl px-2 bg-lightPink"
             />
@@ -95,7 +98,7 @@ const Modal = ({ display, setDisplay }) => {
             {message ? (
               message
             ) : (
-              <h3 className="w-full text-center font-script text-xxxl md:text-big">
+              <h3 className="w-full text-black text-center font-script text-xxxl md:text-big">
                 Get exclusive access to the latest recipes!
               </h3>
             )}
@@ -109,6 +112,8 @@ const Modal = ({ display, setDisplay }) => {
 Modal.propTypes = {
   display: bool.isRequired,
   setDisplay: func.isRequired,
+  value: string.isRequired,
+  setValue: func.isRequired,
 };
 
 const StyledModal = styled.div`
