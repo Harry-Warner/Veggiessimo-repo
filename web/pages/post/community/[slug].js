@@ -190,7 +190,7 @@ const StyledList = styled.div`
 
   li {
     @media (max-width: 767px) {
-      &:last-child {
+      &:nth-child(3) {
         display: none;
       }
     }

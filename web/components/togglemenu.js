@@ -39,9 +39,13 @@ const ToggleMenu = ({ open, setOpen }) => {
       <div>
         <h1 className="text-sm md:text-xxl font-bold border-b py-2">Social</h1>
         <a href="https://www.instagram.com/veggiessimo.au/">Instagram</a>
-        <a href="#">Facebook</a>
+        <a href="https://www.facebook.com/veggiessimo/">Facebook</a>
         <a href="#">Pinterest</a>
-        <a href="#">Youtube</a>
+        <Link href="/contact">
+          <a open={open} onClick={() => setOpen(!open)} href="/contact">
+            Email
+          </a>
+        </Link>
       </div>
     </StyledMenu>
   );

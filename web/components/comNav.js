@@ -60,8 +60,10 @@ const ComNav = ({ posts, setSearchPosts }) => {
       </div>
       <div
         className={`filter ${
-          filteredPosts[0]._id === env[0]._id &&
-          filteredPosts.length === env.length
+          filteredPosts[0] && env[0]
+            ? filteredPosts[0]._id === env[0]._id &&
+              filteredPosts.length === env.length
+            : false
         }`}
         onClick={() => setFilteredPosts(env)}
       >
@@ -69,8 +71,10 @@ const ComNav = ({ posts, setSearchPosts }) => {
       </div>
       <div
         className={`filter ${
-          filteredPosts[0]._id === health[0]._id &&
-          filteredPosts.length === health.length
+          filteredPosts[0] && health[0]
+            ? filteredPosts[0]._id === health[0]._id &&
+              filteredPosts.length === health.length
+            : false
         }`}
         onClick={() => setFilteredPosts(health)}
       >
@@ -78,8 +82,10 @@ const ComNav = ({ posts, setSearchPosts }) => {
       </div>
       <div
         className={`filter ${
-          filteredPosts[0]._id === local[0]._id &&
-          filteredPosts.length === local.length
+          filteredPosts[0] && local[0]
+            ? filteredPosts[0]._id === local[0]._id &&
+              filteredPosts.length === local.length
+            : false
         }`}
         onClick={() => setFilteredPosts(local)}
       >
