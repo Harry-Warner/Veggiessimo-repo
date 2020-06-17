@@ -4,7 +4,7 @@ import { func, array } from "prop-types";
 
 const LoadMore = ({ searchPosts, setLoadSearchPosts }) => {
   const [show, setShow] = useState(true);
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(6);
 
   useEffect(() => {
     if (searchPosts.length <= count) {

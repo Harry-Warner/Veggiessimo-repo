@@ -32,17 +32,17 @@ const Index = (props, { home }) => {
         <img
           className="w-full md:hidden bg-white"
           src="images/banner640.png"
-          alt="Veggiessimo"
+          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
         />
         <img
           className="w-full hidden md:block lg:hidden bg-white"
           src="images/banner768.png"
-          alt="Veggiessimo"
+          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
         />
         <img
           className="w-screen hidden lg:block bg-white mt-8"
           src="images/bannerFULL.png"
-          alt="Veggiessimo"
+          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
         />
         <Title className="hidden lg:block w-full absolute text-center font-script">
           Veggiessimo
@@ -76,7 +76,7 @@ const Index = (props, { home }) => {
                           <img
                             className="h-56 md:h-84 lg:h-108 w-full object-cover object-center"
                             src={urlFor(mainImage).url()}
-                            alt="Food"
+                            alt={title}
                           />
                         )}
                         <div className="text-wrapper flex flex-col text-wrapper text-sm font-bold h-64 md:h-84 lg:h-108 font-sans bg-lightPinkT">

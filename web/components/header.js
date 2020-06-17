@@ -23,7 +23,7 @@ const Header = () => {
                     <img
                       className="h-16 px-2 md:h-20"
                       src="../../images/logo.png"
-                      alt="logo"
+                      alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
                     />
                   </a>
                 </Link>
@@ -40,7 +40,7 @@ const Header = () => {
                 <img
                   className="absolute top-0 left-0 h-16 px-2"
                   src="../../images/logo.png"
-                  alt="logo"
+                  alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
                 />
               </a>
             </Link>

@@ -36,23 +36,23 @@ const About = (props) => {
             <img
               className="w-64 h-20 block md:hidden"
               src="images/pinkbrush640.png"
-              alt="banner"
+              alt="paint brush swipe used as a banner for the heading"
             />
             <img
               className="w-108 h-32 hidden md:block lg:hidden"
               src="images/pinkbrush768.png"
-              alt="banner"
+              alt="paint brush swipe used as a banner for the heading"
             />
             <img
               className="w-116 h-32 hidden lg:block"
               src="images/pinkbrush1024.png"
-              alt="banner"
+              alt="paint brush swipe used as a banner for the heading"
             />
           </div>
           <img
             className="z-0 relative w-full mx-auto pt-5 md:pb-6 lg:pb-8 md:pt-16 lg:pt-16"
             src={urlFor(content.mainImage).url()}
-            alt="friends"
+            alt={content.mainImage.altText}
           />
         </div>
         <div className="flex flex-col relative leading-tight w-full mx-auto mb-2 md:mb-4 lg:mb-6 text-sm md:text-base lg:text-lg">

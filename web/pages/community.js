@@ -53,7 +53,7 @@ const Community = (props) => {
                           <img
                             className="h-24 md:h-32 lg:h-48 w-9/12 md:w-11/12 mx-auto my-4 object-cover object-center"
                             src={urlFor(mainImage).url()}
-                            alt="Food"
+                            alt={title}
                           />
                         )}
                         <TextBox text={title} />

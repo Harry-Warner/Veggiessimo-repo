@@ -21,7 +21,9 @@ const PostHeading = (props) => {
         community={props.community}
         className="w-2/3 md:1/2 lg:w-1/3 mx-auto flex justify-center"
       >
-        <StyledFace />
+        <a href="https://www.facebook.com/veggiessimo/">
+          <StyledFace />
+        </a>
         <a href="https://www.instagram.com/veggiessimo.au/">
           <StyledInst />
         </a>

@@ -9,7 +9,7 @@ const RecipesLink = () => {
         <Brush
           className="w-9/12 md:w-7/12 absolute"
           src="images/recipebrush.png"
-          alt="banner"
+          alt="paint brush swipe used as a banner for the heading"
         />
         <h1 className="z-10 font-script text-big md:text-huge lg:text-huge self-center ml-1 md:ml-2">
           Recipes
