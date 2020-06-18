@@ -128,7 +128,7 @@ const Text1 = styled.h2`
 
 const Recipes = styled.ul`
   width: 100%;
-  margin: 10px auto;
+  margin: 0.625rem auto;
   display: flex;
   flex-direction: column;
 `;
@@ -148,7 +148,7 @@ const StyledLink = styled.div`
     visibility: visible;
     transition: all 0.3s ease-in-out;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 64rem) {
       display: flex;
       font-size: 0;
       visibility: hidden;

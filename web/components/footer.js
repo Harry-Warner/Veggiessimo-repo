@@ -114,7 +114,7 @@ const SocialNav = styled.div`
     width: 1.375rem;
     margin: 0.25rem 0.125rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: 48rem) {
       height: 2.5rem;
       width: 2.5rem;
       margin: 0.75rem 0.25rem;

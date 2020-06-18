@@ -160,7 +160,7 @@ const Contact = () => {
                 name="message"
                 onChange={handleChange}
                 required
-                className="message h-full w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
+                className="message h-full w-full md:w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
               />
               <button
                 type="submit"
@@ -204,18 +204,18 @@ const StyledResponse = styled.div`
 `;
 const StyledClose = styled.div`
   cursor: pointer;
-  top: -23px;
-  right: -23px;
+  top: -1.4375rem;
+  right: -1.4375rem;
 `;
 
 const StyledTitle = styled.h1`
-  @media (max-width: 640px) {
+  @media (max-width: 47.9rem) {
     top: 35vw;
   }
 `;
 
 const StyledForm = styled.form`
-  bottom: 94px;
+  bottom: 5.875rem;
   width: 90%;
   height: 70vw;
 
@@ -224,7 +224,7 @@ const StyledForm = styled.form`
   .email {
     width: 100%;
     height: 7.5vw;
-    padding-bottom: 4px;
+    padding-bottom: 0.25rem;
   }
 
   div {
@@ -242,36 +242,36 @@ const StyledForm = styled.form`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     width: 95%;
     height: 55%;
-    bottom: 133px;
+    bottom: 8.3125rem;
     div {
-      font-size: 25px;
-      height: 200px;
+      font-size: 1.5625rem;
+      height: 12.5rem;
     }
     button {
-      font-size: 25px;
-      padding: 7.5px 10px 5px;
+      font-size: 1.5625rem;
+      padding: 0.45rem 0.625rem 0.3125rem;
     }
     .name,
     .email,
     .subject {
-      font-size: 25px;
+      font-size: 1.5625rem;
       width: 19rem;
-      height: 50px;
-      padding-bottom: 10px;
+      height: 3.125rem;
+      padding-bottom: 0.625rem;
     }
   }
-  @media (min-width: 1024px) {
-    bottom: 160px;
+  @media (min-width: 64rem) {
+    bottom: 10rem;
     .name,
     .email,
     .subject {
-      font-size: 25px;
+      font-size: 1.5625rem;
       width: 27rem;
-      height: 50px;
-      padding-bottom: 10px;
+      height: 3.125rem;
+      padding-bottom: 0.625rem;
     }
   }
 `;
@@ -279,46 +279,46 @@ const StyledForm = styled.form`
 const StyledInst = styled(Instagram)`
   width: 2rem;
   height: 2rem;
-  margin: 10px;
+  margin: 0.625rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     width: 3rem;
     height: 3rem;
-    margin: 15px;
+    margin: 1rem;
   }
 `;
 const StyledFace = styled(Facebook)`
   width: 2rem;
   height: 2rem;
-  margin: 10px;
+  margin: 0.625rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     width: 3rem;
     height: 3rem;
-    margin: 15px;
+    margin: 1rem;
   }
 `;
 const StyledPin = styled(PinterestWithCircle)`
   width: 2rem;
   height: 2rem;
-  margin: 10px;
+  margin: 0.625rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     width: 3rem;
     height: 3rem;
-    margin: 15px;
+    margin: 1rem;
   }
 `;
 
 const StyledEmail = styled(Email)`
   width: 1.5rem;
   height: 1.5rem;
-  margin: 0 5px 10px;
+  margin: 0 0.3125rem 0.625rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     width: 2.5rem;
     height: 2.5rem;
-    margin: 0 10px 15px;
+    margin: 0 0.625rem 1rem;
   }
 `;
 

@@ -36,23 +36,23 @@ const PostHeading = (props) => {
 const StyledSocial = styled.div`
   border-top: 2px solid ${Colors.blue};
   border-bottom: 2px solid ${Colors.blue};
-  margin-bottom: ${(props) => (props.community ? "5px" : "15px")};
+  margin-bottom: ${(props) => (props.community ? "0.3125rem" : "1rem")};
 `;
 
 const StyledInst = styled(Instagram)`
   width: 2rem;
   height: 2rem;
-  margin: 10px;
+  margin: 0.625rem;
 `;
 const StyledFace = styled(Facebook)`
   width: 2rem;
   height: 2rem;
-  margin: 10px;
+  margin: 0.625rem;
 `;
 const StyledPin = styled(PinterestWithCircle)`
   width: 2rem;
   height: 2rem;
-  margin: 10px;
+  margin: 0.625rem;
 `;
 
 export default PostHeading;

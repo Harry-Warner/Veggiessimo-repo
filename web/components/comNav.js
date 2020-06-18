@@ -117,13 +117,13 @@ const ComNav = ({ posts, setSearchPosts }) => {
 
 const StyledNav = styled.div`
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 6.25rem;
   justify-content: space-around;
   .filter {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 12.5px;
+    padding: 0 0.78rem;
     cursor: pointer;
   }
   .true {
@@ -135,44 +135,39 @@ const StyledNav = styled.div`
     justify-content: center;
     width: 100%;
     right: 0;
-    top: 50px;
-    margin-top: 10px;
+    top: 3.125rem;
+    margin-top: 0.625rem;
     .search {
       display: flex;
       width: fit-content;
-      padding: 5px 15px;
+      padding: 0.3125rem 1rem;
       background: white;
       border: 1px solid black;
     }
   }
 
-  @media (min-width: 768px) {
-    margin-bottom: 8px;
+  @media (min-width: 48rem) {
+    margin-bottom: 0.5rem;
     justify-content: left;
     .filter {
-      margin: 0 15px;
-      padding: 0 15px;
+      margin: 0 1rem;
+      padding: 0 1rem;
     }
     .search-wrapper {
       top: 0;
-      right: 10px;
+      right: 0.625rem;
       width: fit-content;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     .filter {
-      margin: 0 30px;
-      padding: 0 30px;
+      margin: 0 2rem;
+      padding: 0 2rem;
 
       &:hover {
         background: ${Colors.lightBlueT};
       }
-    }
-    .search-wrapper {
-      top: 0;
-      right: 10px;
-      width: fit-content;
     }
   }
 `;

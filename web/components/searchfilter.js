@@ -142,18 +142,16 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
         </StyledToggle>
         <StyledMenu
           open={open}
-          className="text-base lg:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-7"
+          className="text-base lg:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-2 lg:grid-rows-1 lg:grid-cols-7"
         >
           <div
             onClick={() => {
               setSelect(null);
               setOpen(!open);
             }}
-            className={`${
-              select
-                ? "bg-lightPinkT"
-                : "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
-            } cursor-pointer col-span-3 lg:col-span-1 font-sans self-center text-center`}
+            className={`all ${
+              select ? "" : "lg:border-b-4"
+            } border-solid border-blue bg-lightPinkT cursor-pointer col-span-1 font-sans self-center text-center`}
           >
             <h2 className="self-center w-full">All</h2>
           </div>
@@ -163,10 +161,8 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               setOpen(!open);
             }}
             className={`${
-              select === "Breakfast"
-                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
-                : "bg-lightPinkT"
-            } cursor-pointer font-sans self-center text-center`}
+              select === "Breakfast" ? "lg:border-b-4" : ""
+            } bg-lightBlueT lg:border-solid lg:border-blue  lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Breakfast</h2>
           </div>
@@ -176,10 +172,8 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               setOpen(!open);
             }}
             className={`${
-              select === "Mains"
-                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
-                : "bg-lightPinkT"
-            } cursor-pointer font-sans self-center text-center`}
+              select === "Mains" ? "lg:border-b-4" : ""
+            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Mains</h2>
           </div>
@@ -189,10 +183,8 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               setOpen(!open);
             }}
             className={`${
-              select === "Dessert"
-                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
-                : "bg-lightPinkT"
-            } cursor-pointer font-sans self-center text-center`}
+              select === "Desserts" ? "lg:border-b-4" : ""
+            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Desserts</h2>
           </div>
@@ -202,10 +194,8 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               setOpen(!open);
             }}
             className={`${
-              select === "Small Bites"
-                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
-                : "bg-lightPinkT"
-            } cursor-pointer font-sans self-center text-center`}
+              select === "Small Bites" ? "lg:border-b-4" : ""
+            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Small Bites</h2>
           </div>
@@ -215,10 +205,8 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               setOpen(!open);
             }}
             className={`${
-              select === "Soups & Salads"
-                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
-                : "bg-lightPinkT"
-            } cursor-pointer font-sans self-center text-center`}
+              select === "Soups & Salads" ? "lg:border-b-4" : ""
+            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Soups/Salads</h2>
           </div>
@@ -228,10 +216,8 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               setOpen(!open);
             }}
             className={`${
-              select === "Sauces"
-                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
-                : "bg-lightPinkT"
-            } cursor-pointer font-sans self-center text-center`}
+              select === "Sauces" ? "lg:border-b-4" : ""
+            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Sauces</h2>{" "}
           </div>
@@ -240,13 +226,13 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
       <StyledNav className="w-full h-12 md:h-16 flex items-center text-lg md:text-xl mt-2 md:mt-4 lg:mt-6">
         <StyledButton open={gopen} onClick={() => showGlutenFree()}>
           <div className="circle">
-            <CheckIcon className="icon" fontSize="large" />
+            <CheckIcon className="icon" />
           </div>
           <p className="font-bold">Gluten Free</p>
         </StyledButton>
         <StyledButton open={vopen} onClick={() => showVegan()}>
           <div className="circle">
-            <CheckIcon className="icon" fontSize="large" />
+            <CheckIcon className="icon" />
           </div>
           <p className="font-bold">Vegan</p>
         </StyledButton>
@@ -258,9 +244,9 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               placeholder="Search"
               inputStyle={{
                 fontSize: 18,
-                minWidth: "120px",
-                maxWidth: "220px",
-                paddingLeft: "10px",
+                minWidth: "7.5rem",
+                maxWidth: "13.75rem",
+                paddingLeft: "0.625rem",
               }}
               value={value}
               onChange={(e) => setValue(e.target.value)}
@@ -296,7 +282,13 @@ const StyledMenu = styled.div`
     align-items: center;
     padding: 0.5rem 0;
   }
-  @media (min-width: 1024px) {
+  .all {
+    display: none;
+    @media (min-width: 64rem) {
+      display: flex;
+    }
+  }
+  @media (min-width: 64rem) {
     max-height: 10rem;
     margin: 0;
     font-size: 1rem;
@@ -310,7 +302,7 @@ const StyledMenu = styled.div`
 
 const StyledNav = styled.div`
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 5rem;
   justify-content: space-around;
   .search-wrapper {
     position: absolute;
@@ -318,31 +310,31 @@ const StyledNav = styled.div`
     justify-content: center;
     width: 100%;
     right: 0;
-    top: 50px;
-    margin-top: 10px;
+    top: 3.125rem;
+    margin-top: 0.625rem;
     .search {
       display: flex;
       width: fit-content;
-      padding: 5px 15px;
+      padding: 0.3125rem 1rem;
       background: white;
       border: 1px solid black;
     }
   }
 
-  @media (min-width: 768px) {
-    margin-bottom: 8px;
+  @media (min-width: 48rem) {
+    margin-bottom: 0.5rem;
     justify-content: left;
     .search-wrapper {
       top: 0;
-      right: 10px;
+      right: 0.625rem;
       width: fit-content;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     .search-wrapper {
       top: 0;
-      right: 10px;
+      right: 0.625rem;
       width: fit-content;
     }
   }
@@ -353,18 +345,18 @@ const StyledButton = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 12.5px;
+  padding: 0 0.78125rem;
   cursor: pointer;
 
   p {
-    font-size: 18px;
-    margin-left: 2px;
+    font-size: 1.125rem;
+    margin-left: 0.125rem;
   }
 
   .circle {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.625rem;
     border-radius: 50%;
     border: 2px solid ${Colors.blue};
     position: relative;
@@ -378,31 +370,31 @@ const StyledButton = styled.div`
       left: -1.5vw;
     }
   }
-  @media (min-width: 768px) {
-    margin: 0 15px;
-    padding: 0 15px;
+  @media (min-width: 48rem) {
+    margin: 0 1rem;
+    padding: 0 1rem;
 
     .circle {
-      width: 25px;
-      height: 25px;
-      margin-right: 15px;
+      width: 1.6265rem;
+      height: 1.6265rem;
+      margin-right: 1rem;
 
       .icon {
-        font-size: 40px;
+        font-size: 2.5rem;
         top: -50%;
         left: -25%;
       }
     }
 
     p {
-      font-size: 25px;
-      margin-left: 2px;
+      font-size: 1.5625;
+      margin-left: 0.125rem;
     }
   }
 
-  @media (min-width: 1024px) {
-    margin: 0 30px;
-    padding: 0 30px;
+  @media (min-width: 64rem) {
+    margin: 0 1.875rem;
+    padding: 0 1.875rem;
   }
 `;
 

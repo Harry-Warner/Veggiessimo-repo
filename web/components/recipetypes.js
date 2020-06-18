@@ -111,11 +111,11 @@ const StyledLink = styled.div`
     visibility: visible;
     transition: all 0.3s ease-in-out;
 
-    @media (min-width: 768px) {
+    @media (min-width: 48rem) {
       font-size: 1.25rem;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 64rem) {
       font-size: 0;
       visibility: hidden;
       width: 0%;
@@ -124,7 +124,7 @@ const StyledLink = styled.div`
 
   &:hover {
     h2 {
-      @media (min-width: 1024px) {
+      @media (min-width: 64rem) {
         width: 40%;
         visibility: visible;
         font-size: 1.5rem;

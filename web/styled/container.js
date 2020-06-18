@@ -5,18 +5,18 @@ const Container = styled.div`
   position: relative;
   margin: 0 auto;
   min-height: 100vh;
-  padding-bottom: 122px;
+  padding-bottom: 7.625rem;
   z-index: 0;
 
-  @media (min-width: 640px) {
-    max-width: 640px;
+  @media (min-width: 40rem) {
+    max-width: 40rem;
   }
-  @media (min-width: 768px) {
-    max-width: 768px;
-    padding-bottom: 222px;
+  @media (min-width: 48rem) {
+    max-width: 48rem;
+    padding-bottom: 13.875rem;
   }
-  @media (min-width: 1024px) {
-    max-width: 1024px;
+  @media (min-width: 64rem) {
+    max-width: 64rem;
   }
 `;
 

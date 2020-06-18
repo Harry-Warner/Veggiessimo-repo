@@ -17,40 +17,40 @@ const TextBox = ({ text }) => {
 };
 
 const StyledBox = styled.div`
-  height: 58px;
+  height: 3.625rem;
   .line {
     position: absolute;
     background: ${Colors.blue};
   }
   .right {
-    height: calc(100% + 10px);
-    top: -5px;
+    height: calc(100% + 0.625rem);
+    top: -0.3125rem;
     right: 0;
-    width: 2px;
+    width: 0.125rem;
   }
   .bottom {
-    width: calc(100% + 20px);
-    left: -10px;
+    width: calc(100% + 1.25rem);
+    left: -0.625rem;
     bottom: 0;
-    height: 2px;
+    height: 0.125rem;
   }
   .left {
-    height: calc(100% + 10px);
-    top: -5px;
+    height: calc(100% + 0.625rem);
+    top: -0.3125rem;
     left: 0;
-    width: 2px;
+    width: 0.125rem;
   }
   .top {
-    width: calc(100% + 20px);
-    left: -10px;
+    width: calc(100% + 1.25rem);
+    left: -0.625rem;
     top: 0;
-    height: 2px;
+    height: 0.125rem;
   }
-  @media (min-width: 768px) {
-    height: 70px;
+  @media (min-width: 48rem) {
+    height: 4.375rem;
   }
-  @media (min-width: 1024px) {
-    height: 124px;
+  @media (min-width: 64rem) {
+    height: 7.75rem;
   }
 `;
 

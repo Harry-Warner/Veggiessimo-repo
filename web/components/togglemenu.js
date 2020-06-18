@@ -88,9 +88,9 @@ const StyledMenu = styled.nav`
     color: black;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     flex-direction: row;
-    height: 60vh;
+    height: fit-content;
 
     a {
       font-size: 1.75rem;

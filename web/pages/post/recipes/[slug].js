@@ -249,12 +249,12 @@ const StyledBox = styled.div`
       font-family: "Fira Sans", sans-serif;
       font-weight: 600;
     }
-    @media (min-width: 768px) {
+    @media (min-width: 48rem) {
       background: transparent;
       border-bottom: 2px solid ${Colors.blue};
       text-align: start;
-      padding: 10px 0;
-      margin: 0 15px;
+      padding: 0.625rem 0;
+      margin: 0 1rem;
       flex-direction: row;
       justify-content: start;
 
@@ -265,7 +265,7 @@ const StyledBox = styled.div`
       p {
         font-size: 1.25rem;
         font-weight: 600;
-        padding: 2px 10px 0;
+        padding: 0.125rem 0.625rem 0;
       }
 
       &:last-child,
@@ -276,13 +276,13 @@ const StyledBox = styled.div`
         border-bottom: none;
       }
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 64rem) {
       h2 {
         font-size: 1.75rem;
       }
       p {
         font-size: 1.5rem;
-        padding: 4px 10px 0;
+        padding: 0.25rem 0.625rem 0;
       }
     }
   }
@@ -291,13 +291,13 @@ const StyledBox = styled.div`
 const StyledCam = styled(Camera)`
   width: 7.5rem;
   height: 7.5rem;
-  margin-right: 5px;
+  margin-right: 0.3125rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     width: 12.5rem;
     height: 12.5rem;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     margin-right: 0;
   }
 `;
@@ -313,15 +313,15 @@ const StyledTrend = styled.div`
     font-size: 4vw;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 30rem) {
     h1 {
-      font-size: 30px;
+      font-size: 1.875rem;
     }
     h2 {
-      font-size: 17.5px;
+      font-size: 1.125rem;
     }
     h3 {
-      font-size: 15px;
+      font-size: 1rem;
     }
   }
 `;
@@ -331,7 +331,7 @@ const StyledList = styled.div`
   align-self: center;
 
   li {
-    @media (max-width: 767px) {
+    @media (max-width: 47.9rem) {
       &:last-child {
         display: none;
       }

@@ -38,7 +38,7 @@ const Header = () => {
             <Link href="/">
               <a>
                 <img
-                  className="absolute top-0 left-0 h-24 px-2"
+                  className="absolute top-0 left-0 h-20 px-2"
                   src="/images/logoheader.png"
                   alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
                 />
@@ -96,7 +96,7 @@ const Header = () => {
 };
 
 const StyledHeader = styled.div`
-  @media (width: 1024px) {
+  @media (width: 64rem) {
     display: flex;
 
     img {
@@ -110,30 +110,30 @@ const StyledLink = styled.div`
   height: 100%;
   line-height: 3rem;
   text-transform: uppercase;
-  font-size: 17.5px;
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   font-family: "Fira Sans", sans-serif;
-  padding-right: 45.78px;
+  padding-right: 2.86125rem;
 
   .garlic {
-    padding: 0 15px;
-    height: 25px;
+    padding: 0 1rem;
+    height: 1.5625rem;
     align-self: center;
     transform: rotate(0);
     transition: all 0.3s ease-in-out;
   }
 
   .courses {
-    width: calc(100% + 50px);
+    width: calc(100% + 3.125rem);
     line-height: 0.75rem;
-    top: -300px;
-    padding-left: 5px;
+    top: -18.75rem;
+    padding-left: 0.3125;
     transition: all 0.3s ease-in-out;
     font-size: 0.875rem;
     a {
       width: 100%;
-      padding: 10px;
+      padding: 0.625rem;
     }
   }
 

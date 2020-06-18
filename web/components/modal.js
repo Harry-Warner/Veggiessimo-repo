@@ -115,12 +115,12 @@ const StyledModal = styled.div`
   display: ${({ display }) => (display ? "flex" : "none")};
   .join {
     top: -33%;
-    @media (min-width: 768px) {
+    @media (min-width: 48rem) {
       top: -65%;
       left: -20%;
       transform: rotate(350deg);
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 64rem) {
       left: -15%;
     }
   }
@@ -128,11 +128,11 @@ const StyledModal = styled.div`
 
 const StyledClose = styled.div`
   cursor: pointer;
-  top: -23px;
-  right: -8px;
-  @media (min-width: 768px) {
-    right: -15px;
-    top: -20px;
+  top: -1.4375rem;
+  right: -0.5rem;
+  @media (min-width: 48rem) {
+    right: -1rem;
+    top: -1.25;
   }
 `;
 

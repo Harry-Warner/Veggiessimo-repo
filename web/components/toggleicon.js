@@ -38,10 +38,10 @@ const StyledIcon = styled.button`
     width: 2.5rem;
     height: 0.25rem;
     background: black;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     transition: all 0.3s linear;
     position: relative;
-    transform-origin: 1px;
+    transform-origin: 0.0625rem;
 
     :first-child {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
@@ -58,7 +58,7 @@ const StyledIcon = styled.button`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     top: 0.5rem;
     right: 0.5rem;
   }

@@ -20,7 +20,7 @@ const StyledInfo = styled.button`
   cursor: pointer;
   width: fit-content;
   transition: all 0.3s linear;
-  transform: ${({ open }) => (open ? "rotate(180deg)" : "rotate(0)")};
+  transform: ${({ open }) => (open ? "rotateX(180deg)" : "rotateX(0)")};
 `;
 
 export default ToggleInfo;

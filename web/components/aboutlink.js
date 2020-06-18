@@ -85,49 +85,49 @@ const Border = styled.div`
 
 const StyledHex = styled.div`
   position: absolute;
-  left: 7.5px;
+  left: 0.45rem;
   z-index: 10;
   .square {
-    width: 100px;
-    height: 60px;
+    width: 6.5rem;
+    height: 3.75rem;
     background: ${Colors.lightPinkT};
   }
   .tri {
     position: absolute;
-    top: 60px;
+    top: 3.75rem;
     left: 0;
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 35px solid ${Colors.lightPinkT};
+    border-left: 3.25rem solid transparent;
+    border-right: 3.25rem solid transparent;
+    border-top: 2.25rem solid ${Colors.lightPinkT};
   }
-  @media (min-width: 768px) {
-    left: 15px;
+  @media (min-width: 48rem) {
+    left: 0.875rem;
     .square {
-      width: 230px;
-      height: 145px;
+      width: 14.5rem;
+      height: 9rem;
       background: ${Colors.lightPinkT};
     }
     .tri {
-      top: 145px;
-      border-left: 115px solid transparent;
-      border-right: 115px solid transparent;
-      border-top: 80px solid ${Colors.lightPinkT};
+      top: 9rem;
+      border-left: 7.25rem solid transparent;
+      border-right: 7.25rem solid transparent;
+      border-top: 5rem solid ${Colors.lightPinkT};
     }
   }
-  @media (min-width: 1024px) {
-    left: 25px;
+  @media (min-width: 64rem) {
+    left: 1.5rem;
     .square {
-      width: 244px;
-      height: 160px;
+      width: 15.25rem;
+      height: 10rem;
       background: ${Colors.lightPinkT};
     }
     .tri {
-      top: 160px;
-      border-left: 122px solid transparent;
-      border-right: 122px solid transparent;
-      border-top: 90px solid ${Colors.lightPinkT};
+      top: 10rem;
+      border-left: 7.625rem solid transparent;
+      border-right: 7.625rem solid transparent;
+      border-top: 5.625rem solid ${Colors.lightPinkT};
     }
   }
 `;
@@ -170,7 +170,7 @@ const TextBox = styled.div`
   width: fit-content;
   top: 6.5%;
   text-align: center;
-  left: 9px;
+  left: 0.65rem;
   h1 {
     font-size: 1.3rem;
   }
@@ -179,8 +179,8 @@ const TextBox = styled.div`
     font-size: 0.5rem;
   }
 
-  @media (min-width: 768px) {
-    left: 3.5%;
+  @media (min-width: 48rem) {
+    left: 2.125rem;
     h1 {
       font-size: 2.75rem;
     }
@@ -189,7 +189,7 @@ const TextBox = styled.div`
       font-size: 1.125rem;
     }
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     h1 {
       font-size: 3rem;
     }

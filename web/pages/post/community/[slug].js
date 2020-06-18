@@ -154,33 +154,33 @@ const StyledBox = styled.div`
     background: ${Colors.blue};
     display: none;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 64rem) {
       display: block;
     }
   }
   .right {
-    height: calc(100% + 30px);
-    top: -15px;
+    height: calc(100% + 2rem);
+    top: -1rem;
     right: 0;
-    width: 2px;
+    width: 0.125rem;
   }
   .bottom {
-    width: calc(100% + 30px);
-    left: -15px;
+    width: calc(100% + 2rem);
+    left: -1rem;
     bottom: 0;
-    height: 2px;
+    height: 0.125rem;
   }
   .left {
-    height: calc(100% + 30px);
-    top: -15px;
+    height: calc(100% + 2rem);
+    top: -1rem;
     left: 0;
-    width: 2px;
+    width: 0.125rem;
   }
   .top {
-    width: calc(100% + 30px);
-    left: -15px;
+    width: calc(100% + 2rem);
+    left: -1rem;
     top: 0;
-    height: 2px;
+    height: 0.125rem;
   }
 `;
 
@@ -189,7 +189,7 @@ const StyledList = styled.div`
   align-self: center;
 
   li {
-    @media (max-width: 767px) {
+    @media (max-width: 47.9rem) {
       &:nth-child(3) {
         display: none;
       }

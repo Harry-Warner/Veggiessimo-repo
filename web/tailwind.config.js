@@ -30,6 +30,10 @@ module.exports = {
         "1/2": "50%",
       },
     },
+    screens: {
+      md: "48rem",
+      lg: "64rem",
+    },
     fontSize: {
       xxs: "0.5rem",
       xs: ".75rem",
@@ -44,7 +48,7 @@ module.exports = {
       vbig: "3rem",
       huge: "4rem",
       vhuge: "5rem",
-      vvhuge: "115px",
+      vvhuge: "7.1875rem",
     },
     borderWidth: {
       default: "1px",

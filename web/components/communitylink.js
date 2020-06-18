@@ -50,7 +50,7 @@ const SectionWrapper = styled.div`
     bottom: 37.5%;
     right: 18.5%;
 
-    @media (min-width: 768px) {
+    @media (min-width: 48rem) {
       right: 16.5%;
       bottom: 42%;
     }

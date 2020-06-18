@@ -23,8 +23,8 @@ const RecipesLink = () => {
 };
 
 const Brush = styled.img`
-  @media (min-width: 1024px) {
-    left: calc(((100vw - 1024px) / 2) * -1);
+  @media (min-width: 64rem) {
+    left: calc(((100vw - 64rem) / 2) * -1);
   }
 `;
 
