@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -6,10 +6,10 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import Modal from "./modal";
+import { bool, func } from "prop-types";
 
-const Footer = () => {
-  const [display, setDisplay] = useState(false);
-  const [premail, setPremail] = useState("");
+const Footer = (props) => {
+  const { premail, setPremail, setDisplay } = props;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,13 +18,6 @@ const Footer = () => {
 
   return (
     <>
-      <Modal
-        footer
-        value={premail}
-        setValue={setPremail}
-        display={display}
-        setDisplay={setDisplay}
-      />
       <div className="flex flex-col absolute bottom-0 w-full">
         <div className="flex justify-between w-full bg-lightPink">
           <StyledContact className="pb-3 m-2">
@@ -93,6 +86,12 @@ const Footer = () => {
       </div>
     </>
   );
+};
+
+Modal.propTypes = {
+  setDisplay: func.isRequired,
+  premail: bool.isRequired,
+  setPremail: func.isRequired,
 };
 
 const StyledContact = styled.div`

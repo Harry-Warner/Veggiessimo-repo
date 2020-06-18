@@ -3,14 +3,33 @@ import styled from "styled-components";
 import { bool, func, string } from "prop-types";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
-const Modal = ({ display, setDisplay, value, setValue, footer }) => {
+const Modal = (props) => {
+  const {
+    display,
+    setDisplay,
+    premail,
+    setSubscribed,
+    preventAuto,
+    subscribedEmail,
+    setSubscribedEmail,
+  } = props;
+
+  const [value, setValue] = useState(premail);
+
+  console.log(preventAuto);
   // Reference to the input to fetch/clear it's value.
   const inputEl = useRef(null);
   // Hold a message in state to handle the response from API.
   const [message, setMessage] = useState("");
+  console.log(subscribedEmail);
 
   const subscribe = async (e) => {
     e.preventDefault();
+
+    if (subscribedEmail === inputEl.current.value) {
+      setMessage("This email has already been subscribed");
+      return;
+    }
 
     // Send a request to API with the user's email address.
     const res = await fetch("/api/subscribe", {
@@ -32,16 +51,20 @@ const Modal = ({ display, setDisplay, value, setValue, footer }) => {
       return;
     }
 
+    // Kepp the successful email as a cookie in the browser to preventAuto
+    setSubscribedEmail(inputEl.current.value);
+
     // Clear the input value and show a success message.
     inputEl.current.value = "";
     setMessage("Success! 🎉 You are now subscribed to the newsletter.");
     setValue("");
+    setSubscribed(true);
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      footer ? setDisplay(false) : setDisplay(true);
-    }, 15000);
+      preventAuto ? setDisplay(false) : setDisplay(true);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -109,6 +132,9 @@ Modal.propTypes = {
   setDisplay: func.isRequired,
   value: string.isRequired,
   setValue: func.isRequired,
+  setSubscribed: func.isRequired,
+  subscribedEmail: string.isRequired,
+  setSubscribedEmail: func.isRequired,
 };
 
 const StyledModal = styled.div`

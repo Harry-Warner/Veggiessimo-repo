@@ -1,5 +1,5 @@
 // index.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import groq from "groq";
 import client from "../client";
@@ -11,13 +11,31 @@ import CommunityLink from "../components/communitylink";
 import Footer from "../components/footer";
 import Container from "../styled/container";
 import MetaTags from "../components/metatags";
+import Modal from "../components/modal";
+import Cookie from "js-cookie";
+import { parseCookies } from "../lib/parseCookies";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
 }
 
-const Index = (props, { home }) => {
-  const { posts = [] } = props;
+const Index = (props) => {
+  const { posts = [], initialSubscribedValue, initialSubscribedEmail } = props;
+  const [display, setDisplay] = useState(false);
+  const [premail, setPremail] = useState("");
+  const [subscribed, setSubscribed] = useState(() =>
+    JSON.parse(initialSubscribedValue)
+  );
+  const [subscribedEmail, setSubscribedEmail] = useState(() =>
+    JSON.parse(initialSubscribedEmail)
+  );
+
+  useEffect(() => {
+    Cookie.set("subscribed", JSON.stringify(subscribed));
+    Cookie.set("subscribedEmail", JSON.stringify(subscribedEmail));
+  }, [subscribed, subscribedEmail]);
+
+  console.log([subscribed, subscribedEmail]);
 
   return (
     <>
@@ -27,6 +45,15 @@ const Index = (props, { home }) => {
         title="Veggiessimo - Meals + Love"
         url=""
         imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-sm.png"
+      />
+      <Modal
+        preventAuto={subscribed ? true : false}
+        premail={premail}
+        setSubscribed={setSubscribed}
+        subscribedEmail={subscribedEmail}
+        setSubscribedEmail={setSubscribedEmail}
+        display={display}
+        setDisplay={setDisplay}
       />
       <Banner className="relative w-full">
         <img
@@ -99,17 +126,27 @@ const Index = (props, { home }) => {
           )}
         </Recipes>
         <CommunityLink />
-        <Footer />
+        <Footer
+          setDisplay={setDisplay}
+          premail={premail}
+          setPremail={setPremail}
+        />
       </Container>
     </>
   );
 };
 
-Index.getInitialProps = async () => ({
-  posts: await client.fetch(groq`
+Index.getInitialProps = async ({ req }) => {
+  const cookies = parseCookies(req);
+
+  return {
+    initialSubscribedValue: cookies.subscribed,
+    initialSubscribedEmail: cookies.subscribedEmail,
+    posts: await client.fetch(groq`
       *[_type == "recipePost" && publishedAt < now()]|order(publishedAt desc)[0...4]
     `),
-});
+  };
+};
 
 const Banner = styled.div`
   height: fit-content;
