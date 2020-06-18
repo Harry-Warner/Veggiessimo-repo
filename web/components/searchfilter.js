@@ -6,6 +6,7 @@ import AutosizeInput from "react-input-autosize";
 import Colors from "../styled/colors";
 import { func, array } from "prop-types";
 import MealTitle from "../components/mealtitle";
+import ToggleInfo from "./toggleinfo";
 
 const SearchFilter = ({ posts, setSearchPosts }) => {
   const [vopen, setVOpen] = useState(false);
@@ -14,6 +15,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   const [foodType, setFoodType] = useState(filteredPosts);
   const [value, setValue] = useState("");
   const [select, setSelect] = useState(null);
+  const [open, setOpen] = useState(false);
 
   // categories
   const vegan = posts.filter((e) => e.categories.includes("Vegan"));
@@ -103,7 +105,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     );
   }, [filteredPosts, select]);
 
-  // listen to value changes while pass through the final filter
+  // listen to value changes while passing through the final filter
   useEffect(() => {
     setSearchPosts(
       foodType.filter((post) =>
@@ -117,8 +119,6 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     );
   }, [value, foodType]);
 
-  console.log(posts[0].mealType[0]);
-
   return (
     <>
       <MealTitle
@@ -129,78 +129,114 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             : "Checkout out our recipes, from Breakfasts to start your day right, to sauces that can make anything taste good!"
         }`}
       />
-      <StyledMenu className="text-base md:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-7">
-        <div
-          onClick={() => setSelect(null)}
-          className={`${
-            select
-              ? "bg-lightPink"
-              : "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
-          } cursor-pointer col-span-3 lg:col-span-1 font-sans self-center text-center`}
+      <div className="relative">
+        <StyledToggle
+          open={open}
+          onClick={() => setOpen(!open)}
+          className="absolute w-full text-center flex justify-center lg:hidden bg-lightPink py-2 cursor-pointer"
         >
-          <h2 className="self-center w-full">All</h2>
-        </div>
-        <div
-          onClick={() => setSelect("Breakfast")}
-          className={`${
-            select === "Breakfast"
-              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
-              : "bg-lightPink"
-          } cursor-pointer font-sans self-center text-center`}
+          <h2 className="text-center text-lg">Choose Meal</h2>
+          <div className="relative mx-2">
+            <ToggleInfo open={open} setOpen={setOpen} />
+          </div>
+        </StyledToggle>
+        <StyledMenu
+          open={open}
+          className="text-base lg:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-7"
         >
-          <h2 className="self-center">Breakfast</h2>
-        </div>
-        <div
-          onClick={() => setSelect("Mains")}
-          className={`${
-            select === "Mains"
-              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
-              : "bg-lightPink"
-          } cursor-pointer font-sans self-center text-center`}
-        >
-          <h2 className="self-center">Mains</h2>
-        </div>
-        <div
-          onClick={() => setSelect("Dessert")}
-          className={`${
-            select === "Dessert"
-              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
-              : "bg-lightPink"
-          } cursor-pointer font-sans self-center text-center`}
-        >
-          <h2 className="self-center">Desserts</h2>
-        </div>
-        <div
-          onClick={() => setSelect("Small Bites")}
-          className={`${
-            select === "Small Bites"
-              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
-              : "bg-lightPink"
-          } cursor-pointer font-sans self-center text-center`}
-        >
-          <h2 className="self-center">Small Bites</h2>
-        </div>
-        <div
-          onClick={() => setSelect("Soups & Salads")}
-          className={`${
-            select === "Soups & Salads"
-              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
-              : "bg-lightPink"
-          } cursor-pointer font-sans self-center text-center`}
-        >
-          <h2 className="self-center">Soups/Salads</h2>
-        </div>
-        <div
-          onClick={() => setSelect("Sauces")}
-          className={`${
-            select === "Sauces"
-              ? "bg-lightBlue lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPink"
-              : "bg-lightPink"
-          } cursor-pointer font-sans self-center text-center`}
-        >
-          <h2 className="self-center">Sauces</h2>{" "}
-        </div>
-      </StyledMenu>
+          <div
+            onClick={() => {
+              setSelect(null);
+              setOpen(!open);
+            }}
+            className={`${
+              select
+                ? "bg-lightPinkT"
+                : "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
+            } cursor-pointer col-span-3 lg:col-span-1 font-sans self-center text-center`}
+          >
+            <h2 className="self-center w-full">All</h2>
+          </div>
+          <div
+            onClick={() => {
+              setSelect("Breakfast");
+              setOpen(!open);
+            }}
+            className={`${
+              select === "Breakfast"
+                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
+                : "bg-lightPinkT"
+            } cursor-pointer font-sans self-center text-center`}
+          >
+            <h2 className="self-center">Breakfast</h2>
+          </div>
+          <div
+            onClick={() => {
+              setSelect("Mains");
+              setOpen(!open);
+            }}
+            className={`${
+              select === "Mains"
+                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
+                : "bg-lightPinkT"
+            } cursor-pointer font-sans self-center text-center`}
+          >
+            <h2 className="self-center">Mains</h2>
+          </div>
+          <div
+            onClick={() => {
+              setSelect("Dessert");
+              setOpen(!open);
+            }}
+            className={`${
+              select === "Dessert"
+                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
+                : "bg-lightPinkT"
+            } cursor-pointer font-sans self-center text-center`}
+          >
+            <h2 className="self-center">Desserts</h2>
+          </div>
+          <div
+            onClick={() => {
+              setSelect("Small Bites");
+              setOpen(!open);
+            }}
+            className={`${
+              select === "Small Bites"
+                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
+                : "bg-lightPinkT"
+            } cursor-pointer font-sans self-center text-center`}
+          >
+            <h2 className="self-center">Small Bites</h2>
+          </div>
+          <div
+            onClick={() => {
+              setSelect("Soups & Salads");
+              setOpen(!open);
+            }}
+            className={`${
+              select === "Soups & Salads"
+                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
+                : "bg-lightPinkT"
+            } cursor-pointer font-sans self-center text-center`}
+          >
+            <h2 className="self-center">Soups/Salads</h2>
+          </div>
+          <div
+            onClick={() => {
+              setSelect("Sauces");
+              setOpen(!open);
+            }}
+            className={`${
+              select === "Sauces"
+                ? "bg-lightBlueT lg:border-solid lg:border-blue lg:border-b-4 lg:bg-lightPinkT"
+                : "bg-lightPinkT"
+            } cursor-pointer font-sans self-center text-center`}
+          >
+            <h2 className="self-center">Sauces</h2>{" "}
+          </div>
+        </StyledMenu>
+      </div>
       <StyledNav className="w-full h-12 md:h-16 flex items-center text-lg md:text-xl mt-2 md:mt-4 lg:mt-6">
         <StyledButton open={gopen} onClick={() => showGlutenFree()}>
           <div className="circle">
@@ -244,15 +280,27 @@ SearchFilter.propTypes = {
   setSearchPosts: func.isRequired,
 };
 
+const StyledToggle = styled.div`
+  top: ${({ open }) => (open ? "-3rem" : "-0.75rem")};
+`;
+
 const StyledMenu = styled.div`
+  max-height: ${({ open }) => (open ? "10rem" : 0)};
+  margin: ${({ open }) => (open ? "4.25rem 0 0" : "2rem 0")};
+  font-size: ${({ open }) => (open ? "1rem" : 0)};
+  transition: max-height 0.3s, font-size 0.3s;
   div {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.5rem 0;
-
-    @media (min-width: 1024px) {
+  }
+  @media (min-width: 1024px) {
+    max-height: 10rem;
+    margin: 0;
+    font-size: 1rem;
+    div {
       &:hover {
         background: ${Colors.lightBlue};
       }
