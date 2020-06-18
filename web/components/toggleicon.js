@@ -19,13 +19,13 @@ ToggleIcon.propTypes = {
 
 const StyledIcon = styled.button`
   position: absolute;
-  top: 0.25rem;
+  top: 0.45rem;
   right: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 2.5rem;
-  height: 2.5rem;
+  height: ${({ open }) => (open ? "2.5rem" : "2rem")};
   background: transparent;
   cursor: pointer;
   z-index: 20;

@@ -13,7 +13,7 @@ const RecipeList = (props) => {
             <img
               className="h-48 lg:h-64 w-full object-cover object-center"
               src={props.url}
-              alt={props.title}
+              alt={props.description}
             />
           )}
           <div className="flex justify-center bg-white">

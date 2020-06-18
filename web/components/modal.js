@@ -63,15 +63,10 @@ const Modal = ({ display, setDisplay, value, setValue, footer }) => {
         </StyledClose>
         <div className="relative z-0 w-full md:w-7/12 h-48 md:h-64 md:h-full bg-green">
           <img
-            src="/images/logoPlain.png"
+            src="/images/logopopup.png"
             alt="logo"
             className="h-full mx-auto"
           />
-          <div className="w-full h-full absolute left-0 top-0 pt-12 md:pt-20 z-10 flex items-center justify-center">
-            <h1 className="text-xl md:text-big text-center uppercase font-sans">
-              Meals + Love
-            </h1>
-          </div>
         </div>
         <div className="mt-10 md:mt-0 relative flex flex-col w-full md:w-5/12 h-56 md:h-64 self-end">
           <div className="join md:my-2 absolute  z-10 w-full md:w-auto text-center lg:text-left font-script text-huge md:text-vvhuge">

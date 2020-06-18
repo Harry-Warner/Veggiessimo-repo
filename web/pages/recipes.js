@@ -10,7 +10,6 @@ import Container from "../styled/container";
 import SearchFilter from "../components/searchfilter";
 import LoadMore from "../components/loadmore";
 import MetaTags from "../components/metatags";
-import MealTitle from "../components/mealtitle";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -32,18 +31,6 @@ const Recipes = (props) => {
       />
       <TitleComponent title="Recipes" />
       <Container>
-        <MealTitle
-          title={`${
-            searchPosts.length === 0 || searchPosts.length === posts.length
-              ? "Recipes"
-              : searchPosts[0].mealType
-          }`}
-          description={`${
-            searchPosts.length === 0 || searchPosts.length === posts.length
-              ? "Checkout out our recipes, from Breakfasts to start your day right, to sauces that can make anything taste good!"
-              : searchPosts[0].description
-          }`}
-        />
         <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />
         <RecipeList>
           {loadSearchPosts &&
@@ -78,8 +65,9 @@ Recipes.getInitialProps = async () => ({
         mainImage,
         slug,
         _id,
+        description,
         "mealType": mealType[]->title,
-        "description": mealType[]->description,
+        "mealTypeSub": mealType[]->description,
         "categories": categories[]->title,
         "keyIngredients": keyIngredients[]->title,
         ingredients,

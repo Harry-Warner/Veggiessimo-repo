@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AutosizeInput from "react-input-autosize";
 import Colors from "../styled/colors";
 import { func, array } from "prop-types";
+import MealTitle from "../components/mealtitle";
 
 const SearchFilter = ({ posts, setSearchPosts }) => {
   const [vopen, setVOpen] = useState(false);
@@ -116,9 +117,19 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     );
   }, [value, foodType]);
 
+  console.log(posts[0].mealType[0]);
+
   return (
     <>
-      <StyledMenu className="text-lg md:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-7">
+      <MealTitle
+        title={`${select ? select : "Recipes"}`}
+        description={`${
+          select
+            ? posts.filter((post) => post.mealType[0] === select)[0].mealTypeSub
+            : "Checkout out our recipes, from Breakfasts to start your day right, to sauces that can make anything taste good!"
+        }`}
+      />
+      <StyledMenu className="text-base md:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-7">
         <div
           onClick={() => setSelect(null)}
           className={`${
@@ -190,7 +201,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
           <h2 className="self-center">Sauces</h2>{" "}
         </div>
       </StyledMenu>
-      <StyledNav className="w-full h-12 md:h-16 flex items-center text-lg md:text-xl mt-8">
+      <StyledNav className="w-full h-12 md:h-16 flex items-center text-lg md:text-xl mt-2 md:mt-4 lg:mt-6">
         <StyledButton open={gopen} onClick={() => showGlutenFree()}>
           <div className="circle">
             <CheckIcon className="icon" fontSize="large" />

@@ -22,7 +22,7 @@ const Header = () => {
                   <a>
                     <img
                       className="h-16 px-2 md:h-20"
-                      src="../../images/logo.png"
+                      src="/images/logoheader.png"
                       alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
                     />
                   </a>
@@ -38,8 +38,8 @@ const Header = () => {
             <Link href="/">
               <a>
                 <img
-                  className="absolute top-0 left-0 h-16 px-2"
-                  src="../../images/logo.png"
+                  className="absolute top-0 left-0 h-24 px-2"
+                  src="/images/logoheader.png"
                   alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
                 />
               </a>

@@ -85,7 +85,7 @@ const Footer = () => {
               <img
                 alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
                 className="absolute right-0 bottom-0 h-12 md:h-24 mx-2 mb-1"
-                src="../../images/logo.png"
+                src="/images/logoheader.png"
               />
             </a>
           </Link>

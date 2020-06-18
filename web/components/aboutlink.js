@@ -90,7 +90,7 @@ const StyledHex = styled.div`
   .square {
     width: 100px;
     height: 60px;
-    background: ${Colors.lightPink};
+    background: ${Colors.lightPinkT};
   }
   .tri {
     position: absolute;
@@ -100,20 +100,20 @@ const StyledHex = styled.div`
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-top: 35px solid ${Colors.lightPink};
+    border-top: 35px solid ${Colors.lightPinkT};
   }
   @media (min-width: 768px) {
     left: 15px;
     .square {
       width: 230px;
       height: 145px;
-      background: ${Colors.lightPink};
+      background: ${Colors.lightPinkT};
     }
     .tri {
       top: 145px;
       border-left: 115px solid transparent;
       border-right: 115px solid transparent;
-      border-top: 80px solid ${Colors.lightPink};
+      border-top: 80px solid ${Colors.lightPinkT};
     }
   }
   @media (min-width: 1024px) {
@@ -121,13 +121,13 @@ const StyledHex = styled.div`
     .square {
       width: 244px;
       height: 160px;
-      background: ${Colors.lightPink};
+      background: ${Colors.lightPinkT};
     }
     .tri {
       top: 160px;
       border-left: 122px solid transparent;
       border-right: 122px solid transparent;
-      border-top: 90px solid ${Colors.lightPink};
+      border-top: 90px solid ${Colors.lightPinkT};
     }
   }
 `;
