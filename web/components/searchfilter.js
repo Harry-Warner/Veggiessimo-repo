@@ -145,10 +145,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
           className="text-base lg:text-xl grid gap-1 lg:gap-0 grid-cols-3 grid-rows-2 lg:grid-rows-1 lg:grid-cols-7"
         >
           <div
-            onClick={() => {
-              setSelect(null);
-              setOpen(!open);
-            }}
+            onClick={() => setSelect(null)}
             className={`all ${
               select ? "" : "lg:border-b-4"
             } border-solid border-blue bg-lightPinkT cursor-pointer col-span-1 font-sans self-center text-center`}
@@ -156,10 +153,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             <h2 className="self-center w-full">All</h2>
           </div>
           <div
-            onClick={() => {
-              setSelect("Breakfast");
-              setOpen(!open);
-            }}
+            onClick={() => setSelect("Breakfast")}
             className={`${
               select === "Breakfast" ? "lg:border-b-4" : ""
             } bg-lightBlueT lg:border-solid lg:border-blue  lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
@@ -167,10 +161,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             <h2 className="self-center">Breakfast</h2>
           </div>
           <div
-            onClick={() => {
-              setSelect("Mains");
-              setOpen(!open);
-            }}
+            onClick={() => setSelect("Mains")}
             className={`${
               select === "Mains" ? "lg:border-b-4" : ""
             } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
@@ -178,10 +169,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             <h2 className="self-center">Mains</h2>
           </div>
           <div
-            onClick={() => {
-              setSelect("Dessert");
-              setOpen(!open);
-            }}
+            onClick={() => setSelect("Dessert")}
             className={`${
               select === "Desserts" ? "lg:border-b-4" : ""
             } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
@@ -189,10 +177,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             <h2 className="self-center">Desserts</h2>
           </div>
           <div
-            onClick={() => {
-              setSelect("Small Bites");
-              setOpen(!open);
-            }}
+            onClick={() => setSelect("Small Bites")}
             className={`${
               select === "Small Bites" ? "lg:border-b-4" : ""
             } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
@@ -200,10 +185,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             <h2 className="self-center">Small Bites</h2>
           </div>
           <div
-            onClick={() => {
-              setSelect("Soups & Salads");
-              setOpen(!open);
-            }}
+            onClick={() => setSelect("Soups & Salads")}
             className={`${
               select === "Soups & Salads" ? "lg:border-b-4" : ""
             } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
@@ -211,10 +193,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             <h2 className="self-center">Soups/Salads</h2>
           </div>
           <div
-            onClick={() => {
-              setSelect("Sauces");
-              setOpen(!open);
-            }}
+            onClick={() => setSelect("Sauces")}
             className={`${
               select === "Sauces" ? "lg:border-b-4" : ""
             } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
