@@ -19,6 +19,22 @@ export default async (req, res) => {
       status: "subscribed",
     };
 
+    // Check Email isn't already subscribed
+    const getList = await fetch(
+      `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`,
+      { headers: { Authorization: `apikey ${API_KEY}` }, method: "GET" }
+    );
+    const list = await getList.json();
+    if (
+      list.members
+        .map((member) => member.email_address)
+        .includes(data.email_address)
+    ) {
+      return res.status(400).json({
+        error: `This email address has already been subscribed`,
+      });
+    }
+
     // Send a POST request to Mailchimp.
     const response = await fetch(
       `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`,

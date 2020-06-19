@@ -4,15 +4,7 @@ import { bool, func, string } from "prop-types";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const Modal = (props) => {
-  const {
-    display,
-    setDisplay,
-    premail,
-    setSubscribed,
-    preventAuto,
-    subscribedEmail,
-    setSubscribedEmail,
-  } = props;
+  const { display, setDisplay, premail, setSubscribed, preventAuto } = props;
 
   const [value, setValue] = useState(premail);
 
@@ -21,15 +13,9 @@ const Modal = (props) => {
   const inputEl = useRef(null);
   // Hold a message in state to handle the response from API.
   const [message, setMessage] = useState("");
-  console.log(subscribedEmail);
 
   const subscribe = async (e) => {
     e.preventDefault();
-
-    if (subscribedEmail === inputEl.current.value) {
-      setMessage("This email has already been subscribed");
-      return;
-    }
 
     // Send a request to API with the user's email address.
     const res = await fetch("/api/subscribe", {
@@ -50,9 +36,6 @@ const Modal = (props) => {
 
       return;
     }
-
-    // Kepp the successful email as a cookie in the browser to preventAuto
-    setSubscribedEmail(inputEl.current.value);
 
     // Clear the input value and show a success message.
     inputEl.current.value = "";

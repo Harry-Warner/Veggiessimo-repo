@@ -20,22 +20,18 @@ function urlFor(source) {
 }
 
 const Index = (props) => {
-  const { posts = [], initialSubscribedValue, initialSubscribedEmail } = props;
+  const { posts = [], initialSubscribedValue = false } = props;
   const [display, setDisplay] = useState(false);
   const [premail, setPremail] = useState("");
   const [subscribed, setSubscribed] = useState(() =>
     JSON.parse(initialSubscribedValue)
   );
-  const [subscribedEmail, setSubscribedEmail] = useState(() =>
-    JSON.parse(initialSubscribedEmail)
-  );
 
   useEffect(() => {
     Cookie.set("subscribed", JSON.stringify(subscribed));
-    Cookie.set("subscribedEmail", JSON.stringify(subscribedEmail));
-  }, [subscribed, subscribedEmail]);
+  }, [subscribed]);
 
-  console.log([subscribed, subscribedEmail]);
+  console.log([subscribed]);
 
   return (
     <>
@@ -50,8 +46,6 @@ const Index = (props) => {
         preventAuto={subscribed ? true : false}
         premail={premail}
         setSubscribed={setSubscribed}
-        subscribedEmail={subscribedEmail}
-        setSubscribedEmail={setSubscribedEmail}
         display={display}
         setDisplay={setDisplay}
       />
@@ -141,7 +135,6 @@ Index.getInitialProps = async ({ req }) => {
 
   return {
     initialSubscribedValue: cookies.subscribed,
-    initialSubscribedEmail: cookies.subscribedEmail,
     posts: await client.fetch(groq`
       *[_type == "recipePost" && publishedAt < now()]|order(publishedAt desc)[0...4]
     `),
