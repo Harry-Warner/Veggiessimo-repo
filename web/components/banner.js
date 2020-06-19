@@ -14,21 +14,25 @@ const Banner = () => {
   return (
     <StyledBanner width={width} className="relative">
       <div className="absolute">
-        <img
-          className="w-full md:hidden bg-white"
-          src="images/banner640.png"
-          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
-        />
-        <img
-          className="w-full hidden md:block lg:hidden bg-white"
-          src="images/banner768.png"
-          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
-        />
-        <img
-          className="w-full hidden lg:block bg-white mt-8"
-          src="images/bannerFULL.png"
-          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
-        />
+        {width < 768 ? (
+          <img
+            className="w-full md:hidden bg-white"
+            src="images/banner640.png"
+            alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
+          />
+        ) : width < 1024 ? (
+          <img
+            className="w-full hidden md:block lg:hidden bg-white"
+            src="images/banner768.png"
+            alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
+          />
+        ) : (
+          <img
+            className="w-full hidden lg:block bg-white mt-8"
+            src="images/bannerFULL.png"
+            alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
+          />
+        )}
         <Title className="hidden lg:block w-full absolute text-center font-script">
           Veggiessimo
         </Title>
