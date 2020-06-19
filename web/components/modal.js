@@ -23,7 +23,7 @@ const Modal = (props) => {
     // Send a request to API with the user's email address.
     const res = await fetch("/api/subscribe", {
       body: JSON.stringify({
-        email: inputEl.current.value,
+        email: inputEl.current.value.toLowerCase(),
       }),
       headers: {
         "Content-Type": "application/json",
