@@ -11,6 +11,7 @@ module.exports = {
         "72": "20rem",
         "84": "21rem",
         "96": "24rem",
+        "104": "26rem",
         "108": "27rem",
         "116": "29rem",
         "124": "31rem",
@@ -31,6 +32,7 @@ module.exports = {
       },
     },
     screens: {
+      sm: "35rem",
       md: "48rem",
       lg: "64rem",
     },

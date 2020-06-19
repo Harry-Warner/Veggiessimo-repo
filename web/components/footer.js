@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import PinterestIcon from "@material-ui/icons/Pinterest";
-import Modal from "./modal";
-import { bool, func } from "prop-types";
+import ModalContext from "../lib/modalContext";
 
-const Footer = (props) => {
-  const { premail, setPremail, setDisplay } = props;
+const Footer = () => {
+  const { setDisplay } = useContext(ModalContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,8 +26,6 @@ const Footer = (props) => {
               className="flex items-center h-6 md:h-12 lg:h-12 sm:h-8 bg-blue py-1 md:py-2 px-1 md:px-2 rounded"
             >
               <input
-                value={premail}
-                onChange={(e) => setPremail(e.target.value)}
                 className="p-1 md:p-2 text-xs md:text-xl text-black w-24 md:w-48 lg:w-64 h-full rounded"
                 placeholder="Email"
               />
@@ -86,12 +83,6 @@ const Footer = (props) => {
       </div>
     </>
   );
-};
-
-Modal.propTypes = {
-  setDisplay: func.isRequired,
-  premail: bool.isRequired,
-  setPremail: func.isRequired,
 };
 
 const StyledContact = styled.div`

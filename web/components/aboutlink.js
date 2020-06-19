@@ -5,7 +5,7 @@ import Colors from "../styled/colors";
 
 const AboutLink = () => {
   return (
-    <div className="relative w-full pb-2 pl-2 md:pb-4 md:pl-4 my-4 md:my-6">
+    <div className="relative w-full pb-2 pl-2 md:pb-4 md:pl-4 my-4 md:my-8 lg:mt-16">
       <Border className="z-10 absolute bottom-0 left-0 border-solid border-2 md:border-4 border-blue" />
       <Link href="/about">
         <a className="pt-6 md:pt-12">

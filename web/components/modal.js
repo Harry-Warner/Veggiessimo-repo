@@ -1,16 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import styled from "styled-components";
-import { bool, func, string } from "prop-types";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import UserContext from "../lib/userContext";
+import ModalContext from "../lib/modalContext";
 
-const Modal = (props) => {
-  const { display, setDisplay, premail, setSubscribed, preventAuto } = props;
+const Modal = () => {
+  const { subscribed, setSubscribed } = useContext(UserContext);
+  const { display, setDisplay } = useContext(ModalContext);
 
   const [value, setValue] = useState("");
-
-  useEffect(() => {
-    setValue(premail);
-  }, [premail]);
 
   // Reference to the input to fetch/clear it's value.
   const inputEl = useRef(null);
@@ -49,7 +47,7 @@ const Modal = (props) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      preventAuto ? setDisplay(false) : setDisplay(true);
+      subscribed ? setDisplay(false) : setDisplay(true);
     }, 5000);
     return () => clearTimeout(timer);
   }, []);
@@ -111,16 +109,6 @@ const Modal = (props) => {
       </div>
     </StyledModal>
   );
-};
-
-Modal.propTypes = {
-  display: bool.isRequired,
-  setDisplay: func.isRequired,
-  value: string.isRequired,
-  setValue: func.isRequired,
-  setSubscribed: func.isRequired,
-  subscribedEmail: string.isRequired,
-  setSubscribedEmail: func.isRequired,
 };
 
 const StyledModal = styled.div`

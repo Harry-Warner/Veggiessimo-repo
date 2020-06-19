@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import App from "next/app";
 import "../styled/tailwind.css";
 import GlobalStyle from "../styled/global";
 import Head from "next/head";
 import Header from "../components/header";
+import Footer from "../components/footer";
+import Container from "../styled/container";
+import Modal from "../components/modal";
+import UserContext from "../lib/userContext";
+import ModalContext from "../lib/modalContext";
+import { parseCookies } from "../lib/parseCookies";
+import Cookie from "js-cookie";
+
+const MyComponent = ({ children, initialSubscribedValue }) => {
+  const [display, setDisplay] = useState(false);
+  const [subscribed, setSubscribed] = useState(() =>
+    JSON.parse(initialSubscribedValue)
+  );
+
+  useEffect(() => {
+    Cookie.set("subscribed", JSON.stringify(subscribed));
+  }, [subscribed]);
+
+  const value = useMemo(() => ({ subscribed, setSubscribed }), [
+    subscribed,
+    setSubscribed,
+  ]);
+  const modal = useMemo(() => ({ display, setDisplay }), [display, setDisplay]);
+
+  return (
+    <>
+      <UserContext.Provider value={value}>
+        <ModalContext.Provider value={modal}>{children}</ModalContext.Provider>
+      </UserContext.Provider>
+    </>
+  );
+};
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, initialSubscribedValue = false } = this.props;
+
     return (
       <>
         <Head>
@@ -42,11 +75,25 @@ class MyApp extends App {
           <meta name="theme-color" content="#d9e892" />
         </Head>
         <GlobalStyle />
-        <Header />
-        <Component {...pageProps} />
+        <MyComponent initialSubscribedValue={initialSubscribedValue}>
+          <Header />
+          <Modal />
+          <Container>
+            <Component {...pageProps} />
+            <Footer />
+          </Container>
+        </MyComponent>
       </>
     );
   }
 }
+
+MyApp.getInitialProps = async (appContext) => {
+  const request = appContext.ctx.req;
+  const cookies = parseCookies(request);
+  const appProps = await App.getInitialProps(appContext);
+
+  return { ...appProps, initialSubscribedValue: cookies.subscribed };
+};
 
 export default MyApp;
