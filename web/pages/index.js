@@ -31,8 +31,6 @@ const Index = (props) => {
     Cookie.set("subscribed", JSON.stringify(subscribed));
   }, [subscribed]);
 
-  console.log([subscribed]);
-
   return (
     <>
       <MetaTags

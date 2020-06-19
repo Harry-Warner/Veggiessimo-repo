@@ -6,9 +6,12 @@ import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 const Modal = (props) => {
   const { display, setDisplay, premail, setSubscribed, preventAuto } = props;
 
-  const [value, setValue] = useState(premail);
+  const [value, setValue] = useState("");
 
-  console.log(preventAuto);
+  useEffect(() => {
+    setValue(premail);
+  }, [premail]);
+
   // Reference to the input to fetch/clear it's value.
   const inputEl = useRef(null);
   // Hold a message in state to handle the response from API.
