@@ -9,9 +9,7 @@ import RecipesLink from "../components/recipeslink";
 import AboutLink from "../components/aboutlink";
 import CommunityLink from "../components/communitylink";
 import MetaTags from "../components/metatags";
-import dynamic from "next/dynamic";
-
-const Banner = dynamic(() => import("../components/banner"), { ssr: false });
+import Banner from "../components/banner";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);

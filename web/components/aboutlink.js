@@ -16,43 +16,43 @@ const AboutLink = () => {
                 <div className="tri" />
               </StyledHex>
               <StyledFigure>
-                <img
-                  className="w-1/4 float-left lg:hidden"
+                {/* <img
+                  className="w-1/4 float-left hidden"
                   src="images/cook-with-us-1-sm.png"
                   alt="Milly and Maria chopping vegetables on a chopping board on the kitchen tops with bowls of fruit, avacados, ginger, garlic, seeds and many more fresh vegetables lying on the table next to them."
                 />
                 <img
-                  className="w-1/4 float-left lg:hidden"
+                  className="w-1/4 float-left hidden"
                   src="images/cook-with-us-2-sm.png"
                   alt="an assortment of ground spices, crushed nuts and seeds laying on the kitched tops, with bay leaves in between the spice bowls and a spoon sprinkling peanuts into the peanut bowl."
                 />
                 <img
-                  className="w-1/4 float-left lg:hidden"
+                  className="w-1/4 float-left hidden"
                   src="images/cook-with-us-3-sm.png"
                   alt="Marias hands finely dicing a red onion on a chopping board with a sliced lime placed on the corner of the chopping board."
                 />
                 <img
-                  className="w-1/4 float-left lg:hidden"
+                  className="w-1/4 float-left hidden"
                   src="images/cook-with-us-1-sm.png"
                   alt="Milly and Maria chopping vegetables on a chopping board on the kitchen tops with bowls of fruit, avacados, ginger, garlic, seeds and many more fresh vegetables lying on the table next to them."
-                />
+                /> */}
                 <img
-                  className="w-1/4 float-left hidden lg:block"
+                  className="w-1/4 float-left"
                   src="images/cook-with-us-1-lg.png"
                   alt="Milly and Maria chopping vegetables on a chopping board on the kitchen tops with bowls of fruit, avacados, ginger, garlic, seeds and many more fresh vegetables lying on the table next to them."
                 />
                 <img
-                  className="w-1/4 float-left hidden lg:block"
+                  className="w-1/4 float-left"
                   src="images/cook-with-us-2-lg.png"
                   alt="an assortment of ground spices, crushed nuts and seeds laying on the kitched tops, with bay leaves in between the spice bowls and a spoon sprinkling peanuts into the peanut bowl."
                 />
                 <img
-                  className="w-1/4 float-left hidden lg:block"
+                  className="w-1/4 float-left"
                   src="images/cook-with-us-3-lg.png"
                   alt="Marias hands finely dicing a red onion on a chopping board with a sliced lime placed on the corner of the chopping board."
                 />
                 <img
-                  className="w-1/4 float-left hidden lg:block"
+                  className="w-1/4 float-left"
                   src="images/cook-with-us-1-lg.png"
                   alt="Milly and Maria chopping vegetables on a chopping board on the kitchen tops with bowls of fruit, avacados, ginger, garlic, seeds and many more fresh vegetables lying on the table next to them."
                 />
@@ -180,7 +180,7 @@ const TextBox = styled.div`
   }
 
   @media (min-width: 48rem) {
-    left: 2.125rem;
+    left: 1.75rem;
     h1 {
       font-size: 2.75rem;
     }
@@ -190,6 +190,7 @@ const TextBox = styled.div`
     }
   }
   @media (min-width: 64rem) {
+    left: 2.125rem;
     h1 {
       font-size: 3rem;
     }

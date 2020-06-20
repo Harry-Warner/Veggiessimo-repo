@@ -226,10 +226,10 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
             <AutosizeInput
               type="text"
               name="search"
-              placeholder="Search"
+              placeholder={`Search ${select ? select : ""}`}
               inputStyle={{
                 fontSize: 18,
-                minWidth: "7.5rem",
+                minWidth: "10.5rem",
                 maxWidth: "13.75rem",
                 paddingLeft: "0.625rem",
               }}
