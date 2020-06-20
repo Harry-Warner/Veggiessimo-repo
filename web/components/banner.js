@@ -20,8 +20,6 @@ const Banner = () => {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
-  console.log(width);
-
   return (
     <StyledBanner width={width} className="relative">
       <div className="absolute">

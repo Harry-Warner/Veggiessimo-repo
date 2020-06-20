@@ -3,12 +3,21 @@ import styled from "styled-components";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import UserContext from "../lib/userContext";
 import ModalContext from "../lib/modalContext";
+import EmailContext from "../lib/emailContext";
+import FooterInputContext from "../lib/footerInputContext";
 
 const Modal = () => {
-  const { subscribed, setSubscribed } = useContext(UserContext);
+  // Pull and push any state changes with useContext
+  const { closed, setClosed } = useContext(UserContext);
   const { display, setDisplay } = useContext(ModalContext);
+  const { cookiemail, setCookiemail } = useContext(EmailContext);
+  const { footerInput } = useContext(FooterInputContext);
 
+  // Set input value to empty string and follow any changes made in the footer input
   const [value, setValue] = useState("");
+  useEffect(() => {
+    setValue(footerInput);
+  }, [footerInput]);
 
   // Reference to the input to fetch/clear it's value.
   const inputEl = useRef(null);
@@ -18,7 +27,9 @@ const Modal = () => {
   const subscribe = async (e) => {
     e.preventDefault();
 
-    // Send a request to API with the user's email address.
+    setCookiemail(inputEl.current.value.toLowerCase());
+
+    // Send a request to API with the inputted email address.
     const res = await fetch("/api/subscribe", {
       body: JSON.stringify({
         email: inputEl.current.value.toLowerCase(),
@@ -42,14 +53,34 @@ const Modal = () => {
     inputEl.current.value = "";
     setMessage("Success! 🎉 You are now subscribed to the newsletter.");
     setValue("");
-    setSubscribed(true);
   };
 
+  // Before displaying modal check that
+  // A) Email isnt already subscribed
+  // B) User hasnt closed modal recently
   useEffect(() => {
-    const timer = setTimeout(() => {
-      subscribed ? setDisplay(false) : setDisplay(true);
-    }, 5000);
-    return () => clearTimeout(timer);
+    const checkSubscription = async () => {
+      const res = await fetch("/api/checkSubscribe", {
+        body: JSON.stringify({
+          email: cookiemail,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      const { onList } = await res.json();
+
+      const timer = setTimeout(() => {
+        if (closed || onList) {
+          setDisplay(false);
+        } else {
+          setDisplay(true);
+        }
+      }, 15000);
+      return () => clearTimeout(timer);
+    };
+    checkSubscription();
   }, []);
 
   return (
@@ -58,12 +89,18 @@ const Modal = () => {
       className="fixed z-50 flex justify-center items-center top-0 right-0 bottom-0 left-0"
     >
       <div
-        onClick={() => setDisplay(false)}
+        onClick={() => {
+          setDisplay(false);
+          setClosed(true);
+        }}
         className="fixed z-0 top-0 right-0 bottom-0 left-0 bg-blackT"
       />
       <div className="fixed w-11/12 lg:w-200 md:h-108 p-2 md:p-4 flex flex-col md:flex-row bg-white">
         <StyledClose
-          onClick={() => setDisplay(false)}
+          onClick={() => {
+            setDisplay(false);
+            setClosed(true);
+          }}
           className="absolute right-0"
         >
           <HighlightOffIcon style={{ fontSize: 20, color: "#efe1e8" }} />

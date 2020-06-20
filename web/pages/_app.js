@@ -9,37 +9,64 @@ import Container from "../styled/container";
 import Modal from "../components/modal";
 import UserContext from "../lib/userContext";
 import ModalContext from "../lib/modalContext";
+import EmailContext from "../lib/emailContext";
+import FooterInput from "../lib/footerInputContext";
 import { parseCookies } from "../lib/parseCookies";
 import Cookie from "js-cookie";
 
-const MyComponent = ({ children, initialSubscribedValue }) => {
+const MyComponent = ({ children, initialClosedValue, initialEmailValue }) => {
+  // set modal display state to false and clear the footer input
   const [display, setDisplay] = useState(false);
-  const [subscribed, setSubscribed] = useState(() =>
-    JSON.parse(initialSubscribedValue)
+  const [footerInput, setFooterInput] = useState("");
+
+  // set the state of the users email and users close status to their respective cookies
+  const [cookiemail, setCookiemail] = useState(() =>
+    initialEmailValue ? JSON.parse(initialEmailValue) : ""
   );
+  const [closed, setClosed] = useState(() => JSON.parse(initialClosedValue));
 
+  // change the user cookies to match any state changes during session
   useEffect(() => {
-    Cookie.set("subscribed", JSON.stringify(subscribed));
-  }, [subscribed]);
+    Cookie.set("closed", JSON.stringify(closed), { expires: 7 });
+    Cookie.set("cookiemail", JSON.stringify(cookiemail), { expires: 3650 });
+  }, [closed, cookiemail]);
+  console.log(closed);
 
-  const value = useMemo(() => ({ subscribed, setSubscribed }), [
-    subscribed,
-    setSubscribed,
+  // set the provider values to monitor state changes
+  const emailValue = useMemo(() => ({ cookiemail, setCookiemail }), [
+    cookiemail,
+    setCookiemail,
   ]);
+  const input = useMemo(() => ({ footerInput, setFooterInput }), [
+    footerInput,
+    setFooterInput,
+  ]);
+  const value = useMemo(() => ({ closed, setClosed }), [closed, setClosed]);
   const modal = useMemo(() => ({ display, setDisplay }), [display, setDisplay]);
 
   return (
     <>
-      <UserContext.Provider value={value}>
-        <ModalContext.Provider value={modal}>{children}</ModalContext.Provider>
-      </UserContext.Provider>
+      <EmailContext.Provider value={emailValue}>
+        <UserContext.Provider value={value}>
+          <FooterInput.Provider value={input}>
+            <ModalContext.Provider value={modal}>
+              {children}
+            </ModalContext.Provider>
+          </FooterInput.Provider>
+        </UserContext.Provider>
+      </EmailContext.Provider>
     </>
   );
 };
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps, initialSubscribedValue = false } = this.props;
+    const {
+      Component,
+      pageProps,
+      initialClosedValue = false,
+      initialEmailValue,
+    } = this.props;
 
     return (
       <>
@@ -75,7 +102,10 @@ class MyApp extends App {
           <meta name="theme-color" content="#d9e892" />
         </Head>
         <GlobalStyle />
-        <MyComponent initialSubscribedValue={initialSubscribedValue}>
+        <MyComponent
+          initialClosedValue={initialClosedValue}
+          initialEmailValue={initialEmailValue}
+        >
           <Header />
           <Modal />
           <Container>
@@ -93,7 +123,11 @@ MyApp.getInitialProps = async (appContext) => {
   const cookies = parseCookies(request);
   const appProps = await App.getInitialProps(appContext);
 
-  return { ...appProps, initialSubscribedValue: cookies.subscribed };
+  return {
+    ...appProps,
+    initialClosedValue: cookies.closed,
+    initialEmailValue: cookies.cookiemail,
+  };
 };
 
 export default MyApp;

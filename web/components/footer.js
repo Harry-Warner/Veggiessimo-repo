@@ -6,10 +6,14 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import ModalContext from "../lib/modalContext";
+import FooterInputContext from "../lib/footerInputContext";
 
 const Footer = () => {
+  // Push any state changes with useContext
   const { setDisplay } = useContext(ModalContext);
+  const { setFooterInput } = useContext(FooterInputContext);
 
+  // Display modal on form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisplay(true);
@@ -26,6 +30,7 @@ const Footer = () => {
               className="flex items-center h-6 md:h-12 lg:h-12 sm:h-8 bg-blue py-1 md:py-2 px-1 md:px-2 rounded"
             >
               <input
+                onChange={(e) => setFooterInput(e.target.value)}
                 className="p-1 md:p-2 text-xs md:text-xl text-black w-24 md:w-48 lg:w-64 h-full rounded"
                 placeholder="Email"
               />
