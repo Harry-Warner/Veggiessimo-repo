@@ -5,8 +5,6 @@ import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
 import TitleComponent from "../components/titleComponent.jsx";
 import RecipeList from "../styled/postlist";
-import Footer from "../components/footer";
-import Container from "../styled/container";
 import SearchFilter from "../components/searchfilter";
 import LoadMore from "../components/loadmore";
 import MetaTags from "../components/metatags";
@@ -30,30 +28,27 @@ const Recipes = (props) => {
         imageSrc="https://veggiessimo.com.au/images/mains.png"
       />
       <TitleComponent title="Recipes" />
-      <Container>
-        <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />
-        <RecipeList>
-          {loadSearchPosts &&
-            loadSearchPosts.map(
-              ({ _id, title = "", mainImage, slug = "" }) =>
-                slug && (
-                  <List
-                    type="recipes"
-                    _id={_id}
-                    title={title}
-                    mainImage={mainImage}
-                    url={urlFor(mainImage).url()}
-                    slug={slug.current}
-                  />
-                )
-            )}
-        </RecipeList>
-        <LoadMore
-          searchPosts={searchPosts}
-          setLoadSearchPosts={setLoadSearchPosts}
-        />
-        <Footer />
-      </Container>
+      <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />
+      <RecipeList>
+        {loadSearchPosts &&
+          loadSearchPosts.map(
+            ({ _id, title = "", mainImage, slug = "" }) =>
+              slug && (
+                <List
+                  type="recipes"
+                  _id={_id}
+                  title={title}
+                  mainImage={mainImage}
+                  url={urlFor(mainImage).url()}
+                  slug={slug.current}
+                />
+              )
+          )}
+      </RecipeList>
+      <LoadMore
+        searchPosts={searchPosts}
+        setLoadSearchPosts={setLoadSearchPosts}
+      />
     </>
   );
 };

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Footer from "../components/footer";
-import Container from "../styled/container";
 import TitleComponent from "../components/titleComponent.jsx";
 import Colors from "../styled/colors";
 import { Instagram } from "@styled-icons/entypo-social/Instagram";
@@ -93,108 +91,105 @@ const Contact = () => {
           </StyledClose>
         </div>
       </StyledResponse>
-      <Container>
-        <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
-          <img
-            className="block md:hidden w-full z-0"
-            src="images/contact640.png"
-            alt="background"
+      <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
+        <img
+          className="block md:hidden w-full z-0"
+          src="images/contact640.png"
+          alt="background"
+        />
+        <img
+          className="hidden md:block lg:hidden w-full z-0"
+          src="images/contact768.png"
+          alt="background"
+        />
+        <img
+          className="hidden lg:block w-full z-0"
+          src="images/contact1024.png"
+          alt="background"
+        />
+        <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script left-0 ml-4 md:ml-6 lg:ml-12 mt-8 md:mt-24 lg:mt-10">
+          Get in Touch
+        </StyledTitle>
+        <StyledForm
+          action="https://api.staticforms.xyz/submit"
+          method="post"
+          onSubmit={handleSubmit}
+          className="absolute self-center  justify-between flex flex-col md:items-start py-4"
+        >
+          <input
+            onChange={handleChange}
+            required
+            type="text"
+            name="name"
+            className="name w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
+            placeholder="Name"
           />
-          <img
-            className="hidden md:block lg:hidden w-full z-0"
-            src="images/contact768.png"
-            alt="background"
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            onChange={handleChange}
+            required
+            className="email w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
           />
-          <img
-            className="hidden lg:block w-full z-0"
-            src="images/contact1024.png"
-            alt="background"
+          <input
+            type="text"
+            name="$subject"
+            onChange={handleChange}
+            className="subject w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
+            placeholder="Subject"
+            required
           />
-          <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script left-0 ml-4 md:ml-6 lg:ml-12 mt-8 md:mt-24 lg:mt-10">
-            Get in Touch
-          </StyledTitle>
-          <StyledForm
-            action="https://api.staticforms.xyz/submit"
-            method="post"
-            onSubmit={handleSubmit}
-            className="absolute self-center  justify-between flex flex-col md:items-start py-4"
-          >
-            <input
-              onChange={handleChange}
-              required
-              type="text"
-              name="name"
-              className="name w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
-              placeholder="Name"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              onChange={handleChange}
-              required
-              className="email w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
-            />
-            <input
-              type="text"
-              name="$subject"
-              onChange={handleChange}
-              className="subject w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
-              placeholder="Subject"
-              required
-            />
-            <div style={{ display: "none" }}>
-              <label>Title</label>
-              <div>
-                <input
-                  type="text"
-                  name="honeypot"
-                  style={{ display: "none" }}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div className="flex justify-end py-1">
-              <textarea
-                placeholder="Your Message"
-                name="message"
+          <div style={{ display: "none" }}>
+            <label>Title</label>
+            <div>
+              <input
+                type="text"
+                name="honeypot"
+                style={{ display: "none" }}
                 onChange={handleChange}
-                required
-                className="message h-full w-full md:w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
               />
-              <button
-                type="submit"
-                className="hidden md:block bg-lightBlue text-white uppercase font-bold w-16 ml-6 lg:ml-10 self-end rounded-xl"
-              >
-                Send
-              </button>
-              <button
-                type="submit"
-                className="md:hidden bg-lightBlue text-white uppercase font-bold w-16 ml-5 self-end rounded-xl"
-              >
-                Send
-              </button>
-            </div>
-          </StyledForm>
-
-          <div className="w-full bg-lightBlueT flex flex-col lg:my-2">
-            <div className="w-full flex justify-center">
-              <StyledFace />
-              <a href="https://www.instagram.com/veggiessimo.au/">
-                <StyledInst />
-              </a>
-              <StyledPin />
-            </div>
-            <div className="flex justify-center items-center">
-              <StyledEmail />
-              <p className="text-xl md:text-xxl lg:text-xxxl pb-3 md:pb-4 font-sans">
-                veggiessimorecipes@gmail.com
-              </p>
             </div>
           </div>
+          <div className="flex justify-end py-1">
+            <textarea
+              placeholder="Your Message"
+              name="message"
+              onChange={handleChange}
+              required
+              className="message h-full w-full md:w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
+            />
+            <button
+              type="submit"
+              className="hidden md:block bg-lightBlue text-white uppercase font-bold w-16 ml-6 lg:ml-10 self-end rounded-xl"
+            >
+              Send
+            </button>
+            <button
+              type="submit"
+              className="md:hidden bg-lightBlue text-white uppercase font-bold w-16 ml-5 self-end rounded-xl"
+            >
+              Send
+            </button>
+          </div>
+        </StyledForm>
+
+        <div className="w-full bg-lightBlueT flex flex-col lg:my-2">
+          <div className="w-full flex justify-center">
+            <StyledFace />
+            <a href="https://www.instagram.com/veggiessimo.au/">
+              <StyledInst />
+            </a>
+            <StyledPin />
+          </div>
+          <div className="flex justify-center items-center">
+            <StyledEmail />
+            <p className="text-xl md:text-xxl lg:text-xxxl pb-3 md:pb-4 font-sans">
+              veggiessimorecipes@gmail.com
+            </p>
+          </div>
         </div>
-        <Footer />
-      </Container>
+      </div>
     </>
   );
 };

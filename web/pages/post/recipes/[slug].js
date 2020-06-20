@@ -5,9 +5,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import client from "../../../client";
 import TitleComponent from "../../../components/titleComponent.jsx";
-import Footer from "../../../components/footer";
 import styled from "styled-components";
-import Container from "../../../styled/container";
 import Colors from "../../../styled/colors";
 import { Camera } from "@styled-icons/evil/Camera";
 import PostHeading from "../../../components/postheading";
@@ -62,126 +60,121 @@ const RecipePost = (props) => {
         imageSrc={urlFor(post.mainImage).url()}
       />
       <TitleComponent title={post.seoTitle} />
-      <Container>
-        <article>
-          <PostHeading
-            category={post.mealType}
-            title={post.title}
-            name={post.name}
+      <article>
+        <PostHeading
+          category={post.mealType}
+          title={post.title}
+          name={post.name}
+        />
+        <div className="flex flex-col md:flex-row justify-center items-center w-full">
+          {post.mainImage && (
+            <div className="w-full md:w-8/12 flex justify-center">
+              <img
+                className="w-full h-64 md:h-84 lg:h-108 object-cover object-center"
+                src={urlFor(post.mainImage).url()}
+                alt={post.title}
+              />
+            </div>
+          )}
+          <StyledBox className="grid grid-cols-2 md:grid-cols-1 gap-tiny my-2 w-full md:w-4/12 h-32 md:h-full bg-lightPink md:bg-opacity-0">
+            <div>
+              <h2>Cook time:</h2>
+              <p>{cooking_time(post.cookingTime)}</p>
+            </div>
+            <div>
+              <h2>Servings:</h2>
+              <p>{post.servings}</p>
+            </div>
+            <div>
+              <h2>Category:</h2>
+              <p>{post.mealType}</p>
+            </div>
+            <div>
+              <h2>Extra Info:</h2>
+              <p>{category_list(post.categories)}</p>
+            </div>
+          </StyledBox>
+        </div>
+        <div className="w-full md:w-8/12 md:text-xl mt-2 md:mt-8 p-4 pb-0 bg-greenT font-bold flex flex-col">
+          <BlockContent
+            serializers={serializers}
+            blocks={post.description}
+            {...client.config()}
           />
-          <div className="flex flex-col md:flex-row justify-center items-center w-full">
-            {post.mainImage && (
-              <div className="w-full md:w-8/12 flex justify-center">
-                <img
-                  className="w-full h-64 md:h-84 lg:h-108 object-cover object-center"
-                  src={urlFor(post.mainImage).url()}
-                  alt={post.title}
-                />
-              </div>
-            )}
-            <StyledBox className="grid grid-cols-2 md:grid-cols-1 gap-tiny my-2 w-full md:w-4/12 h-32 md:h-full bg-lightPink md:bg-opacity-0">
-              <div>
-                <h2>Cook time:</h2>
-                <p>{cooking_time(post.cookingTime)}</p>
-              </div>
-              <div>
-                <h2>Servings:</h2>
-                <p>{post.servings}</p>
-              </div>
-              <div>
-                <h2>Category:</h2>
-                <p>{post.mealType}</p>
-              </div>
-              <div>
-                <h2>Extra Info:</h2>
-                <p>{category_list(post.categories)}</p>
-              </div>
-            </StyledBox>
-          </div>
-          <div className="w-full md:w-8/12 md:text-xl mt-2 md:mt-8 p-4 pb-0 bg-greenT font-bold flex flex-col">
-            <BlockContent
-              serializers={serializers}
-              blocks={post.description}
-              {...client.config()}
-            />
-          </div>
-          <div className="grid grid-cols-1 grid-rows-20 md:grid-cols-12 md:grid-rows-20 my-8 md:mt-16 md:mb-0">
-            <div className="col-span-12 md:col-span-7 flex flex-col md:px-10 bg-white">
-              <h2 className="text-xxxl md:text-vbig font-script m-2">
-                Ingredients:
-              </h2>
-              <div className="flex mx-4 mb-4 font-sans">
-                <BlockContent
-                  serializers={serializers}
-                  blocks={post.ingredients}
-                  imageOptions={{ w: 320, h: 240, fit: "max" }}
-                  {...client.config()}
-                />
-              </div>
+        </div>
+        <div className="grid grid-cols-1 grid-rows-20 md:grid-cols-12 md:grid-rows-20 my-8 md:mt-16 md:mb-0">
+          <div className="col-span-12 md:col-span-7 flex flex-col md:px-10 bg-white">
+            <h2 className="text-xxxl md:text-vbig font-script m-2">
+              Ingredients:
+            </h2>
+            <div className="flex mx-4 mb-4 font-sans">
+              <BlockContent
+                serializers={serializers}
+                blocks={post.ingredients}
+                imageOptions={{ w: 320, h: 240, fit: "max" }}
+                {...client.config()}
+              />
             </div>
-            <hr className="col-span-12 self-center w-full h-3 border-none bg-blueT my-5" />
-            <div className="col-span-12 md:col-span-12 lg:col-span-8 row-span-1 flex flex-col md:px-10 bg-white">
-              <h2 className="m-2 text-xxxl md:text-vbig font-script">
-                Method:
-              </h2>
-              <div className="flex mx-4 mb-4 text-base md:text-xl">
-                <BlockContent
-                  serializers={serializers}
-                  blocks={post.body}
-                  {...client.config()}
-                />
-              </div>
+          </div>
+          <hr className="col-span-12 self-center w-full h-3 border-none bg-blueT my-5" />
+          <div className="col-span-12 md:col-span-12 lg:col-span-8 row-span-1 flex flex-col md:px-10 bg-white">
+            <h2 className="m-2 text-xxxl md:text-vbig font-script">Method:</h2>
+            <div className="flex mx-4 mb-4 text-base md:text-xl">
+              <BlockContent
+                serializers={serializers}
+                blocks={post.body}
+                {...client.config()}
+              />
             </div>
-            <div className="col-span-12 md:row-start-4 lg:col-start-9 lg:col-end-12 lg:row-start-3 flex lg:flex-col w-11/12 md:w-7/12 lg:w-full mx-auto my-4 md:my-8 h-32 md:h-40 lg:h-84 self-center items-center justify-center md:justify-between lg:justify-around bg-white border-blue border-solid border-2 rounded-lg">
-              <h1 className="hidden lg:block text-center text-big font-script">
+          </div>
+          <div className="col-span-12 md:row-start-4 lg:col-start-9 lg:col-end-12 lg:row-start-3 flex lg:flex-col w-11/12 md:w-7/12 lg:w-full mx-auto my-4 md:my-8 h-32 md:h-40 lg:h-84 self-center items-center justify-center md:justify-between lg:justify-around bg-white border-blue border-solid border-2 rounded-lg">
+            <h1 className="hidden lg:block text-center text-big font-script">
+              Have you done it?
+            </h1>
+            <StyledCam />
+            <StyledTrend className="flex flex-col justify-around md:pr-10 lg:pr-0">
+              <h1 className="lg:hidden text-center font-script">
                 Have you done it?
               </h1>
-              <StyledCam />
-              <StyledTrend className="flex flex-col justify-around md:pr-10 lg:pr-0">
-                <h1 className="lg:hidden text-center font-script">
-                  Have you done it?
-                </h1>
-                <h3 className="text-center font-sans uppercase">let us know</h3>
-                <h2 className="text-center font-sans uppercase">
-                  #makeitveggiessimo
-                </h2>
-              </StyledTrend>
-            </div>
-            <StyledList className="col-span-12 md:col-start-8 md:col-end-12 md:row-start-1 relative grid grid-cols-2 md:grid-cols-1 w-full md:w-full mx-auto pt-12 pb-6 px-4 gap-6 bg-lightBlueT">
-              <h1 className="absolute w-full text-center text-xl pt-2 top-0 left-0 font-sans font-bold uppercase">
-                - More Great Recipes -
-              </h1>
-              {recipes.map(
-                ({ _id, title = "", mainImage, slug = "" }) =>
-                  slug && (
-                    <li key={_id}>
-                      <Link
-                        href="/post/recipes/[slug]"
-                        as={`/post/recipes/${slug.current}`}
-                      >
-                        <a>
-                          <div className="flex flex-col md:flex-row">
-                            {mainImage && (
-                              <img
-                                className="w-full md:w-1/2 h-28 md:h-32 object-cover object-center"
-                                src={urlFor(mainImage).url()}
-                                alt="Food"
-                              />
-                            )}
-                            <h2 className="p-1 flex items-center text-center md:text-left justify-center md:justify-start font-sans bg-white md:bg-lightPinkT h-20 md:h-32 md:w-1/2 md:pl-3 text-base font-bold md:text-lg lg:text-xl">
-                              {title}
-                            </h2>
-                          </div>
-                        </a>
-                      </Link>
-                    </li>
-                  )
-              )}
-            </StyledList>
+              <h3 className="text-center font-sans uppercase">let us know</h3>
+              <h2 className="text-center font-sans uppercase">
+                #makeitveggiessimo
+              </h2>
+            </StyledTrend>
           </div>
-        </article>
-        <Footer />
-      </Container>
+          <StyledList className="col-span-12 md:col-start-8 md:col-end-12 md:row-start-1 relative grid grid-cols-2 md:grid-cols-1 w-full md:w-full mx-auto pt-12 pb-6 px-4 gap-6 bg-lightBlueT">
+            <h1 className="absolute w-full text-center text-xl pt-2 top-0 left-0 font-sans font-bold uppercase">
+              - More Great Recipes -
+            </h1>
+            {recipes.map(
+              ({ _id, title = "", mainImage, slug = "" }) =>
+                slug && (
+                  <li key={_id}>
+                    <Link
+                      href="/post/recipes/[slug]"
+                      as={`/post/recipes/${slug.current}`}
+                    >
+                      <a>
+                        <div className="flex flex-col md:flex-row">
+                          {mainImage && (
+                            <img
+                              className="w-full md:w-1/2 h-28 md:h-32 object-cover object-center"
+                              src={urlFor(mainImage).url()}
+                              alt="Food"
+                            />
+                          )}
+                          <h2 className="p-1 flex items-center text-center md:text-left justify-center md:justify-start font-sans bg-white md:bg-lightPinkT h-20 md:h-32 md:w-1/2 md:pl-3 text-base font-bold md:text-lg lg:text-xl">
+                            {title}
+                          </h2>
+                        </div>
+                      </a>
+                    </Link>
+                  </li>
+                )
+            )}
+          </StyledList>
+        </div>
+      </article>
     </>
   );
 };

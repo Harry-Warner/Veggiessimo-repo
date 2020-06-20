@@ -3,9 +3,7 @@ import Link from "next/link";
 import groq from "groq";
 import client from "../client";
 import imageUrlBuilder from "@sanity/image-url";
-import Footer from "../components/footer";
 import TitleComponent from "../components/titleComponent.jsx";
-import Container from "../styled/container";
 import PostList from "../styled/postlist";
 import ComNav from "../components/comNav";
 import MealTitle from "../components/mealtitle";
@@ -32,43 +30,40 @@ const Community = (props) => {
         imageSrc="https://veggiessimo.com.au/images/onion768.png"
       />
       <TitleComponent title="Community" />
-      <Container>
-        <MealTitle
-          title="Community"
-          description="Ideas on how to live a more sustainable lifestyle"
-        />
-        <ComNav posts={posts} setSearchPosts={setSearchPosts} />
-        <PostList community>
-          {loadSearchPosts &&
-            loadSearchPosts.map(
-              ({ _id, title = "", mainImage, slug = "" }) =>
-                slug && (
-                  <li key={_id}>
-                    <Link
-                      href={`/post/community/[slug]`}
-                      as={`/post/community/${slug.current}`}
-                    >
-                      <a>
-                        {mainImage && (
-                          <img
-                            className="h-24 md:h-32 lg:h-48 w-9/12 md:w-11/12 mx-auto my-4 object-cover object-center"
-                            src={urlFor(mainImage).url()}
-                            alt={title}
-                          />
-                        )}
-                        <TextBox text={title} />
-                      </a>
-                    </Link>
-                  </li>
-                )
-            )}
-        </PostList>
-        <LoadMore
-          searchPosts={searchPosts}
-          setLoadSearchPosts={setLoadSearchPosts}
-        />
-        <Footer />
-      </Container>
+      <MealTitle
+        title="Community"
+        description="Ideas on how to live a more sustainable lifestyle"
+      />
+      <ComNav posts={posts} setSearchPosts={setSearchPosts} />
+      <PostList community>
+        {loadSearchPosts &&
+          loadSearchPosts.map(
+            ({ _id, title = "", mainImage, slug = "" }) =>
+              slug && (
+                <li key={_id}>
+                  <Link
+                    href={`/post/community/[slug]`}
+                    as={`/post/community/${slug.current}`}
+                  >
+                    <a>
+                      {mainImage && (
+                        <img
+                          className="h-24 md:h-32 lg:h-48 w-9/12 md:w-11/12 mx-auto my-4 object-cover object-center"
+                          src={urlFor(mainImage).url()}
+                          alt={title}
+                        />
+                      )}
+                      <TextBox text={title} />
+                    </a>
+                  </Link>
+                </li>
+              )
+          )}
+      </PostList>
+      <LoadMore
+        searchPosts={searchPosts}
+        setLoadSearchPosts={setLoadSearchPosts}
+      />
     </>
   );
 };
