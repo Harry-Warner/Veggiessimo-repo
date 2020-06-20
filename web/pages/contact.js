@@ -8,6 +8,11 @@ import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCi
 import { Email } from "@styled-icons/material/Email";
 import MetaTags from "../components/metatags";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import dynamic from "next/dynamic";
+
+const ContactImage = dynamic(() => import("../components/contactImage"), {
+  ssr: false,
+});
 
 const Contact = () => {
   const [open, setOpen] = useState(false);
@@ -92,21 +97,7 @@ const Contact = () => {
         </div>
       </StyledResponse>
       <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
-        <img
-          className="block md:hidden w-full z-0"
-          src="images/contact640.png"
-          alt="background"
-        />
-        <img
-          className="hidden md:block lg:hidden w-full z-0"
-          src="images/contact768.png"
-          alt="background"
-        />
-        <img
-          className="hidden lg:block w-full z-0"
-          src="images/contact1024.png"
-          alt="background"
-        />
+        <ContactImage />
         <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script left-0 ml-4 md:ml-6 lg:ml-12 mt-8 md:mt-24 lg:mt-10">
           Get in Touch
         </StyledTitle>

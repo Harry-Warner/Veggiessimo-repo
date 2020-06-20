@@ -155,48 +155,54 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
           <div
             onClick={() => setSelect("Breakfast")}
             className={`${
-              select === "Breakfast" ? "lg:border-b-4" : ""
-            } bg-lightBlueT lg:border-solid lg:border-blue  lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
+              select === "Breakfast"
+                ? "bg-blueT lg:border-b-4"
+                : "bg-lightBlueT"
+            } lg:border-solid lg:border-blue  lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Breakfast</h2>
           </div>
           <div
             onClick={() => setSelect("Mains")}
             className={`${
-              select === "Mains" ? "lg:border-b-4" : ""
-            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
+              select === "Mains" ? "bg-blueT lg:border-b-4" : "bg-lightBlueT"
+            } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Mains</h2>
           </div>
           <div
             onClick={() => setSelect("Dessert")}
             className={`${
-              select === "Desserts" ? "lg:border-b-4" : ""
-            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
+              select === "Dessert" ? "bg-blueT lg:border-b-4" : "bg-lightBlueT"
+            } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Desserts</h2>
           </div>
           <div
             onClick={() => setSelect("Small Bites")}
             className={`${
-              select === "Small Bites" ? "lg:border-b-4" : ""
-            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
+              select === "Small Bites"
+                ? "bg-blueT lg:border-b-4"
+                : "bg-lightBlueT"
+            } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Small Bites</h2>
           </div>
           <div
             onClick={() => setSelect("Soups & Salads")}
             className={`${
-              select === "Soups & Salads" ? "lg:border-b-4" : ""
-            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
+              select === "Soups & Salads"
+                ? "bg-blueT lg:border-b-4"
+                : "bg-lightBlueT"
+            } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Soups/Salads</h2>
           </div>
           <div
             onClick={() => setSelect("Sauces")}
             className={`${
-              select === "Sauces" ? "lg:border-b-4" : ""
-            } bg-lightBlueT lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
+              select === "Sauces" ? "bg-blueT lg:border-b-4" : "bg-lightBlueT"
+            } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
             <h2 className="self-center">Sauces</h2>{" "}
           </div>
@@ -345,8 +351,9 @@ const StyledButton = styled.div`
       position: absolute;
       display: ${({ open }) => (open ? "block" : "none")};
       z-index: 10;
-      top: -3.5vw;
-      left: -1.5vw;
+      font-size: 1.875rem;
+      top: -0.5rem;
+      left: -0.25rem;
     }
   }
   @media (min-width: 48rem) {

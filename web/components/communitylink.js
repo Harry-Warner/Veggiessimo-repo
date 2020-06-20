@@ -9,17 +9,7 @@ const CommunityLink = () => {
         <SectionWrapper className="w-full relative h-48 md:h-96 lg:h-116 mt-4 md:mt-8 lg:mt-10 bg-cover bg-center">
           <div className="bg-white relative w-full top-0">
             <img
-              className="w-full h-56 md:hidden"
-              src="images/onion640.png"
-              alt="background"
-            />
-            <img
-              className="w-full h-108 hidden md:block lg:hidden"
-              src="images/onion768.png"
-              alt="background"
-            />
-            <img
-              className="w-full h-132 hidden lg:block"
+              className="w-full h-56 md:h-108 lg:h-132"
               src="images/onion1024.png"
               alt="background"
             />
