@@ -41,11 +41,6 @@ const ToggleMenu = ({ open, setOpen }) => {
         <a href="https://www.instagram.com/veggiessimo.au/">Instagram</a>
         <a href="https://www.facebook.com/veggiessimo/">Facebook</a>
         <a href="#">Pinterest</a>
-        <Link href="/contact">
-          <a open={open} onClick={() => setOpen(!open)} href="/contact">
-            Email
-          </a>
-        </Link>
       </div>
     </StyledMenu>
   );

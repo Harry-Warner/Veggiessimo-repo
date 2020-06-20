@@ -10,7 +10,7 @@ const Styler = (props) => {
       css = "my-4 text-xl md:text-xxxl lg:text-big";
       break;
     case "h2":
-      css = "mt-4 text-base md:text-xl lg:text-xxl";
+      css = "mt-4 text-lg md:text-xl lg:text-xxl";
       break;
     case "h3":
       css = "my-2 font-sans md:font-script text-lg md:text-xxxl lg:text-big";
@@ -52,7 +52,7 @@ const serializers = {
         <img
           src={urlFor(props.node)}
           alt={props.node.altText}
-          className="mx-auto w-full h-48 md:h-84 lg:h-64 object-center object-cover"
+          className="mx-auto mb-4 w-full h-48 md:h-84 lg:h-64 object-center object-cover"
         />
       );
     },
@@ -62,7 +62,7 @@ const serializers = {
   },
   marks: {
     s: ({ children }) => {
-      return <span className={`${Styler("h1")} font-script`}>{children}</span>;
+      return <span className={`${Styler("h2")} font-script`}>{children}</span>;
     },
     postLink: ({ mark, children }) => {
       const { type, slug = {} } = mark;

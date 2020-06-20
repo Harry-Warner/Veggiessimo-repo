@@ -3,7 +3,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import YouTubeIcon from "@material-ui/icons/YouTube";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import ModalContext from "../lib/modalContext";
 import FooterInputContext from "../lib/footerInputContext";
@@ -24,7 +23,7 @@ const Footer = () => {
       <div className="flex flex-col absolute bottom-0 w-full">
         <div className="flex justify-between w-full bg-lightPink">
           <StyledContact className="pb-3 m-2">
-            <p className="font-script text-xl md:text-vbig">Join us!</p>
+            <p className="font-script text-xl md:text-vbig">Subscribe!</p>
             <form
               onSubmit={handleSubmit}
               className="flex items-center h-6 md:h-12 lg:h-12 sm:h-8 bg-blue py-1 md:py-2 px-1 md:px-2 rounded"
@@ -69,7 +68,6 @@ const Footer = () => {
             <a href="https://www.instagram.com/veggiessimo.au/">
               <InstagramIcon className="icon m-1" />
             </a>
-            <YouTubeIcon className="icon m-1" />
             <PinterestIcon className="icon m-1" />
             <p className="font-sans uppercase self-end m-1 md:m-4 text-xxs md:text-sm">
               Veggiessimo. Made in australia
