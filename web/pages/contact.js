@@ -8,14 +8,13 @@ import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCi
 import { Email } from "@styled-icons/material/Email";
 import MetaTags from "../components/metatags";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-import dynamic from "next/dynamic";
-
-const ContactImage = dynamic(() => import("../components/contactImage"), {
-  ssr: false,
-});
 
 const Contact = () => {
   const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
   const [contact, setContact] = useState({
     name: "",
     email: "",
@@ -52,6 +51,10 @@ const Contact = () => {
           type: "success",
           message: "Thank you for reaching out to us.",
         });
+        setName("");
+        setEmail("");
+        setSubject("");
+        setMessage("");
       } else {
         setResponse({
           type: "error",
@@ -97,7 +100,21 @@ const Contact = () => {
         </div>
       </StyledResponse>
       <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
-        <ContactImage />
+        <img
+          className="w-full md:hidden z-0"
+          src="images/contact640.png"
+          alt="background"
+        />
+        <img
+          className="w-full hidden md:block lg:hidden z-0"
+          src="images/contact768.png"
+          alt="background"
+        />
+        <img
+          className="w-full hidden lg:block z-0"
+          src="images/contact1024.png"
+          alt="background"
+        />
         <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script left-0 ml-4 md:ml-6 lg:ml-12 mt-8 md:mt-24 lg:mt-10">
           Get in Touch
         </StyledTitle>
@@ -108,10 +125,14 @@ const Contact = () => {
           className="absolute self-center  justify-between flex flex-col md:items-start py-4"
         >
           <input
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e);
+              setName(e.target.value);
+            }}
             required
             type="text"
             name="name"
+            value={name}
             className="name w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
             placeholder="Name"
           />
@@ -119,14 +140,22 @@ const Contact = () => {
             type="email"
             placeholder="Email"
             name="email"
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => {
+              handleChange(e);
+              setEmail(e.target.value);
+            }}
             required
             className="email w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
           />
           <input
             type="text"
             name="$subject"
-            onChange={handleChange}
+            value={subject}
+            onChange={(e) => {
+              handleChange(e);
+              setSubject(e.target.value);
+            }}
             className="subject w-68 lg:w-108 lg:h-12 my-2 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
             placeholder="Subject"
             required
@@ -146,7 +175,11 @@ const Contact = () => {
             <textarea
               placeholder="Your Message"
               name="message"
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => {
+                handleChange(e);
+                setMessage(e.target.value);
+              }}
               required
               className="message h-full w-full md:w-68 lg:w-108 pl-2 bg-lightPink border-solid border-lightBlue border-b-2"
             />
@@ -167,7 +200,9 @@ const Contact = () => {
 
         <div className="w-full bg-lightBlueT flex flex-col lg:my-2">
           <div className="w-full flex justify-center">
-            <StyledFace />
+            <a href="https://www.facebook.com/veggiessimo/">
+              <StyledFace />
+            </a>
             <a href="https://www.instagram.com/veggiessimo.au/">
               <StyledInst />
             </a>
