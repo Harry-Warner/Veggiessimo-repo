@@ -11,14 +11,6 @@ export default async (req, res) => {
   );
   const list = await getList.json();
 
-  if (req.method === "GET") {
-    return res
-      .status(200)
-      .json({
-        mailList: `${list.members.map((member) => member.email_address)}`,
-      });
-  }
-
   // Destructure the email address from the request body.
   const { email } = req.body;
 

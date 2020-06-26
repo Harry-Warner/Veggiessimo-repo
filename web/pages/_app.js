@@ -30,7 +30,6 @@ const MyComponent = ({ children, initialClosedValue, initialEmailValue }) => {
     Cookie.set("closed", JSON.stringify(closed), { expires: 7 });
     Cookie.set("cookiemail", JSON.stringify(cookiemail), { expires: 3650 });
   }, [closed, cookiemail]);
-  console.log(closed);
 
   // set the provider values to monitor state changes
   const emailValue = useMemo(() => ({ cookiemail, setCookiemail }), [
