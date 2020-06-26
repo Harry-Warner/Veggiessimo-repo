@@ -5,21 +5,17 @@ const Banner = () => {
   return (
     <StyledBanner className="relative">
       <div className="absolute">
-        <img
-          className="w-full md:hidden bg-white"
-          src="images/banner640.png"
-          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
-        />
-        <img
-          className="w-full hidden md:block lg:hidden bg-white"
-          src="images/banner768.png"
-          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
-        />
-        <img
-          className="w-full hidden lg:block bg-white mt-8"
-          src="images/bannerFULL.png"
-          alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
-        />
+        <picture className="w-full">
+          <source
+            media="(min-width: 48rem) and (max-width: 63rem)"
+            srcSet="images/banner768.png"
+          />
+          <source media="(min-width: 64rem)" srcSet="images/bannerFULL.png" />
+          <img
+            src="images/banner640.png"
+            alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
+          />
+        </picture>
         <Title className="hidden lg:block w-full absolute text-center font-script">
           Veggiessimo
         </Title>
@@ -35,6 +31,9 @@ const StyledBanner = styled.div`
   height: 65vw;
   div {
     width: 100vw;
+    img {
+      width: 100%;
+    }
     @media (min-width: 40rem) {
       left: calc(((100vw - 40rem) / 2) * -1);
     }

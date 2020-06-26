@@ -6,9 +6,9 @@ import Colors from "../styled/colors";
 const AboutLink = () => {
   return (
     <div className="relative w-full pb-2 pl-2 md:pb-4 md:pl-4 my-4 md:my-8 lg:mt-16">
-      <Border className="z-10 absolute bottom-0 left-0 border-solid border-2 md:border-4 border-blue" />
       <Link href="/about">
-        <a className="pt-6 md:pt-12">
+        <a href="/about">
+          <Border className="z-10 absolute bottom-0 left-0 border-solid border-2 md:border-4 border-blue" />
           <div className="z-0 flex relative justify-center items-center w-full mx-auto">
             <div className="z-10 w-full box-border overflow-hidden">
               <StyledHex>
@@ -16,26 +16,6 @@ const AboutLink = () => {
                 <div className="tri" />
               </StyledHex>
               <StyledFigure>
-                {/* <img
-                  className="w-1/4 float-left hidden"
-                  src="images/cook-with-us-1-sm.png"
-                  alt="Milly and Maria chopping vegetables on a chopping board on the kitchen tops with bowls of fruit, avacados, ginger, garlic, seeds and many more fresh vegetables lying on the table next to them."
-                />
-                <img
-                  className="w-1/4 float-left hidden"
-                  src="images/cook-with-us-2-sm.png"
-                  alt="an assortment of ground spices, crushed nuts and seeds laying on the kitched tops, with bay leaves in between the spice bowls and a spoon sprinkling peanuts into the peanut bowl."
-                />
-                <img
-                  className="w-1/4 float-left hidden"
-                  src="images/cook-with-us-3-sm.png"
-                  alt="Marias hands finely dicing a red onion on a chopping board with a sliced lime placed on the corner of the chopping board."
-                />
-                <img
-                  className="w-1/4 float-left hidden"
-                  src="images/cook-with-us-1-sm.png"
-                  alt="Milly and Maria chopping vegetables on a chopping board on the kitchen tops with bowls of fruit, avacados, ginger, garlic, seeds and many more fresh vegetables lying on the table next to them."
-                /> */}
                 <img
                   className="w-1/4 float-left"
                   src="images/cook-with-us-1-lg.png"

@@ -73,6 +73,14 @@ const Index = (props) => {
               </li>
             )
         )}
+        <Link href="/recipes">
+          <a
+            href="/recipes"
+            className="mx-auto text-base md:text-xl lg:text-xxl uppercase underline"
+          >
+            See more Recipes!
+          </a>
+        </Link>
       </Recipes>
       <CommunityLink />
     </>

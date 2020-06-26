@@ -142,7 +142,7 @@ const RecipePost = (props) => {
               </h2>
             </StyledTrend>
           </div>
-          <StyledList className="col-span-12 md:col-start-8 md:col-end-12 md:row-start-1 relative grid grid-cols-2 md:grid-cols-1 w-full md:w-full mx-auto pt-12 pb-6 px-4 gap-6 bg-lightBlueT">
+          <StyledList className="col-span-12 md:col-start-8 md:col-end-12 md:row-start-1 relative grid grid-cols-2 md:grid-cols-1 w-full md:w-full mx-auto py-12 px-4 gap-6 bg-lightBlueT">
             <h1 className="absolute w-full text-center text-xl pt-2 top-0 left-0 font-sans font-bold uppercase">
               - More Great Recipes -
             </h1>
@@ -172,6 +172,14 @@ const RecipePost = (props) => {
                   </li>
                 )
             )}
+            <Link href="/recipes">
+              <a
+                href="/recipes"
+                className="absolute w-full text-center bottom-0 pb-2 text-base md:text-xl uppercase underline"
+              >
+                See all
+              </a>
+            </Link>
           </StyledList>
         </div>
       </article>
@@ -325,7 +333,7 @@ const StyledList = styled.div`
 
   li {
     @media (max-width: 47.9rem) {
-      &:last-child {
+      &:nth-child(3) {
         display: none;
       }
     }

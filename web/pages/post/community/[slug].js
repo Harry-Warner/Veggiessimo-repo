@@ -68,7 +68,7 @@ const CommunityPost = (props) => {
         </div>
         <hr className="col-span-12 self-center w-full h-3 border-none bg-lightPink my-5" />
       </article>
-      <StyledList className="relative w-full mx-auto pt-12 pb-6 px-4 grid grid-cols-2 md:grid-cols-3 bg-lightBlueT">
+      <StyledList className="relative w-full mx-auto py-12 px-4 grid grid-cols-2 md:grid-cols-3 bg-lightBlueT">
         <h1 className="pt-2 absolute w-full text-center text-xl top-0 left-0 font-sans font-bold uppercase">
           - More Of Community -
         </h1>
@@ -98,6 +98,14 @@ const CommunityPost = (props) => {
               </li>
             )
         )}
+        <Link href="/community">
+          <a
+            href="/community"
+            className="absolute w-full text-center bottom-0 pb-2 text-base md:text-xl uppercase underline"
+          >
+            See all
+          </a>
+        </Link>
       </StyledList>
     </>
   );
