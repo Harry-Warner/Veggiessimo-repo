@@ -107,7 +107,7 @@ const StyledLink = styled.div`
   font-size: 1rem;
   display: flex;
   justify-content: space-between;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "fira-sans";
   padding-right: 2.86125rem;
 
   .garlic {

@@ -71,8 +71,18 @@ class MyApp extends App {
       <>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap"
-            rel="stylesheet"
+            href="/fonts/fira-sans.woff"
+            type="/font/woff"
+            rel="preload"
+            as="font"
+            crossorigin="anonymous"
+          />
+          <link
+            href="/fonts/playlist-script.woff"
+            type="/font/woff"
+            rel="preload"
+            as="font"
+            crossorigin="anonymous"
           />
           <link
             rel="apple-touch-icon"

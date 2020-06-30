@@ -81,7 +81,7 @@ module.exports = {
       whiteT: "rgba(245, 245, 245, 0.75)",
     },
     fontFamily: {
-      sans: ["Fira Sans", "sans-serif"],
+      sans: "fira-sans",
       script: "playlist-script",
     },
   },

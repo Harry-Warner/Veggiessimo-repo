@@ -242,12 +242,12 @@ const StyledBox = styled.div`
 
     h2 {
       font-size: 1rem;
-      font-family: "Fira Sans", sans-serif;
+      font-family: "fira-sans";
       text-transform: uppercase;
     }
     p {
       font-size: 0.875rem;
-      font-family: "Fira Sans", sans-serif;
+      font-family: "fira-sans";
       font-weight: 600;
     }
     @media (min-width: 48rem) {

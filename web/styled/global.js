@@ -3,7 +3,11 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'playlist-script';
-    src: url('/fonts/playlist-script.ttf');
+    src: url('/fonts/playlist-script.woff')format("woff");
+  }
+  @font-face {
+    font-family: 'fira-sans';
+    src: url('/fonts/fira-sans.woff')format("woff");
   }
   * {
     margin: 0;

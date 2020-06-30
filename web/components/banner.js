@@ -44,7 +44,7 @@ const StyledBanner = styled.div`
       left: calc(((100vw - 48rem) / 2) * -1);
     }
     @media (min-width: 64rem) {
-      top: 1rem;
+      top: 3rem;
       left: calc(((100vw - 64rem) / 2) * -1);
     }
   }
