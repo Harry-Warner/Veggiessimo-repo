@@ -59,8 +59,8 @@ const StyledIcon = styled.button`
   }
 
   @media (min-width: 48rem) {
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 0.875rem;
+    right: 0.75rem;
   }
 `;
 

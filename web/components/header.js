@@ -14,21 +14,19 @@ const Header = () => {
       <div className="z-50 relative">
         <Headroom className="lg:hidden">
           <div className="z-10 relative top-0 left-0 px-1 w-full h-12 md:h-16 bg-green">
-            <div className="mx-auto h-full w-full flex justify-between sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
-              <div className="z-20">
-                <Link href="/">
-                  <a>
-                    <img
-                      className="h-16 px-2 md:h-20"
-                      src="/images/logoheader.png"
-                      alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
-                    />
-                  </a>
-                </Link>
-              </div>
-              <ToggleIcon open={open} setOpen={setOpen} />
-              <ToggleMenu open={open} setOpen={setOpen} />
+            <div className="z-20">
+              <Link href="/">
+                <a>
+                  <img
+                    className="h-16 px-2 md:h-20"
+                    src="/images/logoheader.png"
+                    alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
+                  />
+                </a>
+              </Link>
             </div>
+            <ToggleIcon open={open} setOpen={setOpen} />
+            <ToggleMenu open={open} setOpen={setOpen} />
           </div>
         </Headroom>
         <StyledHeader className="top-0 z-40 left-0 px-1 w-full h-12 bg-green hidden lg:block fixed">
