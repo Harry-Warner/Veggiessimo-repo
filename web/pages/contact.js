@@ -103,14 +103,14 @@ const Contact = () => {
         <picture className="w-full z-0">
           <source
             media="(min-width: 48rem) and (max-width: 63rem)"
-            srcSet={require("../images/contact768.png")}
+            srcSet={require("../images/contact768.jpg")}
           />
           <source
             media="(min-width: 64rem)"
-            srcSet={require("../images/contact1024.png")}
+            srcSet={require("../images/contact1024.jpg")}
           />
           <img
-            src={require("../images/contact640.png")}
+            src={require("../images/contact640.jpg")}
             alt="Array of ground spices in bowls"
           />
         </picture>

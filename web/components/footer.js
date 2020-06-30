@@ -70,7 +70,7 @@ const Footer = () => {
             </a>
             <PinterestIcon className="icon m-1" />
             <p className="font-sans self-end m-1 md:m-4 text-xs md:text-base">
-              &copy; Veggiessimo. Made in australia
+              &#169; Veggiessimo. Made in australia
             </p>
           </SocialNav>
           <Link href="/">
