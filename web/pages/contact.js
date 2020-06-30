@@ -100,21 +100,20 @@ const Contact = () => {
         </div>
       </StyledResponse>
       <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
-        <img
-          className="w-full md:hidden z-0"
-          src="images/contact640.png"
-          alt="background"
-        />
-        <img
-          className="w-full hidden md:block lg:hidden z-0"
-          src="images/contact768.png"
-          alt="background"
-        />
-        <img
-          className="w-full hidden lg:block z-0"
-          src="images/contact1024.png"
-          alt="background"
-        />
+        <picture className="w-full z-0">
+          <source
+            media="(min-width: 48rem) and (max-width: 63rem)"
+            srcSet={require("../images/contact768.png")}
+          />
+          <source
+            media="(min-width: 64rem)"
+            srcSet={require("../images/contact1024.png")}
+          />
+          <img
+            src={require("../images/contact640.png")}
+            alt="Array of ground spices in bowls"
+          />
+        </picture>
         <StyledTitle className="absolute text-big md:text-huge lg:text-vhuge font-script left-0 ml-4 md:ml-6 lg:ml-12 mt-8 md:mt-24 lg:mt-10">
           Get in Touch
         </StyledTitle>

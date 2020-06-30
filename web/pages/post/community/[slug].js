@@ -44,7 +44,7 @@ const CommunityPost = (props) => {
           </div>
         )}
         <div className="lg:mt-8">
-          <StyledBox className="float-right relative flex w-full lg:w-5/12 lg:mx-10 mx-auto justify-center self-center bg-green lg:bg-white p-2">
+          <StyledBox className="float-right relative flex w-full lg:w-5/12 mb-4 lg:mb-0 lg:mx-10 mx-auto justify-center self-center bg-green lg:bg-white p-2">
             <div className="font-bold md:font-normal self-center text-center mx-auto md:my-2">
               <BlockContent
                 serializers={serializers}
@@ -85,7 +85,7 @@ const CommunityPost = (props) => {
                       {mainImage && (
                         <img
                           className="w-full h-28 md:h-32 lg:h-40 object-cover object-center"
-                          src={urlFor(mainImage).url()}
+                          src={urlFor(mainImage).width(300).url()}
                           alt="Food"
                         />
                       )}

@@ -159,7 +159,7 @@ const RecipePost = (props) => {
                           {mainImage && (
                             <img
                               className="w-full md:w-1/2 h-28 md:h-32 object-cover object-center"
-                              src={urlFor(mainImage).url()}
+                              src={urlFor(mainImage).width(300).url()}
                               alt="Food"
                             />
                           )}

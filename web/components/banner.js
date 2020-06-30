@@ -8,11 +8,14 @@ const Banner = () => {
         <picture className="w-full">
           <source
             media="(min-width: 48rem) and (max-width: 63rem)"
-            srcSet="images/banner768.png"
+            srcSet={require("../images/banner768.png")}
           />
-          <source media="(min-width: 64rem)" srcSet="images/bannerFULL.png" />
+          <source
+            media="(min-width: 64rem)"
+            srcSet={require("../images/bannerFULL.png")}
+          />
           <img
-            src="images/banner640.png"
+            src={require("../images/banner640.png")}
             alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
           />
         </picture>

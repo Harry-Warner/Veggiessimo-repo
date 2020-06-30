@@ -49,7 +49,7 @@ const Community = (props) => {
                       {mainImage && (
                         <img
                           className="h-24 md:h-32 lg:h-48 w-9/12 md:w-11/12 mx-auto my-4 object-cover object-center"
-                          src={urlFor(mainImage).url()}
+                          src={urlFor(mainImage).width(260).url()}
                           alt={title}
                         />
                       )}

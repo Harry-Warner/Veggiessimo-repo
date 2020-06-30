@@ -39,7 +39,7 @@ const Recipes = (props) => {
                   _id={_id}
                   title={title}
                   mainImage={mainImage}
-                  url={urlFor(mainImage).url()}
+                  url={urlFor(mainImage).width(440).url()}
                   slug={slug.current}
                 />
               )

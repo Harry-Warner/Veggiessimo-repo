@@ -10,7 +10,7 @@ const CommunityLink = () => {
           <div className="bg-white relative w-full top-0">
             <img
               className="w-full h-56 md:h-108 lg:h-132"
-              src="images/onion1024.png"
+              src={require("../images/onion1024.png")}
               alt="background"
             />
           </div>

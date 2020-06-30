@@ -48,7 +48,7 @@ const About = (props) => {
         </div>
         <img
           className="z-0 relative w-full mx-auto pt-5 md:pb-6 lg:pb-8 md:pt-16 lg:pt-16"
-          src={urlFor(content.mainImage).url()}
+          src={urlFor(content.mainImage).width(1024).url()}
           alt="Milly Chopping a cauliflower and maria grinding spices in a pestle and mortar, surrounded by an assortment of spices and bowls of fruit and veg." //{content.mainImage.altText}
         />
       </div>
@@ -65,7 +65,7 @@ const About = (props) => {
             <div className="w-19/20 h-19/20 absolute border-2 border-solid border-blue right-0 top-0" />
             <img
               className="w-19/20 h-19/20 object-cover object-center"
-              src={urlFor(content.secondImage).url()}
+              src={urlFor(content.secondImage).maxWidth(450).url()}
               alt="close up of ginger, lemon, half a lime and half an avacado"
             />
           </div>
