@@ -117,7 +117,7 @@ const ComNav = ({ posts, setSearchPosts }) => {
 
 const StyledNav = styled.div`
   position: relative;
-  margin-bottom: 6.25rem;
+  margin-bottom: 5rem;
   justify-content: space-around;
   .filter {
     height: 100%;

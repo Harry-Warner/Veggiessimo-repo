@@ -37,8 +37,6 @@ const Index = (props) => {
             title = "",
             mainImage,
             slug = "",
-            _updatedAt = "",
-            shortDescription = "",
           }) =>
             slug && (
               <li className="my-4 sm:my-6 lg:my-8" key={_id}>
@@ -55,12 +53,6 @@ const Index = (props) => {
                           alt={title}
                         />
                       )}
-                      <div className="text-wrapper flex flex-col text-wrapper text-sm font-bold h-64 md:h-84 lg:h-108 font-sans bg-lightPinkT">
-                        <p className="w-10/12">{shortDescription}</p>
-                        <div className="font-sans self-center text-black mx-10 my-2 text-xxs">
-                          {"  "}({new Date(_updatedAt).toDateString()})
-                        </div>
-                      </div>
                     </StyledLink>
                     <div className="w-full md:w-11/12 lg:w-10/12 mx-auto bg-lightBlueT">
                       <p className="font-sans text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
@@ -104,25 +96,6 @@ const Recipes = styled.ul`
 
 const StyledLink = styled.div`
   height: fit-content;
-  .text-wrapper {
-    position: absolute;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    left: 0;
-    top: 0;
-    width: 35%;
-    text-align: center;
-    font-size: 1rem;
-    visibility: visible;
-    transition: all 0.3s ease-in-out;
-
-    @media (min-width: 64rem) {
-      display: flex;
-      font-size: 0;
-      visibility: hidden;
-      width: 0%;
-    }
   }
 
   &:hover {

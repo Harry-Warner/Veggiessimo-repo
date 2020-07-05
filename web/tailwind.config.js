@@ -79,6 +79,9 @@ module.exports = {
       blackT: "rgba(0, 0, 0, 0.5)",
       white: "#fff",
       whiteT: "rgba(245, 245, 245, 0.75)",
+      facebook: "#3b5998",
+      instagram: "#d62976",
+      pinterest: "#E60023",
     },
     fontFamily: {
       sans: "fira-sans",

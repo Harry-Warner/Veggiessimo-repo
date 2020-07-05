@@ -99,7 +99,7 @@ const Contact = () => {
           </StyledClose>
         </div>
       </StyledResponse>
-      <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-16">
+      <div className="flex flex-col w-full mx-auto relative mt-2 md:mt-4 lg:mt-16">
         <picture className="w-full z-0">
           <source
             media="(min-width: 48rem) and (max-width: 63rem)"
