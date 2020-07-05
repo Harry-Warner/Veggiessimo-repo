@@ -6,7 +6,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import ModalContext from "../lib/modalContext";
 import FooterInputContext from "../lib/footerInputContext";
-import TelegramIcon from '@material-ui/icons/Telegram';
+import TelegramIcon from "@material-ui/icons/Telegram";
 
 const Footer = () => {
   // Push any state changes with useContext
@@ -35,11 +35,11 @@ const Footer = () => {
                 className="p-1 md:p-2 text-xl text-black w-64 md:w-72 h-full"
                 placeholder="Email"
               />
-              <button
-                type="submit"
-                className="ml-2 font-bold text-white"
-              >
-                <TelegramIcon fontSize="large" className="text-white hover:text-lightPink" />
+              <button type="submit" className="ml-2 font-bold text-white">
+                <TelegramIcon
+                  fontSize="large"
+                  className="text-white hover:text-lightPink"
+                />
               </button>
             </form>
           </div>
@@ -48,7 +48,7 @@ const Footer = () => {
             <Link href="/about">
               <a
                 href="/about"
-                className="font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl md:text-xxl"
+                className="font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl"
               >
                 Our Story
               </a>
@@ -56,7 +56,7 @@ const Footer = () => {
             <Link href="/recipes">
               <a
                 href="/recipes"
-                className="hidden md:block font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl md:text-xxl mr-2 md:mr-5"
+                className="hidden md:block font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl mr-2 md:mr-5"
               >
                 Recipes
               </a>
@@ -64,7 +64,7 @@ const Footer = () => {
             <Link href="/community">
               <a
                 href="/community"
-                className="hidden md:block font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl md:text-xxl mr-2 md:mr-5"
+                className="hidden md:block font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl mr-2 md:mr-5"
               >
                 Community
               </a>
@@ -72,7 +72,7 @@ const Footer = () => {
             <Link href="/contact">
               <a
                 href="/contact"
-                className="font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl md:text-xxl mr-2 md:mr-5"
+                className="font-sans hover:text-blackT uppercase px-2 md:px-5 text-xl mr-2 md:mr-5"
               >
                 Contact us
               </a>
@@ -91,9 +91,16 @@ const Footer = () => {
         </div>
         <div className="relative w-100 bg-green">
           <StyledBackground className="bg-green z-0" />
-            <div className="relative z-10 font-sans self-end m-1 md:m-4 text-xs md:text-base font-bold flex">
-              &#169; 2020 Veggiessimo. All rights reserved<span className="hidden md:block">. Site by <a href="https://harry-warner.co.uk" className="underline">Harry Warner</a>.</span>
-            </div>
+          <div className="relative z-10 font-sans self-end m-1 md:m-4 text-xs md:text-base font-bold flex">
+            &#169; 2020 Veggiessimo AU. All rights reserved
+            <span className="hidden md:block">
+              . Site by{" "}
+              <a href="https://harry-warner.co.uk" className="underline">
+                Harry Warner
+              </a>
+              .
+            </span>
+          </div>
           <Link href="/">
             <a>
               <img
@@ -113,15 +120,15 @@ const StyledBackground = styled.div`
   width: 100vw;
   height: 100%;
   position: absolute;
-    @media (min-width: 40rem) {
-      left: calc(((100vw - 40rem) / 2) * -1);
-    }
-    @media (min-width: 48rem) {
-      left: calc(((100vw - 48rem) / 2) * -1);
-    }
-    @media (min-width: 64rem) {
-      left: calc(((100vw - 64rem) / 2) * -1);
-    }
+  @media (min-width: 40rem) {
+    left: calc(((100vw - 40rem) / 2) * -1);
+  }
+  @media (min-width: 48rem) {
+    left: calc(((100vw - 48rem) / 2) * -1);
+  }
+  @media (min-width: 64rem) {
+    left: calc(((100vw - 64rem) / 2) * -1);
+  }
 `;
 
 const SocialNav = styled.div`
@@ -129,8 +136,8 @@ const SocialNav = styled.div`
   align-items: center;
 
   .icon {
-      height: 2.5rem;
-      width: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
   }
 `;
 

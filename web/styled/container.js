@@ -5,7 +5,7 @@ const Container = styled.div`
   position: relative;
   margin: 0 auto;
   min-height: 100vh;
-  padding-bottom: 16.9375rem;
+  padding-bottom: 19.5rem;
   z-index: 0;
 
   @media (min-width: 40rem) {

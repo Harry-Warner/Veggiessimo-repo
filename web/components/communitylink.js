@@ -5,8 +5,8 @@ import styled from "styled-components";
 const CommunityLink = () => {
   return (
     <Link href="/community">
-      <a>
-        <SectionWrapper className="w-full relative h-48 md:h-96 lg:h-116 mt-4 md:mt-8 lg:mt-10 bg-cover bg-center">
+      <a href="/community">
+        <SectionWrapper className="w-full relative h-48 md:h-96 lg:h-116 my-4 md:my-8 lg:my-10 bg-cover bg-center">
           <div className="bg-white relative w-full top-0">
             <img
               className="w-full h-56 md:h-108 lg:h-132"

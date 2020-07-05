@@ -10,6 +10,7 @@ import AboutLink from "../components/aboutlink";
 import CommunityLink from "../components/communitylink";
 import MetaTags from "../components/metatags";
 import Banner from "../components/banner";
+import SeeAll from "../components/seeAllButton";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -29,15 +30,11 @@ const Index = (props) => {
       />
       <Banner />
       <AboutLink />
+      <SeeAll url="/about" text="More on our story" />
       <RecipesLink />
       <Recipes>
         {posts.map(
-          ({
-            _id,
-            title = "",
-            mainImage,
-            slug = "",
-          }) =>
+          ({ _id, title = "", mainImage, slug = "" }) =>
             slug && (
               <li className="my-4 sm:my-6 lg:my-8" key={_id}>
                 <Link
@@ -65,16 +62,10 @@ const Index = (props) => {
               </li>
             )
         )}
-        <Link href="/recipes">
-          <a
-            href="/recipes"
-            className="mx-auto text-base md:text-xl lg:text-xxl uppercase underline"
-          >
-            See more Recipes!
-          </a>
-        </Link>
+        <SeeAll url="/recipes" text="See more Recipes!" />
       </Recipes>
       <CommunityLink />
+      <SeeAll url="/community" text="step into sustainability" />
     </>
   );
 };

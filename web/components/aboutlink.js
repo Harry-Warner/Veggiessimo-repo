@@ -39,11 +39,11 @@ const AboutLink = () => {
               </StyledFigure>
             </div>
             <TextBox className="z-20 flex flex-col items-center justify-center absolute">
-              <h1 className="font-script md:text-qbig lg:text-vbig w-full">
-                Cook with us
-              </h1>
-              <h2 className="font-sans md:text-lg lg:text-xl w-full pb-4">
-                FIND OUT MORE
+              <h1 className="font-script w-full">Cook with us</h1>
+              <h2 className="font-sans w-full pb-4 uppercase">
+                dreamy dishes &
+                <br />
+                top tips
               </h2>
             </TextBox>
           </div>
@@ -70,7 +70,7 @@ const StyledHex = styled.div`
   .square {
     width: 6.5rem;
     height: 3.75rem;
-    background: ${Colors.lightPinkT};
+    background: ${Colors.lightPink};
   }
   .tri {
     position: absolute;
@@ -80,20 +80,20 @@ const StyledHex = styled.div`
     height: 0;
     border-left: 3.25rem solid transparent;
     border-right: 3.25rem solid transparent;
-    border-top: 2.25rem solid ${Colors.lightPinkT};
+    border-top: 2.25rem solid ${Colors.lightPink};
   }
   @media (min-width: 48rem) {
     left: 0.875rem;
     .square {
       width: 14.5rem;
       height: 9rem;
-      background: ${Colors.lightPinkT};
+      background: ${Colors.lightPink};
     }
     .tri {
       top: 9rem;
       border-left: 7.25rem solid transparent;
       border-right: 7.25rem solid transparent;
-      border-top: 5rem solid ${Colors.lightPinkT};
+      border-top: 5rem solid ${Colors.lightPink};
     }
   }
   @media (min-width: 64rem) {
@@ -101,13 +101,13 @@ const StyledHex = styled.div`
     .square {
       width: 15.25rem;
       height: 10rem;
-      background: ${Colors.lightPinkT};
+      background: ${Colors.lightPink};
     }
     .tri {
       top: 10rem;
       border-left: 7.625rem solid transparent;
       border-right: 7.625rem solid transparent;
-      border-top: 5.625rem solid ${Colors.lightPinkT};
+      border-top: 5.625rem solid ${Colors.lightPink};
     }
   }
 `;
