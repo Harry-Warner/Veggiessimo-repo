@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import TitleComponent from "../components/titleComponent.jsx";
 import Colors from "../styled/colors";
-import { Instagram } from "@styled-icons/entypo-social/Instagram";
-import { Facebook } from "@styled-icons/entypo-social/Facebook";
-import { PinterestWithCircle } from "@styled-icons/entypo-social/PinterestWithCircle";
-import { Email } from "@styled-icons/material/Email";
 import MetaTags from "../components/metatags";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
-const Contact = () => {
+const Contact = ({ posts }) => {
+  const data = posts.data.user.edge_owner_to_timeline_media.edges;
+
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -196,27 +194,45 @@ const Contact = () => {
             </button>
           </div>
         </StyledForm>
-
-        <div className="w-full bg-lightBlueT flex flex-col lg:my-2">
-          <div className="w-full flex justify-center">
-            <a href="https://www.facebook.com/veggiessimo/">
-              <StyledFace />
-            </a>
-            <a href="https://www.instagram.com/veggiessimo.au/">
-              <StyledInst />
-            </a>
-            <StyledPin />
-          </div>
-          <div className="flex justify-center items-center">
-            <StyledEmail />
-            <p className="text-xl md:text-xxl lg:text-xxxl pb-3 md:pb-4 font-sans">
-              veggiessimorecipes@gmail.com
-            </p>
-          </div>
-        </div>
       </div>
+
+      <div className="w-full flex flex-col my-2">
+        <h2 className="text-xxl md:text-big my-2 text-center uppercase font-bold">
+          We'd love to hear from you!
+        </h2>
+        <p className="text-xl md:text-xxl mb-4 text-center">
+          veggiessimorecipes@gmail.com
+        </p>
+        <hr className="w-24 md:w-32 mb-10 mt-1 mx-auto h-0 border-b-2 border-solid" />
+      </div>
+      <h2 className="text-xxxl md:text-big text-center uppercase">
+        <span className="hidden md:inline">Find </span>
+        more on our instagram
+      </h2>
+      <StyledInsta className="m-4 grid grid-cols-2 sm:grid-cols-4 grid-rows-2 gap-1">
+        {data.map((item) => (
+          <a
+            href={`https://instagram.com/p/${item.node.shortcode}`}
+            key={item.node.id}
+          >
+            <img
+              className="w-full mx-auto"
+              alt="instagram post"
+              src={item.node.thumbnail_src}
+            />
+          </a>
+        ))}
+      </StyledInsta>
     </>
   );
+};
+
+Contact.getInitialProps = async () => {
+  const posts = await fetch(
+    "https://www.instagram.com/graphql/query/?query_hash=15bf78a4ad24e33cbd838fdb31353ac1&variables=%7B%22id%22%3A%221734861430%22%2C%22first%22%3A8%2C%22after%22%3A%22QVFDTkx1RnB6TlJOQUtFVlFNSUxBTndUaWsxc0F0UThaYlk5ZmswM2hMVVFJRlVCMWkxQ3VkTkY5dzFpQzVxVnRnV2Zidm1EUkJqTFVURkNLeUttNUREaw%3D%3D%22%7D"
+  ).then((res) => res.json());
+
+  return { posts };
 };
 
 const StyledResponse = styled.div`
@@ -235,7 +251,7 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledForm = styled.form`
-  bottom: 5.875rem;
+  bottom: 0;
   width: 90%;
   height: 70vw;
 
@@ -265,7 +281,7 @@ const StyledForm = styled.form`
   @media (min-width: 48rem) {
     width: 95%;
     height: 55%;
-    bottom: 8.3125rem;
+    bottom: 5rem;
     div {
       font-size: 1.5625rem;
       height: 12.5rem;
@@ -284,7 +300,7 @@ const StyledForm = styled.form`
     }
   }
   @media (min-width: 64rem) {
-    bottom: 10rem;
+    bottom: 5rem;
     .name,
     .email,
     .subject {
@@ -296,49 +312,34 @@ const StyledForm = styled.form`
   }
 `;
 
-const StyledInst = styled(Instagram)`
-  width: 2rem;
-  height: 2rem;
-  margin: 0.625rem;
-
-  @media (min-width: 48rem) {
-    width: 3rem;
-    height: 3rem;
-    margin: 1rem;
-  }
-`;
-const StyledFace = styled(Facebook)`
-  width: 2rem;
-  height: 2rem;
-  margin: 0.625rem;
-
-  @media (min-width: 48rem) {
-    width: 3rem;
-    height: 3rem;
-    margin: 1rem;
-  }
-`;
-const StyledPin = styled(PinterestWithCircle)`
-  width: 2rem;
-  height: 2rem;
-  margin: 0.625rem;
-
-  @media (min-width: 48rem) {
-    width: 3rem;
-    height: 3rem;
-    margin: 1rem;
-  }
-`;
-
-const StyledEmail = styled(Email)`
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: 0 0.3125rem 0.625rem;
-
-  @media (min-width: 48rem) {
-    width: 2.5rem;
-    height: 2.5rem;
-    margin: 0 0.625rem 1rem;
+const StyledInsta = styled.div`
+  a {
+    &:nth-child(5) {
+      display: none;
+    }
+    &:nth-child(6) {
+      display: none;
+    }
+    &:nth-child(7) {
+      display: none;
+    }
+    &:nth-child(8) {
+      display: none;
+    }
+    @media (min-width: 40rem) {
+      &:nth-child(5) {
+        display: block;
+      }
+      &:nth-child(6) {
+        display: block;
+      }
+      &:nth-child(7) {
+        display: block;
+      }
+      &:nth-child(8) {
+        display: block;
+      }
+    }
   }
 `;
 
