@@ -18,7 +18,7 @@ function urlFor(source) {
 
 const Index = (props) => {
   const { posts = [] } = props;
-
+  console.log(posts[0]._id);
   return (
     <>
       <MetaTags
@@ -42,21 +42,26 @@ const Index = (props) => {
                   as={`/post/recipes/${slug.current}`}
                 >
                   <a>
-                    <StyledLink className="relative mx-auto w-full md:w-11/12 lg:w-10/12">
+                    <div className="relative overflow-hidden mx-auto w-full md:w-11/12 lg:w-10/12">
+                      <StyledLabel className="z-10 absolute bg-lightBlue transform -rotate-45">
+                        <span className="absolute bottom-0 md:mb-4 w-9/12 mx-auto text-center text-base md:text-xxl transform rotate-45">
+                          {title}
+                        </span>
+                      </StyledLabel>
                       {mainImage && (
                         <img
-                          className="h-56 md:h-84 lg:h-108 w-full object-cover object-center"
+                          className="relative z-0 h-56 md:h-84 lg:h-108 w-full object-cover object-center"
                           src={urlFor(mainImage).url()}
                           alt={title}
                         />
                       )}
-                    </StyledLink>
-                    <div className="w-full md:w-11/12 lg:w-10/12 mx-auto bg-lightBlueT">
+                    </div>
+                    {/* <div className="w-full md:w-11/12 lg:w-10/12 mx-auto bg-lightBlueT">
                       <p className="font-sans text-center text-black uppercase mx-10 my-2 text-sm md:text-lg lg:text-xxl">
                         {title}
                         <span> &#9419;</span>
                       </p>
-                    </div>
+                    </div> */}
                   </a>
                 </Link>
               </li>
@@ -73,29 +78,34 @@ const Index = (props) => {
 Index.getInitialProps = async () => {
   return {
     posts: await client.fetch(groq`
-      *[_type == "recipePost" && publishedAt < now()]|order(publishedAt desc)[0...4]
+      *[_type == "recipePost" && length(title) < 16 && publishedAt < now()]|order(publishedAt desc)[0...3]
     `),
   };
 };
+
+const StyledLabel = styled.div`
+  height: 11rem;
+  width: 11rem;
+  top: -5.5rem;
+  left: -5.5rem;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.8);
+  span {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media (min-width: 48rem) {
+    height: 20rem;
+    width: 20rem;
+    top: -10rem;
+    left: -10rem;
+  }
+`;
 
 const Recipes = styled.ul`
   width: 100%;
   margin: 0.625rem auto;
   display: flex;
   flex-direction: column;
-`;
-
-const StyledLink = styled.div`
-  height: fit-content;
-  }
-
-  &:hover {
-    .text-wrapper {
-      width: 35%;
-      visibility: visible;
-      font-size: 1.5rem;
-    }
-  }
 `;
 
 export default Index;
