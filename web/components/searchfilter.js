@@ -126,7 +126,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
         description={`${
           select
             ? posts.filter((post) => post.mealType[0] === select)[0].mealTypeSub
-            : "Checkout out our recipes, from Breakfasts to start your day right, to sauces that can make anything taste good!"
+            : "Try out our Simple + sustainable recipes for a happy + healthy day from start to finish"
         }`}
       />
       <div className="relative">
