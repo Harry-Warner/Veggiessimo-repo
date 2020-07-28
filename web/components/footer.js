@@ -86,7 +86,9 @@ const Footer = () => {
             <a href="https://www.instagram.com/veggiessimo.au/">
               <InstagramIcon className="icon hover:text-instagram mb-4" />
             </a>
-            <PinterestIcon className="icon hover:text-pinterest mb-4" />
+            <a href="https://www.pinterest.com.au/veggiessimorecipes/">
+              <PinterestIcon className="icon hover:text-pinterest mb-4" />
+            </a>
           </SocialNav>
         </div>
         <div className="relative w-100 bg-green">

@@ -197,13 +197,13 @@ const Contact = ({ posts }) => {
       </div>
 
       <div className="w-full flex flex-col my-2">
-        <h2 className="text-xxl md:text-big my-2 text-center uppercase font-bold">
+        <h2 className="text-xxxl md:text-vbig my-2 text-center font-script">
           We'd love to hear from you!
         </h2>
-        <p className="text-xl md:text-xxl mb-4 text-center">
+        <p className="text-lg md:text-xxl mb-4 text-center">
           veggiessimorecipes@gmail.com
         </p>
-        <hr className="w-24 md:w-32 mb-10 mt-1 mx-auto h-0 border-b-2 border-solid" />
+        <hr className="w-20 md:w-32 mb-10 mt-1 mx-auto h-0 border-b-2 border-solid" />
       </div>
       <h2 className="text-xxxl md:text-big text-center uppercase">
         <span className="hidden md:inline">Find </span>
@@ -214,7 +214,23 @@ const Contact = ({ posts }) => {
           <a
             href={`https://instagram.com/p/${item.node.shortcode}`}
             key={item.node.id}
+            className="relative"
           >
+            <div className="absolute flex opacity-0 hover:opacity-100 items-center justify-center bg-blackT top-0 left-0 bottom-0 right-0">
+              <p className="text-white text-center px-2 tracking-wider font-bold">
+                {!item.node.edge_media_to_caption.edges[0]
+                  ? ""
+                  : item.node.edge_media_to_caption.edges[0].node.text.split(
+                      " "
+                    ).length >= 10
+                  ? item.node.edge_media_to_caption.edges[0].node.text
+                      .split(" ")
+                      .slice(0, 10)
+                      .join(" ")
+                      .concat("...")
+                  : item.node.edge_media_to_caption.edges[0].node.text}
+              </p>
+            </div>
             <img
               className="w-full mx-auto"
               alt="instagram post"
@@ -229,7 +245,7 @@ const Contact = ({ posts }) => {
 
 Contact.getInitialProps = async () => {
   const posts = await fetch(
-    "https://www.instagram.com/graphql/query/?query_hash=15bf78a4ad24e33cbd838fdb31353ac1&variables=%7B%22id%22%3A%221734861430%22%2C%22first%22%3A8%2C%22after%22%3A%22QVFDTkx1RnB6TlJOQUtFVlFNSUxBTndUaWsxc0F0UThaYlk5ZmswM2hMVVFJRlVCMWkxQ3VkTkY5dzFpQzVxVnRnV2Zidm1EUkJqTFVURkNLeUttNUREaw%3D%3D%22%7D"
+    `https://www.instagram.com/graphql/query/?query_hash=15bf78a4ad24e33cbd838fdb31353ac1&variables={"id":"1734861430","first":8}`
   ).then((res) => res.json());
 
   return { posts };

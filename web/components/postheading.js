@@ -22,12 +22,14 @@ const PostHeading = (props) => {
         className="w-2/3 md:1/2 lg:w-1/3 mx-auto flex justify-center"
       >
         <a href="https://www.facebook.com/veggiessimo/">
-          <StyledFace />
+          <StyledFace className="hover:text-facebook" />
         </a>
         <a href="https://www.instagram.com/veggiessimo.au/">
-          <StyledInst />
+          <StyledInst className="hover:text-instagram" />
         </a>
-        <StyledPin />
+        <a href="https://www.pinterest.com.au/veggiessimorecipes/">
+          <StyledPin className="hover:text-pinterest" />
+        </a>
       </StyledSocial>
     </>
   );
