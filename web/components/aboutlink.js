@@ -41,9 +41,9 @@ const AboutLink = () => {
             <TextBox className="z-20 flex flex-col items-center justify-center absolute">
               <h1 className="font-script w-full">Cook with us</h1>
               <h2 className="font-sans w-full pb-4 uppercase">
-                top tips &
+                get
                 <br />
-                inspiration
+                inspired
               </h2>
             </TextBox>
           </div>
