@@ -66,6 +66,9 @@ const serializers = {
     },
     postLink: ({ mark, children }) => {
       const { type, slug = {} } = mark;
+      if (!type || !slug) {
+        return <></>;
+      }
       // remove the "Post" from the post type
       const post = type.split("").slice(0, -4);
       // change recipe to recipes
