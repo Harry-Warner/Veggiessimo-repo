@@ -137,7 +137,7 @@ const RecipePost = (props) => {
                 Have you done it?
               </h1>
               <h3 className="text-center font-sans uppercase">let us know</h3>
-              <h2 className="text-center font-sans uppercase">
+              <h2 className="text-center font-sans font-bold uppercase">
                 #makeitveggiessimo
               </h2>
             </StyledTrend>
