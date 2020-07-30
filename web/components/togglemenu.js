@@ -40,7 +40,7 @@ const ToggleMenu = ({ open, setOpen }) => {
         <h1 className="text-sm md:text-xxl font-bold border-b py-2">Social</h1>
         <a href="https://www.instagram.com/veggiessimo.au/">Instagram</a>
         <a href="https://www.facebook.com/veggiessimo/">Facebook</a>
-        <a href="#">Pinterest</a>
+        <a href="https://www.pinterest.com.au/veggiessimorecipes/">Pinterest</a>
       </div>
     </StyledMenu>
   );
