@@ -6,7 +6,10 @@ import MetaTags from "../components/metatags";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const Contact = ({ posts }) => {
-  const data = posts.data.user.edge_owner_to_timeline_media.edges;
+  const data = posts.graphql.user.edge_owner_to_timeline_media.edges.slice(
+    0,
+    8
+  );
 
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
@@ -245,7 +248,7 @@ const Contact = ({ posts }) => {
 
 Contact.getInitialProps = async () => {
   const posts = await fetch(
-    `https://www.instagram.com/graphql/query/?query_hash=15bf78a4ad24e33cbd838fdb31353ac1&variables={"id":"1734861430","first":8}`
+    `https://www.instagram.com/veggiessimo.au/?__a=1`
   ).then((res) => res.json());
 
   return { posts };
