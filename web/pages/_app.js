@@ -78,6 +78,13 @@ class MyApp extends App {
             crossorigin="anonymous"
           />
           <link
+            href="/fonts/fira-sans-thin.woff"
+            type="/font/woff"
+            rel="preload"
+            as="font"
+            crossorigin="anonymous"
+          />
+          <link
             href="/fonts/playlist-script.woff"
             type="/font/woff"
             rel="preload"

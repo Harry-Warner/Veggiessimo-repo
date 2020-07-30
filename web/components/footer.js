@@ -7,6 +7,7 @@ import PinterestIcon from "@material-ui/icons/Pinterest";
 import ModalContext from "../lib/modalContext";
 import FooterInputContext from "../lib/footerInputContext";
 import TelegramIcon from "@material-ui/icons/Telegram";
+import Logo from "./logo";
 
 const Footer = () => {
   // Push any state changes with useContext
@@ -105,11 +106,7 @@ const Footer = () => {
           </div>
           <Link href="/">
             <a>
-              <img
-                alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
-                className="absolute z-10 right-0 bottom-0 h-16 md:h-24 mx-2"
-                src="/images/logoheader.png"
-              />
+              <Logo footer />
             </a>
           </Link>
         </div>

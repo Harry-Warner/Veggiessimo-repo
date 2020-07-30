@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'fira-sans';
     src: url('/fonts/fira-sans.woff')format("woff");
   }
+  @font-face {
+    font-family: 'fira-sans-thin';
+    src: url('/fonts/fira-sans-thin.woff')format("woff");
+  }
   * {
     margin: 0;
     padding: 0;

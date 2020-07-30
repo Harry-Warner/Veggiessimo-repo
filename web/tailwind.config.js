@@ -38,6 +38,7 @@ module.exports = {
       lg: "64rem",
     },
     fontSize: {
+      xxxs: "0.25rem",
       xxs: "0.5rem",
       xs: ".75rem",
       sm: ".875rem",
@@ -85,6 +86,7 @@ module.exports = {
     },
     fontFamily: {
       sans: "fira-sans",
+      "sans-thin": "fira-sans-thin",
       script: "playlist-script",
     },
   },

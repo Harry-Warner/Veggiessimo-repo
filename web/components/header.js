@@ -5,6 +5,7 @@ import ToggleMenu from "./togglemenu";
 import styled from "styled-components";
 import Headroom from "react-headroom";
 import garlic from "../images/garlic.png";
+import Logo from "../components/logo";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -17,11 +18,7 @@ const Header = () => {
             <div className="z-20">
               <Link href="/">
                 <a>
-                  <img
-                    className="h-16 px-2 md:h-20"
-                    src="/images/logoheader.png"
-                    alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
-                  />
+                  <Logo />
                 </a>
               </Link>
             </div>
@@ -33,11 +30,12 @@ const Header = () => {
           <div>
             <Link href="/">
               <a>
-                <img
+                <Logo />
+                {/* <img
                   className="absolute top-0 left-0 h-20 px-2"
                   src="/images/logoheader.png"
                   alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
-                />
+                /> */}
               </a>
             </Link>
           </div>
