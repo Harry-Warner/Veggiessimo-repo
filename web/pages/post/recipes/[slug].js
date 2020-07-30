@@ -17,7 +17,16 @@ function urlFor(source) {
 }
 
 const RecipePost = (props) => {
-  const { post = [], recipes = [] } = props;
+  const { post = [], recipes = [], instagram } = props;
+
+  const instaCheck =
+    instagram &&
+    instagram.graphql.user.edge_owner_to_timeline_media.edges.filter((item) =>
+      item.node.edge_media_to_caption.edges[0].node.text
+        .toLowerCase()
+        .includes(post.title.toLowerCase())
+    )[0];
+  const instagramPost = instaCheck ? instaCheck.node.shortcode : false;
 
   function cooking_time(num) {
     let hours = Math.floor(num / 60);
@@ -65,6 +74,7 @@ const RecipePost = (props) => {
           category={post.mealType}
           title={post.title}
           name={post.name}
+          instagramPost={instagramPost}
         />
         <div className="flex flex-col md:flex-row justify-center items-center w-full">
           {post.mainImage && (
@@ -224,11 +234,15 @@ const queryRecipes = groq`*[_type == "recipePost" && publishedAt < now() && slug
 `;
 
 RecipePost.getInitialProps = async function (context) {
+  const instagram = await fetch(
+    `https://www.instagram.com/veggiessimo.au/?__a=1`
+  ).then((res) => res.json());
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
   return {
     post: await client.fetch(queryPost, { slug }),
     recipes: await client.fetch(queryRecipes, { slug }),
+    instagram: instagram,
   };
 };
 

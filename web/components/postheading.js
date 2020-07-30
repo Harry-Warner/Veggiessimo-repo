@@ -24,7 +24,11 @@ const PostHeading = (props) => {
         <a href="https://www.facebook.com/veggiessimo/">
           <StyledFace className="hover:text-facebook" />
         </a>
-        <a href="https://www.instagram.com/veggiessimo.au/">
+        <a
+          href={`https://www.instagram.com/${
+            props.instagramPost ? `p/${props.instagramPost}` : "veggiessimo.au/"
+          }`}
+        >
           <StyledInst className="hover:text-instagram" />
         </a>
         <a href="https://www.pinterest.com.au/veggiessimorecipes/">
