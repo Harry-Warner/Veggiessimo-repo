@@ -6,10 +6,7 @@ import MetaTags from "../components/metatags";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const Contact = ({ posts }) => {
-  const data = posts.graphql.user.edge_owner_to_timeline_media.edges.slice(
-    0,
-    8
-  );
+  const data = posts && posts.data.user.edge_owner_to_timeline_media.edges;
 
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
@@ -213,43 +210,45 @@ const Contact = ({ posts }) => {
         more on our instagram
       </h2>
       <StyledInsta className="m-4 grid grid-cols-2 sm:grid-cols-4 grid-rows-2 gap-1">
-        {data.map((item) => (
-          <a
-            href={`https://instagram.com/p/${item.node.shortcode}`}
-            key={item.node.id}
-            className="relative"
-          >
-            <div className="absolute flex opacity-0 hover:opacity-100 items-center justify-center bg-blackT top-0 left-0 bottom-0 right-0">
-              <p className="text-white text-center px-2 tracking-wider font-bold">
-                {!item.node.edge_media_to_caption.edges[0]
-                  ? ""
-                  : item.node.edge_media_to_caption.edges[0].node.text.split(
-                      " "
-                    ).length >= 10
-                  ? item.node.edge_media_to_caption.edges[0].node.text
-                      .split(" ")
-                      .slice(0, 10)
-                      .join(" ")
-                      .concat("...")
-                  : item.node.edge_media_to_caption.edges[0].node.text}
-              </p>
-            </div>
-            <img
-              className="w-full mx-auto"
-              alt="instagram post"
-              src={item.node.thumbnail_src}
-            />
-          </a>
-        ))}
+        {data &&
+          data.map((item) => (
+            <a
+              href={`https://instagram.com/p/${item.node.shortcode}`}
+              key={item.node.id}
+              className="relative"
+            >
+              <div className="absolute flex opacity-0 hover:opacity-100 items-center justify-center bg-blackT top-0 left-0 bottom-0 right-0">
+                <p className="text-white text-center px-2 tracking-wider font-bold">
+                  {!item.node.edge_media_to_caption.edges[0]
+                    ? ""
+                    : item.node.edge_media_to_caption.edges[0].node.text.split(
+                        " "
+                      ).length >= 10
+                    ? item.node.edge_media_to_caption.edges[0].node.text
+                        .split(" ")
+                        .slice(0, 10)
+                        .join(" ")
+                        .concat("...")
+                    : item.node.edge_media_to_caption.edges[0].node.text}
+                </p>
+              </div>
+              <img
+                className="w-full mx-auto"
+                alt="instagram post"
+                src={item.node.thumbnail_src}
+              />
+            </a>
+          ))}
       </StyledInsta>
     </>
   );
 };
 
 Contact.getInitialProps = async () => {
-  const posts = await fetch(
-    `https://www.instagram.com/veggiessimo.au/?__a=1`
-  ).then((res) => res.json());
+  const res = await fetch(
+    `https://www.instagram.com/graphql/query/?query_hash=7437567ae0de0773fd96545592359a6b&variables={"id":"34696325585","first":8}`
+  );
+  const posts = await res.json();
 
   return { posts };
 };

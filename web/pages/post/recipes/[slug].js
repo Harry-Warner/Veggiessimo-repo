@@ -21,7 +21,7 @@ const RecipePost = (props) => {
 
   const instaCheck =
     instagram &&
-    instagram.graphql.user.edge_owner_to_timeline_media.edges.filter((item) =>
+    instagram.data.user.edge_owner_to_timeline_media.edges.filter((item) =>
       item.node.edge_media_to_caption.edges[0].node.text
         .toLowerCase()
         .includes(post.title.toLowerCase())
@@ -235,7 +235,7 @@ const queryRecipes = groq`*[_type == "recipePost" && publishedAt < now() && slug
 
 RecipePost.getInitialProps = async function (context) {
   const instagram = await fetch(
-    `https://www.instagram.com/veggiessimo.au/?__a=1`
+    `https://www.instagram.com/graphql/query/?query_hash=7437567ae0de0773fd96545592359a6b&variables={"id":"34696325585","first":8}`
   ).then((res) => res.json());
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
