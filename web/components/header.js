@@ -26,16 +26,11 @@ const Header = () => {
             <ToggleMenu open={open} setOpen={setOpen} />
           </div>
         </Headroom>
-        <StyledHeader className="top-0 z-40 left-0 px-1 w-full h-12 bg-green hidden lg:block fixed">
+        <StyledHeader className="top-0 z-40 left-0 px-1 lg:pl-12 w-full h-12 bg-green hidden lg:block fixed">
           <div>
             <Link href="/">
               <a>
                 <Logo />
-                {/* <img
-                  className="absolute top-0 left-0 h-20 px-2"
-                  src="/images/logoheader.png"
-                  alt="Veggiessimo logo - light pink mishapen tomato with a blue leaf atop. Across the middle of the logo is the text Meals + Love"
-                /> */}
               </a>
             </Link>
           </div>
