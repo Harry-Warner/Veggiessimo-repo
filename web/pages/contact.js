@@ -234,7 +234,7 @@ const Contact = ({ posts }) => {
               </div>
               <img
                 className="w-full mx-auto"
-                alt="instagram post"
+                alt="instagram post vegetarian recipes"
                 src={item.node.thumbnail_src}
               />
             </a>

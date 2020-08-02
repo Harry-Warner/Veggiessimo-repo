@@ -7,37 +7,37 @@ const ToggleMenu = ({ open, setOpen }) => {
   return (
     <StyledMenu open={open} className="bg-green py-12 md:py-16 z-10 md:px-16">
       <div>
-        <h1 className="text-sm md:text-xxl font-bold border-b py-2">
+        <h3 className="text-sm md:text-xxl font-bold border-b py-2">
           Navigation
-        </h1>
+        </h3>
         <Link href="/">
-          <a open={open} onClick={() => setOpen(!open)}>
+          <a href="/" open={open} onClick={() => setOpen(!open)}>
             Home
           </a>
         </Link>
         <Link href="/about">
-          <a open={open} onClick={() => setOpen(!open)}>
+          <a href="/about" open={open} onClick={() => setOpen(!open)}>
             About
           </a>
         </Link>
         <Link href="/recipes">
-          <a open={open} onClick={() => setOpen(!open)}>
+          <a href="/recipes" open={open} onClick={() => setOpen(!open)}>
             Recipes
           </a>
         </Link>
         <Link href="/community">
-          <a open={open} onClick={() => setOpen(!open)}>
+          <a href="/community" open={open} onClick={() => setOpen(!open)}>
             Community
           </a>
         </Link>
         <Link href="/contact">
-          <a open={open} onClick={() => setOpen(!open)}>
+          <a href="/contact" open={open} onClick={() => setOpen(!open)}>
             Contact
           </a>
         </Link>
       </div>
       <div>
-        <h1 className="text-sm md:text-xxl font-bold border-b py-2">Social</h1>
+        <h3 className="text-sm md:text-xxl font-bold border-b py-2">Social</h3>
         <a href="https://www.instagram.com/veggiessimo.au/">Instagram</a>
         <a href="https://www.facebook.com/veggiessimo/">Facebook</a>
         <a href="https://www.pinterest.com.au/veggiessimorecipes/">Pinterest</a>

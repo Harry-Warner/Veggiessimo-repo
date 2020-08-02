@@ -105,7 +105,7 @@ const Footer = () => {
             </span>
           </div>
           <Link href="/">
-            <a>
+            <a href="/">
               <Logo footer />
             </a>
           </Link>

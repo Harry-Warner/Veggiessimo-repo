@@ -14,9 +14,9 @@ const PostHeading = (props) => {
       <h1 className="text-big md:text-huge lg:text-vhuge text-center py-1 font-script">
         {props.title}
       </h1>
-      <h3 className="text-sm md:text-base md:text-xl text-center font-sans py-1">
+      <p className="text-sm md:text-base lg:text-xl text-center font-sans py-1">
         By {props.name}
-      </h3>
+      </p>
       <StyledSocial
         community={props.community}
         className="w-2/3 md:1/2 lg:w-1/3 mx-auto flex justify-center"

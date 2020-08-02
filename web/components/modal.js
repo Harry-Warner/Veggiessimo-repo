@@ -85,7 +85,7 @@ const Modal = () => {
 
   return (
     <StyledModal
-      display={display ? display : undefined}
+      display={display.toString()}
       className="fixed z-50 flex justify-center items-center top-0 right-0 bottom-0 left-0"
     >
       <div
@@ -105,7 +105,7 @@ const Modal = () => {
         >
           <HighlightOffIcon style={{ fontSize: 20, color: "#efe1e8" }} />
         </StyledClose>
-        <div className="relative z-0 w-full md:w-7/12 h-48 md:h-64 md:h-full bg-green">
+        <div className="relative z-0 w-full md:w-7/12 h-48 md:h-full bg-green">
           <img
             src="/images/logopopup.png"
             alt="logo"
@@ -114,7 +114,7 @@ const Modal = () => {
         </div>
         <div className="mt-10 md:mt-0 relative flex flex-col w-full md:w-5/12 h-56 md:h-64 self-end">
           <div className="join md:my-2 absolute  z-10 w-full md:w-auto text-center lg:text-left font-script text-huge md:text-vvhuge">
-            <h2>Join us!</h2>
+            <p>Join us!</p>
           </div>
           <form onSubmit={subscribe} className="flex flex-col h-32">
             <input
@@ -149,7 +149,7 @@ const Modal = () => {
 };
 
 const StyledModal = styled.div`
-  display: ${({ display }) => (display ? "flex" : "none")};
+  display: ${({ display }) => (display === "true" ? "flex" : "none")};
   .join {
     top: -33%;
     @media (min-width: 48rem) {

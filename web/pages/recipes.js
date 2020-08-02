@@ -32,16 +32,17 @@ const Recipes = (props) => {
       <RecipeList>
         {loadSearchPosts &&
           loadSearchPosts.map(
-            ({ _id, title = "", mainImage, slug = "" }) =>
+            ({ _id = "", title = "", mainImage, slug = "" }) =>
               slug && (
-                <List
-                  type="recipes"
-                  _id={_id}
-                  title={title}
-                  mainImage={mainImage}
-                  url={urlFor(mainImage).width(440).url()}
-                  slug={slug.current}
-                />
+                <React.Fragment key={_id}>
+                  <List
+                    type="recipes"
+                    title={title}
+                    mainImage={mainImage}
+                    url={urlFor(mainImage).width(440).url()}
+                    slug={slug.current}
+                  />
+                </React.Fragment>
               )
           )}
       </RecipeList>

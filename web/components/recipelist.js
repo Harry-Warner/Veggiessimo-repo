@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const RecipeList = (props) => {
   return (
-    <li key={props._id}>
+    <li>
       <Link
         href={`/post/${props.type}/[slug]`}
         as={`/post/${props.type}/${props.slug}`}

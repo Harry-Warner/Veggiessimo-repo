@@ -42,6 +42,7 @@ const Community = (props) => {
               slug && (
                 <li key={_id}>
                   <Link
+                    passHref
                     href={`/post/community/[slug]`}
                     as={`/post/community/${slug.current}`}
                   >

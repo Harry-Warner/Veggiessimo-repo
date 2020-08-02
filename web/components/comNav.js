@@ -52,13 +52,13 @@ const ComNav = ({ posts, setSearchPosts }) => {
 
   return (
     <StyledNav className="bg-lightPink w-full h-12 md:h-16 flex items-center text-lg md:text-xl">
-      <div
+      <h3
         className={`filter ${posts === filteredPosts}`}
         onClick={() => setFilteredPosts(posts)}
       >
         All
-      </div>
-      <div
+      </h3>
+      <h3
         className={`filter ${
           filteredPosts[0] && env[0]
             ? filteredPosts[0]._id === env[0]._id &&
@@ -68,8 +68,8 @@ const ComNav = ({ posts, setSearchPosts }) => {
         onClick={() => setFilteredPosts(env)}
       >
         Environment
-      </div>
-      <div
+      </h3>
+      <h3
         className={`filter ${
           filteredPosts[0] && health[0]
             ? filteredPosts[0]._id === health[0]._id &&
@@ -79,8 +79,8 @@ const ComNav = ({ posts, setSearchPosts }) => {
         onClick={() => setFilteredPosts(health)}
       >
         Health
-      </div>
-      <div
+      </h3>
+      <h3
         className={`filter ${
           filteredPosts[0] && local[0]
             ? filteredPosts[0]._id === local[0]._id &&
@@ -90,7 +90,7 @@ const ComNav = ({ posts, setSearchPosts }) => {
         onClick={() => setFilteredPosts(local)}
       >
         Local
-      </div>
+      </h3>
       <div className="search-wrapper">
         <div className="search h-8/12 rounded-xl">
           <AutosizeInput

@@ -135,7 +135,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
           onClick={() => setOpen(!open)}
           className="absolute w-full text-center flex justify-center lg:hidden bg-lightPink py-2 cursor-pointer"
         >
-          <h2 className="text-center text-lg">Choose Meal</h2>
+          <h3 className="text-center text-lg">Choose Meal</h3>
           <div className="relative mx-2">
             <ToggleInfo open={open} setOpen={setOpen} />
           </div>
@@ -150,7 +150,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               select ? "" : "lg:border-b-4"
             } border-solid border-blue bg-lightPinkT cursor-pointer col-span-1 font-sans self-center text-center`}
           >
-            <h2 className="self-center w-full">All</h2>
+            <h4 className="self-center w-full">All</h4>
           </div>
           <div
             onClick={() => setSelect("Breakfast")}
@@ -160,7 +160,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
                 : "bg-lightBlueT"
             } lg:border-solid lg:border-blue  lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
-            <h2 className="self-center">Breakfast</h2>
+            <h4 className="self-center">Breakfast</h4>
           </div>
           <div
             onClick={() => setSelect("Mains")}
@@ -168,7 +168,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               select === "Mains" ? "bg-blueT lg:border-b-4" : "bg-lightBlueT"
             } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
-            <h2 className="self-center">Mains</h2>
+            <h4 className="self-center">Mains</h4>
           </div>
           <div
             onClick={() => setSelect("Dessert")}
@@ -176,7 +176,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               select === "Dessert" ? "bg-blueT lg:border-b-4" : "bg-lightBlueT"
             } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
-            <h2 className="self-center">Desserts</h2>
+            <h4 className="self-center">Desserts</h4>
           </div>
           <div
             onClick={() => setSelect("Small Bites")}
@@ -186,7 +186,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
                 : "bg-lightBlueT"
             } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
-            <h2 className="self-center">Small Bites</h2>
+            <h4 className="self-center">Small Bites</h4>
           </div>
           <div
             onClick={() => setSelect("Soups & Salads")}
@@ -196,7 +196,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
                 : "bg-lightBlueT"
             } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
-            <h2 className="self-center">Soups/Salads</h2>
+            <h4 className="self-center">Soups/Salads</h4>
           </div>
           <div
             onClick={() => setSelect("Sauces")}
@@ -204,7 +204,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               select === "Sauces" ? "bg-blueT lg:border-b-4" : "bg-lightBlueT"
             } lg:border-solid lg:border-blue lg:bg-lightPinkT cursor-pointer font-sans self-center text-center`}
           >
-            <h2 className="self-center">Sauces</h2>{" "}
+            <h4 className="self-center">Sauces</h4>{" "}
           </div>
         </StyledMenu>
       </div>

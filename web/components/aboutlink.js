@@ -39,12 +39,12 @@ const AboutLink = () => {
               </StyledFigure>
             </div>
             <TextBox className="z-20 flex flex-col items-center justify-center absolute">
-              <h1 className="font-script w-full">Cook with us</h1>
-              <h2 className="font-sans w-full pb-4 uppercase">
+              <h2 className="font-script w-full">Cook with us</h2>
+              <h3 className="font-sans w-full pb-4 uppercase">
                 get
                 <br />
                 inspired
-              </h2>
+              </h3>
             </TextBox>
           </div>
         </a>
@@ -151,31 +151,31 @@ const TextBox = styled.div`
   top: 6.5%;
   text-align: center;
   left: 0.65rem;
-  h1 {
+  h2 {
     font-size: 1.3rem;
   }
 
-  h2 {
+  h3 {
     font-size: 0.5rem;
   }
 
   @media (min-width: 48rem) {
     left: 1.75rem;
-    h1 {
+    h2 {
       font-size: 2.75rem;
     }
 
-    h2 {
+    h3 {
       font-size: 1.125rem;
     }
   }
   @media (min-width: 64rem) {
     left: 2.125rem;
-    h1 {
+    h2 {
       font-size: 3rem;
     }
 
-    h2 {
+    h3 {
       font-size: 1.25rem;
     }
   }

@@ -6,16 +6,16 @@ const HomeRecipes = (props) => {
   return (
     <li className="my-4 sm:my-6 lg:my-8">
       <Link href="/recipes">
-        <a>
+        <a href="/recipes">
           <div className="relative overflow-hidden mx-auto w-full md:w-11/12 lg:w-9/12">
             <StyledLabel className="z-10 absolute bg-lightPink">
               <div className="absolute text-right space-y-1 md:space-y-2">
                 <h3 className="uppercase tracking-wider text-sm md:text-base">
                   {props.title}
                 </h3>
-                <h2 className="font-script text-big md:text-vbig">
+                <h4 className="font-script text-big md:text-vbig">
                   {props.recipe}
-                </h2>
+                </h4>
               </div>
             </StyledLabel>
             <img

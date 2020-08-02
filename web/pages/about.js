@@ -49,7 +49,7 @@ const About = (props) => {
         <img
           className="z-0 relative w-full mx-auto pt-5 md:pb-6 lg:pb-8 md:pt-16 lg:pt-16"
           src={urlFor(content.mainImage).width(1024).url()}
-          alt="Milly Chopping a cauliflower and maria grinding spices in a pestle and mortar, surrounded by an assortment of spices and bowls of fruit and veg." //{content.mainImage.altText}
+          alt="Milly Chopping a cauliflower and maria grinding spices in a pestle and mortar, surrounded by an assortment of spices and bowls of fruit and veg. Vegetarian cooking."
         />
       </div>
       <div className="flex flex-col relative leading-tight w-full mx-auto mb-2 md:mb-4 lg:mb-6 text-sm md:text-base lg:text-lg">
@@ -66,7 +66,7 @@ const About = (props) => {
             <img
               className="w-19/20 h-19/20 object-cover object-center"
               src={urlFor(content.secondImage).maxWidth(450).url()}
-              alt="close up of ginger, lemon, half a lime and half an avacado"
+              alt="close up of ginger, lemon, half a lime and half an avacado. Fresh vegetarian cooking"
             />
           </div>
         </div>

@@ -30,13 +30,13 @@ const serializers = {
     block(props) {
       return (
         <>
-          <div
+          <p
             className={`${Styler(props.node.style)} ${
               props.node.style === "blockquote" ? "hidden" : "block"
             }`}
           >
             {props.children}
-          </div>
+          </p>
           <blockquote
             className={`${
               props.node.style === "blockquote" ? "block" : "hidden"
@@ -78,7 +78,7 @@ const serializers = {
       const postType = post.join().replace(/,/g, "");
       const href = `/post/${postType}/${slug.current}`;
       return (
-        <Link href={`/post/${postType}/[slug]`} as={href}>
+        <Link passHref href={`/post/${postType}/[slug]`} as={href}>
           <a>{children}</a>
         </Link>
       );
@@ -88,7 +88,7 @@ const serializers = {
       console.log(singlePage);
       return (
         <Link href={`/${singlePage}`}>
-          <a>{children}</a>
+          <a href={`/${singlePage}`}>{children}</a>
         </Link>
       );
     },

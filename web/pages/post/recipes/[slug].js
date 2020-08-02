@@ -88,19 +88,19 @@ const RecipePost = (props) => {
           )}
           <StyledBox className="grid grid-cols-2 md:grid-cols-1 gap-tiny my-2 w-full md:w-4/12 h-32 md:h-full bg-lightPink md:bg-opacity-0">
             <div>
-              <h2>Cook time:</h2>
+              <h4>Cook time:</h4>
               <p>{cooking_time(post.cookingTime)}</p>
             </div>
             <div>
-              <h2>Servings:</h2>
+              <h4>Servings:</h4>
               <p>{post.servings}</p>
             </div>
             <div>
-              <h2>Category:</h2>
+              <h4>Category:</h4>
               <p>{post.mealType}</p>
             </div>
             <div>
-              <h2>Extra Info:</h2>
+              <h4>Extra Info:</h4>
               <p>{category_list(post.categories)}</p>
             </div>
           </StyledBox>
@@ -138,29 +138,30 @@ const RecipePost = (props) => {
             </div>
           </div>
           <div className="col-span-12 md:row-start-4 lg:col-start-9 lg:col-end-12 lg:row-start-3 flex lg:flex-col w-11/12 md:w-7/12 lg:w-full mx-auto my-4 md:my-8 h-32 md:h-40 lg:h-84 self-center items-center justify-center md:justify-between lg:justify-around bg-white border-blue border-solid border-2 rounded-lg">
-            <h1 className="hidden lg:block text-center text-big font-script">
+            <h3 className="hidden lg:block text-center text-big font-script">
               Have you done it?
-            </h1>
+            </h3>
             <StyledCam />
             <StyledTrend className="flex flex-col justify-around md:pr-10 lg:pr-0">
-              <h1 className="lg:hidden text-center font-script">
+              <h2 className="lg:hidden text-center font-script">
                 Have you done it?
-              </h1>
-              <h3 className="text-center font-sans uppercase">let us know</h3>
-              <h2 className="text-center font-sans font-bold uppercase">
-                #makeitveggiessimo
               </h2>
+              <h3 className="text-center font-sans uppercase">let us know</h3>
+              <h4 className="text-center font-sans font-bold uppercase">
+                #makeitveggiessimo
+              </h4>
             </StyledTrend>
           </div>
           <StyledList className="col-span-12 md:col-start-8 md:col-end-12 md:row-start-1 relative grid grid-cols-2 md:grid-cols-1 w-full md:w-full mx-auto py-12 px-4 gap-6 bg-lightBlueT">
-            <h1 className="absolute w-full text-center text-xl pt-2 top-0 left-0 font-sans font-bold uppercase">
+            <h2 className="absolute w-full text-center text-xl pt-2 top-0 left-0 font-sans font-bold uppercase">
               - More Great Recipes -
-            </h1>
+            </h2>
             {recipes.map(
               ({ _id, title = "", mainImage, slug = "" }) =>
                 slug && (
                   <li key={_id}>
                     <Link
+                      passHref
                       href="/post/recipes/[slug]"
                       as={`/post/recipes/${slug.current}`}
                     >
@@ -170,12 +171,12 @@ const RecipePost = (props) => {
                             <img
                               className="w-full md:w-1/2 h-28 md:h-32 object-cover object-center"
                               src={urlFor(mainImage).width(300).url()}
-                              alt="Food"
+                              alt={`Vegetarian recipe. ${title}`}
                             />
                           )}
-                          <h2 className="p-1 flex items-center text-center md:text-left justify-center md:justify-start font-sans bg-white md:bg-lightPinkT h-20 md:h-32 md:w-1/2 md:pl-3 text-base font-bold md:text-lg lg:text-xl">
+                          <p className="p-1 flex items-center text-center md:text-left justify-center md:justify-start font-sans bg-white md:bg-lightPinkT h-20 md:h-32 md:w-1/2 md:pl-3 text-base font-bold md:text-lg lg:text-xl">
                             {title}
-                          </h2>
+                          </p>
                         </div>
                       </a>
                     </Link>
@@ -254,7 +255,7 @@ const StyledBox = styled.div`
     background: ${Colors.lightBlueT};
     text-align: center;
 
-    h2 {
+    h4 {
       font-size: 1rem;
       font-family: "fira-sans";
       text-transform: uppercase;
@@ -273,7 +274,7 @@ const StyledBox = styled.div`
       flex-direction: row;
       justify-content: start;
 
-      h2 {
+      h4 {
         font-size: 1.4rem;
       }
 
@@ -292,7 +293,7 @@ const StyledBox = styled.div`
       }
     }
     @media (min-width: 64rem) {
-      h2 {
+      h4 {
         font-size: 1.75rem;
       }
       p {
@@ -318,10 +319,10 @@ const StyledCam = styled(Camera)`
 `;
 
 const StyledTrend = styled.div`
-  h1 {
+  h2 {
     font-size: 7.5vw;
   }
-  h2 {
+  h4 {
     font-size: 5vw;
   }
   h3 {
@@ -329,10 +330,10 @@ const StyledTrend = styled.div`
   }
 
   @media (min-width: 30rem) {
-    h1 {
+    h2 {
       font-size: 1.875rem;
     }
-    h2 {
+    h4 {
       font-size: 1.125rem;
     }
     h3 {

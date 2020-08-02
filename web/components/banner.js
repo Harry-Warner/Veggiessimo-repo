@@ -16,7 +16,7 @@ const Banner = () => {
           />
           <img
             src={require("../images/banner640.png")}
-            alt="The veggiessimo banner for the website. a green paint brush swipe across the top and bottom with the company name scripted in the middle between two pencil drawings of vegetables"
+            alt="A range of vegetarian, vegan, gluten free recipes created by Milly and Maria from combining french, argentinian and world cuisine. Together, with ideas on how to live a sustainable lifestyle this website aims at helping you eat healthy while saving the planet."
           />
         </picture>
         <Title className="hidden lg:block w-full absolute text-center font-script">

@@ -17,7 +17,7 @@ const Header = () => {
           <div className="z-10 relative top-0 left-0 px-1 w-full h-12 md:h-16 bg-green">
             <div className="z-20">
               <Link href="/">
-                <a>
+                <a href="/">
                   <Logo />
                 </a>
               </Link>
@@ -29,7 +29,7 @@ const Header = () => {
         <StyledHeader className="top-0 z-40 left-0 px-1 lg:pl-12 w-full h-12 bg-green hidden lg:block fixed">
           <div>
             <Link href="/">
-              <a>
+              <a href="/">
                 <Logo />
               </a>
             </Link>
@@ -37,40 +37,43 @@ const Header = () => {
           <div className="relative z-0 mx-auto h-full w-full flex justify-around sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-lg">
             <StyledLink>
               <Link href="/">
-                <a className="flex w-full">
-                  <img className="garlic" src={garlic} alt="garlic" />
+                <a href="/" className="flex w-full">
+                  <img className="garlic" src={garlic} alt="vegetable" />
                   home
                 </a>
               </Link>
             </StyledLink>
             <StyledLink>
               <Link href="/about">
-                <a className="flex w-full">
-                  <img className="garlic" src={garlic} alt="garlic" />
+                <a href="/about" className="flex w-full">
+                  <img className="garlic" src={garlic} alt="vegetable" />
                   about
                 </a>
               </Link>
             </StyledLink>
             <StyledLink>
               <Link href="/recipes">
-                <a className="relative z-10 bg-green flex w-full">
-                  <img className="garlic" src={garlic} alt="garlic" />
+                <a
+                  href="/recipes"
+                  className="relative z-10 bg-green flex w-full"
+                >
+                  <img className="garlic" src={garlic} alt="vegetable" />
                   recipes
                 </a>
               </Link>
             </StyledLink>
             <StyledLink>
               <Link href="/community">
-                <a className="flex w-full">
-                  <img className="garlic" src={garlic} alt="garlic" />
+                <a href="/community" className="flex w-full">
+                  <img className="garlic" src={garlic} alt="vegetable" />
                   community
                 </a>
               </Link>
             </StyledLink>
             <StyledLink>
               <Link href="/contact">
-                <a className="flex w-full">
-                  <img className="garlic" src={garlic} alt="garlic" />
+                <a href="/contact" className="flex w-full">
+                  <img className="garlic" src={garlic} alt="vegetable" />
                   contact
                 </a>
               </Link>
