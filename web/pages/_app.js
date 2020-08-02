@@ -79,19 +79,19 @@ class MyApp extends App {
             href="/fonts/fira-sans.woff"
             rel="preload"
             as="font"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
           <link
             href="/fonts/fira-sans-thin.woff"
             rel="preload"
             as="font"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
           <link
             href="/fonts/playlist-script.woff"
             rel="preload"
             as="font"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
           <link
             rel="apple-touch-icon"

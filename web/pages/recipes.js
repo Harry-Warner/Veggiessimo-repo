@@ -21,7 +21,7 @@ const Recipes = (props) => {
   return (
     <>
       <MetaTags
-        description="Delicious recipes"
+        description="Try out our Simple and sustainable vegetarian recipes for a happy and healthy day from start to finish"
         type="object"
         title="Recipes | Veggiessimo"
         url="recipes"

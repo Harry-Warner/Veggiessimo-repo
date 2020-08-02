@@ -13,9 +13,9 @@ const Logo = (props) => {
         className={`h-16 ${props.footer ? "md:h-24" : "md:h-20"}`}
       />
       <div className="absolute left-0 right-0 bottom-0 top-0 flex items-center justify-center">
-        <h2 className="pt-4 md:pt-6 font-sans-thin font-normal uppercase text-xxxs md:text-xxs">
+        <p className="pt-4 md:pt-6 font-sans-thin font-normal uppercase text-xxxs md:text-xxs">
           meals + love
-        </h2>
+        </p>
       </div>
     </div>
   );

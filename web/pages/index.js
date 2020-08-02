@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <>
       <MetaTags
-        description="Welcome to the Veggiessimo website. We want to show you a more SUSTAINABLE and TASTY way of living that not only makes you and your gut feel better, but is also kind to the planet."
+        description="Welcome to the Veggiessimo website. Delicious vegan, vegetarian and gluten free recipes, along with the best tips on living a sustainable lifestyle!"
         type="website"
         title="Veggiessimo - Meals + Love"
         url=""
