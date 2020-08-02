@@ -25,7 +25,7 @@ const Recipes = (props) => {
         type="object"
         title="Recipes | Veggiessimo"
         url="recipes"
-        imageSrc="https://veggiessimo.com.au/images/mains.png"
+        imageSrc="https://veggiessimo.com.au/images/smallBites.jpg"
       />
       <TitleComponent title="Recipes" />
       <SearchFilter posts={posts} setSearchPosts={setSearchPosts} />

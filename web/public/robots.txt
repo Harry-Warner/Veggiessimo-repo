@@ -1,0 +1,6 @@
+Sitemap: https://veggiessimo.com.au/api/sitemap.xml
+
+User-agent: *
+Allow: /*
+
+Disallow: /api/*

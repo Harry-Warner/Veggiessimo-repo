@@ -32,9 +32,11 @@
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.0.0",
     "react-input-autosize": "^2.2.2",
+    "sitemap": "^6.2.0",
     "styled-components": "^5.1.0",
     "styled-icons": "^10.2.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.34.0",

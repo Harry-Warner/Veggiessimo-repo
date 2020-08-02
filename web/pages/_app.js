@@ -63,9 +63,14 @@ class MyApp extends App {
     const {
       Component,
       pageProps,
+      router,
       initialClosedValue = false,
       initialEmailValue,
     } = this.props;
+
+    if (router.pathname.startsWith("/sitemap")) {
+      return <Component {...pageProps} />;
+    }
 
     return (
       <>
