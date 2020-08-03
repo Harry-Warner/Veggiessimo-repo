@@ -57,6 +57,9 @@ const StyledMenu = styled.nav`
   justify-content: space-around;
   align-items: start;
   height: 100vh;
+  @media (max-height: 24rem) {
+    height: fit-content;
+  }
   width: 100%;
   text-align: center;
   position: absolute;

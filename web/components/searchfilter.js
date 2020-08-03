@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import CheckIcon from "@material-ui/icons/Check";
 import SearchIcon from "@material-ui/icons/Search";
@@ -16,6 +16,8 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
   const [value, setValue] = useState("");
   const [select, setSelect] = useState(null);
   const [open, setOpen] = useState(false);
+  const [clickedSearch, setClickedSearch] = useState(false);
+  const myRef = useRef(null);
 
   // categories
   const vegan = posts.filter((e) => e.categories.includes("Vegan"));
@@ -119,6 +121,17 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     );
   }, [value, foodType]);
 
+  useEffect(() => {
+    if (clickedSearch) {
+      window.scrollTo({
+        top: myRef.current.offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+    setClickedSearch(false);
+  }, [clickedSearch]);
+  console.log(clickedSearch);
   return (
     <>
       <MealTitle
@@ -236,12 +249,13 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
               value={value}
               onChange={(e) => setValue(e.target.value)}
             />
-            <div className="">
+            <div onClick={() => setClickedSearch(true)}>
               <SearchIcon />
             </div>
           </div>
         </div>
       </StyledNav>
+      <div ref={myRef} />
     </>
   );
 };
