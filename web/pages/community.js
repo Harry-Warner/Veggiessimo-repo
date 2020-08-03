@@ -27,7 +27,7 @@ const Community = (props) => {
         type="object"
         title="Community | Veggiessimo"
         url="community"
-        imageSrc="https://veggiessimo.com.au/images/onion768.png"
+        imageSrc="https://veggiessimo.com.au/images/onion1024.jpg"
       />
       <TitleComponent title="Community" />
       <MealTitle

@@ -75,7 +75,7 @@ const Contact = ({ posts }) => {
         type="object"
         title="Contact | Veggiessimo"
         url="contact"
-        imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-sm.png"
+        imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-lg.jpg"
       />
       <TitleComponent title="Contact" />
       <StyledResponse

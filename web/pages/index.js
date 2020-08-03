@@ -17,7 +17,7 @@ const Index = () => {
         type="website"
         title="Veggiessimo - Meals + Love"
         url=""
-        imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-sm.png"
+        imageSrc="https://veggiessimo.com.au/images/cook-with-us-1-lg.png"
       />
       <Banner />
       <AboutLink />
