@@ -118,6 +118,10 @@ class MyApp extends App {
           />
           <meta name="msapplication-TileColor" content="#5984c4" />
           <meta name="theme-color" content="#d9e892" />
+          <meta
+            name="p:domain_verify"
+            content="514e220a12b5ddc9c624a2d31c3b92f6"
+          />
         </Head>
         <GlobalStyle />
         <MyComponent

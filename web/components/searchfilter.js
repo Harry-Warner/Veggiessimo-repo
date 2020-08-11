@@ -121,6 +121,7 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     );
   }, [value, foodType]);
 
+  // scroll to recipes to improve mobile ui
   useEffect(() => {
     if (clickedSearch) {
       window.scrollTo({
@@ -131,7 +132,6 @@ const SearchFilter = ({ posts, setSearchPosts }) => {
     }
     setClickedSearch(false);
   }, [clickedSearch]);
-  console.log(clickedSearch);
   return (
     <>
       <MealTitle

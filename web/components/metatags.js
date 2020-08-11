@@ -11,7 +11,12 @@ const MetaTags = (props) => {
       <meta property="og:description" content={props.description} />
       {props.imageSrc ? (
         <meta property="og:image" content={props.imageSrc} />
-      ) : null}
+      ) : (
+        <meta
+          name="twitter:image"
+          content="https://veggiessimo.com.au/images/logo.png"
+        />
+      )}
       <meta
         property="og:image"
         content="https://veggiessimo.com.au/images/logo.png"
