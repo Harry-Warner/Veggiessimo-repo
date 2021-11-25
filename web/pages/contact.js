@@ -245,12 +245,12 @@ const Contact = ({ posts }) => {
 };
 
 Contact.getInitialProps = async () => {
-  const res = await fetch(
-    `https://www.instagram.com/graphql/query/?query_hash=7437567ae0de0773fd96545592359a6b&variables={"id":"34696325585","first":8}`
-  );
-  const posts = await res.json();
+  // const res = await fetch(
+  //   `https://www.instagram.com/graphql/query/?query_hash=7437567ae0de0773fd96545592359a6b&variables={"id":"34696325585","first":8}`
+  // );
+  // const posts = await res.json();
 
-  return { posts };
+  return { posts: undefined };
 };
 
 const StyledResponse = styled.div`

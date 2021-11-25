@@ -19,14 +19,15 @@ function urlFor(source) {
 const RecipePost = (props) => {
   const { post = [], recipes = [], instagram } = props;
 
-  const instaCheck =
-    instagram &&
-    instagram.data.user.edge_owner_to_timeline_media.edges.filter((item) =>
-      item.node.edge_media_to_caption.edges[0].node.text
-        .toLowerCase()
-        .includes(post.title.toLowerCase())
-    )[0];
-  const instagramPost = instaCheck ? instaCheck.node.shortcode : false;
+  // const instaCheck =
+  //   instagram &&
+  //   instagram.data.user.edge_owner_to_timeline_media.edges.filter((item) =>
+  //     item.node.edge_media_to_caption.edges[0].node.text
+  //       .toLowerCase()
+  //       .includes(post.title.toLowerCase())
+  //   )[0];
+  // const instagramPost = instaCheck ? instaCheck.node.shortcode : false;
+  const instagramPost = false;
 
   function cooking_time(num) {
     let hours = Math.floor(num / 60);
@@ -235,15 +236,15 @@ const queryRecipes = groq`*[_type == "recipePost" && publishedAt < now() && slug
 `;
 
 RecipePost.getInitialProps = async function (context) {
-  const instagram = await fetch(
-    `https://www.instagram.com/graphql/query/?query_hash=7437567ae0de0773fd96545592359a6b&variables={"id":"34696325585","first":8}`
-  ).then((res) => res.json());
+  // const instagram = await fetch(
+  //   `https://www.instagram.com/graphql/query/?query_hash=7437567ae0de0773fd96545592359a6b&variables={"id":"34696325585","first":8}`
+  // ).then((res) => res.json());
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.query;
   return {
     post: await client.fetch(queryPost, { slug }),
     recipes: await client.fetch(queryRecipes, { slug }),
-    instagram: instagram,
+    // instagram: instagram,
   };
 };
 
